@@ -86,7 +86,8 @@ $_SESSION['programcoordinator'] = $row_appata['Program_coordinator'];
 <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <!--Main Css-->
-    <link rel="stylesheet" href="css/styles.css">
+    
+    <link rel="stylesheet" href="css/style.css">
     <style type="text/css">
 <!--
 .style1 {
@@ -147,7 +148,6 @@ $_SESSION['programcoordinator'] = $row_appata['Program_coordinator'];
 
         </div>
     </div>
-
     <!--JS Libraries-->
     <script src="../js/bootstrap.bundle.min.js"></script>
     <!--Main Js-->
