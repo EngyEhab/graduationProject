@@ -6,6 +6,7 @@ if (!isset($_SESSION)) {
 require_once('Connections/syscon.php'); 
 
 ?>
+
 <?php
 $loginFormAction = $_SERVER['PHP_SELF'];
 if (isset($_GET['accesscheck'])) {
