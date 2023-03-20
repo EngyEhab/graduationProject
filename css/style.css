@@ -1,7 +1,18 @@
+/* colores used in design */
+:root
+{
+    --main-title:#f00;
+    --main-text:#023A71;
+    --subtext:#AAB2BA;
+}
+
+/* font used in design */
 @font-face {
     font-family: "typesetting";
     src: url(../webfonts/Arabic\ Typesetting\ Regular.ttf);
 }
+
+/* start general style */
 *
 {
     font-family: "typesetting";
@@ -10,3 +21,95 @@
     box-sizing: border-box;
     direction: rtl;
 }
+.mainTitle
+{
+    color:var(--main-title,#f00)
+}
+.mainText
+{
+    color:var(--main-text,#023A71)
+}
+.subtext
+{
+    color:var(--subtext,#AAB2BA)
+}
+
+::placeholder 
+{ 
+    color: var(--subtext , #AAB2BA);
+    opacity: 0.5 !important;
+    font-size:1.3rem;
+    padding-right: 20px;
+}
+/* end general style */
+
+
+/* start login page header */
+
+.programLogo img , .FacultyLogo img
+{
+    width:75%;
+}
+@media (max-width:720px) {
+        .programLogo img , .FacultyLogo img
+        {
+            width:100%;
+        }
+}
+/* end login page header */
+
+/* start login form */
+.login h3
+{
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.loginInputField
+{
+
+    border-radius: 30px;  
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.btn-1
+{
+    background-color: var(--main-text,#023A71);
+    margin-top: 30px;
+    border: 1px solid transparent;
+    border-radius: 35px;  
+    padding: 10px;  
+    font-size: 1.5rem;
+}
+/* end login form */
+
+/* start footer */
+.footer
+{
+    background-color: var(--main-text , #023A71);
+}
+.footer span
+{
+    color: var(--subtext , #AAB2BA);
+    font-size: 1.2rem;
+}
+.footer a
+{
+    text-decoration: none;
+    color: var(--main-title , #f00);
+    font-size: 1.4rem;
+}
+.bisLogo
+{
+    width:35px;
+    height:35px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.bisLogo img
+{
+    width:100%;
+    border-radius: 50%;
+}
+/* end footer */
