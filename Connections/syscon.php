@@ -3,7 +3,7 @@
 # Type="MYSQL"
 # HTTP="true"
 $hostname_bis = "localhost";
-$database_bis = "staff_system";
+$database_bis = "staff_affairs";
 $username_bis = "root";
 $password_bis = "";
 $bis = mysqli_connect($hostname_bis, $username_bis, $password_bis, "$database_bis") or trigger_error(mysqli_error(),E_USER_ERROR); 

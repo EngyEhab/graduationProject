@@ -50,12 +50,7 @@
 {
     width:75%;
 }
-@media (max-width:720px) {
-        .programLogo img , .FacultyLogo img
-        {
-            width:100%;
-        }
-}
+
 /* end login page header */
 
 /* start login form */
