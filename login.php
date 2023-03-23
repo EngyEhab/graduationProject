@@ -19,7 +19,7 @@ if($con->connect_error) {
              $stmt = $con->prepare("select * from users where is_enable =?");
              $stmt->execute([$is_enable]);
                  if($data['is_enable'] == 'yes' ){
-                     header("location: home.php");
+                     header("location:system/home.php");
         }else {
             header("location: login.php");
         }
