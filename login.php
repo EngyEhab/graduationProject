@@ -1,3 +1,35 @@
+<!-- START login  -->
+
+<?php
+require 'Connections/syscon.php';
+if (isset($_POST['username']) && isset($_POST['password'])) {
+$username = $_POST['username'];
+$password = $_POST['password'];
+$is_enable =$_post['is_enable'];
+$con = new mysqli("localhost","root","","staff_affairs");
+if($con->connect_error) {
+    die("failed to connect : ".$con->connect_error);
+}else{
+    $stmt = $con->prepare("select * from users where username =? ");
+    $stmt->execute([$username]);
+    $stmt_result = $stmt->get_result();
+    if($stmt_result->num_rows > 0) {
+        $data = $stmt_result->fetch_assoc();
+        if($data['password'] === $password ){
+             $stmt = $con->prepare("select * from users where is_enable =?");
+             $stmt->execute([$is_enable]);
+                 if($data['is_enable'] == 'yes' ){
+                     header("location: home.php");
+        }else {
+            header("location: login.php");
+        }
+    }else {
+        header("location: login.php");
+    }}}}
+?>
+<!-- END login  -->
+
+
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -42,9 +74,9 @@
             <div class="col-lg-5  mx-auto text-center">
                 <div class="login">
                     <h3 class="mainText">تسجيل الدخول</h3>
-                    <form method="" action="" class="loginForm">
-                        <input type="text" class="form-control loginInputField" name=""  required placeholder="اسم المستخدم">
-                        <input type="password" class="form-control loginInputField" name=""  required placeholder="كلمة المرور">
+                    <form method="post" action="" class="loginForm">
+                        <input type="text" class="form-control loginInputField" name="username"  required placeholder="اسم المستخدم">
+                        <input type="password" class="form-control loginInputField" name="password"  required placeholder="كلمة المرور">
                         <button type="submit" id="loginBtn" class="btn-1 subtext w-100">تسجيل دخول</button>
                     </form>
                 </div>

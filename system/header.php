@@ -19,7 +19,7 @@
                         <img src="../images/users/1.jpg" class="w-75 rounded-circle" alt="user-image">
                     </div>
                     <p class="mainTitle fs-4 mb-0 mt-1 lh-1">محمد عبد السلام</p>
-                    <a href="#" class="mainText fs-4 text-decoration-none lh-1">خروج</a>
+                    <a href="logout.php" class="mainText fs-4 text-decoration-none lh-1">خروج</a>
                 </div>
             </div>
             <!-- end user image , name and link to logout -->
