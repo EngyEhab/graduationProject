@@ -44,7 +44,7 @@ $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
                             <img src="../images/users/<?php echo $_SESSION['image'] ?>" class="w-75 rounded-circle" alt="user-image">
                         </div>
                         <p class="mainTitle fs-4 mb-0 mt-1 lh-1">
-                        <?php echo "<p>" . $_SESSION[ 'user_ar_name' ]?>
+                        <?php echo $_SESSION[ 'user_ar_name' ]?>
                         </p>
                         <a href="logout.php" class="mainText fs-4 text-decoration-none lh-1">خروج</a>
                     </div>
@@ -53,12 +53,12 @@ $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
 
                 <!-- start application data -->
                 <div class="col-xxl-7 col-md-6 col-sm text-center">
-                    <h1 class="mainTitle pb-2"> <?php echo"<p>" .  $_SESSION ['app_name']; ?> </h1>
+                    <h1 class="mainTitle pb-2"> <?php echo $_SESSION ['app_name']; ?> </h1>
                     <div class="row gx-0">
                         <h4 class="mainText col-xxl col-sm"> 
                         <?php echo $_SESSION ['Uni_name'];?> </h4>
-                        <h4 class="mainText col-xxl col-sm"><?php echo"<p>" .  $_SESSION ['Faculty_name']?></h4>
-                        <h4 class="mainText col-xxl col-sm"><?php echo"<p>" .  $_SESSION ['Program_name']?></h4>
+                        <h4 class="mainText col-xxl col-sm"><?php echo $_SESSION ['Faculty_name']?></h4>
+                        <h4 class="mainText col-xxl col-sm"><?php echo $_SESSION ['Program_name']?></h4>
                     </div>
                 </div>
                 <!-- end application data -->
