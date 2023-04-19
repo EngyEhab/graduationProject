@@ -1,3 +1,4 @@
+// start navbar
 var navLinks = document.querySelectorAll('.nav-item');
 navLinks.forEach(navLink => {
     navLink.addEventListener('click' , function(){
@@ -7,3 +8,4 @@ navLinks.forEach(navLink => {
         navLink.classList.add('clickedLinkStyle');
     })
 });
+//end navbar

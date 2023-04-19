@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <header class="position-fixed top-0 start-0 end-0">
+    <header>
     <div class="container bg-white">
         <div class="row gx-0 align-items-center justify-content-center">
             <!-- start user image , name and link to logout -->
@@ -47,15 +47,17 @@
             <!-- end logo bis and helwan -->
         </div>
     </div>
+
+    <!-- start navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
             <li class="nav-item linkStyle">
-                <a class="nav-link fs-5" href="#">الصفحة الرئيسية</a>
+                <a class="nav-link fs-5" href="home.php">الصفحة الرئيسية</a>
             </li>
             <li class="nav-item linkStyle">
-                <a class="nav-link fs-5" id="navLink" href="#">أعضاء هيئة التدريس</a>
+                <a class="nav-link fs-5" href="members.php">أعضاء هيئة التدريس</a>
             </li>
             <li class="nav-item linkStyle">
                 <a class="nav-link fs-5" href="#">العقوبات و الجزاءات</a>
@@ -70,6 +72,7 @@
         </div>
         </div>
     </nav>
+    <!-- end navbar -->
     </header>
 
     <script src="../js/all.min.js"></script>
