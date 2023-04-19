@@ -1,31 +1,41 @@
 <!-- START login  -->
-
 <?php
-require 'Connections/syscon.php';
-if (isset($_POST['username']) && isset($_POST['password'])) {
-$username = $_POST['username'];
-$password = $_POST['password'];
-$is_enable =$_post['is_enable'];
+session_start();
+include ("Connections/syscon.php");
+mysqli_select_db($bis,$database_bis);
+$query_appata = "SELECT * FROM users";
+$appata = mysqli_query ($bis, $query_appata) or die (mysqli_error ($bis));
+$row_appata = mysqli_fetch_assoc ($appata);
+$_SESSION['username'] = $row_appata["username"];
+$_SESSION[ 'user_ar_name' ] = $row_appata ['user_ar_name'];
+$_SESSION ['image'] = $row_appata ['image'];
+
 $con = new mysqli("localhost","root","","staff_affairs");
 if($con->connect_error) {
-    die("failed to connect : ".$con->connect_error);
-}else{
-    $stmt = $con->prepare("select * from users where username =? ");
-    $stmt->execute([$username]);
-    $stmt_result = $stmt->get_result();
-    if($stmt_result->num_rows > 0) {
-        $data = $stmt_result->fetch_assoc();
-        if($data['password'] === $password ){
-             $stmt = $con->prepare("select * from users where is_enable =?");
-             $stmt->execute([$is_enable]);
-                 if($data['is_enable'] == 'yes' ){
-                     header("location:system/home.php");
-        }else {
-            header("location: login.php");
-        }
-    }else {
+    die("failed to connect : ".$con->connect_error); 
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'];
+    $user_ar_name =$_post['user_ar_name'];
+    $password = $_POST['password'];
+    $image = $_post['image'];
+    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password' AND is_enable='yes'";
+    $result = $con->query($query);
+    if ($result->num_rows === 1) {
+        $row = $result->fetch_assoc();
+        $username = $row['username'];
+        $user_ar_name =$row['user_ar_name'];
+        $image = $row['image'];
+        $_SESSION['username'] = $username;
+        $_SESSION['user_ar_name'] = $user_ar_name;
+        $_SESSION['image'] = $image;
+        header("location:system/home.php");
+        exit();
+    } else {
         header("location: login.php");
-    }}}}
+    }
+}
 ?>
 <!-- END login  -->
 
