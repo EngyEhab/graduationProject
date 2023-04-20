@@ -9,3 +9,10 @@ navLinks.forEach(navLink => {
     })
 });
 //end navbar
+
+// start add image button in add member page
+var imageBtn = document.getElementById('imageBtn');
+imageBtn.addEventListener('click',function(){
+    document.getElementById('imageSelectionField').click();
+})
+// end add image button in add member page

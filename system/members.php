@@ -20,7 +20,9 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-md-2">
                 <div class="addMember">
-                    <button class="addMemberBtn rounded-pill w-100 border-0" id="addMemberBtn">إضافة عضو جديد</button>
+                    <button class="addMemberBtn rounded-pill w-100 border-0" id="addMemberBtn"> 
+                        <a href="addMember.php" class="text-decoration-none text-white">إضافة عضو جديد</a>
+                    </button>
                 </div>
             </div>
             <div class="col-md-6">

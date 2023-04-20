@@ -168,3 +168,38 @@
     box-shadow: 0px 3px 6px #AAB2BA;
 }
 /* end addMemberButton and Search */
+
+/* start add member page */
+.dataContainer
+{
+    box-shadow: 0px 3px 6px #AAB2BA;
+    border-radius: 6px;
+    background-color: #fff;
+}
+.dataContainer input , .dataContainer select
+{
+    font-size: 1.3rem;
+}
+.profilePicture
+{
+    width:150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow:0px 3px 6px #AAB2BA;
+    position: relative;
+}
+.imageSelection
+{
+    width:25px;
+    height:25px;
+    border-radius: 50%;
+    box-shadow:0px 3px 6px #AAB2BA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    bottom:0;
+    right:0;  
+}
+/* end add member page */
