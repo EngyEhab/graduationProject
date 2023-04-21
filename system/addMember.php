@@ -14,7 +14,7 @@
     <?php
         include('header.php');
     ?>
-
+    <form action="" method="">
     <div class="w-75 mx-auto m-5">
         <h3 class="mainTitle text-end p-2">إدخال بيانات عضو جديد</h3>
         <div class="container dataContainer p-3">
@@ -98,11 +98,12 @@
             </div>
             <div class="row my-2 justify-content-end">
                 <div class="col-md-2">
-                    <button class="addMemberBtn rounded-pill border-0 w-100 my-3" id="addBtn">إضافة</button>
+                    <button type="submit" class="addMemberBtn rounded-pill border-0 w-100 my-3" id="addBtn">إضافة</button>
                 </div>
             </div>
         </div>
     </div>
+    </form>
 
     <?php
         include('footer.php');
