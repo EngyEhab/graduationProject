@@ -13,9 +13,11 @@ navLinks.forEach(navLink => {
 // start add and display image in add member page
 var imageSelectionField = document.getElementById('imageSelectionField');
 var profileContainer = document.getElementById('profile');
+
 imageSelectionField.addEventListener('change', function(e){
     profileContainer.setAttribute('src' , '../images/'+e.target.files[0].name);
 })
+
 // end add image button in add member page
 
 // start create object of member from values of inputs and clear form

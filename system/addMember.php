@@ -26,7 +26,7 @@
                             <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                         </label>
                     </div>
-                    <input type="file" accept="image/*" id="imageSelectionField" class="d-none">
+                    <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="profilePicture">
                 </div>
             </div>
             
