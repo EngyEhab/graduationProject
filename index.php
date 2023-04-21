@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("location:system/home.php");
         exit();
     } else {
-        header("location: login.php");
+        header("location: index.php");
     }
 }
 ?>

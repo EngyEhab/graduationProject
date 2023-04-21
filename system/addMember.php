@@ -14,41 +14,42 @@
     <?php
         include('header.php');
     ?>
+
     <div class="w-75 mx-auto m-5">
         <h3 class="mainTitle text-end p-2">إدخال بيانات عضو جديد</h3>
         <div class="container dataContainer p-3">
             <div class="row mb-5">
                 <div class="col-md-4 mx-auto">
                     <div class="profilePicture mx-auto">
-                        <img src="" class="w-100 rounded-circle">
+                        <img class="w-100 rounded-circle" id="profile">
                         <div class="imageSelection" id="imageBtn">
                             <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                         </div>
                     </div>
-                    <input type="file" accept="image/png, image/jpeg" id="imageSelectionField" class="d-none">
+                    <input type="file" accept="image/*" id="imageSelectionField" class="d-none">
                 </div>
             </div>
             
             <div class="row my-2">
                 <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="الاسم باللغة العربية">
+                    <input type="text" class="form-control" placeholder="الاسم باللغة العربية" id="arabicName">
                 </div>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="الاسم باللغة الانجليزية">
+                    <input type="text" class="form-control" placeholder="الاسم باللغة الانجليزية" id="englishName">
                 </div>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder=" الرقم القومى">
+                    <input type="text" class="form-control" placeholder=" الرقم القومى" id="nationalID">
                 </div>
             </div>
             <div class="row my-2">
                 <div class="col-md-4">
-                    <input type="email" class="form-control" placeholder="الايميل الشخصى">
+                    <input type="email" class="form-control" placeholder="الايميل الشخصى" id="personalEmail">
                 </div>
                 <div class="col-md-4">
-                    <input type="email" class="form-control" placeholder="الايميل الاكاديمى">
+                    <input type="email" class="form-control" placeholder="الايميل الاكاديمى" id="academicEmail">
                 </div>
                 <div class="col-md-4">
-                    <input type="tel" class="form-control" placeholder="رقم الهاتف">
+                    <input type="tel" class="form-control" placeholder="رقم الهاتف" id="phoneNumber">
                 </div>
             </div>
             <div class="row my-2">
@@ -64,7 +65,7 @@
                 </div>
                 <div class="col-md-4">
                     <select name="department" class="form-select" id="department">
-                        <option selected>القسم</option>
+                        <option selected value="">القسم</option>
                         <option value="accountingDepartment">قسم المحاسبة</option>
                         <option value="managementDepartment">قسم إدارة الأعمال</option>
                         <option value="economics&foreignTradeDepartment">قسم الاقتصاد والتجارة الخارجية</option>
@@ -77,8 +78,8 @@
             </div>
             <div class="row my-2">
                 <div class="col-md-4">
-                    <select name="department" class="form-select" id="department">
-                        <option selected>الدرجة الوظيفية الحالية</option>
+                    <select name="job" class="form-select" id="job">
+                        <option selected value="">الدرجة الوظيفية الحالية</option>
                         <option value="professor">استاذ</option>
                         <option value="associateProfessor">استاذ مساعد</option>
                         <option value="lecturer">مدرس</option>
@@ -89,15 +90,10 @@
                         <option value="freeLecturer">مدرس متفرغ</option>
                     </select>
                 </div>
-                <!-- <div class="col-md-8">
-                    <div class="selectProfilePicure">
-                        <input type="file" accept="image/png, image/jpeg" class="form-control">
-                    </div>
-                </div> -->
             </div>
             <div class="row my-2">
                 <div class="col-md-12">
-                    <textarea name="notes" id="notes" rows="5" placeholder="إضافة ملاحظة..." class="form-control"></textarea>
+                    <textarea name="notes" id="notes" rows="5"  placeholder="إضافة ملاحظة..." class="form-control fs-4"></textarea>
                 </div>
             </div>
             <div class="row my-2 justify-content-end">

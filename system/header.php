@@ -29,9 +29,6 @@ $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>النظام الإلكترونى لإدارة شئون أعضاء هيئة التدريس</title>
-    <link rel="stylesheet" href="../css/all.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <header>
@@ -113,8 +110,6 @@ $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
 
 
 
-    <script src="../js/all.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js"></script>
+
 </body>
 </html>

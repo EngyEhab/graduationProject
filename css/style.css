@@ -180,6 +180,10 @@
 {
     font-size: 1.3rem;
 }
+.dataContainer textarea
+{
+    resize: none;
+}
 .profilePicture
 {
     width:150px;
@@ -202,4 +206,5 @@
     bottom:0;
     right:0;  
 }
+
 /* end add member page */
