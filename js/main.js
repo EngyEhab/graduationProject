@@ -11,11 +11,6 @@ navLinks.forEach(navLink => {
 //end navbar
 
 // start add and display image in add member page
-var imageBtn = document.getElementById('imageBtn');
-imageBtn.addEventListener('click',function(){
-    profilePicture.click();
-})
-
 var imageSelectionField = document.getElementById('imageSelectionField');
 var profileContainer = document.getElementById('profile');
 imageSelectionField.addEventListener('change', function(e){

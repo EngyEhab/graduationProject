@@ -154,7 +154,7 @@
 }
 /*start background of body */
 
-/* start addMemberButton and Search */
+/* start addMemberButton and Search in members Page */
 .addMemberBtn
 {
     background-color:var(--main-text,#023A71); 
@@ -167,7 +167,20 @@
 {
     box-shadow: 0px 3px 6px #AAB2BA;
 }
-/* end addMemberButton and Search */
+
+.member
+{
+    box-shadow:0px 3px 6px #AAB2BA;
+}
+
+.plusIcon
+{
+    background-color: #fff;
+    width:150px;
+    height: 150px;
+    box-shadow:0px 3px 6px #AAB2BA;
+}
+/* end addMemberButton and Search in members Page*/
 
 /* start add member page */
 .dataContainer
@@ -208,3 +221,6 @@
 }
 
 /* end add member page */
+
+
+

@@ -13,16 +13,15 @@
     <div class="bodyCover"></div>
     <?php
         include('header.php');
-
     ?>
     <!-- start search and add member button -->
     <div class="container-fluid mt-3">
         <div class="row align-items-center justify-content-center">
             <div class="col-md-2">
                 <div class="addMember">
-                    <button class="addMemberBtn rounded-pill w-100 border-0" id="addMemberBtn"> 
-                        <a href="addMember.php" class="text-decoration-none text-white">إضافة عضو جديد</a>
-                    </button>
+                    <a href="addMember.php" class="text-decoration-none text-white">
+                        <button class="addMemberBtn rounded-pill w-100 border-0" id="addMemberBtn">إضافة عضو جديد</button>
+                    </a>   
                 </div>
             </div>
             <div class="col-md-6">
@@ -36,32 +35,107 @@
     </div>
     <!-- end search and add member button -->
 
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-
-
-
-
-
-
-
-
-
+    <div class="container my-5">
+        <div class="row gy-5 gx-0 justify-content-center " id="members">
+            <div class="col-md-3">
+                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
+                    <div class="memberImage w-50 rounded-circle mx-auto">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                    </div>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
+                    <div class="memberImage w-50 rounded-circle mx-auto">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                    </div>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
+                    <div class="memberImage w-50 rounded-circle mx-auto">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                    </div>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
+                    <div class="memberImage w-50 rounded-circle mx-auto">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                    </div>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
+                    <div class="memberImage w-50 rounded-circle mx-auto">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                    </div>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
+                    <div class="memberImage w-50 rounded-circle mx-auto">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                    </div>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
+                    <div class="memberImage w-50 rounded-circle mx-auto">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                    </div>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
+                    <div class="memberImage w-50 rounded-circle mx-auto">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                    </div>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
+                    <div class="memberImage w-50 rounded-circle mx-auto">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                    </div>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
+                    <div class="memberImage w-50 rounded-circle mx-auto">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                    </div>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
+                    <div class="memberImage w-50 rounded-circle mx-auto">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                    </div>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="w-75 p-3 text-center mx-auto">
+                    <a href="addMember.php" class="text-decoration-none">
+                        <div id="plusIcon" class="plusIcon rounded-circle d-flex justify-content-center align-items-center mx-auto">
+                            <i class="fa-solid fa-plus fa-2xl fs-1" style="color:#AAB2BA;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <?php

@@ -22,9 +22,9 @@
                 <div class="col-md-4 mx-auto">
                     <div class="profilePicture mx-auto">
                         <img class="w-100 rounded-circle" id="profile">
-                        <div class="imageSelection" id="imageBtn">
+                        <label for="imageSelectionField" class="imageSelection">
                             <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
-                        </div>
+                        </label>
                     </div>
                     <input type="file" accept="image/*" id="imageSelectionField" class="d-none">
                 </div>
