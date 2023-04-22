@@ -14,6 +14,11 @@
     <?php
         include('header.php');
     ?>
+    <div class="sidebarContainer position-fixed">
+    <?php
+        include('sidebar.php');
+    ?>
+    </div>
     <!-- start search and add member button -->
     <div class="container-fluid mt-3">
         <div class="row align-items-center justify-content-center">
@@ -144,6 +149,7 @@
 
     <script src="../js/all.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.6.4.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>

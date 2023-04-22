@@ -222,5 +222,42 @@
 
 /* end add member page */
 
+/* start sidebar */
+.sidebarButton
+{
+    width:35px;
+    height:45px;
+    background-color:var(--main-text,#023A71); 
+    border-radius: 10px 0px 0px 10px;
+    position: absolute;
+    top: 0;
+    right:100%;
+
+}
+.sidebar
+{
+    width: 100%;
+    height: 75vh;
+    background-color:var(--main-text,#023A71); 
+    position: relative;
+    top:0;
+    right:-100%;
+}
+
+.line
+{
+    width:90%;
+    height: 1px;
+    background-color: #AAB2BA;
+    opacity: 0.2;
+    margin: 0 auto;
+}
+.sidebarContainer
+{
+    width:20%;
+    top:30vh;
+    bottom:0;
+}
+/*end start sidebar */
 
 

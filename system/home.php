@@ -14,6 +14,11 @@
     <?php
         include('header.php');
     ?>
+    <div class="sidebarContainer  position-fixed">
+    <?php
+        include('sidebar.php');
+    ?>
+    </div>
 
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
@@ -43,6 +48,7 @@
 
     <script src="../js/all.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.6.4.js"></script>
     <script src="../js/main.js"></script>
 
 </body>

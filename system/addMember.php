@@ -14,6 +14,11 @@
     <?php
         include('header.php');
     ?>
+    <div class="sidebarContainer position-fixed">
+    <?php
+        include('sidebar.php');
+    ?>
+    </div>
     <form action="" method="">
     <div class="w-75 mx-auto m-5">
         <h3 class="mainTitle text-end p-2">إدخال بيانات عضو جديد</h3>
@@ -111,6 +116,7 @@
 
     <script src="../js/all.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.6.4.js"></script>
     <script src="../js/main.js"></script>
 </body>
 </html>
