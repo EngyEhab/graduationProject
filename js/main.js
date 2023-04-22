@@ -26,3 +26,24 @@ $('#closeBtn').click(function(){
     $('#sidebar').animate({right:'-100%'},1000);
 })
 //end open and close sidebar
+
+
+// start button to up
+$(window).scroll(function(){
+    var windowScroll = $(window).scrollTop();
+    if(windowScroll > 300)
+    {
+        $('#btnUp').fadeIn(500);
+    }
+    else
+    {
+        $('#btnUp').fadeOut(500);
+    }
+})
+
+
+$('#btnUp').click(function(){
+    $(window).scrollTop(0); 
+})
+
+// end button to up

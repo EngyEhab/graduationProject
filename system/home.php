@@ -20,6 +20,13 @@
     ?>
     </div>
 
+
+    <!-- start button to up -->
+    <button class="btnToUp border-0" id="btnUp">
+        <i class="fa-solid fa-circle-arrow-up fa-xl" style="color: #ffffff;"></i>
+    </button>
+    <!-- end button to up -->
+
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>

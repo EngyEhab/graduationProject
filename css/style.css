@@ -260,4 +260,18 @@
 }
 /*end start sidebar */
 
+/* start button to up */
+.btnToUp
+{
+    width:35px;
+    height:35px;
+    border-radius: 50%;
+    background-color:var(--main-text,#023A71); 
+    position:fixed;
+    bottom:12%;
+    right:5%;
+    z-index: 99999;
+    display: none;
+}
+/* end button to up */
 

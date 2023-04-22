@@ -19,6 +19,13 @@
         include('sidebar.php');
     ?>
     </div>
+
+    <!-- start button to up -->
+    <button class="btnToUp border-0" id="btnUp">
+        <i class="fa-solid fa-circle-arrow-up fa-xl" style="color: #ffffff;"></i>
+    </button>
+    <!-- end button to up -->
+    
     <form action="" method="">
     <div class="w-75 mx-auto m-5">
         <h3 class="mainTitle text-end p-2">إدخال بيانات عضو جديد</h3>
@@ -110,6 +117,7 @@
     </div>
     </form>
 
+   
     <?php
         include('footer.php');
     ?>

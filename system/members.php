@@ -19,6 +19,12 @@
         include('sidebar.php');
     ?>
     </div>
+    <!-- start button to up -->
+    <button class="btnToUp border-0" id="btnUp">
+        <i class="fa-solid fa-circle-arrow-up fa-xl" style="color: #ffffff;"></i>
+    </button>
+    <!-- end button to up -->
+
     <!-- start search and add member button -->
     <div class="container-fluid mt-3">
         <div class="row align-items-center justify-content-center">
