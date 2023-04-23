@@ -258,6 +258,10 @@
     top:30vh;
     bottom:0;
 }
+.sidebarIcon
+{
+    width:50px;
+}
 /*end start sidebar */
 
 /* start button to up */
@@ -266,7 +270,7 @@
     width:35px;
     height:35px;
     border-radius: 50%;
-    background-color:var(--main-text,#023A71); 
+    background-color:var(--main-text,#023a71); 
     position:fixed;
     bottom:12%;
     right:5%;
@@ -275,3 +279,20 @@
 }
 /* end button to up */
 
+.function
+{
+    background:linear-gradient(rgba(2, 58, 113,0.9),rgba(2, 58, 113,0.5));
+    border-radius: 8px;
+    box-shadow:0px 3px 6px #AAB2BA;
+    padding:30px 10px;
+}
+.function a 
+{
+    color:#fff;
+    
+}
+
+.fixedFooter
+{
+    z-index: -1;
+}

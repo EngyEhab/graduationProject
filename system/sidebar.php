@@ -20,70 +20,70 @@
         <ul>
             <li>
                 <a href="#" class="text-decoration-none pe-3">
-                    <i class="fa-brands fa-microsoft fa-2xl ps-3" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-desktop fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">لوحة التحكم</span>
                     <div class="line mb-1"></div>
                 </a>
             </li>
             <li>
                 <a href="#" class="text-decoration-none pe-3">
-                    <i class="fa-solid fa-users fa-xl ps-3" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-users fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">المستخدمون</span>
                     <div class="line mb-1"></div>
                 </a>
             </li>
             <li>
-                <a href="#" class="text-decoration-none pe-3">
-                    <i class="fa-solid fa-user-plus fa-xl ps-3" style="color: #ffffff;"></i>                    
+                <a href="addMember.php" class="text-decoration-none pe-3">
+                    <i class="fa-solid fa-user-plus fa-xl sidebarIcon" style="color: #ffffff;"></i>                    
                     <span class="fs-3 text-white">إضافة عضو جديد</span>
                     <div class="line mb-1"></div>
                 </a>
             </li>
             <li>
                 <a href="#" class="text-decoration-none pe-3">
-                    <i class="fa-regular fa-pen-to-square fa-2xl ps-3" style="color: #ffffff;"></i>  
+                    <i class="fa-solid fa-pen-to-square fa-xl sidebarIcon" style="color: #ffffff;"></i> 
                     <span class="fs-3 text-white">استكمال بيانات</span>                  
                     <div class="line mb-1"></div>
                 </a>
             </li>
             <li>
                 <a href="#" class="text-decoration-none pe-3">
-                    <i class="fa-solid fa-users fa-xl ps-3" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-user-tie fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">تحديث الدرجة الوظيفية</span>
                     <div class="line mb-1"></div>
                 </a>
             </li>
             <li>
                 <a href="#" class="text-decoration-none pe-3">
-                    <i class="fa-solid fa-users fa-xl ps-3" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-scale-balanced fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">إضافة العقوبات أو الجزاءات</span>
                     <div class="line mb-1"></div>
                 </a>
             </li>
             <li>
                 <a href="#" class="text-decoration-none pe-3">
-                    <i class="fa-solid fa-users fa-xl ps-3" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-house-user fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">إضافة الأجازات</span>
                     <div class="line mb-1"></div>
                 </a>
             </li>
             <li>
                 <a href="#" class="text-decoration-none pe-3">
-                    <i class="fa-solid fa-users fa-xl ps-3" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-plane-up fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">إضافة الإعارات</span>
                     <div class="line mb-1"></div>
                 </a>
             </li>
             <li>
                 <a href="#" class="text-decoration-none pe-3">
-                    <i class="fa-solid fa-users fa-xl ps-3" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-clipboard-user fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">عرض بيان حالة شامل</span>
                     <div class="line my-2"></div>
                 </a>
             </li>
             <li>
                 <a href="#" class="text-decoration-none pe-3">
-                    <i class="fa-solid fa-users fa-xl ps-3" style="color: #ffffff;"></i>
+                    <i class="fa-solid fa-file-lines fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">تقارير</span>
                 </a>
             </li>

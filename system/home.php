@@ -14,11 +14,6 @@
     <?php
         include('header.php');
     ?>
-    <div class="sidebarContainer  position-fixed">
-    <?php
-        include('sidebar.php');
-    ?>
-    </div>
 
 
     <!-- start button to up -->
@@ -27,27 +22,100 @@
     </button>
     <!-- end button to up -->
 
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo, doloribus voluptate dolorem asperiores excepturi ipsam expedita aperiam temporibus ullam, omnis, magnam ipsa et porro soluta molestiae cupiditate veritatis ea in? Quis soluta odit similique voluptate ut inventore dicta enim, culpa distinctio tempore neque doloremque autem animi omnis natus ab velit, repellat cupiditate. Illum tempore labore consequuntur deserunt iste nobis asperiores fuga doloribus suscipit tempora voluptas voluptatem distinctio quidem atque, voluptatibus harum eum tenetur aspernatur dicta. Laboriosam at perferendis culpa maxime excepturi ad minima ab quasi dolor? Atque repellendus, quibusdam accusamus sunt aliquam, minima eligendi odio, ab laboriosam praesentium dolorem? Error!</p>
+    
+    <div class="container">
+        <div class="row my-5">
+            <div class="col">
+                <div class="function text-center">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fa-solid fa-desktop fa-2xl mb-3"></i>
+                        <h3>لوحة التحكم</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="function text-center">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fa-solid fa-users fa-2xl mb-3"></i>
+                        <h3>المستخدمون</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="function text-center">
+                    <a href="addMember.php" class="text-decoration-none">
+                        <i class="fa-solid fa-user-plus fa-2xl mb-3"></i> 
+                        <h3>إضافة عضو جديد</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="function text-center">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fa-solid fa-pen-to-square fa-2xl mb-3"></i> 
+                        <h3>استكمال بيانات</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="function text-center">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fa-solid fa-user-tie fa-2xl mb-3"></i>
+                        <h3>تحديث الدرجة الوظيفية</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col">
+                <div class="function text-center">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fa-solid fa-scale-balanced fa-2xl mb-3"></i>
+                        <h3>إضافة العقوبات أو الجزاءات</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="function text-center">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fa-solid fa-house-user fa-2xl mb-3"></i>
+                        <h3>إضافة الأجازات</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="function text-center">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fa-solid fa-plane-up fa-2xl mb-3"></i>
+                        <h3>إضافة الإعارات</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="function text-center">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fa-solid fa-clipboard-user fa-2xl mb-3"></i>
+                        <h3>عرض بيان حالة شامل</h3>
+                    </a>
+                </div>
+            </div>
+            <div class="col">
+                <div class="function text-center">
+                    <a href="#" class="text-decoration-none">
+                        <i class="fa-solid fa-file-lines fa-2xl mb-3"></i>
+                        <h3>تقارير</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <?php
-        include('footer.php');
-    ?>
+    <div class="fixedFooter position-fixed bottom-0 start-0 end-0">
+        <?php
+            include('footer.php');
+        ?>
+    </div>
+    
 
 
 
