@@ -43,7 +43,7 @@ $(window).scroll(function(){
 
 
 $('#btnUp').click(function(){
-    $(window).scrollTop(0); 
+    $('html, body').animate({scrollTop: 0}, 100);
 })
 
 // end button to up
