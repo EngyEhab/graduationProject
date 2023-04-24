@@ -93,7 +93,7 @@
             </div>
             <div class="col">
                 <div class="function text-center">
-                    <a href="#" class="text-decoration-none">
+                    <a href="statement.php" class="text-decoration-none">
                         <i class="fa-solid fa-clipboard-user fa-2xl mb-3"></i>
                         <h3>عرض بيان حالة شامل</h3>
                     </a>

@@ -5,7 +5,7 @@ $hostname_bis = "localhost";
 $database_bis = "staff_affairs";
 $username_bis = "root";
 $password_bis = "";
-  $conn = new mysqli($hostname_bis, $username_bis, $password_bis, "$database_bis");
+$conn = new mysqli($hostname_bis, $username_bis, $password_bis, "$database_bis");
 if($conn->connect_error) {
     die("failed to connect : ".$con->connect_error);}
 

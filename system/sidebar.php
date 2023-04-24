@@ -75,7 +75,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="text-decoration-none pe-3">
+                <a href="statement.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-clipboard-user fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">عرض بيان حالة شامل</span>
                     <div class="line my-2"></div>
