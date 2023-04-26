@@ -1,6 +1,7 @@
 <?php
 
 include "../Connections/syscon.php"; 
+
 if (isset($_POST['submit'])) {
     if (isset($_POST['Doctor_ar_Name']) && isset($_POST['Doctor_eng_Name']) &&
         isset($_POST['National_id']) && isset($_POST['Mobile']) &&
