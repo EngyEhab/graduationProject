@@ -8,7 +8,7 @@ if (isset($_POST['submit'])) {
         isset($_POST['Academic_Mail']) && isset($_POST['Personal_Mail'])&& 
         isset($_POST['Doctor_image']) && isset($_POST['departments']) &&
         isset($_POST['university'])&& isset($_POST['faculty'])&& 
-        isset($_POST['doctor_jobs'])&& isset($_POST["Notes"])) {
+        isset($_POST['doctor_jobs'])) {
         
             $Doctor_ar_Name=$_POST["Doctor_ar_Name"];                   
             $Doctor_eng_Name=$_POST["Doctor_eng_Name"];                   
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
             $Mobile=$_POST["Mobile"];                   
             $Academic_Mail=$_POST["Academic_Mail"]; 
             $Personal_Mail=$_POST["Personal_Mail"]; 
-            $Notes=$_POST["Notes"]; 
+            // $Notes=$_POST["Notes"]; 
             $Doctor_image=$_POST["Doctor_image"]; 
             $departments=$_POST["departments"]; 
             $university=$_POST["university"];
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
         }
         else {
             $Select = "SELECT Academic_Mail FROM doctors_account WHERE Academic_Mail = ? LIMIT 1";
-            $Insert = "INSERT INTO doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, Doctor_image, departments, university, faculty, doctor_jobs) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $Insert = "INSERT INTO doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail, Doctor_image, departments, university, faculty, doctor_jobs) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             $stmt = $bis->prepare($Select);
             $stmt->bind_param("s", $Academic_Mail);
             $stmt->execute();
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
             if ($rnum == 0) {
                 $stmt->close();
                 $stmt = $bis->prepare($Insert);
-                $stmt->bind_param("ssssssssssss",$Doctor_ar_Name, $Doctor_eng_Name, $National_id, $Mobile, $Academic_Mail, $Personal_Mail, $Notes,$Doctor_image, $departments, $university, $faculty, $doctor_jobs);
+                $stmt->bind_param("sssssssssss",$Doctor_ar_Name, $Doctor_eng_Name, $National_id, $Mobile, $Academic_Mail, $Personal_Mail, $Doctor_image, $departments, $university, $faculty, $doctor_jobs);
                 if ($stmt->execute()) {
                     // header("location:system/addMember.php");;
                 }
@@ -54,12 +54,12 @@ if (isset($_POST['submit'])) {
             // $stmt->close();
             // $bis->close();
         }
-    }
+    }}
     // else {
     //     echo "All field are required.";
     //     die();
     // }
-}
+
 // else {
 //     echo "Submit button is not set";
 // }
@@ -85,7 +85,7 @@ $row_appata = mysqli_fetch_assoc ($appata);
 $doctor_jobs=array($row_appata);
 while($row=mysqli_fetch_assoc($appata)){
     array_push($doctor_jobs,$row);
-}
+};
 $_SESSION ['doctor_jobs']=$doctor_jobs;
 
 $universities = "SELECT * FROM universities";
@@ -95,7 +95,7 @@ $row_appata = mysqli_fetch_assoc ($appata);
 $universities=array($row_appata);
 while($row=mysqli_fetch_assoc($appata)){
     array_push($universities,$row);
-}
+};
 $_SESSION ['universities']=$universities;
 
 $faculties = "SELECT * FROM faculties";
@@ -105,7 +105,7 @@ $row_appata = mysqli_fetch_assoc ($appata);
 $faculties=array($row_appata);
 while($row=mysqli_fetch_assoc($appata)){
     array_push($faculties,$row);
-}
+};
 $_SESSION ['faculties']=$faculties;
 
 ?>
@@ -177,23 +177,25 @@ $_SESSION ['faculties']=$faculties;
             <div class="row my-2">
                 <div class="col-md-4">
                     <select name="university" class="form-select" id="university">
-                    <?php foreach($universities as $row){?>
-                        <option selected value='<?php echo $row['uni_eng_name'];?>'> <?php echo $row['uni_ar_name']?></option>
+                    <option selected value="">الجامعة</option>
+                   <?php foreach($universities as $row){?>
+                        <option selected value=<?php echo $row['uni_eng_name'];?>> <?php echo $row['uni_ar_name']?></option>
                         <?php } ?>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <select name="faculty" class="form-select" id="faculty">
+                        <option selected value=""> الكلية </option>
                         <?php foreach($faculties as $row){?>
-                        <option selected value='<?php echo $row['Faculty_eng_name']?>'><?php echo $row['Faculty_ar_name']?> </option>
-                        <?php } ?>
+                         <option selected value=<?php echo $row['Faculty_eng_name']?>><?php echo $row['Faculty_ar_name']?> </option>
+                         <?php } ?>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <select name="departments" class="form-select" id="department">
                     <option selected value="">القسم</option>
                     <?php foreach ($departments as $row){?>
-                        <option value='<?php echo $row['Department_eng_name']?>'><?php echo $row['Department_ar_name']?></option> 
+                        <option value=<?php echo $row['Department_eng_name']?>><?php echo $row['Department_ar_name']?></option> 
                         <?php } ?>
                     </select>
                 </div>
@@ -203,7 +205,7 @@ $_SESSION ['faculties']=$faculties;
                     <select name="doctor_jobs" class="form-select" id="job">
                     <option selected value="">الدرجة الوظيفية الحالية</option>
                     <?php  foreach($doctor_jobs as $row){?>
-                        <option value='<?php echo $row['Doctor_job_eng_name']?>'><?php echo $row['Doctor_job_ar_name']?></option>
+                        <option value=<?php echo $row['Doctor_job_eng_name']?>><?php echo $row['Doctor_job_ar_name']?></option>
                         <?php } ?>
                     </select>
                 </div>
