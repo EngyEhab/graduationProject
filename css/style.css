@@ -44,6 +44,10 @@
     font-size:1.3rem;
     padding-right: 20px;
 }
+.shadow
+{
+    box-shadow: 0px 3px 6px #AAB2BA;
+}
 /* end general style */
 
 
@@ -163,7 +167,7 @@
 /*start background of body */
 
 /* start addMemberButton and Search in members Page */
-.addMemberBtn
+.addMemberBtn , .addPenaltyBtn , .addSecondmentBtn ,.addVacationBtn
 {
     background-color:var(--main-text,#023A71); 
     color:#fff;
@@ -179,6 +183,7 @@
 .member
 {
     box-shadow:0px 3px 6px #AAB2BA;
+    cursor: pointer;
 }
 
 .plusIcon
@@ -306,14 +311,7 @@
 }
 /* end home page */
 
-#invoice h1
-{
-    color: #f00 !important;
-}
-/* .statementPage
-{
-    font-family:"times-new-roman" !important;
-} */
+/* start statement page */
 .statement
 {
     border: thick double #000;
@@ -327,4 +325,10 @@
     box-shadow: 0px 3px 6px #AAB2BA;
     padding:10px 20px;
     font-weight: 600;
+}
+/* end statement page */
+
+.memberData
+{
+    border-left: 3px solid rgba(170, 178, 186,0.5) ;
 }

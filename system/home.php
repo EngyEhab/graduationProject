@@ -69,7 +69,7 @@
         <div class="row my-5">
             <div class="col">
                 <div class="function text-center">
-                    <a href="#" class="text-decoration-none">
+                    <a href="addPenalty.php" class="text-decoration-none">
                         <i class="fa-solid fa-scale-balanced fa-2xl mb-3"></i>
                         <h3>إضافة العقوبات أو الجزاءات</h3>
                     </a>
@@ -77,7 +77,7 @@
             </div>
             <div class="col">
                 <div class="function text-center">
-                    <a href="#" class="text-decoration-none">
+                    <a href="addVacation.php" class="text-decoration-none">
                         <i class="fa-solid fa-house-user fa-2xl mb-3"></i>
                         <h3>إضافة الأجازات</h3>
                     </a>
@@ -85,7 +85,7 @@
             </div>
             <div class="col">
                 <div class="function text-center">
-                    <a href="#" class="text-decoration-none">
+                    <a href="addSecondment.php" class="text-decoration-none">
                         <i class="fa-solid fa-plane-up fa-2xl mb-3"></i>
                         <h3>إضافة الإعارات</h3>
                     </a>

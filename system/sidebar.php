@@ -54,21 +54,21 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="text-decoration-none pe-3">
+                <a href="addPenalty.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-scale-balanced fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">إضافة العقوبات أو الجزاءات</span>
                     <div class="line mb-1"></div>
                 </a>
             </li>
             <li>
-                <a href="#" class="text-decoration-none pe-3">
+                <a href="addVacation.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-house-user fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">إضافة الأجازات</span>
                     <div class="line mb-1"></div>
                 </a>
             </li>
             <li>
-                <a href="#" class="text-decoration-none pe-3">
+                <a href="addSecondment.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-plane-up fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">إضافة الإعارات</span>
                     <div class="line mb-1"></div>

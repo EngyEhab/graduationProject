@@ -49,6 +49,17 @@ $('#btnUp').click(function(){
 // end button to up
 
 
+// start using enter button to submit search form
 
-
+$('.searchField').on('keypress',function(e){
+    if(e.keyCode == 13)
+    {
+        $('#searchForm').submit();
+    }
+    console.log();
+})
+// end using enter button to submit search form
+$('.member').click(function(e){
+    console.log(e.target);
+})
 
