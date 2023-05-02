@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,7 +40,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="text-decoration-none pe-3">
+                <a href="completeData.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-pen-to-square fa-xl sidebarIcon" style="color: #ffffff;"></i> 
                     <span class="fs-3 text-white">استكمال بيانات</span>                  
                     <div class="line mb-1"></div>

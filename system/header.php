@@ -23,7 +23,7 @@ $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -17,7 +17,7 @@ $_SESSION ['doctors_account_Doctor_ar_Name']=$doctors_account_Doctor_ar_Name;
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -51,7 +51,7 @@
             </div>
             <div class="col">
                 <div class="function text-center">
-                    <a href="#" class="text-decoration-none">
+                    <a href="completeData.php" class="text-decoration-none">
                         <i class="fa-solid fa-pen-to-square fa-2xl mb-3"></i> 
                         <h3>استكمال بيانات</h3>
                     </a>

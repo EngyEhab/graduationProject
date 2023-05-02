@@ -42,42 +42,46 @@
         </div>
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
-                <div class="row my-2">
+                <div class="row my-2 align-items-center justify-content-center">
                     <div class="col-md-2 text-center">
                         <label for="jobGrade" class="mainText fw-bold fs-4">الدرجــــة الوظيفيــــة الحاليــة  :</label>
                     </div>
-                    <div class="col-md-10">
-                        <textarea name="jobGrade" id="jobGrade" rows="5" class="form-control fs-4"></textarea>
+                    <div class="col-md-6">
+                        <select name="doctor_jobs" class="form-select" id="job">
+                            <option selected value=""></option>
+                            <option value="Professor">استاذ</option>
+                            <option value="Associate Professor">استاذ مساعد</option>
+                            <option value="Lecturer">مدرس</option>
+                            <option value="lecturer Assistant">مدرس مساعد</option>
+                            <option value="Teaching Assistant">معيد</option>
+                            <option value="-">استاذ متفرغ</option>
+                            <option value="-">استاذ مساعد متفرغ</option>
+                            <option value="-">مدرس متفرغ</option>
+                        </select>
                     </div>
-                </div>
-                <div class="row my-2 justify-content-end">
                     <div class="col-md-2">
-                        <button type="submit" class="updateJobGradeBtn rounded-pill border-0 w-100 my-3"  id="updateJobGradeBtn" name="updateJobGradeBtn">تحديث</button>
+                        <button type="submit" class="CompleteDataBtn rounded-pill border-0 w-100 my-3"  id="CompleteDataBtn" name="CompleteDataBtn">استكمال</button>
                     </div> 
                 </div>
+                <!-- <div class="row my-2 justify-content-end">
+                    <div class="col-md-2">
+                        <button type="submit" class="CompleteDataBtn rounded-pill border-0 w-100 my-3"  id="CompleteDataBtn" name="CompleteDataBtn">استكمال</button>
+                    </div> 
+                </div> -->
             </div>
         </div>
     </form>
 
 
-
-
-
-
-
-
-    <?php
+    <div class="fixedFooter position-fixed bottom-0 start-0 end-0 z-1">
+        <?php
             include('footer.php');
-    ?>
-
-
-
-
+        ?>
+    </div>
 
     <script src="../js/all.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/jquery-3.6.4.js"></script>
-    <script src="../js/main.js"></script>
-    
+    <script src="../js/main.js"></script>  
 </body>
 </html>
