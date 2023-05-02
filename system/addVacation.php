@@ -86,7 +86,7 @@
                 </div>
                 <div class="row my-2 justify-content-end">
                     <div class="col-md-2">
-                        <button type="submit" class="addVacationBtn rounded-pill border-0 w-100 my-3"  id="submit" name="submit">إضافة</button>
+                        <button type="submit" class="addVacationBtn rounded-pill border-0 w-100 my-3"  id="addVacationBtn" name="addVacationBtn">إضافة</button>
                     </div> 
                 </div>
             </div>
