@@ -81,10 +81,13 @@ $_SESSION ['doctors_account_Doctor_ar_Name']=$doctors_account_Doctor_ar_Name;
                         <img src="../images/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100" alt="">
                     </div>
                     <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
-                    <a href="" class="text-decoration-none">
+                    <form action="" method="" id="memberNameForm">
+                        <input type="text" name="memberName" id="memberName" class="d-none">
+                    </form>
+                    <!-- <a href="" class="text-decoration-none">
                         <button name="displayMemberData" class="btn btn-outline-success">عرض بيانات العضو</button>
                     </a>
-                    
+                    -->
                 </div>
             </div>
         <?php } } else{
@@ -99,7 +102,9 @@ $_SESSION ['doctors_account_Doctor_ar_Name']=$doctors_account_Doctor_ar_Name;
                         <img src="../images/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100" alt="">
                     </div>
                     <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
-                    <button name="displayMemberData" class="btn btn-outline-success">عرض بيانات العضو</button>
+                    <form action="" method="" id="memberNameForm">
+                        <input type="text" name="memberName" id="memberName" class="d-none">
+                    </form>
                 </div>
             </div>
         <?php } }?>

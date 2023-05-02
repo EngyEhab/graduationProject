@@ -59,7 +59,11 @@ $('.searchField').on('keypress',function(e){
     console.log();
 })
 // end using enter button to submit search form
+
+// start set target member name to an input and submit d-none form
 $('.member').click(function(e){
-    console.log(e.target);
+    var element = e.currentTarget.innerText;
+    $('#memberName').val(element);
+    $('#memberNameForm').submit();
 })
 
