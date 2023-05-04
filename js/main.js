@@ -60,10 +60,43 @@ $('.searchField').on('keypress',function(e){
 })
 // end using enter button to submit search form
 
-// start set target member name to an input and submit d-none form
-$('.member').click(function(e){
-    var element = e.currentTarget.innerText;
-    $('#memberName').val(element);
-    $('#memberNameForm').submit();
-})
+// start transform input type to date when focus on it
+
+
+$('#birthDate').on('focusin',function (e) { 
+    e.target.type = 'date';   
+});
+
+$('#birthDate').on('focusout',function (e) { 
+    e.target.type = 'text';   
+});
+
+$('#hiringDate').on('focusin',function (e) { 
+    e.target.type = 'date';   
+});
+
+$('#hiringDate').on('focusout',function (e) { 
+    e.target.type = 'text';   
+});
+
+$('#startDate').on('focusin',function (e) { 
+    e.target.type = 'date';   
+});
+
+$('#startDate').on('focusout',function (e) { 
+    e.target.type = 'text';   
+});
+
+$('#endDate').on('focusin',function (e) { 
+    e.target.type = 'date';   
+});
+
+$('#endDate').on('focusout',function (e) { 
+    e.target.type = 'text';   
+});
+
+// end transform input type to date when focus on it
+
+
+
 

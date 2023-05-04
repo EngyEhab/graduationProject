@@ -76,19 +76,14 @@ $_SESSION ['doctors_account_Doctor_ar_Name']=$doctors_account_Doctor_ar_Name;
         while ($row=mysqli_fetch_array($results)){
         ?>
             <div class="col-md-3">
+                <a href="memberDetails.php?id=<?php echo $row['DoctorCode']?>" class="text-decoration-none">
                 <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto border-0">
                     <div class="memberImage w-50 rounded-circle mx-auto">
                         <img src="../images/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100" alt="">
                     </div>
                     <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
-                    <form action="" method="" id="memberNameForm">
-                        <input type="text" name="memberName" id="memberName" class="d-none">
-                    </form>
-                    <!-- <a href="" class="text-decoration-none">
-                        <button name="displayMemberData" class="btn btn-outline-success">عرض بيانات العضو</button>
-                    </a>
-                    -->
                 </div>
+                </a>
             </div>
         <?php } } else{
         
@@ -97,15 +92,14 @@ $_SESSION ['doctors_account_Doctor_ar_Name']=$doctors_account_Doctor_ar_Name;
         while ($row=mysqli_fetch_array($results)){
         ?>
             <div class="col-md-3">
+                <a href="memberDetails.php?id=<?php echo $row['DoctorCode']?>" class="text-decoration-none">
                 <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
                     <div class="memberImage w-50 rounded-circle mx-auto">
                         <img src="../images/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100" alt="">
                     </div>
                     <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
-                    <form action="" method="" id="memberNameForm">
-                        <input type="text" name="memberName" id="memberName" class="d-none">
-                    </form>
                 </div>
+                </a>
             </div>
         <?php } }?>
         <!-- <div class="col-md-3">

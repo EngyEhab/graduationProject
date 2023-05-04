@@ -1,3 +1,31 @@
+<?php
+include "../Connections/syscon.php"; 
+$id=$_GET['id'];
+mysqli_select_db($bis,$database_bis);
+$myquery="SELECT * FROM doctors_account WHERE DoctorCode=$id";
+$result = $bis->query($myquery);
+if ($result->num_rows === 1) {
+    $row = $result->fetch_assoc();
+
+
+
+
+    $Doctor_ar_Name = $row['Doctor_ar_Name'];              
+    $Doctor_eng_Name=$row["Doctor_eng_Name"];                   
+    $National_id=$row["National_id"];                   
+    $Mobile=$row["Mobile"];                   
+    $Academic_Mail=$row["Academic_Mail"]; 
+    $Personal_Mail=$row["Personal_Mail"]; 
+    $Notes=$row["Notes"]; 
+    $Doctor_image=$row["Doctor_image"]; 
+    $departments=$row["departments"]; 
+    $university=$row["university"];
+    $faculty=$row["faculty"];
+    $doctor_jobs=$row["doctor_jobs"];
+
+    
+    }
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -34,7 +62,7 @@
                             <h4 class="mainText fw-bold">الإسـم باللغـة العربيـــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">محمد عبدالسلام</p>
+                            <p class="fs-4"><?php echo $Doctor_ar_Name;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -42,7 +70,7 @@
                             <h4 class="mainText fw-bold">الإسـم باللغـة الإنجليزيـة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">mohamed abdelsalam</p>
+                            <p class="fs-4"><?php echo $Doctor_eng_Name?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -50,7 +78,15 @@
                             <h4 class="mainText fw-bold">الرقـــــــــــم القومـــــــى :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">22222222222222</p>
+                            <p class="fs-4"><?php echo $National_id?></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4 class="mainText fw-bold"> تاريــــــخ الميــــــــــــلاد :</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <p class="fs-4">لا يوجد</p>
                         </div>
                     </div>
                     <div class="row">
@@ -58,15 +94,7 @@
                             <h4 class="mainText fw-bold">الإيميـــــــل الشخصـــى :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">mohamed@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h4 class="mainText fw-bold">الإيميـــــــل الأكاديمـــــى :</h4>
-                        </div>
-                        <div class="col-md-9">
-                            <p class="fs-4">mohamed@gmail.com</p>
+                            <p class="fs-4"><?php echo $Personal_Mail?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -74,7 +102,7 @@
                             <h4 class="mainText fw-bold">رقــــــــــــم الهـــــــاتـف :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">01234567898</p>
+                            <p class="fs-4"><?php echo $Mobile?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -82,7 +110,7 @@
                             <h4 class="mainText fw-bold">الجامعــــــــــــــــــــــــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">جامعة حلوان</p>
+                            <p class="fs-4"><?php echo $university?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -90,7 +118,7 @@
                             <h4 class="mainText fw-bold">الكليــــــــــــــــــــــــــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">كلية التجارة و إدارة الأعمال</p>
+                            <p class="fs-4">  <?php echo $faculty?>  </p>
                         </div>
                     </div>
                     <div class="row">
@@ -98,7 +126,7 @@
                             <h4 class="mainText fw-bold">القســــــــــــــــــــــــــــم :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">قسم نظم المعلومات</p>
+                            <p class="fs-4"><?php echo $departments?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -106,7 +134,31 @@
                             <h4 class="mainText fw-bold">الدرجة الوظيفية الحالية :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">استاذ</p>
+                            <p class="fs-4"><?php echo $doctor_jobs?></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4 class="mainText fw-bold">تاريــــــخ التعييــــــــــن   :</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <p class="fs-4">لا يوجد</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4 class="mainText fw-bold">الإيميـــــــل الأكاديمـــــى :</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <p class="fs-4"><?php echo $Academic_Mail?></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4 class="mainText fw-bold">المـؤهــلات العلميـــــــة :</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <p class="fs-4">لا يوجد</p>
                         </div>
                     </div>
                     <div class="row">
@@ -114,16 +166,16 @@
                             <h4 class="mainText fw-bold">الملاحظـــــــــــــــــــات :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">لا يوجد</p>
+                            <p class="fs-4"><?php echo $Notes?> </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="memberPhoto d-flex justify-content-center align-items-center p-5">
-                    <img src="../images/1.jpg" class="w-50 rounded-circle shadow" alt="">
+                    <img src="../images/<?php echo $Doctor_image?>" class="w-50 rounded-circle shadow" alt="">
                 </div>
-                <h1 class="text-center mainTitle">محمد عبد السلام</h1>
+                <h1 class="text-center mainTitle"><?php echo $Doctor_ar_Name;?>  </h1>
             </div>
         </div>
     </div>

@@ -52,36 +52,38 @@
 
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="vacationReason" class="mainText fw-bold fs-4">الســــــــــــــــــبب  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" name="vacationReason" id="vacationReason">
-                    </div>
-                </div>
-        
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
                         <label for="vacationDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة  :</label>
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
                     </div>
                     <div class="col-md-2">
-                        <input type="date" class="form-control" name="startDate" id="startDate">
+                        <input type="text" class="form-control" name="startDate" id="startDate">
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
                     </div>
                     <div class="col-md-2">
-                        <input type="date" class="form-control" name="endDate" id="endDate">
+                        <input type="text" class="form-control" name="endDate" id="endDate">
                     </div>
                 </div>
+
+                <div class="row my-2">
+                    <div class="col-md-2 text-center">
+                        <label for="vacationReason" class="mainText fw-bold fs-4">الســــــــــــــــــبب  :</label>
+                    </div>
+                    <div class="col-md-10">
+                        <textarea name="vacationReason" id="vacationReason" rows="3" class="form-control fs-4"></textarea>
+                    </div>
+                </div>
+        
+                
                 <div class="row my-2">
                     <div class="col-md-2 text-center">
                         <label for="vacationNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات  :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="vacationNotes" id="vacationNotes" rows="5" class="form-control fs-4"></textarea>
+                        <textarea name="vacationNotes" id="vacationNotes" rows="3" class="form-control fs-4"></textarea>
                     </div>
                 </div>
                 <div class="row my-2 justify-content-end">

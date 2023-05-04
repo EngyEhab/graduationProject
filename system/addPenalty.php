@@ -33,9 +33,6 @@
                         <option selected value="">اختر العضو</option>
                         <option value="mohamed">محمد عبد السلام</option>
                     </select>
-                    <!-- <input list="memberSelection" class="form-control rounded-pill border-0 shadow px-3 fs-5" placeholder="اسم العضو" />
-                    <datalist id="memberSelection">
-                        <option value="محمد عبد السلام" class="fs-5 text-center"> -->
                 </div>
             </div>
         </div>
@@ -49,14 +46,8 @@
                         <input type="text" class="form-control" name="penaltyDescription" id="penaltyDescription">
                     </div>
                 </div>
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="penaltyReason" class="mainText fw-bold fs-4">الســــــــــــــــــبب  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" name="penaltyReason" id="penaltyReason">
-                    </div>
-                </div>
+                
+
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
                         <label for="penaltyDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة  :</label>
@@ -68,12 +59,22 @@
                         <span class="fs-3 fw-bold">سنين/ سنة</span>
                     </div>
                 </div>
+
+                <div class="row my-2">
+                    <div class="col-md-2 text-center">
+                        <label for="penaltyReason" class="mainText fw-bold fs-4">الســــــــــــــــــبب  :</label>
+                    </div>
+                    <div class="col-md-10">
+                        <textarea name="penaltyReason" id="penaltyReason" rows="3" class="form-control fs-4"></textarea>
+                    </div>
+                </div>
+
                 <div class="row my-2">
                     <div class="col-md-2 text-center">
                         <label for="penaltyNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات  :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="penaltyNotes" id="penaltyNotes" rows="5" class="form-control fs-4"></textarea>
+                        <textarea name="penaltyNotes" id="penaltyNotes" rows="3" class="form-control fs-4"></textarea>
                     </div>
                 </div>
                 <div class="row my-2 justify-content-end">

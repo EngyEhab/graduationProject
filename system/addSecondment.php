@@ -63,12 +63,12 @@
                     </div>
                     
                     <div class="col-md-1">
-                        <input type="radio" id="inside" name="secondmentType" value="inside">
+                        <input type="radio" id="inside" name="secondmentType" value="inside" class="form-check-input">
                         <label for="inside" class="fw-bold fs-4 px-1">داخلى </label>
                     </div>
                     
                     <div class="col-md-1">
-                        <input type="radio" id="outside" name="secondmentType" value="outside">
+                        <input type="radio" id="outside" name="secondmentType" value="outside" class="form-check-input">
                         <label for="outside" class="fw-bold fs-4 px-1">خارجى </label>
                     </div>
                 </div>
@@ -86,13 +86,13 @@
                         <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
                     </div>
                     <div class="col-md-2">
-                        <input type="date" class="form-control" name="startDate" id="startDate">
+                        <input type="text" class="form-control" name="startDate" id="startDate">
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
                     </div>
                     <div class="col-md-2">
-                        <input type="date" class="form-control" name="endDate" id="endDate">
+                        <input type="text" class="form-control" name="endDate" id="endDate">
                     </div>
                 </div>
                 <div class="row my-2">

@@ -165,10 +165,10 @@ $_SESSION ['faculties']=$faculties;
             </div>
             <div class="row my-2">
                 <div class="col-md-4">
-                    <input type="email" class="form-control" placeholder="الايميل الشخصى" id="personalEmail" name="Personal_Mail">
+                    <input type="text" class="form-control" placeholder="تاريخ الميلاد"  name="Doctor_birthdate" id="birthDate">
                 </div>
                 <div class="col-md-4">
-                    <input type="email" class="form-control" placeholder="الايميل الاكاديمى" id="academicEmail" name="Academic_Mail">
+                    <input type="email" class="form-control" placeholder="الايميل الشخصى" id="personalEmail" name="Personal_Mail">
                 </div>
                 <div class="col-md-4">
                     <input type="tel" class="form-control" placeholder="رقم الهاتف" id="phoneNumber" name="Mobile">
@@ -207,10 +207,21 @@ $_SESSION ['faculties']=$faculties;
                         <?php } ?>
                     </select>
                 </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="تاريخ التعيين"  name="Doctor_hiringDate" id="hiringDate">
+                </div>
+                <div class="col-md-4">
+                    <input type="email" class="form-control" placeholder="الايميل الاكاديمى" id="academicEmail" name="Academic_Mail">
+                </div>
             </div>
             <div class="row my-2">
                 <div class="col-md-12">
-                    <textarea name="Notes" id="notes" rows="5"  placeholder="إضافة ملاحظة..." class="form-control fs-4"></textarea>
+                    <textarea name="Qualifications" id="Qualifications" rows="3"  placeholder="المؤهلات العلمية" class="form-control fs-4"></textarea>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-md-12">
+                    <textarea name="Notes" id="notes" rows="3"  placeholder="ملاحظــــــــــــات" class="form-control fs-4"></textarea>
                 </div>
             </div>
             <div class="row my-2 justify-content-end">
