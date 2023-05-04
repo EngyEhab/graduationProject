@@ -29,7 +29,7 @@
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <select name="memberSelected" class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
+                    <select name="memberSelected" required class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
                         <option selected value="">اختر العضو</option>
                         <option value="mohamed">محمد عبد السلام</option>
                     </select>
@@ -40,7 +40,7 @@
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="penaltyDescription" class="mainText fw-bold fs-4">  الجــزاء أو العقوبــة :</label>
+                        <label for="penaltyDescription" class="mainText fw-bold fs-4">  الجــــــــــزاء أو العقوبـــــــــة :</label>
                     </div>
                     <div class="col-md-10">
                         <input type="text" class="form-control" name="penaltyDescription" id="penaltyDescription">
@@ -50,7 +50,7 @@
 
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="penaltyDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة  :</label>
+                        <label for="penaltyDuration" class="mainText fw-bold fs-4">المــــــــــــــــــــــــــــــــــــــدة  :</label>
                     </div>
                     <div class="col-md-2">
                         <input type="number" min="1" class="form-control" name="penaltyDuration" id="penaltyDuration">
@@ -58,20 +58,44 @@
                     <div class="col-md-2">
                         <span class="fs-3 fw-bold">سنين/ سنة</span>
                     </div>
+                    <div class="col-md-1 text-center">
+                        <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" name="startDate" id="startDate">
+                    </div>
+                    <div class="col-md-1 text-center">
+                        <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" name="endDate" id="endDate">
+                    </div>
                 </div>
 
                 <div class="row my-2">
                     <div class="col-md-2 text-center">
-                        <label for="penaltyReason" class="mainText fw-bold fs-4">الســــــــــــــــــبب  :</label>
+                        <label for="penaltyReason" class="mainText fw-bold fs-4">الســـــــــــــــــــــــــــــــــبب  :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="penaltyReason" id="penaltyReason" rows="3" class="form-control fs-4"></textarea>
+                        <textarea name="penaltyReason" id="penaltyReason" rows="2" class="form-control fs-4"></textarea>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-2 text-center">
+                        <label for="penaltyFile" class="form-label mainText fw-bold fs-4"> إرفاق ملف الجزاء أو العقوبة :</label>  
+                    </div>
+                    <div class="col-md-2">
+                        <div class="fs-4 w-100 choosePenaltyFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
+                    </div>
+                    <div class="col-md-8 align-self-center">
+                        <input class="form-control d-none" type="file" id="penaltyFile" name="penaltyFile">
+                        <p class="selectedPenaltyFile fs-4"></p>                   
                     </div>
                 </div>
 
                 <div class="row my-2">
                     <div class="col-md-2 text-center">
-                        <label for="penaltyNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات  :</label>
+                        <label for="penaltyNotes" class="mainText fw-bold fs-4">ملاحظــــــــــــــــــــــــــــات  :</label>
                     </div>
                     <div class="col-md-10">
                         <textarea name="penaltyNotes" id="penaltyNotes" rows="3" class="form-control fs-4"></textarea>

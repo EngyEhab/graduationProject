@@ -56,7 +56,6 @@ $('.searchField').on('keypress',function(e){
     {
         $('#searchForm').submit();
     }
-    console.log();
 })
 // end using enter button to submit search form
 
@@ -97,6 +96,36 @@ $('#endDate').on('focusout',function (e) {
 
 // end transform input type to date when focus on it
 
+// start when click on div choose file , click on input choose file
+$('.choosePenaltyFileBtn').click(function(e){
+    $('#penaltyFile').click();
 
+});
+
+$('#penaltyFile').change(function(e){
+    var selectedPenaltyFile = e.target.files[0].name;
+    $('.selectedPenaltyFile').text(selectedPenaltyFile);
+})
+
+$('.chooseVacationFileBtn').click(function(e){
+    $('#vacationFile').click();
+});
+
+$('#vacationFile').change(function(e){
+    var selectedVacationFile = e.target.files[0].name;
+    $('.selectedVacationFile').text(selectedVacationFile);
+})
+
+$('.chooseSecondmentFileBtn').click(function(e){
+    $('#secondmentFile').click();
+});
+
+$('#vacationFile').change(function(e){
+    var selectedSecondmentFile = e.target.files[0].name;
+    $('.selectedSecondmentFile').text(selectedSecondmentFile);
+})
+
+
+// end when click on div choose file , click on input choose file
 
 

@@ -29,13 +29,10 @@
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <select name="memberSelected" class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
+                    <select name="memberSelected" required class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
                         <option selected value="">اختر العضو</option>
                         <option value="mohamed">محمد عبد السلام</option>
                     </select>
-                    <!-- <input list="memberSelection" class="form-control rounded-pill border-0 shadow px-3 fs-5" placeholder="اسم العضو" />
-                    <datalist id="memberSelection">
-                        <option value="محمد عبد السلام" class="fs-5 text-center"> -->
                 </div>
             </div>
         </div>
@@ -93,6 +90,18 @@
                     </div>
                     <div class="col-md-2">
                         <input type="text" class="form-control" name="endDate" id="endDate">
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-2 text-center">
+                        <label for="secondmentFile" class="form-label mainText fw-bold fs-4"> إرفاق ملف الإعارة :</label>                   
+                    </div>
+                    <div class="col-md-2">
+                        <div class="fs-4 w-100 chooseSecondmentFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
+                    </div>
+                    <div class="col-md-8 align-self-center">
+                        <input class="form-control d-none" type="file" id="secondmentFile" name="secondmentFile">  
+                        <p class="selectedSecondmentFile fs-4"></p>                  
                     </div>
                 </div>
                 <div class="row my-2">

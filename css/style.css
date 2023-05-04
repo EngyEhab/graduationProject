@@ -328,7 +328,22 @@
 }
 /* end statement page */
 
+
+/* start memberDetails page */
+
 .memberData
 {
     border-left: 3px solid rgba(170, 178, 186,0.5) ;
 }
+
+/* end memberDetails page */
+
+
+/* start select file in add penalty , add secondment and add vacation pages */
+.choosePenaltyFileBtn , .chooseSecondmentFileBtn , .chooseVacationFileBtn
+{
+    background-color: rgba(170, 178, 186,0.5);
+    cursor: pointer;
+}
+
+/* end select file in add penalty , add secondment and add vacation pages */

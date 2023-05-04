@@ -29,13 +29,10 @@
         <div class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <select name="memberSelected" class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
+                    <select name="memberSelected" required class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
                         <option selected value="">اختر العضو</option>
                         <option value="mohamed">محمد عبد السلام</option>
                     </select>
-                    <!-- <input list="memberSelection" class="form-control rounded-pill border-0 shadow px-3 fs-5" placeholder="اسم العضو" />
-                    <datalist id="memberSelection">
-                        <option value="محمد عبد السلام" class="fs-5 text-center"> -->
                 </div>
             </div>
         </div>
@@ -73,7 +70,20 @@
                         <label for="vacationReason" class="mainText fw-bold fs-4">الســــــــــــــــــبب  :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="vacationReason" id="vacationReason" rows="3" class="form-control fs-4"></textarea>
+                        <textarea name="vacationReason" id="vacationReason" rows="2" class="form-control fs-4"></textarea>
+                    </div>
+                </div>
+
+                <div class="row my-2">
+                    <div class="col-md-2 text-center">
+                        <label for="vacationFile" class="form-label mainText fw-bold fs-4"> إرفاق ملف الأجازة :</label>                   
+                    </div>
+                    <div class="col-md-2">
+                        <div class="fs-4 w-100 chooseVacationFileBtn text-center p-1 rounded-2" type="button">ارفق الملــف </div>
+                    </div>
+                    <div class="col-md-8 align-self-center">
+                        <input class="form-control d-none" type="file" id="vacationFile" name="vacationFile">  
+                        <p class="selectedVacationFile fs-4"></p>                   
                     </div>
                 </div>
         
