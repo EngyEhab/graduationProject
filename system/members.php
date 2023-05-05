@@ -1,20 +1,5 @@
 <?php
 include "../Connections/syscon.php"; 
-$bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
-if ($bis->connect_error) {
-    die('Could not connect to the database.');
-}
-else {
-    $doctors_account_Doctor_ar_Name = "SELECT * FROM doctors_account";
-$result = $bis->query($doctors_account_Doctor_ar_Name);
-$appata = mysqli_query ($bis, $doctors_account_Doctor_ar_Name) or die (mysqli_error ($bis));
-$row_appata = mysqli_fetch_assoc ($appata);
-$doctors_account_Doctor_ar_Name=array($row_appata);
-while($row=mysqli_fetch_assoc($appata)){
-    array_push($doctors_account_Doctor_ar_Name,$row);
-}
-$_SESSION ['doctors_account_Doctor_ar_Name']=$doctors_account_Doctor_ar_Name;
-}
 ?>
 <!DOCTYPE html>
 <html lang="ar">

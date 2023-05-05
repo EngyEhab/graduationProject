@@ -128,4 +128,12 @@ $('#vacationFile').change(function(e){
 
 // end when click on div choose file , click on input choose file
 
+$('.tableCompleteDataBtn').click(function(){
+    $('#completeDataContainer').removeClass('d-none');
+    $('.fixedFooter').removeClass('position-fixed');
+    console.log($('#completeDataContainer'))
+})
 
+$('#memberSelection').change(function(){
+    $('#memberSelectionForm').submit();
+})

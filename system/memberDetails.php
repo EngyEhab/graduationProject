@@ -1,30 +1,30 @@
 <?php
 include "../Connections/syscon.php"; 
-$id=$_GET['id'];
-mysqli_select_db($bis,$database_bis);
-$myquery="SELECT * FROM doctors_account WHERE DoctorCode=$id";
-$result = $bis->query($myquery);
-if ($result->num_rows === 1) {
-    $row = $result->fetch_assoc();
+if (isset($_GET['id'])){
 
+    $_SESSION['id']=$_GET['id'];
+    $id=$_SESSION['id'];
 
-
-
-    $Doctor_ar_Name = $row['Doctor_ar_Name'];              
-    $Doctor_eng_Name=$row["Doctor_eng_Name"];                   
-    $National_id=$row["National_id"];                   
-    $Mobile=$row["Mobile"];                   
-    $Academic_Mail=$row["Academic_Mail"]; 
-    $Personal_Mail=$row["Personal_Mail"]; 
-    $Notes=$row["Notes"]; 
-    $Doctor_image=$row["Doctor_image"]; 
-    $departments=$row["departments"]; 
-    $university=$row["university"];
-    $faculty=$row["faculty"];
-    $doctor_jobs=$row["doctor_jobs"];
-
+    mysqli_select_db($bis,$database_bis);
+    $myquery="SELECT * FROM doctors_account WHERE DoctorCode= $id";
+    $result = $bis->query($myquery);
+    if ($result->num_rows === 1) {
+        $row = $result->fetch_assoc();
     
+        $Doctor_ar_Name = $row['Doctor_ar_Name'];              
+        $Doctor_eng_Name=$row["Doctor_eng_Name"];                   
+        $National_id=$row["National_id"];                   
+        $Mobile=$row["Mobile"];                   
+        $Academic_Mail=$row["Academic_Mail"]; 
+        $Personal_Mail=$row["Personal_Mail"]; 
+        $Notes=$row["Notes"]; 
+        $Doctor_image=$row["Doctor_image"]; 
+        $departments=$row["departments"]; 
+        $university=$row["university"];
+        $faculty=$row["faculty"];
+        $doctor_jobs=$row["doctor_jobs"];
     }
+     }
 ?>
 <!DOCTYPE html>
 <html lang="ar">
@@ -182,7 +182,9 @@ if ($result->num_rows === 1) {
     <div class="container mt-3 mb-5">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <button id="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
+                <a href="updateMemberData.php?id=<?php echo $row ['DoctorCode']?>">
+                    <button id="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
+                </a>
             </div>
             <div class="col-md-2">
                 <button id="deleteBtn" class="btn btn-danger w-100 rounded-pill fw-bold fs-4 border-2 shadow">حـــذف</button>
