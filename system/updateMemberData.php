@@ -1,9 +1,7 @@
 <?php
 include "../Connections/syscon.php"; 
 $bis = mysqli_connect($hostname_bis, $username_bis, $password_bis, $database_bis);
-// $id=$_GET['id'];
-// $id="";
-// $Doctor_Code ="";
+
 $qualifications="";
 $date_of_birth ="";
 $hiring_date =""; 
@@ -26,7 +24,7 @@ if (isset($_GET['id'])){
     $Select=mysqli_query($bis,"SELECT * FROM doctors_account WHERE  DoctorCode='$id' ");
     $row=mysqli_fetch_assoc($Select);
     
-    // $Doctor_Code = $row['DoctorCode'];
+    
     $qualifications=$row['qualifications'];
     $date_of_birth =$row['date_of_birth'];
     $hiring_date =$row['hiring_date'];  
@@ -44,14 +42,7 @@ if (isset($_GET['id'])){
     $doctorjob=$row["doctor_jobs"];}
 
 if (isset($_POST['updateMemberData'])){
-    // if (isset($_POST['Doctor_ar_Name']) && isset($_POST['Doctor_eng_Name']) &&
-    //     isset($_POST['National_id']) && isset($_POST['Mobile']) &&
-    //     isset($_POST['Academic_Mail']) && isset($_POST['Personal_Mail'])&& 
-    //     isset($_POST['Doctor_image']) && isset($_POST['departments']) &&
-    //     isset($_POST['university'])&& isset($_POST['faculty'])&& 
-    //     isset($_POST['doctor_jobs'])&& isset($_POST["Notes"])) {
-     
-    // $Doctor_Code = $_POST['DoctorCode'];
+  
     $qualifications=$_POST['qualifications'];
     $date_of_birth =$_POST['date_of_birth'];
     $hiring_date =$_POST['hiring_date']; 
@@ -73,58 +64,12 @@ if (isset($_POST['updateMemberData'])){
     National_id='$National_id',Mobile='$Mobile',Academic_Mail='$Academic_Mail',
     Personal_Mail='$Personal_Mail',Notes='$Notes',Doctor_image='$Doctor_image',
     departments='$department',university='$university',faculty='$faculty',
-    doctor_jobs='$doctorjob' WHERE DoctorCode='$id'");
+    doctor_jobs='$doctorjob', qualifications='$qualifications',
+    date_of_birth ='$date_of_birth' , hiring_date ='$hiring_date'  WHERE DoctorCode='$id'");
 
 }
-    // if($Details){
-    //     $msg="updated";
-    // }
-// else{
-//     $Insert = mysqli_query($bis,"INSERT INTO doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, Doctor_image, departments, university, faculty, doctor_jobs)
-//      values($Doctor_ar_Name, $Doctor_eng_Name, $National_id, $Mobile, $Academic_Mail, $Personal_Mail, $Notes,$Doctor_image, $department, $university, $faculty, $doctorjob)");
-//     if($Insert){
-//         $msg="inserted";
-//     }
-//     else{
-//         $msg="not inserted";
-//     }
-// }
 
     
-
-
-
-
-
-        //  if (isset($_GET['updateMemberData'])){
-        //     $Select = "SELECT * FROM doctors_account WHERE DoctorCode=$id ";
-        //     $UPDATE = "UPDATE  doctors_account(Doctor_ar_Name, Academic_Mail, Personal_Mail) values(?, ?, ?)";
-        // //  $query=  "UPDATE doctors_account SET Doctor_ar_Name= $Doctor_ar_Name , Personal_Mail=$Personal_Mail , Academic_Mail=$Academic_Mail WHERE DoctorCode= $id ";
-        
-          
-        //     $stmt->execute();
-            
-        //     $stmt->store_result();
-        //     $stmt->fetch();
-        //     $rnum = $stmt->num_rows;
-        //     if ($rnum == 0) {
-        //         $stmt->close();
-        //         $stmt = $bis->prepare($Insert);
-        //         $stmt->bind_param("sss",$Doctor_ar_Name, $Academic_Mail, $Personal_Mail);     
-        //                    if ($stmt->execute()) {
-        //             // header("location:system/addMember.php");;
-        //         }
-        //         else {
-        //             echo $stmt->error;
-        //         }
-        //     }
-        // }}}
-        
-    
-// $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
-// if ($bis->connect_error) {
-//     die('Could not connect to the database.');
-// }
     
 $query_appata = "SELECT * FROM departments";
 $result = $bis->query($query_appata);
