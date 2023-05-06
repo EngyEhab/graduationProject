@@ -22,15 +22,15 @@ $doctorjob="";
 
 if (isset($_GET['id'])){
     $id=$_GET['id'];
-
     
     $Select=mysqli_query($bis,"SELECT * FROM doctors_account WHERE  DoctorCode='$id' ");
     $row=mysqli_fetch_assoc($Select);
+    
     // $Doctor_Code = $row['DoctorCode'];
     $qualifications=$row['qualifications'];
     $date_of_birth =$row['date_of_birth'];
     $hiring_date =$row['hiring_date'];  
-    $Doctor_ar_Name = $row['Doctor_ar_Name'];              
+    $Doctor_ar_Name = $row['Doctor_ar_Name'];     
     $Doctor_eng_Name=$row["Doctor_eng_Name"];                   
     $National_id=$row["National_id"];                   
     $Mobile=$row["Mobile"];                   
@@ -52,9 +52,9 @@ if (isset($_POST['updateMemberData'])){
     //     isset($_POST['doctor_jobs'])&& isset($_POST["Notes"])) {
      
     // $Doctor_Code = $_POST['DoctorCode'];
-    $qualifications=$row['qualifications'];
-    $date_of_birth =$row['date_of_birth'];
-    $hiring_date =$row['hiring_date']; 
+    $qualifications=$_POST['qualifications'];
+    $date_of_birth =$_POST['date_of_birth'];
+    $hiring_date =$_POST['hiring_date']; 
     $Doctor_ar_Name = $_POST['Doctor_ar_Name'];              
     $Doctor_eng_Name=$_POST["Doctor_eng_Name"];                   
     $National_id=$_POST["National_id"];                   
@@ -66,19 +66,19 @@ if (isset($_POST['updateMemberData'])){
     $department=$_POST["departments"]; 
     $university=$_POST["university"];
     $faculty=$_POST["faculty"];
-    $doctorjob=$_POST["doctor_jobs"];}
-    if (isset($_GET['id'])){
-         $id=$_GET['id'];
-    $Details = ("UPDATE doctors_account SET 
+    $doctorjob=$_POST["doctor_jobs"];
+    
+    $Details = mysqli_query($bis , "UPDATE doctors_account SET 
     Doctor_ar_Name='$Doctor_ar_Name',Doctor_eng_Name='$Doctor_eng_Name',
     National_id='$National_id',Mobile='$Mobile',Academic_Mail='$Academic_Mail',
     Personal_Mail='$Personal_Mail',Notes='$Notes',Doctor_image='$Doctor_image',
     departments='$department',university='$university',faculty='$faculty',
-    doctor_jobs='$doctorjob' date_of_birth ='$date_of_birth', qualifications='$qualifications';
-    hiring_date ='$hiring_date'  WHERE DoctorCode='18'");}
-    if($Details){
-        $msg="updated";
-    }
+    doctor_jobs='$doctorjob' WHERE DoctorCode='$id'");
+
+}
+    // if($Details){
+    //     $msg="updated";
+    // }
 // else{
 //     $Insert = mysqli_query($bis,"INSERT INTO doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, Doctor_image, departments, university, faculty, doctor_jobs)
 //      values($Doctor_ar_Name, $Doctor_eng_Name, $National_id, $Mobile, $Academic_Mail, $Personal_Mail, $Notes,$Doctor_image, $department, $university, $faculty, $doctorjob)");
@@ -194,7 +194,7 @@ $_SESSION ['faculties']=$faculties;
     </button>
     <!-- end button to up -->
     
-    <form action="addMember.php" method="post">
+    <form action="" method="post">
     <div class="w-75 mx-auto m-5">
         <h3 class="mainTitle text-end p-2">إدخال بيانات عضو جديد</h3>
         <div class="container dataContainer p-3">
