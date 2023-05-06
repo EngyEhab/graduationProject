@@ -2,15 +2,18 @@
 include "../Connections/syscon.php"; 
 if (isset($_GET['id'])){
 
-    $_SESSION['id']=$_GET['id'];
-    $id=$_SESSION['id'];
+    // $_SESSION['id']=$_GET['id'];
+    $id=$_GET['id'];
 
     mysqli_select_db($bis,$database_bis);
     $myquery="SELECT * FROM doctors_account WHERE DoctorCode= $id";
     $result = $bis->query($myquery);
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
-    
+
+        $qualifications=$row['qualifications'];
+        $date_of_birth =$row['date_of_birth'];
+        $hiring_date =$row['hiring_date'];
         $Doctor_ar_Name = $row['Doctor_ar_Name'];              
         $Doctor_eng_Name=$row["Doctor_eng_Name"];                   
         $National_id=$row["National_id"];                   
@@ -23,8 +26,14 @@ if (isset($_GET['id'])){
         $university=$row["university"];
         $faculty=$row["faculty"];
         $doctor_jobs=$row["doctor_jobs"];
+    
     }
-     }
+}
+if (isset($_POST['deleteBtn'])){ 
+    $id=$_GET['id']; 
+     $Details = mysqli_query($bis , " DELETE FROM doctors_account WHERE DoctorCode='$id'");   
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="ar">
@@ -86,7 +95,7 @@ if (isset($_GET['id'])){
                             <h4 class="mainText fw-bold"> تاريــــــخ الميــــــــــــلاد :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">لا يوجد</p>
+                            <p class="fs-4"><?php echo $date_of_birth?> </p>
                         </div>
                     </div>
                     <div class="row">
@@ -142,7 +151,7 @@ if (isset($_GET['id'])){
                             <h4 class="mainText fw-bold">تاريــــــخ التعييــــــــــن   :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">لا يوجد</p>
+                            <p class="fs-4"><?php echo $hiring_date?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -158,7 +167,7 @@ if (isset($_GET['id'])){
                             <h4 class="mainText fw-bold">المـؤهــلات العلميـــــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">لا يوجد</p>
+                            <p class="fs-4"><?php echo $qualifications?> </p>
                         </div>
                     </div>
                     <div class="row">
@@ -188,7 +197,9 @@ if (isset($_GET['id'])){
                 </a>
             </div>
             <div class="col-md-2">
-                <button id="deleteBtn" class="btn btn-danger w-100 rounded-pill fw-bold fs-4 border-2 shadow">حـــذف</button>
+            <a href="members.php">
+                <button id="deleteBtn" nmae="deleteBtn" class="btn btn-danger w-100 rounded-pill fw-bold fs-4 border-2 shadow">حـــذف</button>
+                </a>
             </div>
         </div>
     </div>

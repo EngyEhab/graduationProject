@@ -151,7 +151,7 @@ $_SESSION ['faculties']=$faculties;
                             <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                         </label>
                     </div>
-                    <input type="file" accept="image/*" id="imageSelectionField" class="d-none" value="<?php if (isset($_GET['id'])) {echo $Doctor_image;}?>" name="Doctor_image">
+                    <input type="file" accept="image/*" id="imageSelectionField"  class="d-none" value="<?php if (isset($_GET['id'])) {echo $Doctor_image;}?>" name="Doctor_image">
                 </div>
             </div>
             <div class="row my-2">
@@ -218,12 +218,12 @@ $_SESSION ['faculties']=$faculties;
             </div>
             <div class="row my-2">
                 <div class="col-md-12">
-                    <textarea name="qualifications" id="Qualifications" rows="3" value="<?php if (isset($_GET['id'])) {echo $qualifications;}?>" placeholder="المؤهلات العلمية" class="form-control fs-4"></textarea>
+                    <textarea name="qualifications" id="Qualifications" rows="3"  placeholder="المؤهلات العلمية" class="form-control fs-4"><?php if (isset($_GET['id'])) {echo $qualifications;}?></textarea>
                 </div>
             </div>
             <div class="row my-2">
                 <div class="col-md-12">
-                    <textarea name="Notes" id="notes" rows="3"  placeholder="ملاحظــــــــــــات" value="<?php if (isset($_GET['id'])) {echo $Notes;}?>" class="form-control fs-4"></textarea>
+                    <textarea name="Notes" id="notes" rows="3"  placeholder="ملاحظــــــــــــات" class="form-control fs-4"><?php if (isset($_GET['id'])) {echo $Notes;}?></textarea>
                 </div>
             </div>
             <div class="row my-2 justify-content-end">
