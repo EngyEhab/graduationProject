@@ -1,47 +1,47 @@
 <?php
 include "../Connections/syscon.php"; 
 $bis = mysqli_connect($hostname_bis, $username_bis, $password_bis, $database_bis);
-// // $id=$_GET['id'];
-// // $id="";
-// // $Doctor_Code ="";
-// $qualifications="";
-// $date_of_birth ="";
-// $hiring_date =""; 
-// $Doctor_ar_Name ="";              
-// $Doctor_eng_Name="";                   
-// $National_id="";                   
-// $Mobile="";                   
-// $Academic_Mail=""; 
-// $Personal_Mail=""; 
-// $Notes=""; 
-// $Doctor_image=""; 
-// $department=""; 
-// $university="";
-// $faculty="";
-// $doctorjob="";
+// $id=$_GET['id'];
+// $id="";
+// $Doctor_Code ="";
+$qualifications="";
+$date_of_birth ="";
+$hiring_date =""; 
+$Doctor_ar_Name ="";              
+$Doctor_eng_Name="";                   
+$National_id="";                   
+$Mobile="";                   
+$Academic_Mail=""; 
+$Personal_Mail=""; 
+$Notes=""; 
+$Doctor_image=""; 
+$department=""; 
+$university="";
+$faculty="";
+$doctorjob="";
 
-// if (isset($_GET['id'])){
-//     $id=$_GET['id'];
-
+if (isset($_GET['id'])){
+    $id=$_GET['id'];
     
-//     $Select=mysqli_query($bis,"SELECT * FROM doctors_account WHERE  DoctorCode='$id' ");
-//     $row=mysqli_fetch_assoc($Select);
-//     // $Doctor_Code = $row['DoctorCode'];
-//     $qualifications=$row['qualifications'];
-//     $date_of_birth =$row['date_of_birth'];
-//     $hiring_date =$row['hiring_date'];  
-//     $Doctor_ar_Name = $row['Doctor_ar_Name'];              
-//     $Doctor_eng_Name=$row["Doctor_eng_Name"];                   
-//     $National_id=$row["National_id"];                   
-//     $Mobile=$row["Mobile"];                   
-//     $Academic_Mail=$row["Academic_Mail"]; 
-//     $Personal_Mail=$row["Personal_Mail"]; 
-//     $Notes=$row["Notes"]; 
-//     $Doctor_image=$row["Doctor_image"]; 
-//     $department=$row["departments"]; 
-//     $university=$row["university"];
-//     $faculty=$row["faculty"];
-//     $doctorjob=$row["doctor_jobs"];}
+    $Select=mysqli_query($bis,"SELECT * FROM doctors_account WHERE  DoctorCode='$id' ");
+    $row=mysqli_fetch_assoc($Select);
+    
+    // $Doctor_Code = $row['DoctorCode'];
+    $qualifications=$row['qualifications'];
+    $date_of_birth =$row['date_of_birth'];
+    $hiring_date =$row['hiring_date'];  
+    $Doctor_ar_Name = $row['Doctor_ar_Name'];     
+    $Doctor_eng_Name=$row["Doctor_eng_Name"];                   
+    $National_id=$row["National_id"];                   
+    $Mobile=$row["Mobile"];                   
+    $Academic_Mail=$row["Academic_Mail"]; 
+    $Personal_Mail=$row["Personal_Mail"]; 
+    $Notes=$row["Notes"]; 
+    $Doctor_image=$row["Doctor_image"]; 
+    $department=$row["departments"]; 
+    $university=$row["university"];
+    $faculty=$row["faculty"];
+    $doctorjob=$row["doctor_jobs"];}
 
 if (isset($_POST['updateMemberData'])){
     // if (isset($_POST['Doctor_ar_Name']) && isset($_POST['Doctor_eng_Name']) &&
@@ -67,26 +67,18 @@ if (isset($_POST['updateMemberData'])){
     $university=$_POST["university"];
     $faculty=$_POST["faculty"];
     $doctorjob=$_POST["doctor_jobs"];
-    if (isset($_GET['id'])){
-         $id=$_GET['id'];
-
-        // $Insert = "UPDATE doctors_account SET (Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, Doctor_image, departments, university, faculty, doctor_jobs, qualifications, date_of_birth, hiring_date) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?) WHERE DoctorCode='$id'";
-
-    $Details = mysqli_query($bis,"UPDATE doctors_account SET 
+    
+    $Details = mysqli_query($bis , "UPDATE doctors_account SET 
     Doctor_ar_Name='$Doctor_ar_Name',Doctor_eng_Name='$Doctor_eng_Name',
     National_id='$National_id',Mobile='$Mobile',Academic_Mail='$Academic_Mail',
     Personal_Mail='$Personal_Mail',Notes='$Notes',Doctor_image='$Doctor_image',
     departments='$department',university='$university',faculty='$faculty',
-    doctor_jobs='$doctorjob' date_of_birth ='$date_of_birth', qualifications='$qualifications'
-    hiring_date ='$hiring_date'  WHERE DoctorCode='$id'");
+    doctor_jobs='$doctorjob' WHERE DoctorCode='$id'");
 
-    mysqli_query($bis,$details);}
-    if($Details){
-        $msg="updated";
-    }}
-
-
-
+}
+    // if($Details){
+    //     $msg="updated";
+    // }
 // else{
 //     $Insert = mysqli_query($bis,"INSERT INTO doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, Doctor_image, departments, university, faculty, doctor_jobs)
 //      values($Doctor_ar_Name, $Doctor_eng_Name, $National_id, $Mobile, $Academic_Mail, $Personal_Mail, $Notes,$Doctor_image, $department, $university, $faculty, $doctorjob)");
@@ -100,6 +92,39 @@ if (isset($_POST['updateMemberData'])){
 
     
 
+
+
+
+
+        //  if (isset($_GET['updateMemberData'])){
+        //     $Select = "SELECT * FROM doctors_account WHERE DoctorCode=$id ";
+        //     $UPDATE = "UPDATE  doctors_account(Doctor_ar_Name, Academic_Mail, Personal_Mail) values(?, ?, ?)";
+        // //  $query=  "UPDATE doctors_account SET Doctor_ar_Name= $Doctor_ar_Name , Personal_Mail=$Personal_Mail , Academic_Mail=$Academic_Mail WHERE DoctorCode= $id ";
+        
+          
+        //     $stmt->execute();
+            
+        //     $stmt->store_result();
+        //     $stmt->fetch();
+        //     $rnum = $stmt->num_rows;
+        //     if ($rnum == 0) {
+        //         $stmt->close();
+        //         $stmt = $bis->prepare($Insert);
+        //         $stmt->bind_param("sss",$Doctor_ar_Name, $Academic_Mail, $Personal_Mail);     
+        //                    if ($stmt->execute()) {
+        //             // header("location:system/addMember.php");;
+        //         }
+        //         else {
+        //             echo $stmt->error;
+        //         }
+        //     }
+        // }}}
+        
+    
+// $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
+// if ($bis->connect_error) {
+//     die('Could not connect to the database.');
+// }
     
 $query_appata = "SELECT * FROM departments";
 $result = $bis->query($query_appata);
@@ -169,7 +194,7 @@ $_SESSION ['faculties']=$faculties;
     </button>
     <!-- end button to up -->
     
-    <form action="addMember.php" method="post">
+    <form action="" method="post">
     <div class="w-75 mx-auto m-5">
         <h3 class="mainTitle text-end p-2">إدخال بيانات عضو جديد</h3>
         <div class="container dataContainer p-3">
