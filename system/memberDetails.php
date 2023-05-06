@@ -197,7 +197,7 @@ if (isset($_POST['deleteBtn'])){
                 </a>
             </div>
             <div class="col-md-2">
-            <a href="members.php">
+            <a href="members.php?id=<?php echo $row ['DoctorCode']?>">
                 <button id="deleteBtn" nmae="deleteBtn" class="btn btn-danger w-100 rounded-pill fw-bold fs-4 border-2 shadow">حـــذف</button>
                 </a>
             </div>
