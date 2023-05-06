@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
         isset($_POST['Doctor_image']) && isset($_POST['departments']) &&
         isset($_POST['university'])&& isset($_POST['faculty'])&& 
         isset($_POST['doctor_jobs'])&& isset($_POST["Notes"])) {
-        
+            
             $Doctor_ar_Name=$_POST["Doctor_ar_Name"];                   
             $Doctor_eng_Name=$_POST["Doctor_eng_Name"];                   
             $National_id=$_POST["National_id"];                   
