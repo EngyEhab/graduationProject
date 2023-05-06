@@ -183,7 +183,8 @@ if (isset($_GET['id'])){
         <div class="row justify-content-end">
             <div class="col-md-2">
                 <a href="updateMemberData.php?id=<?php echo $row ['DoctorCode']?>">
-                    <button id="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
+                    
+                <button id="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
                 </a>
             </div>
             <div class="col-md-2">
