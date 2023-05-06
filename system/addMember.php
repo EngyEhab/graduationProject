@@ -8,8 +8,13 @@ if (isset($_POST['submit'])) {
         isset($_POST['Academic_Mail']) && isset($_POST['Personal_Mail'])&& 
         isset($_POST['Doctor_image']) && isset($_POST['departments']) &&
         isset($_POST['university'])&& isset($_POST['faculty'])&& 
-        isset($_POST['doctor_jobs'])&& isset($_POST["Notes"])) {
-            
+        isset($_POST['doctor_jobs'])&& isset($_POST["Notes"])&&
+        isset($_POST['qualifications'])&& isset($_POST["date_of_birth"])&&
+        isset($_POST['hiring_date'])) {
+
+            $qualifications=$_POST['qualifications'];
+            $date_of_birth =$_POST['date_of_birth'];
+            $hiring_date =$_POST['hiring_date']; 
             $Doctor_ar_Name=$_POST["Doctor_ar_Name"];                   
             $Doctor_eng_Name=$_POST["Doctor_eng_Name"];                   
             $National_id=$_POST["National_id"];                   
@@ -28,19 +33,19 @@ if (isset($_POST['submit'])) {
             die('Could not connect to the database.');
         }
         else {
-            $Select = "SELECT Academic_Mail FROM doctors_account WHERE Academic_Mail = ? LIMIT 1";
-            $Insert = "INSERT INTO doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, Doctor_image, departments, university, faculty, doctor_jobs) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $Select = "SELECT * FROM doctors_account ";
+            $Insert = "INSERT INTO doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, Doctor_image, departments, university, faculty, doctor_jobs, qualifications, date_of_birth, hiring_date) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)";
             $stmt = $bis->prepare($Select);
-            $stmt->bind_param("s", $Academic_Mail);
-            $stmt->execute();
-            $stmt->bind_result($resultAcademic_Mail);
-            $stmt->store_result();
-            $stmt->fetch();
-            $rnum = $stmt->num_rows;
-            if ($rnum == 0) {
-                $stmt->close();
+            // // $stmt->bind_param("s", $Academic_Mail);
+            // $stmt->execute();
+            // // $stmt->bind_result($resultAcademic_Mail);
+            // $stmt->store_result();
+            // $stmt->fetch();
+            // $rnum = $stmt->num_rows;
+            // if ($rnum == 0) {
+            //     $stmt->close();
                 $stmt = $bis->prepare($Insert);
-                $stmt->bind_param("ssssssssssss",$Doctor_ar_Name, $Doctor_eng_Name, $National_id, $Mobile, $Academic_Mail, $Personal_Mail, $Notes,$Doctor_image, $departments, $university, $faculty, $doctor_jobs);
+                $stmt->bind_param("sssssssssssssss",$Doctor_ar_Name, $Doctor_eng_Name, $National_id, $Mobile, $Academic_Mail, $Personal_Mail, $Notes,$Doctor_image, $departments, $university, $faculty, $doctor_jobs, $qualifications, $date_of_birth, $hiring_date);
                 if ($stmt->execute()) {
                     // header("location:system/addMember.php");;
                 }
@@ -59,7 +64,7 @@ if (isset($_POST['submit'])) {
     //     echo "All field are required.";
     //     die();
     // }
-}
+
 // else {
 //     echo "Submit button is not set";
 // }
@@ -165,7 +170,7 @@ $_SESSION ['faculties']=$faculties;
             </div>
             <div class="row my-2">
                 <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="تاريخ الميلاد"  name="Doctor_birthdate" id="birthDate">
+                    <input type="text" class="form-control" placeholder="تاريخ الميلاد"  name="date_of_birth" id="birthDate">
                 </div>
                 <div class="col-md-4">
                     <input type="email" class="form-control" placeholder="الايميل الشخصى" id="personalEmail" name="Personal_Mail">
@@ -208,7 +213,7 @@ $_SESSION ['faculties']=$faculties;
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="تاريخ التعيين"  name="Doctor_hiringDate" id="hiringDate">
+                    <input type="text" class="form-control" placeholder="تاريخ التعيين"  name="hiring_date" id="hiringDate">
                 </div>
                 <div class="col-md-4">
                     <input type="email" class="form-control" placeholder="الايميل الاكاديمى" id="academicEmail" name="Academic_Mail">
@@ -216,7 +221,7 @@ $_SESSION ['faculties']=$faculties;
             </div>
             <div class="row my-2">
                 <div class="col-md-12">
-                    <textarea name="Qualifications" id="Qualifications" rows="3"  placeholder="المؤهلات العلمية" class="form-control fs-4"></textarea>
+                    <textarea name="qualifications" id="Qualifications" rows="3"  placeholder="المؤهلات العلمية" class="form-control fs-4"></textarea>
                 </div>
             </div>
             <div class="row my-2">
