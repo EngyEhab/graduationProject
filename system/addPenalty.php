@@ -25,17 +25,26 @@
         <i class="fa-solid fa-circle-arrow-up fa-xl" style="color: #ffffff;"></i>
     </button>
     <!-- end button to up -->
-    <form action="" method="">
-        <div class="container my-5">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <select name="memberSelected" required class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
-                        <option selected value="">اختر العضو</option>
-                        <option value="mohamed">محمد عبد السلام</option>
-                    </select>
+    
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="search">
+                    <form action="" method="" id="searchForm">
+                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="search" placeholder="بحث...">
+                    </form>
                 </div>
             </div>
+            <!-- <div class="col-md-6">
+                <select name="memberSelected" required class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
+                    <option selected value="">اختر العضو</option>
+                    <option value="mohamed">محمد عبد السلام</option>
+                </select>
+            </div> -->
         </div>
+    </div>
+
+    <form action="" method="">
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">
@@ -46,8 +55,6 @@
                         <input type="text" class="form-control" name="penaltyDescription" id="penaltyDescription">
                     </div>
                 </div>
-                
-
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
                         <label for="penaltyDuration" class="mainText fw-bold fs-4">المــــــــــــــــــــــــــــــــــــــدة  :</label>

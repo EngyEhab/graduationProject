@@ -131,10 +131,15 @@ $('#vacationFile').change(function(e){
 $('.tableCompleteDataBtn').click(function(){
     $('#completeDataContainer').removeClass('d-none');
     $('.fixedFooter').removeClass('position-fixed');
-    console.log($('#completeDataContainer'))
 })
 
-$('#memberSelection').change(function(){
-    $('#memberSelectionForm').submit();
+
+
+
+
+$('.tableCompleteDataBtn').click(function(){
+    var doctorCode = $(this).attr('doctorCode');
+    $('#doctorCodeInput').val(doctorCode);
 })
+
 

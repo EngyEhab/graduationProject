@@ -54,7 +54,6 @@ if (isset($_POST['updateMemberData'])){
     $Personal_Mail=$_POST["Personal_Mail"]; 
     $Notes=$_POST["Notes"]; 
     $Doctor_image=$_POST["Doctor_image"]; 
-    echo $Doctor_image; 
     $department=$_POST["departments"]; 
     $university=$_POST["university"];
     $faculty=$_POST["faculty"];
@@ -152,7 +151,7 @@ $_SESSION ['faculties']=$faculties;
                             <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                         </label>
                     </div>
-                    <input type="file" accept="image/*" id="imageSelectionField" value="<?php if (isset($_GET['id'])) {echo $Doctor_image;}?>"  class="d-none"  name="Doctor_image">
+                    <input type="file" accept="image/*" id="imageSelectionField"  class="d-none"  name="Doctor_image">
                 </div>
             </div>
             <div class="row my-2">

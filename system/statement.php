@@ -1,3 +1,6 @@
+<?php
+include "../Connections/syscon.php"; 
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -26,21 +29,55 @@
     </button>
     <!-- end button to up -->
 
-    <!-- start search -->
-    <div class="container-fluid mt-5">
-        <div class="row align-items-center justify-content-center">
+    <div class="container my-5">
+        <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="search">
-                    <form action="">
-                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="search" placeholder="بحث...">
+                    <form action="statement.php" method="post" id="searchForm">
+                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="completesearch" placeholder="بحث...">
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- end search -->
+    
+    
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <table class="table text-center fs-4 bg-white shadow rounded-2">
+                    <thead class="mainText table-light">
+                        <tr>
+                            <th>اسم العضو</th>
+                            <th>القسم</th>
+                            <th>عرض بيان الحالة </th>
+                        </tr>
+                    </thead>   
+                    <tbody>
+                    <?php
+            if (isset($_POST['completesearch'])) {
+        $st=$_POST ['completesearch'];
+        $query="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
+        $results=mysqli_query($bis,$query);
+        while($row=mysqli_fetch_array($results)) {
+            
+            ?>
+                        <tr>
+                            <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                            <td><?php echo $row['departments'] ?></td>
+                            <td><button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn" name="btn">عرض  </button></td>
+                        </tr>
+                        <?php }
+            }
+            ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-    <div class="container statement p-5 mt-5" id="statement">
+   
+    <div class="container statement p-5 mt-5 d-none" id="statement">
         <div class="row align-items-end">
             <div class="col-md-4">
                 <div class="universityData text-center" >
@@ -70,7 +107,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h4 class="text-start"> الإســــــــــــــــــــم :</h4>
+                <h4 class="text-start"> الإســــــــــــــــــــم : </h4>
             </div>
             <div class="col-md-6">
                 <p></p>
@@ -173,7 +210,7 @@
     <div class="container">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <button id="statementBtn" class="rounded-pill border-0 w-100 my-3">
+                <button id="statementBtn" class="rounded-pill border-0 w-100 my-3 d-none">
                     <span>حـفـظ</span>
                     <i class="fa-solid fa-download fa-sm px-1" style="color: #ffffff;"></i>
                 </button>
@@ -182,9 +219,11 @@
     </div>
 
 
-    <?php
+    <div class="fixedFooter position-fixed bottom-0 start-0 end-0 z-3">
+        <?php
             include('footer.php');
-    ?>
+        ?>
+    </div>
 
     <script src="../js/all.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>

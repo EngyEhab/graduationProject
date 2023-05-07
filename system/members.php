@@ -80,7 +80,7 @@ include "../Connections/syscon.php";
                 <a href="memberDetails.php?id=<?php echo $row['DoctorCode']?>" class="text-decoration-none">
                 <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
                     <div class="memberImage w-50 rounded-circle mx-auto">
-                        <img src="../images/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100" alt="">
+                        <img src="../images/users/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100" alt="">
                     </div>
                     <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
                 </div>

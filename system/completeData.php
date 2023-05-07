@@ -1,3 +1,7 @@
+<?php
+include "../Connections/syscon.php";
+$id=""; 
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -25,25 +29,25 @@
         <i class="fa-solid fa-circle-arrow-up fa-xl" style="color: #ffffff;"></i>
     </button>
     <!-- end button to up -->
-    <form action="" method="" id="memberSelectionForm">
-        <div class="container my-5">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="search">
-                        <form action="members.php" method="post" id="searchForm">
-                            <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="search" placeholder="بحث...">
-                        </form>
-                    </div>
+    
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="search">
+                    <form action="completeData.php" method="post" id="searchForm">
+                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="completesearch" placeholder="بحث...">
+                    </form>
                 </div>
-                <!-- <div class="col-md-6">
-                    <select name="memberSelected" required class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
-                        <option selected value="">اختر العضو</option>
-                        <option value="mohamed">محمد عبد السلام</option>
-                    </select>
-                </div> -->
             </div>
+            <!-- <div class="col-md-6">
+                <select name="memberSelected" required class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
+                    <option selected value="">اختر العضو</option>
+                    <option value="mohamed">محمد عبد السلام</option>
+                </select>
+            </div> -->
         </div>
-    </form>
+    </div>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-9">
@@ -53,48 +57,58 @@
                             <th>اسم العضو</th>
                             <th>الدرجة الوظيفية الحالية</th>
                             <th>استكمال البيانات</th>
+                            <th>الكود</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+            if (isset($_POST['completesearch'])) {
+                    $cst=$_POST['completesearch'];
+                    $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$cst%'";
+                    $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){
+                    ?>
                         <tr>
-                            <td>محمد عبد السلام</td>
-                            <td>استاذ</td>
-                            <td><button class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال  </button></td>
+                            <td><?php echo $row['Doctor_ar_Name']?>  </td>
+                            <td><?php echo $row['doctor_jobs']?></td>
+                            <td><?php echo $row['DoctorCode'];?></td>
+                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
                         </tr>
+                    <?php }
+                        
+            }
+                else { 
+                        $myquery="SELECT * FROM doctors_account";
+                        $results=mysqli_query($bis,$myquery);
+                        $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){?>
+                    
                         <tr>
-                            <td>محمد عبد السلام</td>
-                            <td>استاذ</td>
-                            <td><button class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال  </button></td>
+                            <td><?php echo $row['Doctor_ar_Name']?>  </td>
+                            <td><?php echo $row['doctor_jobs']?></td>
+                            <td><?php echo $row['DoctorCode'];?></td>
+                            <td><button  name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال  </button></td>
                         </tr>
-                        <tr>
-                            <td>محمد عبد السلام</td>
-                            <td>استاذ</td>
-                            <td><button class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال  </button></td>
-                        </tr>
-                        <tr>
-                            <td>محمد عبد السلام</td>
-                            <td>استاذ</td>
-                            <td><button class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال  </button></td>
-                        </tr>
-                        <tr>
-                            <td>محمد عبد السلام</td>
-                            <td>استاذ</td>
-                            <td><button class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال  </button></td>
-                        </tr>
-                        <tr>
-                            <td>محمد عبد السلام</td>
-                            <td>استاذ</td>
-                            <td><button class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال  </button></td>
-                        </tr>
+                    <?php }
+                }?>
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-
-    <form action="" method="">
+   
+    <form action="" method="" id="completeDataForm">
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3 d-none" id="completeDataContainer">
+                <div class="row my-2">
+                    <div class="col-md-2 text-center">
+                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كود العضو  :</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
+                    </div>
+                </div> 
                 <div class="row my-2">
                     <div class="col-md-2 text-center">
                         <label for="CompleteData" class="mainText fw-bold fs-4">استكمال بيانات الدرجة الوظيفية الحالية   :</label>
