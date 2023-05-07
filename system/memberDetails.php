@@ -192,13 +192,12 @@ if (isset($_POST['deleteBtn'])){
         <div class="row justify-content-end">
             <div class="col-md-2">
                 <a href="updateMemberData.php?id=<?php echo $row ['DoctorCode']?>">
-                    
-                <button id="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
+                    <button id="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
                 </a>
             </div>
             <div class="col-md-2">
-            <a href="members.php?id=<?php echo $row ['DoctorCode']?>">
-                <button id="deleteBtn" nmae="deleteBtn" class="btn btn-danger w-100 rounded-pill fw-bold fs-4 border-2 shadow">حـــذف</button>
+                <a href="deleteMemberData.php?id=<?php echo $row ['DoctorCode']?>">
+                    <button id="deleteBtn" nmae="deleteBtn" class="btn btn-danger w-100 rounded-pill fw-bold fs-4 border-2 shadow">حـــذف</button>
                 </a>
             </div>
         </div>

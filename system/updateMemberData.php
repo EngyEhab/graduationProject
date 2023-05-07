@@ -54,6 +54,7 @@ if (isset($_POST['updateMemberData'])){
     $Personal_Mail=$_POST["Personal_Mail"]; 
     $Notes=$_POST["Notes"]; 
     $Doctor_image=$_POST["Doctor_image"]; 
+    echo $Doctor_image; 
     $department=$_POST["departments"]; 
     $university=$_POST["university"];
     $faculty=$_POST["faculty"];
@@ -146,12 +147,12 @@ $_SESSION ['faculties']=$faculties;
             <div class="row mb-5">
                 <div class="col-md-4 mx-auto">
                     <div class="profilePicture mx-auto">
-                        <img class="w-100 rounded-circle" id="profile">
+                        <img class="w-100 rounded-circle" id="profile" src="../images/<?php if (isset($_GET['id'])) {echo $Doctor_image;}?>">
                         <label for="imageSelectionField" class="imageSelection">
                             <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                         </label>
                     </div>
-                    <input type="file" accept="image/*" id="imageSelectionField"  class="d-none" value="<?php if (isset($_GET['id'])) {echo $Doctor_image;}?>" name="Doctor_image">
+                    <input type="file" accept="image/*" id="imageSelectionField" value="<?php if (isset($_GET['id'])) {echo $Doctor_image;}?>"  class="d-none"  name="Doctor_image">
                 </div>
             </div>
             <div class="row my-2">
@@ -228,7 +229,7 @@ $_SESSION ['faculties']=$faculties;
             </div>
             <div class="row my-2 justify-content-end">
                 <div class="col-md-2">
-                <a href="memberDetails.php?id=<?php echo $Doctor_Code?>"><button type="submit" class="updateMemberDataBtn rounded-pill border-0 w-100 my-3"  id="updateMemberData" name="updateMemberData">تعديل</button></a>
+                 <a href="memberDetails.php?id=<?php echo $Doctor_Code?>"><button type="submit" class="updateMemberDataBtn rounded-pill border-0 w-100 my-3"  id="updateMemberData" name="updateMemberData">تعديل</button></a>
                 </div> 
             </div>
         </div>

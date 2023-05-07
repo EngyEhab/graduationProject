@@ -3,7 +3,7 @@ include "../Connections/syscon.php";
  
 if (isset($_GET['id'])){ 
     $id=$_GET['id'];
-     $Details = mysqli_query($bis , " DELETE FROM 'doctors_account' WHERE DoctorCode=$id");   
+     $Details = mysqli_query($bis , " DELETE FROM doctors_account WHERE DoctorCode='$id'");   
      header("location: members.php");
      exit;
 }
