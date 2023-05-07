@@ -98,7 +98,29 @@ $id="";
         </div>
     </div>
    
-    <form action="" method="" id="completeDataForm">
+    <form action="completeData.php" method="post" id="completeDataForm">
+   <?php  if (isset($_POST['CompleteDataBtn'])) {
+    if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
+        isset($_POST['doctorJobInput']) && isset($_POST['CompleteData'])){
+            $doctorCodeInput=$_POST['doctorCodeInput'];
+            $doctorNameInput =$_POST['doctorNameInput'];
+            $doctorJobInput =$_POST['doctorJobInput']; 
+            $CompleteData=$_POST["CompleteData"]; 
+            $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
+            if ($bis->connect_error) {
+                die('Could not connect to the database.');
+            }
+            else {
+                $Select = "SELECT * FROM completedata ";
+                $Insert = "INSERT INTO completedata(doctorCodeInput, doctorNameInput, doctorJobInput, CompleteData) values(?, ?, ?, ?)";
+                $stmt = $bis->prepare($Select);
+                    $stmt = $bis->prepare($Insert);
+                    $stmt->bind_param("ssss",$doctorCodeInput, $doctorNameInput, $doctorJobInput, $CompleteData);
+                    if ($stmt->execute()) {
+                    }
+                    else {
+                        echo $stmt->error;
+                    }}}} ?>
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3 d-none" id="completeDataContainer">
                 <div class="row my-2">
