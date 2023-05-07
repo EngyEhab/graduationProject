@@ -54,10 +54,10 @@ $id="";
                 <table class="table text-center fs-4 bg-white shadow rounded-2">
                     <thead class="mainText table-light">
                         <tr>
+                            <th>الكود</th>
                             <th>اسم العضو</th>
                             <th>الدرجة الوظيفية الحالية</th>
                             <th>استكمال البيانات</th>
-                            <th>الكود</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,9 +69,9 @@ $id="";
                     while ($row=mysqli_fetch_array($results)){
                     ?>
                         <tr>
-                            <td><?php echo $row['Doctor_ar_Name']?>  </td>
-                            <td><?php echo $row['doctor_jobs']?></td>
                             <td><?php echo $row['DoctorCode'];?></td>
+                            <td><?php echo $row['Doctor_ar_Name']?></td>
+                            <td><?php echo $row['doctor_jobs']?></td>
                             <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
                         </tr>
                     <?php }
@@ -84,9 +84,9 @@ $id="";
                     while ($row=mysqli_fetch_array($results)){?>
                     
                         <tr>
+                            <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?>  </td>
                             <td><?php echo $row['doctor_jobs']?></td>
-                            <td><?php echo $row['DoctorCode'];?></td>
                             <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
                         </tr>
                     <?php }
