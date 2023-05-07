@@ -72,7 +72,7 @@ $id="";
                             <td><?php echo $row['Doctor_ar_Name']?>  </td>
                             <td><?php echo $row['doctor_jobs']?></td>
                             <td><?php echo $row['DoctorCode'];?></td>
-                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
+                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
                         </tr>
                     <?php }
                         
@@ -87,7 +87,7 @@ $id="";
                             <td><?php echo $row['Doctor_ar_Name']?>  </td>
                             <td><?php echo $row['doctor_jobs']?></td>
                             <td><?php echo $row['DoctorCode'];?></td>
-                            <td><button  name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال  </button></td>
+                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
                         </tr>
                     <?php }
                 }?>
@@ -107,6 +107,22 @@ $id="";
                     </div>
                     <div class="col-md-10">
                         <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
+                    </div>
+                </div> 
+                <div class="row my-2">
+                    <div class="col-md-2 text-center">
+                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اسم العضو  :</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
+                    </div>
+                </div> 
+                <div class="row my-2">
+                    <div class="col-md-2 text-center">
+                        <label for="doctorJobInput" class="mainText fw-bold fs-4"> الدرجة الوظيفية الحالية  :</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4"></input>
                     </div>
                 </div> 
                 <div class="row my-2">
