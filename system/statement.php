@@ -34,7 +34,7 @@ include "../Connections/syscon.php";
             <div class="col-md-6">
                 <div class="search">
                     <form action="statement.php" method="post" id="searchForm">
-                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="completesearch" placeholder="بحث...">
+                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="statementSearch" placeholder="بحث...">
                     </form>
                 </div>
             </div>
@@ -48,6 +48,7 @@ include "../Connections/syscon.php";
                 <table class="table text-center fs-4 bg-white shadow rounded-2">
                     <thead class="mainText table-light">
                         <tr>
+                            <th>كود العضو</th>
                             <th>اسم العضو</th>
                             <th>القسم</th>
                             <th>عرض بيان الحالة </th>
@@ -55,19 +56,32 @@ include "../Connections/syscon.php";
                     </thead>   
                     <tbody>
                     <?php
-            if (isset($_POST['completesearch'])) {
-        $st=$_POST ['completesearch'];
+            if (isset($_POST['statementSearch'])) {
+        $st=$_POST ['statementSearch'];
         $query="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
         $results=mysqli_query($bis,$query);
         while($row=mysqli_fetch_array($results)) {
-            
             ?>
-                        <tr>
-                            <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                            <td><?php echo $row['departments'] ?></td>
-                            <td><button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn" name="btn">عرض  </button></td>
-                        </tr>
-                        <?php }
+                <tr>
+                    <td><?php echo $row['DoctorCode'] ?></td>
+                    <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                    <td><?php echo $row['departments'] ?></td>
+                    <td><button doctorCode="<?php echo $row['DoctorCode'] ?>" class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn" name="btn">عرض</button></td>
+                </tr>
+                <?php }
+            }
+            else{
+                $query="SELECT * FROM doctors_account";
+                $results=mysqli_query($bis,$query);
+                while($row=mysqli_fetch_array($results)) {
+                ?>
+                <tr>
+                    <td><?php echo $row['DoctorCode'] ?></td>
+                    <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                    <td><?php echo $row['departments'] ?></td>
+                    <td><button doctorCode="<?php echo $row['DoctorCode'] ?>" class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn" name="btn">عرض</button></td>
+                </tr>
+                <?php }
             }
             ?>
                     </tbody>
@@ -78,6 +92,7 @@ include "../Connections/syscon.php";
 
    
     <div class="container statement p-5 mt-5 d-none" id="statement">
+        <input name="doctorCodeInput" id="doctorCodeInput" class="form-control fs-4 d-none"></input>
         <div class="row align-items-end">
             <div class="col-md-4">
                 <div class="universityData text-center" >

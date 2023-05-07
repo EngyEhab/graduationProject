@@ -134,10 +134,20 @@ $('.tableCompleteDataBtn').click(function(){
 })
 
 
-
-
-
 $('.tableCompleteDataBtn').click(function(){
+    var doctorCode = $(this).attr('doctorCode');
+    $('#doctorCodeInput').val(doctorCode);
+})
+
+
+$('.tableDisplayBtn').click(function(){
+    $('#statement').removeClass('d-none');
+    $('#statementBtn').removeClass('d-none');
+    $('.fixedFooter').removeClass('position-fixed');
+})
+
+
+$('.tableDisplayBtn').click(function(){
     var doctorCode = $(this).attr('doctorCode');
     $('#doctorCodeInput').val(doctorCode);
 })
