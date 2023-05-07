@@ -59,13 +59,25 @@ if (isset($_POST['updateMemberData'])){
     $faculty=$_POST["faculty"];
     $doctorjob=$_POST["doctor_jobs"];
     
-    $Details = mysqli_query($bis , "UPDATE doctors_account SET 
-    Doctor_ar_Name='$Doctor_ar_Name',Doctor_eng_Name='$Doctor_eng_Name',
-    National_id='$National_id',Mobile='$Mobile',Academic_Mail='$Academic_Mail',
-    Personal_Mail='$Personal_Mail',Notes='$Notes',Doctor_image='$Doctor_image',
-    departments='$department',university='$university',faculty='$faculty',
-    doctor_jobs='$doctorjob', qualifications='$qualifications',
-    date_of_birth ='$date_of_birth' , hiring_date ='$hiring_date'  WHERE DoctorCode='$id'");
+   
+     if ((!empty($Doctor_image))){
+        $Details = mysqli_query($bis , "UPDATE doctors_account SET 
+        Doctor_ar_Name='$Doctor_ar_Name',Doctor_eng_Name='$Doctor_eng_Name',
+        National_id='$National_id',Mobile='$Mobile',Academic_Mail='$Academic_Mail',
+        Personal_Mail='$Personal_Mail',Notes='$Notes',Doctor_image='$Doctor_image',
+        departments='$department',university='$university',faculty='$faculty',
+        doctor_jobs='$doctorjob', qualifications='$qualifications',
+        date_of_birth ='$date_of_birth' , hiring_date ='$hiring_date'  WHERE DoctorCode='$id'");
+        }else{
+            $Details = mysqli_query($bis , "UPDATE doctors_account SET 
+        Doctor_ar_Name='$Doctor_ar_Name',Doctor_eng_Name='$Doctor_eng_Name',
+        National_id='$National_id',Mobile='$Mobile',Academic_Mail='$Academic_Mail',
+        Personal_Mail='$Personal_Mail',Notes='$Notes',
+        departments='$department',university='$university',faculty='$faculty',
+        doctor_jobs='$doctorjob', qualifications='$qualifications',
+        date_of_birth ='$date_of_birth' , hiring_date ='$hiring_date'  WHERE DoctorCode='$id'");
+    
+        }
 
 }
 
