@@ -192,14 +192,14 @@ $_SESSION ['faculties']=$faculties;
                 <div class="col-md-4">
                     <select name="university" class="form-select" id="university">
                     <?php foreach($universities as $row){?>
-                        <option selected value='<?php echo $row['uni_eng_name'];?>'> <?php echo $row['uni_ar_name']?></option>
+                        <option selected value='<?php echo $row['uni_ar_name'];?>'> <?php echo $row['uni_ar_name']?></option>
                         <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $university;} ?></option>?>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <select name="faculty" class="form-select" id="faculty">
                     <?php foreach($faculties as $row){?>
-                        <option selected value='<?php echo $row['Faculty_eng_name']?>'><?php echo $row['Faculty_ar_name']?> </option>
+                        <option selected value='<?php echo $row['Faculty_ar_name']?>'><?php echo $row['Faculty_ar_name']?> </option>
                         <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $faculty;} ?></option>
                     </select>
                 </div>
@@ -207,7 +207,7 @@ $_SESSION ['faculties']=$faculties;
                     <select name="departments" class="form-select" id="department">
                     <option selected value="">القسم</option>
                     <?php foreach ($departments as $row){?>
-                        <option value='<?php echo $row['Department_eng_name']?>'><?php echo $row['Department_ar_name']?></option> 
+                        <option value='<?php echo $row['Department_ar_name']?>'><?php echo $row['Department_ar_name']?></option> 
                         <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $department;} ?></option> 
                     </select>
                 </div>
@@ -217,7 +217,7 @@ $_SESSION ['faculties']=$faculties;
                     <select name="doctor_jobs" class="form-select" id="job">
                     <option selected value="">الدرجة الوظيفية الحالية</option>
                     <?php  foreach($doctor_jobs as $row){?>
-                        <option value='<?php echo $row['Doctor_job_eng_name']?>'><?php echo $row['Doctor_job_ar_name']?></option>
+                        <option value='<?php echo $row['Doctor_job_ar_name']?>'><?php echo $row['Doctor_job_ar_name']?></option>
                         <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $doctorjob;} ?></option>
                     </select>
                 </div>
