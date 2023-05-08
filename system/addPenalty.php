@@ -1,3 +1,49 @@
+<?php
+include "../Connections/syscon.php"; 
+?>
+<?php   if (isset($_POST['search'])) {
+        
+        $st=$_POST ['search'];
+        $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
+        $results=mysqli_query($bis,$myquery);
+        while ($row=mysqli_fetch_array($results)){
+        }}
+        ?>
+<?php 
+if(isset($_POST['submit'])) {
+    if(isset($_GET['id'])){
+        $id=$_GET['id'];
+        if(isset($_POST['penality_description'])){
+        $penality_description =	$_POST["penality_description"];
+
+        $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
+        if ($bis->connect_error) {
+            die('Could not connect to the database.');
+        }
+        
+        else {
+            $Select = "SELECT * FROM penalities";
+            $Insert = "INSERT INTO penalities(penality_description) values(?)";
+            $stmt = $bis->prepare($Select);  
+            
+            $stmt = $bis->prepare($Insert);
+                $stmt->bind_param("s",$penality_description);
+                if ($stmt->execute()) {
+
+                    
+                }
+                else {
+                    echo $stmt->error;
+                }
+            }}    
+}}
+
+
+
+
+
+?>
+        
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -30,7 +76,11 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="search">
+
                     <form action="" method="" id="searchForm">
+
+                    <form action="" method="post" id="searchForm">
+
                         <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="search" placeholder="بحث...">
                     </form>
                 </div>
@@ -44,7 +94,57 @@
         </div>
     </div>
 
+
     <form action="" method="">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <table class="table text-center fs-4 bg-white shadow rounded-2">
+                    <thead class="mainText table-light">
+                        <tr>
+                            <th>كود العضو</th>
+                            <th>اسم العضو</th>
+                            <th>الدرجة الوظيفية الحالية</th>
+                            <th>إضافة العقوبات أو الجزاءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php   if (isset($_POST['search'])) {
+        
+        $st=$_POST ['search'];
+        $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
+        $results=mysqli_query($bis,$myquery);
+        while ($row=mysqli_fetch_array($results)){
+        
+        ?>
+                        <tr>
+                            <td><?php echo $row['DoctorCode']; ?></td>
+                            <td><?php echo $row['Doctor_ar_Name']; ?></td>
+                            <td><?php echo $row['doctor_jobs']; ?></td>
+                            <td><button class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة  </button></td>
+                        </tr>
+                        <?php }} else{
+                            
+                            $myquery="SELECT * FROM doctors_account   ";
+                            $results=mysqli_query($bis,$myquery);
+                            while ($row=mysqli_fetch_array($results)){
+                            
+                            ?>
+                                            <tr>
+                                                <td><?php echo $row['DoctorCode']; ?></td>
+                                                <td><?php echo $row['Doctor_ar_Name']; ?></td>
+                                                <td><?php echo $row['doctor_jobs']; ?></td>
+                                                <td><button class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة  </button></td>
+                                            </tr>
+                    <?php  }} ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <form action="" method="" id="addPenaltyForm" class="d-none">
+
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">
@@ -110,16 +210,18 @@
                 </div>
                 <div class="row my-2 justify-content-end">
                     <div class="col-md-2">
-                        <button type="submit" class="addPenaltyBtn rounded-pill border-0 w-100 my-3"  id="addPenaltyBtn" name="addPenaltyBtn">إضافة</button>
+                        <button type="submit" class="addPenaltyBtn rounded-pill border-0 w-100 my-3"  id="addPenaltyBtn" name="submit">إضافة</button>
                     </div> 
                 </div>
             </div>
         </div>
     </form>
 
-    <?php
-        include('footer.php');
-    ?>
+    <div class="fixedFooter position-fixed bottom-0 start-0 end-0 z-3">
+        <?php
+            include('footer.php');
+        ?>
+    </div>
     
     <script src="../js/all.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
