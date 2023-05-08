@@ -92,7 +92,9 @@ include "../Connections/syscon.php";
     <form action="addPenalty.php" method="POST" id="addPenaltyForm" class="d-none">
     <?php  if (isset($_POST['submit'])) {
     if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
-        isset($_POST['penaltyDescription']) && isset($_POST['penaltyDuration']) && isset($_POST['startDate']) && isset($_POST['endDate']) && isset($_POST['penaltyReason']) && isset($_POST['penaltyFile']) && isset($_POST['penaltyNotes']) ){
+        isset($_POST['penaltyDescription']) && isset($_POST['penaltyDuration']) &&
+        isset($_POST['startDate']) && isset($_POST['endDate']) && isset($_POST['penaltyReason']) && 
+        isset($_POST['penaltyFile']) && isset($_POST['penaltyNotes']) ){
             $doctorCodeInput=$_POST['doctorCodeInput'];
             $doctorNameInput =$_POST['doctorNameInput'];
             $penaltyDescription =$_POST['penaltyDescription']; 
@@ -112,7 +114,7 @@ include "../Connections/syscon.php";
                 $Insert = "INSERT INTO penalities(doctorCodeInput, doctorNameInput, penaltyDescription, penaltyDuration, startDate, endDate, penaltyReason, penaltyNotes, penaltyFile) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("sssssssss",$doctorCodeInput, $doctorNameInput, $penaltyDescription, $startDate, $endDate, $penaltyReason, $penaltyFile, $penaltyNotes, $penaltyDuration);
+                    $stmt->bind_param("sssssssss",$doctorCodeInput, $doctorNameInput, $penaltyDescription, $penaltyDuration, $startDate, $endDate, $penaltyReason, $penaltyNotes, $penaltyFile);
                     if ($stmt->execute()) {
                     }
                     else {

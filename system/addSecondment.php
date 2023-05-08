@@ -99,14 +99,14 @@ include "../Connections/syscon.php";
         isset($_POST['secondmentFile']) && isset($_POST['secondmentNotes'])){
             $doctorCodeInput=$_POST['doctorCodeInput'];
             $doctorNameInput =$_POST['doctorNameInput'];
-            $vacationDescription =$_POST['secondmentDescription']; 
-            $startDate=$_POST["secondmentDestination"]; 
-            $endDate=$_POST['secondmentType'];
-            $vacationReason =$_POST['secondmentDuration'];
-            $vacationFile =$_POST['startDate']; 
-            $vacationNotes=$_POST["endDate"]; 
-            $vacationFile =$_POST['secondmentFile']; 
-            $vacationNotes=$_POST["secondmentNotes"]; 
+            $secondmentDescription =$_POST['secondmentDescription']; 
+            $secondmentDestination=$_POST["secondmentDestination"]; 
+            $secondmentType=$_POST['secondmentType'];
+            $secondmentDuration =$_POST['secondmentDuration'];
+            $startDate =$_POST['startDate']; 
+            $endDate=$_POST["endDate"]; 
+            $secondmentFile =$_POST['secondmentFile']; 
+            $secondmentNotes=$_POST["secondmentNotes"]; 
             $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
             if ($bis->connect_error) {
                 die('Could not connect to the database.');
