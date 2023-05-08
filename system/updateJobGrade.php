@@ -65,7 +65,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['doctor_jobs']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }
                         
@@ -77,7 +77,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['doctor_jobs']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }}?>
                     </tbody>
@@ -112,7 +112,7 @@ include "../Connections/syscon.php";
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــو  :</label>
+                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــــــــــــــــو  :</label>
                     </div>
                     <div class="col-md-10">
                         <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
@@ -120,10 +120,18 @@ include "../Connections/syscon.php";
                 </div> 
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضـــــــو  :</label>
+                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســــــم العضـــــــــــــــــــــو  :</label>
                     </div>
                     <div class="col-md-10">
                         <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
+                    </div>
+                </div> 
+                <div class="row my-2 align-items-center">
+                    <div class="col-md-2 text-center">
+                        <label for="doctorJobInput" class="mainText fw-bold fs-4"> الدرجــة الوظيفيــة الحاليـــــة  :</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4"></input>
                     </div>
                 </div> 
                 <div class="row my-2 align-items-center">

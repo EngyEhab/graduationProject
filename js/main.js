@@ -229,9 +229,10 @@ $('.tableUpdateJobGradeBtn').click(function(){
 $('.tableUpdateJobGradeBtn').click(function(){
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
+    var doctorJob = $(this).attr('doctorJob');
     $('#doctorCodeInput').val(doctorCode);
     $('#doctorNameInput').val(doctorName);
-
+    $('#doctorJobInput').val(doctorJob);
 })
 
 // end UpdateJobGrade page
