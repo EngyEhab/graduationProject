@@ -1,38 +1,5 @@
 <?php
 include "../Connections/syscon.php"; 
-?>
-
-<?php 
-if(isset($_POST['submit'])) {
-    if(isset($_GET['id'])){
-        $id=$_GET['id'];
-        if(isset($_POST['penality_description'])){
-        $penality_description =	$_POST["penality_description"];
-
-        $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
-        if ($bis->connect_error) {
-            die('Could not connect to the database.');
-        }
-        
-        else {
-            $Select = "SELECT * FROM penalities";
-            $Insert = "INSERT INTO penalities(penality_description) values(?)";
-            $stmt = $bis->prepare($Select);  
-            
-            $stmt = $bis->prepare($Insert);
-                $stmt->bind_param("s",$penality_description);
-                if ($stmt->execute()) {
-
-                    
-                }
-                else {
-                    echo $stmt->error;
-                }
-            }}    
-}}
-
-
-
 
 
 ?>
@@ -122,7 +89,35 @@ if(isset($_POST['submit'])) {
         </div>
     </div>
 
-    <form action="" method="" id="addPenaltyForm" class="d-none">
+    <form action="addPenalty.php" method="POST" id="addPenaltyForm" class="d-none">
+    <?php  if (isset($_POST['submit'])) {
+    if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
+        isset($_POST['penaltyDescription']) && isset($_POST['penaltyDuration']) && isset($_POST['startDate']) && isset($_POST['endDate']) && isset($_POST['penaltyReason']) && isset($_POST['penaltyFile']) && isset($_POST['penaltyNotes']) ){
+            $doctorCodeInput=$_POST['doctorCodeInput'];
+            $doctorNameInput =$_POST['doctorNameInput'];
+            $penaltyDescription =$_POST['penaltyDescription']; 
+            $startDate=$_POST["startDate"]; 
+            $endDate=$_POST["endDate"]; 
+            $penaltyReason=$_POST["penaltyReason"]; 
+            $penaltyFile=$_POST["penaltyFile"]; 
+            $penaltyNotes=$_POST["penaltyNotes"]; 
+            $penaltyDuration=$_POST["penaltyDuration"]; 
+
+            $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
+            if ($bis->connect_error) {
+                die('Could not connect to the database.');
+            }
+            else {
+                $Select = "SELECT * FROM penalities ";
+                $Insert = "INSERT INTO penalities(doctorCodeInput, doctorNameInput, penaltyDescription, penaltyDuration, startDate, endDate, penaltyReason, penaltyNotes, penaltyFile) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $bis->prepare($Select);
+                    $stmt = $bis->prepare($Insert);
+                    $stmt->bind_param("sssssssss",$doctorCodeInput, $doctorNameInput, $penaltyDescription, $startDate, $endDate, $penaltyReason, $penaltyFile, $penaltyNotes, $penaltyDuration);
+                    if ($stmt->execute()) {
+                    }
+                    else {
+                        echo $stmt->error;
+                    }}}} ?>
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">
