@@ -25,19 +25,71 @@
         <i class="fa-solid fa-circle-arrow-up fa-xl" style="color: #ffffff;"></i>
     </button>
     <!-- end button to up -->
-    <form action="" method="">
-        <div class="container my-5">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <select name="memberSelected" required class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
-                        <option selected value="">اختر العضو</option>
-                        <option value="mohamed">محمد عبد السلام</option>
-                    </select>
+
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="search">
+                    <form action="" method="" id="searchForm">
+                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="search" placeholder="بحث...">
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <table class="table text-center fs-4 bg-white shadow rounded-2">
+                    <thead class="mainText table-light">
+                        <tr>
+                            <th>كود العضو</th>
+                            <th>اسم العضو</th>
+                            <th>الدرجة الوظيفية الحالية</th>
+                            <th>إضافة الأجازات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><button doctorCode="" doctorName="" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة  </button></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><button doctorCode="" doctorName="" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة  </button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <form action="" method="" id="addVacationForm" class="d-none">
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
+                <div class="row my-2 align-items-center">
+                    <div class="col-md-2 text-center">
+                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــو  :</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
+                    </div>
+                </div> 
+                <div class="row my-2 align-items-center">
+                    <div class="col-md-2 text-center">
+                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضـــــــو  :</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
+                    </div>
+                </div> 
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
                         <label for="vacationDescription" class="mainText fw-bold fs-4"> الأجــــــــــــــــــــازة :</label>
@@ -106,9 +158,11 @@
     </form>
 
 
-    <?php
-        include('footer.php');
-    ?>
+    <div class="fixedFooter position-fixed bottom-0 start-0 end-0 z-3">
+        <?php
+            include('footer.php');
+        ?>
+    </div>
 
     <script src="../js/all.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>

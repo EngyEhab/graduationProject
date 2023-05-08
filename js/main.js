@@ -200,4 +200,22 @@ $('.tableAddSecondmentBtn').click(function(){
 
 // end addSecondment page
 
+// start addVacation page
+
+$('.tableAddVacationBtn').click(function(){
+    $('#addVacationForm').removeClass('d-none');
+    $('.fixedFooter').removeClass('position-fixed');
+})
+
+
+$('.tableAddVacationBtn').click(function(){
+    var doctorCode = $(this).attr('doctorCode');
+    var doctorName = $(this).attr('doctorName');
+    $('#doctorCodeInput').val(doctorCode);
+    $('#doctorNameInput').val(doctorName);
+
+})
+
+// end addVacation page
+
 
