@@ -44,7 +44,7 @@ include "../Connections/syscon.php";
         </div>
     </div>
 
-    <div class="container">
+    <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-9">
                 <table class="table text-center fs-4 bg-white shadow rounded-2">
