@@ -1,8 +1,5 @@
-<?php
-include "../Connections/syscon.php"; 
-?>
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,86 +9,8 @@ include "../Connections/syscon.php";
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="body">
-    <div class="bodyCover"></div>
-    <?php
-        include('header.php');
-    ?>
-    <div class="sidebarContainer position-fixed">
-    <?php
-        include('sidebar.php');
-    ?>
-    </div>
-
-    <!-- start button to up -->
-    <button class="btnToUp border-0" id="btnUp">
-        <i class="fa-solid fa-circle-arrow-up fa-xl" style="color: #ffffff;"></i>
-    </button>
-    <!-- end button to up -->
-
-    <div class="container my-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="search">
-                    <form action="" method="" id="searchForm">
-                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="statementSearch" placeholder="بحث...">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="container mb-5">
-        <div class="row justify-content-center">
-            <div class="col-md-9">
-                <table class="table text-center fs-4 bg-white shadow rounded-2">
-                    <thead class="mainText table-light">
-                        <tr>
-                            <th>كود العضو</th>
-                            <th>اسم العضو</th>
-                            <th>القسم</th>
-                            <th>عرض بيان الحالة </th>
-                        </tr>
-                    </thead>   
-                    <tbody>
-                    <?php
-            if (isset($_POST['statementSearch'])) {
-        $st=$_POST ['statementSearch'];
-        $query="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
-        $results=mysqli_query($bis,$query);
-        while($row=mysqli_fetch_array($results)) {
-            ?>
-                <tr>
-                    <td><?php echo $row['DoctorCode'] ?></td>
-                    <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                    <td><?php echo $row['departments'] ?></td>
-                    <td><button doctorCode="<?php echo $row['DoctorCode'] ?>" class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button></td>
-                </tr>
-                <?php }
-            }
-            else{
-                $query="SELECT * FROM doctors_account";
-                $results=mysqli_query($bis,$query);
-                while($row=mysqli_fetch_array($results)) {
-                ?>
-                <tr>
-                    <td><?php echo $row['DoctorCode'] ?></td>
-                    <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                    <td><?php echo $row['departments'] ?></td>
-                    <td><button doctorCode="<?php echo $row['DoctorCode'] ?>" class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button></td>
-                </tr>
-                <?php }
-            }
-            ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <div class="container shadow bg-white p-5 mt-5 d-none" id="statement">
-        <input name="doctorCodeInput" id="doctorCodeInput" class="form-control fs-4 d-none"></input>
+<body>
+    <div class="container statement p-5 mt-5" id="statement">
         <div class="row align-items-end">
             <div class="col-md-4">
                 <div class="universityData text-center" >
@@ -218,31 +137,5 @@ include "../Connections/syscon.php";
         </div>
     </div>
     
-
-
-
-    <div class="container">
-        <div class="row justify-content-end">
-            <div class="col-md-2">
-                <a href="statementDocument.php">
-                    <button id="statementBtn" class="rounded-pill border-0 w-100 my-3 d-none">
-                        <span>عرض كـ  PDF</span>
-                    </button>
-                </a>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="fixedFooter position-fixed bottom-0 start-0 end-0 z-3">
-        <?php
-            include('footer.php');
-        ?>
-    </div>
-
-    <script src="../js/all.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/jquery-3.6.4.js"></script>
-    <script src="../js/main.js"></script>
 </body>
 </html>
