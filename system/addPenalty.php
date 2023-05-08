@@ -125,17 +125,17 @@ if(isset($_POST['submit'])) {
     <form action="" method="" id="addPenaltyForm" class="d-none">
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
-                <div class="row my-2">
+                <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كود العضو  :</label>
+                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــــــــــود العضــــــــــــــو  :</label>
                     </div>
                     <div class="col-md-10">
                         <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
                     </div>
                 </div> 
-                <div class="row my-2">
+                <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اسم العضو  :</label>
+                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــــــــم العضــــــــــــــو  :</label>
                     </div>
                     <div class="col-md-10">
                         <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>

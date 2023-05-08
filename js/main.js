@@ -128,6 +128,8 @@ $('#vacationFile').change(function(e){
 
 // end when click on div choose file , click on input choose file
 
+
+// start completeData page
 $('.tableCompleteDataBtn').click(function(){
     $('#completeDataContainer').removeClass('d-none');
     $('.fixedFooter').removeClass('position-fixed');
@@ -143,6 +145,9 @@ $('.tableCompleteDataBtn').click(function(){
     $('#doctorJobInput').val(doctorJob);
 })
 
+// end completeData page
+
+// start statement page
 
 $('.tableDisplayBtn').click(function(){
     $('#statement').removeClass('d-none');
@@ -157,6 +162,10 @@ $('.tableDisplayBtn').click(function(){
 
 })
 
+// end statement page
+
+// start addPenalty page
+
 $('.tableAddPenaltyBtn').click(function(){
     $('#addPenaltyForm').removeClass('d-none');
     $('.fixedFooter').removeClass('position-fixed');
@@ -170,5 +179,25 @@ $('.tableAddPenaltyBtn').click(function(){
     $('#doctorNameInput').val(doctorName);
 
 })
+
+// end addPenalty page
+
+// start addSecondment page
+
+$('.tableAddSecondmentBtn').click(function(){
+    $('#addSecondmentForm').removeClass('d-none');
+    $('.fixedFooter').removeClass('position-fixed');
+})
+
+
+$('.tableAddSecondmentBtn').click(function(){
+    var doctorCode = $(this).attr('doctorCode');
+    var doctorName = $(this).attr('doctorName');
+    $('#doctorCodeInput').val(doctorCode);
+    $('#doctorNameInput').val(doctorName);
+
+})
+
+// end addSecondment page
 
 
