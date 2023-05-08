@@ -74,7 +74,7 @@
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــو  :</label>
+                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضــــــــــــــــــــو  :</label>
                     </div>
                     <div class="col-md-10">
                         <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
@@ -82,7 +82,7 @@
                 </div> 
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضـــــــو  :</label>
+                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضــــــــــــــــــــو  :</label>
                     </div>
                     <div class="col-md-10">
                         <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
