@@ -1,3 +1,6 @@
+<?php
+include "../Connections/syscon.php";
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -52,29 +55,64 @@
                     </thead>   
                     <tbody>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button doctorCode="" doctorName="" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                        <?php
+            if (isset($_POST['search'])) {
+                    $st=$_POST['search'];
+                    $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%'";
+                    $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){
+                    ?>
+                            <td><?php echo $row['DoctorCode'];?></td>
+                            <td><?php echo $row['Doctor_ar_Name']?></td>
+                            <td><?php echo $row['doctor_jobs']?></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
+                        <?php }
+                        
+            }
+                else { $myquery="SELECT * FROM doctors_account";
+                        $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){?>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button doctorCode="" doctorName="" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><?php echo $row['DoctorCode'];?></td>
+                            <td><?php echo $row['Doctor_ar_Name']?></td>
+                            <td><?php echo $row['doctor_jobs']?></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
+                        <?php }}?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 
-    <form action="" method="" id="updateJobGradeForm" class="d-none">
+    <form action="updateJobGrade.php" method="post" id="updateJobGradeForm" class="d-none">
+
+    <?php
+    $doctor_jobs = "SELECT * FROM doctor_jobs";
+    $result = $bis->query($doctor_jobs);
+    $appata = mysqli_query ($bis, $doctor_jobs) or die (mysqli_error ($bis));
+    $row_appata = mysqli_fetch_assoc ($appata);
+    $doctor_jobs=array($row_appata);
+    while($row=mysqli_fetch_assoc($appata)){
+        array_push($doctor_jobs,$row);
+    }
+    $_SESSION ['doctor_jobs']=$doctor_jobs;
+
+    if (isset($_POST['updateJobGradeBtn'])){
+  
+         $doctorCodeInput=$_POST['doctorCodeInput'];
+         $doctor_job =$_POST['doctor_job'];
+         if ((!empty($doctor_job))){
+            $Details = mysqli_query($bis , "UPDATE doctors_account SET 
+            doctor_jobs='$doctor_job'  WHERE DoctorCode='$doctorCodeInput'");}}
+
+         ?>
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضــــــــــــــــــــو  :</label>
+                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــو  :</label>
                     </div>
                     <div class="col-md-10">
                         <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
@@ -82,7 +120,7 @@
                 </div> 
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضــــــــــــــــــــو  :</label>
+                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضـــــــو  :</label>
                     </div>
                     <div class="col-md-10">
                         <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
@@ -93,16 +131,11 @@
                         <label for="jobGrade" class="mainText fw-bold fs-4">تحديــث الدرجــة الوظيفيــــة   :</label>
                     </div>
                     <div class="col-md-10">
-                        <select name="doctor_jobs" class="form-select" id="job">
+                        <select name="doctor_job" class="form-select" id="job">
                             <option selected value=""></option>
-                            <option value="Professor">استاذ</option>
-                            <option value="Associate Professor">استاذ مساعد</option>
-                            <option value="Lecturer">مدرس</option>
-                            <option value="lecturer Assistant">مدرس مساعد</option>
-                            <option value="Teaching Assistant">معيد</option>
-                            <option value="-">استاذ متفرغ</option>
-                            <option value="-">استاذ مساعد متفرغ</option>
-                            <option value="-">مدرس متفرغ</option>
+                            <?php  foreach($doctor_jobs as $row){?>
+                        <option value='<?php echo $row['Doctor_job_ar_name']?>'><?php echo $row['Doctor_job_ar_name']?></option>
+                        <?php } ?>
                         </select>
                     </div>
                 </div>
