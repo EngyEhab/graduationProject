@@ -100,14 +100,13 @@ include "../Connections/syscon.php";
     $_SESSION ['doctor_jobs']=$doctor_jobs;
 
     if (isset($_POST['updateJobGradeBtn'])){
-  
-         $doctorCodeInput=$_POST['doctorCodeInput'];
-         $doctor_job =$_POST['doctor_job'];
-         if ((!empty($doctor_job))){
-            $Details = mysqli_query($bis , "UPDATE doctors_account SET 
-            doctor_jobs='$doctor_job'  WHERE DoctorCode='$doctorCodeInput'");}}
+        $doctorCodeInput=$_POST['doctorCodeInput'];
+        $doctor_job =$_POST['doctor_job'];
+        if ((!empty($doctor_job))){
+        $Details = mysqli_query($bis , "UPDATE doctors_account SET 
+        doctor_jobs='$doctor_job'  WHERE DoctorCode='$doctorCodeInput'");}}
 
-         ?>
+        ?>
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">

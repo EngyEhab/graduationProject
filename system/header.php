@@ -98,18 +98,5 @@ $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
         <!-- end navbar -->
     </header>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
