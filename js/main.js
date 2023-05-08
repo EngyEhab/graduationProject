@@ -120,7 +120,7 @@ $('.chooseSecondmentFileBtn').click(function(e){
     $('#secondmentFile').click();
 });
 
-$('#vacationFile').change(function(e){
+$('#secondmentFile').change(function(e){
     var selectedSecondmentFile = e.target.files[0].name;
     $('.selectedSecondmentFile').text(selectedSecondmentFile);
 })
