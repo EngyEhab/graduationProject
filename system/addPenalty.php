@@ -1,14 +1,7 @@
 <?php
 include "../Connections/syscon.php"; 
 ?>
-<?php   if (isset($_POST['search'])) {
-        
-        $st=$_POST ['search'];
-        $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
-        $results=mysqli_query($bis,$myquery);
-        while ($row=mysqli_fetch_array($results)){
-        }}
-        ?>
+
 <?php 
 if(isset($_POST['submit'])) {
     if(isset($_GET['id'])){
@@ -76,26 +69,13 @@ if(isset($_POST['submit'])) {
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="search">
-
-                    <form action="" method="" id="searchForm">
-
                     <form action="" method="post" id="searchForm">
-
                         <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="search" placeholder="بحث...">
                     </form>
                 </div>
             </div>
-            <!-- <div class="col-md-6">
-                <select name="memberSelected" required class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
-                    <option selected value="">اختر العضو</option>
-                    <option value="mohamed">محمد عبد السلام</option>
-                </select>
-            </div> -->
         </div>
     </div>
-
-
-    <form action="" method="">
 
     <div class="container">
         <div class="row justify-content-center">
@@ -111,42 +91,56 @@ if(isset($_POST['submit'])) {
                     </thead>
                     <tbody>
                     <?php   if (isset($_POST['search'])) {
-        
-        $st=$_POST ['search'];
-        $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
-        $results=mysqli_query($bis,$myquery);
-        while ($row=mysqli_fetch_array($results)){
-        
-        ?>
+                    $st=$_POST ['search'];
+                    $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
+                    $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){  
+                    ?>
                         <tr>
                             <td><?php echo $row['DoctorCode']; ?></td>
                             <td><?php echo $row['Doctor_ar_Name']; ?></td>
                             <td><?php echo $row['doctor_jobs']; ?></td>
-                            <td><button class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة  </button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة  </button></td>
                         </tr>
-                        <?php }} else{
-                            
-                            $myquery="SELECT * FROM doctors_account   ";
-                            $results=mysqli_query($bis,$myquery);
-                            while ($row=mysqli_fetch_array($results)){
-                            
-                            ?>
-                                            <tr>
-                                                <td><?php echo $row['DoctorCode']; ?></td>
-                                                <td><?php echo $row['Doctor_ar_Name']; ?></td>
-                                                <td><?php echo $row['doctor_jobs']; ?></td>
-                                                <td><button class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة  </button></td>
-                                            </tr>
+                    <?php }} 
+                    else{
+                        $myquery="SELECT * FROM doctors_account";
+                        $results=mysqli_query($bis,$myquery);
+                        while ($row=mysqli_fetch_array($results)){
+                        
+                    ?>
+                        <tr>
+                            <td><?php echo $row['DoctorCode']; ?></td>
+                            <td><?php echo $row['Doctor_ar_Name']; ?></td>
+                            <td><?php echo $row['doctor_jobs']; ?></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة  </button></td>
+                        </tr>
                     <?php  }} ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <form action="" method="" id="addPenaltyForm" class="d-none">
 
+    <form action="" method="" id="addPenaltyForm" class="d-none">
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
+                <div class="row my-2">
+                    <div class="col-md-2 text-center">
+                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كود العضو  :</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
+                    </div>
+                </div> 
+                <div class="row my-2">
+                    <div class="col-md-2 text-center">
+                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اسم العضو  :</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
+                    </div>
+                </div> 
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
                         <label for="penaltyDescription" class="mainText fw-bold fs-4">  الجــــــــــزاء أو العقوبـــــــــة :</label>
