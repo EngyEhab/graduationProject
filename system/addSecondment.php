@@ -1,3 +1,6 @@
+<?php
+include "../Connections/syscon.php";
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -32,7 +35,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="search">
-                    <form action="" method="" id="searchForm">
+                    <form action="addSecondment.php" method="post" id="searchForm">
                         <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="search" placeholder="بحث...">
                     </form>
                 </div>
@@ -53,18 +56,33 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php
+            if (isset($_POST['search'])) {
+                    $st=$_POST['search'];
+                    $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%'";
+                    $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){
+                    ?>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button doctorCode="" doctorName="" class="border-0 rounded-pill w-50 fs-4 tableAddSecondmentBtn">إضافة  </button></td>
+                            <td><?php echo $row['DoctorCode'];?></td>
+                            <td><?php echo $row['Doctor_ar_Name']?></td>
+                            <td><?php echo $row['doctor_jobs']?></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableAddSecondmentBtn">إضافة  </button></td>
                         </tr>
+                        <?php }
+                        
+            }
+                else { 
+                        $myquery="SELECT * FROM doctors_account";
+                        $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){?>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button doctorCode="" doctorName="" class="border-0 rounded-pill w-50 fs-4 tableAddSecondmentBtn">إضافة  </button></td>
+                            <td><?php echo $row['DoctorCode'];?></td>
+                            <td><?php echo $row['Doctor_ar_Name']?></td>
+                            <td><?php echo $row['doctor_jobs']?></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableAddSecondmentBtn">إضافة  </button></td>
                         </tr>
+                        <?php }} ?>
                     </tbody>
                 </table>
             </div>
@@ -72,7 +90,38 @@
     </div>
 
 
-    <form action="" method="" id="addSecondmentForm" class="d-none">
+    <form action="addSecondment.php" method="post" id="addSecondmentForm" class="d-none">
+    <?php  if (isset($_POST['addSecondmentBtn'])) {
+    if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
+        isset($_POST['secondmentDescription']) && isset($_POST['secondmentDestination']) &&
+        isset($_POST['secondmentType']) && isset($_POST['secondmentDuration']) &&
+        isset($_POST['startDate']) && isset($_POST['endDate']) &&
+        isset($_POST['secondmentFile']) && isset($_POST['secondmentNotes'])){
+            $doctorCodeInput=$_POST['doctorCodeInput'];
+            $doctorNameInput =$_POST['doctorNameInput'];
+            $vacationDescription =$_POST['secondmentDescription']; 
+            $startDate=$_POST["secondmentDestination"]; 
+            $endDate=$_POST['secondmentType'];
+            $vacationReason =$_POST['secondmentDuration'];
+            $vacationFile =$_POST['startDate']; 
+            $vacationNotes=$_POST["endDate"]; 
+            $vacationFile =$_POST['secondmentFile']; 
+            $vacationNotes=$_POST["secondmentNotes"]; 
+            $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
+            if ($bis->connect_error) {
+                die('Could not connect to the database.');
+            }
+            else {
+                $Select = "SELECT * FROM addsecondment_data ";
+                $Insert = "INSERT INTO addsecondment_data(doctorCodeInput, doctorNameInput, secondmentDescription, secondmentDestination, secondmentType, secondmentDuration, startDate, endDate, secondmentFile, secondmentNotes) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $bis->prepare($Select);
+                    $stmt = $bis->prepare($Insert);
+                    $stmt->bind_param("ssssssssss",$doctorCodeInput, $doctorNameInput, $secondmentDescription, $secondmentDestination, $secondmentType, $secondmentDuration, $startDate, $endDate, $secondmentFile, $secondmentNotes);
+                    if ($stmt->execute()) {
+                    }
+                    else {
+                        echo $stmt->error;
+                    }}}} ?>
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">

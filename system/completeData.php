@@ -1,6 +1,5 @@
 <?php
 include "../Connections/syscon.php";
-$id=""; 
 ?>
 <!DOCTYPE html>
 <html lang="ar">
@@ -79,7 +78,6 @@ $id="";
             }
                 else { 
                         $myquery="SELECT * FROM doctors_account";
-                        $results=mysqli_query($bis,$myquery);
                         $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){?>
                     

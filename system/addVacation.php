@@ -1,3 +1,6 @@
+<?php
+include "../Connections/syscon.php";
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -31,7 +34,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="search">
-                    <form action="" method="" id="searchForm">
+                    <form action="addVacation.php" method="post" id="searchForm">
                         <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="search" placeholder="بحث...">
                     </form>
                 </div>
@@ -52,18 +55,33 @@
                         </tr>
                     </thead>
                     <tbody>
+                         <?php
+            if (isset($_POST['search'])) {
+                    $st=$_POST['search'];
+                    $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%'";
+                    $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){
+                    ?>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button doctorCode="" doctorName="" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة  </button></td>
+                            <td><?php echo $row['DoctorCode'];?></td>
+                            <td><?php echo $row['Doctor_ar_Name']?></td>
+                            <td><?php echo $row['doctor_jobs']?></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة  </button></td>
                         </tr>
+                        <?php }
+                        
+            }
+                else { 
+                        $myquery="SELECT * FROM doctors_account";
+                        $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){?>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><button doctorCode="" doctorName="" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة  </button></td>
+                            <td><?php echo $row['DoctorCode'];?></td>
+                            <td><?php echo $row['Doctor_ar_Name']?></td>
+                            <td><?php echo $row['doctor_jobs']?></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة  </button></td>
                         </tr>
+                        <?php }}?>
                     </tbody>
                 </table>
             </div>
@@ -71,7 +89,35 @@
     </div>
 
 
-    <form action="" method="" id="addVacationForm" class="d-none">
+    <form action="addVacation.php" method="post" id="addVacationForm" class="d-none">
+    <?php  if (isset($_POST['addVacationBtn'])) {
+    if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
+        isset($_POST['vacationDescription']) && isset($_POST['startDate']) &&
+        isset($_POST['endDate']) && isset($_POST['vacationReason']) &&
+        isset($_POST['vacationFile']) && isset($_POST['vacationNotes'])){
+            $doctorCodeInput=$_POST['doctorCodeInput'];
+            $doctorNameInput =$_POST['doctorNameInput'];
+            $vacationDescription =$_POST['vacationDescription']; 
+            $startDate=$_POST["startDate"]; 
+            $endDate=$_POST['endDate'];
+            $vacationReason =$_POST['vacationReason'];
+            $vacationFile =$_POST['vacationFile']; 
+            $vacationNotes=$_POST["vacationNotes"]; 
+            $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
+            if ($bis->connect_error) {
+                die('Could not connect to the database.');
+            }
+            else {
+                $Select = "SELECT * FROM addvacation_data ";
+                $Insert = "INSERT INTO addvacation_data(doctorCodeInput, doctorNameInput, vacationDescription, startDate, endDate, vacationReason, vacationFile, vacationNotes) values(?, ?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $bis->prepare($Select);
+                    $stmt = $bis->prepare($Insert);
+                    $stmt->bind_param("ssssssss",$doctorCodeInput, $doctorNameInput, $vacationDescription, $startDate, $endDate, $vacationReason, $vacationFile, $vacationNotes);
+                    if ($stmt->execute()) {
+                    }
+                    else {
+                        echo $stmt->error;
+                    }}}} ?>
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">
