@@ -33,7 +33,7 @@ include "../Connections/syscon.php";
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="search">
-                    <form action="statement.php" method="post" id="searchForm">
+                    <form action="" method="" id="searchForm">
                         <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="statementSearch" placeholder="بحث...">
                     </form>
                 </div>
@@ -66,7 +66,7 @@ include "../Connections/syscon.php";
                     <td><?php echo $row['DoctorCode'] ?></td>
                     <td><?php echo $row['Doctor_ar_Name'] ?></td>
                     <td><?php echo $row['departments'] ?></td>
-                    <td><button doctorCode="<?php echo $row['DoctorCode'] ?>" class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn" name="btn">عرض</button></td>
+                    <td><button doctorCode="<?php echo $row['DoctorCode'] ?>" class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button></td>
                 </tr>
                 <?php }
             }
@@ -79,7 +79,7 @@ include "../Connections/syscon.php";
                     <td><?php echo $row['DoctorCode'] ?></td>
                     <td><?php echo $row['Doctor_ar_Name'] ?></td>
                     <td><?php echo $row['departments'] ?></td>
-                    <td><button doctorCode="<?php echo $row['DoctorCode'] ?>" class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn" name="btn">عرض</button></td>
+                    <td><button doctorCode="<?php echo $row['DoctorCode'] ?>" class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button></td>
                 </tr>
                 <?php }
             }
