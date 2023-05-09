@@ -1,7 +1,5 @@
 <?php
 include "../Connections/syscon.php"; 
-
-
 ?>
         
 <!DOCTYPE html>

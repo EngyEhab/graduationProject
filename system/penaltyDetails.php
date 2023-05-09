@@ -1,3 +1,38 @@
+<?php
+include "../Connections/syscon.php"; 
+if (isset($_GET['id'])){
+
+    // $_SESSION['id']=$_GET['id'];
+    $id=$_GET['id'];
+
+                $myquery="SELECT * FROM doctors_account WHERE DoctorCode= '$id'";
+                $results=mysqli_query($bis,$myquery);
+                while ($row=mysqli_fetch_array($results)){$Doctor_image=$row['Doctor_image'];}
+
+    mysqli_select_db($bis,$database_bis);
+    $myquery="SELECT * FROM penalities WHERE doctorCodeInput= '$id'";
+    $result = $bis->query($myquery);
+    if ($result->num_rows === 1) {
+        $row = $result->fetch_assoc();
+
+        $doctorCodeInput=$row['doctorCodeInput'];
+        $doctorNameInput =$row['doctorNameInput'];
+        $penaltyDescription =$row['penaltyDescription']; 
+        $startDate=$row["startDate"]; 
+        $endDate=$row["endDate"]; 
+        $penaltyReason=$row["penaltyReason"]; 
+        $penaltyFile=$row["penaltyFile"]; 
+        $penaltyNotes=$row["penaltyNotes"]; 
+        $penaltyDuration=$row["penaltyDuration"]; 
+    
+    }
+}
+if (isset($_POST['deleteBtn'])){ 
+    $id=$_GET['id']; 
+     $Details = mysqli_query($bis , " DELETE FROM penalities WHERE doctorCodeInput='$id'");   
+
+}
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -34,7 +69,7 @@
                             <h4 class="mainText fw-bold">اســــــــــم العضــــــــــو  :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $doctorNameInput;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -42,7 +77,7 @@
                             <h4 class="mainText fw-bold">الجـــــــزاء أو العقوبـــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $penaltyDescription;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -50,7 +85,7 @@
                             <h4 class="mainText fw-bold">المـــــــــــــــــــــــــــــــدة  :</h4>
                         </div>
                         <div class="col-md-1">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $penaltyDuration;?></p>
                         </div>
                         <div class="col-md-2">
                             <span class="fs-5 fw-bold">سنين/ سنة</span>
@@ -59,13 +94,13 @@
                             <h4 class="mainText fw-bold">من  :</h4>
                         </div>
                         <div class="col-md-2">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $startDate;?></p>
                         </div>
                         <div class="col-md-1">
                             <h4 class="mainText fw-bold">إلى  :</h4>
                         </div>
                         <div class="col-md-2">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $endDate;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -73,7 +108,7 @@
                             <h4 class="mainText fw-bold"> الســــــــــــــــــــــــــبب  :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $penaltyReason;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -81,28 +116,28 @@
                             <h4 class="mainText fw-bold">الملاحظــــــــــــــــــــات  :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"> </p>
+                            <p class="fs-4"><?php echo $penaltyNotes;?></p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="memberPhoto d-flex justify-content-center align-items-center p-5">
-                    <img src="../images/1.jpg" class="w-50 rounded-circle shadow" alt="">
+                    <img src="../images/users/<?php echo $Doctor_image;?>" class="w-50 rounded-circle shadow" alt="">
                 </div>
-                <h1 class="text-center mainTitle">محمد عبد السلام</h1>
+                <h1 class="text-center mainTitle"><?php echo $doctorNameInput;?></h1>
             </div>
         </div>
     </div>
     <div class="container mt-3 mb-5">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <a href="updatePenaltyData.php?id=">
+                <a href="updatePenaltyData.php?id=<?php echo $doctorCodeInput;?>">
                     <button id="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="deletePenaltyData.php?id=">
+                <a href="deletePenaltyData.php?id=<?php echo $doctorCodeInput;?>">
                     <button id="deleteBtn" name="deleteBtn" class="btn btn-danger w-100 rounded-pill fw-bold fs-4 border-2 shadow">حـــذف</button>
                 </a>
             </div>
