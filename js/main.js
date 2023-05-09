@@ -131,12 +131,6 @@ $('#secondmentFile').change(function(e){
 
 // start completeData page
 $('.tableCompleteDataBtn').click(function(){
-    $('#completeDataContainer').removeClass('d-none');
-    $('.fixedFooter').removeClass('position-fixed');
-})
-
-
-$('.tableCompleteDataBtn').click(function(){
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
     var doctorJob = $(this).attr('doctorJob');
