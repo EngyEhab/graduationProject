@@ -30,7 +30,6 @@ include "../Connections/syscon.php";
     <!-- end button to up -->
 
 
-
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
