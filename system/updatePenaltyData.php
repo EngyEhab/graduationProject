@@ -22,7 +22,7 @@ if (isset($_GET['id'])){
 if (isset($_POST['updatePenaltyBtn'])){
     
             
-            $doctorNameInput =$_POST['doctorNameInput'];
+            // $doctorNameInput =$_POST['doctorNameInput'];
             $penaltyDescription =$_POST['penaltyDescription']; 
             $startDate=$_POST["startDate"]; 
             $endDate=$_POST["endDate"]; 
@@ -32,28 +32,16 @@ if (isset($_POST['updatePenaltyBtn'])){
             $penaltyDuration=$_POST["penaltyDuration"];
 
     if ((!empty($penaltyFile))){
-        $Details = mysqli_query($bis , "UPDATE penalities SET 
-        doctorNameInput='$doctorNameInput',penaltyDescription='$penaltyDescription',
+        $Details = mysqli_query($bis , "UPDATE penalities SET penaltyDescription='$penaltyDescription',
         startDate='$startDate',endDate='$endDate',penaltyReason='$penaltyReason',
         penaltyFile='$penaltyFile',penaltyNotes='$penaltyNotes',penaltyDuration='$penaltyDuration'
         WHERE doctorCodeInput='$id'");
         }
         else{
-            $Details = mysqli_query($bis , "UPDATE penalities SET 
-            doctorNameInput='$doctorNameInput',penaltyDescription='$penaltyDescription',
+            $Details = mysqli_query($bis , "UPDATE penalities SET penaltyDescription='$penaltyDescription',
             startDate='$startDate',endDate='$endDate',penaltyReason='$penaltyReason',
-            penaltyFile='$penaltyFile',penaltyNotes='$penaltyNotes',penaltyDuration='$penaltyDuration' WHERE doctorCodeInput='$id'");  
+            penaltyNotes='$penaltyNotes',penaltyDuration='$penaltyDuration' WHERE doctorCodeInput='$id'");  
         }}
-
-
-
-
-
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="ar">
@@ -84,7 +72,7 @@ if (isset($_POST['updatePenaltyBtn'])){
     <!-- end button to up -->
     
     
-    <form action="updatePenaltyData.php" method="post" id="updatePenaltyForm" class="mb-5">
+    <form action="" method="post" id="updatePenaltyForm" class="mb-5">
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">
