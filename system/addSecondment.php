@@ -67,7 +67,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['doctor_jobs']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableAddSecondmentBtn">إضافة  </button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#addSecondmentModal" class="border-0 rounded-pill w-50 fs-4 tableAddSecondmentBtn">إضافة  </button></td>
                         </tr>
                         <?php }
                         
@@ -80,7 +80,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['doctor_jobs']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableAddSecondmentBtn">إضافة  </button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#addSecondmentModal" class="border-0 rounded-pill w-50 fs-4 tableAddSecondmentBtn">إضافة  </button></td>
                         </tr>
                         <?php }} ?>
                     </tbody>
@@ -90,7 +90,7 @@ include "../Connections/syscon.php";
     </div>
 
 
-    <form action="addSecondment.php" method="post" id="addSecondmentForm" class="d-none">
+    <form action="addSecondment.php" method="post" id="addSecondmentForm">
     <?php  if (isset($_POST['addSecondmentBtn'])) {
     if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
         isset($_POST['secondmentDescription']) && isset($_POST['secondmentDestination']) &&
@@ -123,101 +123,109 @@ include "../Connections/syscon.php";
                         echo $stmt->error;
                     }}}} ?>
         <div class="w-75 mx-auto m-5">
-            <div class="container dataContainer p-3">
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــو  :</label>
+            <div class="modal modal-xl fade my-0" id="addSecondmentModal">
+                <div class="modal-dialog  modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="container dataContainer p-3">
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــو  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
+                                    </div>
+                                </div> 
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضـــــــو  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
+                                    </div>
+                                </div> 
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="secondmentDescription" class="mainText fw-bold fs-4"> الإعــــــــــــــــــــارة :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control" name="secondmentDescription" id="secondmentDescription">
+                                    </div>
+                                </div>
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="secondmentDestination" class="mainText fw-bold fs-4">جهــــة الإعــــــــــارة :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control" name="secondmentDestination" id="secondmentDestination">
+                                    </div>
+                                </div>
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label class="mainText fw-bold fs-4">نــــوع الإعـــــــــارة  :</label>
+                                    </div>
+                                    
+                                    <div class="col-md-1">
+                                        <input type="radio" id="inside" name="secondmentType" value="inside" class="form-check-input">
+                                        <label for="inside" class="fw-bold fs-4 px-1">داخلى </label>
+                                    </div>
+                                    
+                                    <div class="col-md-2">
+                                        <input type="radio" id="outside" name="secondmentType" value="outside" class="form-check-input">
+                                        <label for="outside" class="fw-bold fs-4 px-1">خارجى </label>
+                                    </div>
+                                </div>
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="secondmentDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة  :</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="number" min="1" class="form-control" name="secondmentDuration" id="secondmentDuration">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="fs-3 fw-bold">سنين/ سنة</span>
+                                    </div>
+                                    <div class="col-md-1 text-center">
+                                        <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" name="startDate" id="startDate">
+                                    </div>
+                                    <div class="col-md-1 text-center">
+                                        <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" name="endDate" id="endDate">
+                                    </div>
+                                </div>
+                                <div class="row my-2">
+                                    <div class="col-md-2 text-center">
+                                        <label for="secondmentFile" class="form-label mainText fw-bold fs-4"> إرفاق ملف الإعارة :</label>                   
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="fs-4 w-100 chooseSecondmentFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
+                                    </div>
+                                    <div class="col-md-8 align-self-center">
+                                        <input class="form-control d-none" type="file" id="secondmentFile" name="secondmentFile">  
+                                        <p class="selectedSecondmentFile fs-4"></p>                  
+                                    </div>
+                                </div>
+                                <div class="row my-2">
+                                    <div class="col-md-2 text-center">
+                                        <label for="secondmentNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <textarea name="secondmentNotes" id="secondmentNotes" rows="3" class="form-control fs-4"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row my-2 justify-content-end">
+                                    <div class="col-md-2">
+                                        <button type="submit" class="addSecondmentBtn rounded-pill border-0 w-100 my-3"  id="addSecondmentBtn" name="addSecondmentBtn">إضافة</button>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-10">
-                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
-                    </div>
-                </div> 
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضـــــــو  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
-                    </div>
-                </div> 
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="secondmentDescription" class="mainText fw-bold fs-4"> الإعــــــــــــــــــــارة :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" name="secondmentDescription" id="secondmentDescription">
-                    </div>
-                </div>
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="secondmentDestination" class="mainText fw-bold fs-4">جهــــة الإعــــــــــارة :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" name="secondmentDestination" id="secondmentDestination">
-                    </div>
-                </div>
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label class="mainText fw-bold fs-4">نــــوع الإعـــــــــارة  :</label>
-                    </div>
-                    
-                    <div class="col-md-1">
-                        <input type="radio" id="inside" name="secondmentType" value="inside" class="form-check-input">
-                        <label for="inside" class="fw-bold fs-4 px-1">داخلى </label>
-                    </div>
-                    
-                    <div class="col-md-1">
-                        <input type="radio" id="outside" name="secondmentType" value="outside" class="form-check-input">
-                        <label for="outside" class="fw-bold fs-4 px-1">خارجى </label>
-                    </div>
-                </div>
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="secondmentDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة  :</label>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="number" min="1" class="form-control" name="secondmentDuration" id="secondmentDuration">
-                    </div>
-                    <div class="col-md-2">
-                        <span class="fs-3 fw-bold">سنين/ سنة</span>
-                    </div>
-                    <div class="col-md-1 text-center">
-                        <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" name="startDate" id="startDate">
-                    </div>
-                    <div class="col-md-1 text-center">
-                        <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" name="endDate" id="endDate">
-                    </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col-md-2 text-center">
-                        <label for="secondmentFile" class="form-label mainText fw-bold fs-4"> إرفاق ملف الإعارة :</label>                   
-                    </div>
-                    <div class="col-md-2">
-                        <div class="fs-4 w-100 chooseSecondmentFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
-                    </div>
-                    <div class="col-md-8 align-self-center">
-                        <input class="form-control d-none" type="file" id="secondmentFile" name="secondmentFile">  
-                        <p class="selectedSecondmentFile fs-4"></p>                  
-                    </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col-md-2 text-center">
-                        <label for="secondmentNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <textarea name="secondmentNotes" id="secondmentNotes" rows="5" class="form-control fs-4"></textarea>
-                    </div>
-                </div>
-                <div class="row my-2 justify-content-end">
-                    <div class="col-md-2">
-                        <button type="submit" class="addSecondmentBtn rounded-pill border-0 w-100 my-3"  id="addSecondmentBtn" name="addSecondmentBtn">إضافة</button>
-                    </div> 
                 </div>
             </div>
         </div>
@@ -229,6 +237,16 @@ include "../Connections/syscon.php";
             include('footer.php');
         ?>
     </div>
+
+    <!-- <div class="modal modal-xl fade" id="addPenaltyModal">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    
+                </div>
+            </div>
+        </div>
+    </div> -->
 
     <script src="../js/all.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>

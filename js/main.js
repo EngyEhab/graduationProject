@@ -177,21 +177,12 @@ $('.tableAddPenaltyBtn').click(function(){
 // end addPenalty page
 
 // start addSecondment page
-
-$('.tableAddSecondmentBtn').click(function(){
-    $('#addSecondmentForm').removeClass('d-none');
-    $('.fixedFooter').removeClass('position-fixed');
-})
-
-
 $('.tableAddSecondmentBtn').click(function(){
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
     $('#doctorCodeInput').val(doctorCode);
     $('#doctorNameInput').val(doctorName);
-
 })
-
 // end addSecondment page
 
 // start addVacation page

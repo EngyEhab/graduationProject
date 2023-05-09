@@ -120,7 +120,7 @@ include "../Connections/syscon.php";
                     }}}} ?>
         <div class="w-75 mx-auto m-5">
             <div class="modal modal-xl fade" id="addPenaltyModal">
-                <div class="modal-dialog">
+                <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-body">
                             <div class="container dataContainer p-3">
