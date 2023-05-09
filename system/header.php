@@ -89,7 +89,7 @@ $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
                     <a class="nav-link fs-5" href="vacations.php">الأجــــازات </a>
                 </li>
                 <li class="nav-item linkStyle">
-                    <a class="nav-link fs-5" href="#">الإعــــارات </a>
+                    <a class="nav-link fs-5" href="secondments.php">الإعــــارات </a>
                 </li>
                 </ul>
             </div>

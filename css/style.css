@@ -167,7 +167,7 @@
 /*start background of body */
 
 /* start addMemberButton and Search in members Page */
-.addMemberBtn , .addPenaltyBtn , .addSecondmentBtn ,.addVacationBtn , .updateJobGradeBtn , .CompleteDataBtn , .tableUpdateJobGradeBtn , .tableCompleteDataBtn , .updateMemberDataBtn , .tableDisplayBtn ,.tableAddPenaltyBtn , .tableAddSecondmentBtn , .tableAddVacationBtn ,.tableUpdateJobGradeBtn ,.updatePenaltyBtn ,.addVacationBtn ,.updateVacationBtn
+.addMemberBtn , .addPenaltyBtn , .addSecondmentBtn ,.addVacationBtn , .updateJobGradeBtn , .CompleteDataBtn , .tableUpdateJobGradeBtn , .tableCompleteDataBtn , .updateMemberDataBtn , .tableDisplayBtn ,.tableAddPenaltyBtn , .tableAddSecondmentBtn , .tableAddVacationBtn ,.tableUpdateJobGradeBtn ,.updatePenaltyBtn ,.addVacationBtn ,.updateVacationBtn , .addSecondmentBtn ,.updateSecondmentBtn
 {
     background-color:var(--main-text,#023A71); 
     color:#fff;
