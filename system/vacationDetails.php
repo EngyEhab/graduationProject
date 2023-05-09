@@ -28,7 +28,7 @@
     <div class="container bg-white p-5 shadow mt-5">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <div class="penaltyData p-2">
+                <div class="vacationData p-2">
                     <div class="row">
                         <div class="col-md-3">
                             <h4 class="mainText fw-bold">اســــــــــم العضــــــــــو  :</h4>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <h4 class="mainText fw-bold">الجـــــــزاء أو العقوبـــــة :</h4>
+                            <h4 class="mainText fw-bold"> الأجـــــــــــــــــــــــــــازة  :</h4>
                         </div>
                         <div class="col-md-9">
                             <p class="fs-4"></p>
@@ -49,19 +49,13 @@
                         <div class="col-md-3">
                             <h4 class="mainText fw-bold">المـــــــــــــــــــــــــــــــدة  :</h4>
                         </div>
-                        <div class="col-md-1">
-                            <p class="fs-4"></p>
-                        </div>
                         <div class="col-md-2">
-                            <span class="fs-5 fw-bold">سنين/ سنة</span>
-                        </div>
-                        <div class="col-md-1">
                             <h4 class="mainText fw-bold">من  :</h4>
                         </div>
                         <div class="col-md-2">
                             <p class="fs-4"></p>
                         </div>
-                        <div class="col-md-1">
+                        <div class="col-md-2">
                             <h4 class="mainText fw-bold">إلى  :</h4>
                         </div>
                         <div class="col-md-2">
@@ -97,12 +91,12 @@
     <div class="container mt-3 mb-5">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <a href="updatePenaltyData.php?id=">
+                <a href="updateVacationData.php?id=">
                     <button id="updateBtn" name="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="deletePenaltyData.php?id=">
+                <a href="deleteVacationData.php?id=">
                     <button id="deleteBtn" name="deleteBtn" class="btn btn-danger w-100 rounded-pill fw-bold fs-4 border-2 shadow">حـــذف</button>
                 </a>
             </div>
