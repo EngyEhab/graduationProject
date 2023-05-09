@@ -167,12 +167,6 @@ $('.tableDisplayBtn').click(function(){
 // start addPenalty page
 
 $('.tableAddPenaltyBtn').click(function(){
-    $('#addPenaltyForm').removeClass('d-none');
-    $('.fixedFooter').removeClass('position-fixed');
-})
-
-
-$('.tableAddPenaltyBtn').click(function(){
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
     $('#doctorCodeInput').val(doctorCode);

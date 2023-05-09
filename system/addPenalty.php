@@ -65,7 +65,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode']; ?></td>
                             <td><?php echo $row['Doctor_ar_Name']; ?></td>
                             <td><?php echo $row['doctor_jobs']; ?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة  </button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#addPenaltyModal" class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة  </button></td>
                         </tr>
                     <?php }} 
                     else{
@@ -78,7 +78,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode']; ?></td>
                             <td><?php echo $row['Doctor_ar_Name']; ?></td>
                             <td><?php echo $row['doctor_jobs']; ?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة  </button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#addPenaltyModal" class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة  </button></td>
                         </tr>
                     <?php  }} ?>
                     </tbody>
@@ -87,7 +87,7 @@ include "../Connections/syscon.php";
         </div>
     </div>
 
-    <form action="addPenalty.php" method="POST" id="addPenaltyForm" class="d-none">
+    <form action="addPenalty.php" method="POST" id="addPenaltyForm">
     <?php  if (isset($_POST['submit'])) {
     if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
         isset($_POST['penaltyDescription']) && isset($_POST['penaltyDuration']) &&
@@ -119,88 +119,98 @@ include "../Connections/syscon.php";
                         echo $stmt->error;
                     }}}} ?>
         <div class="w-75 mx-auto m-5">
-            <div class="container dataContainer p-3">
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــــــــــود العضــــــــــــــو  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
-                    </div>
-                </div> 
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــــــــم العضــــــــــــــو  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
-                    </div>
-                </div> 
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="penaltyDescription" class="mainText fw-bold fs-4">  الجــــــــــزاء أو العقوبـــــــــة :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" name="penaltyDescription" id="penaltyDescription">
-                    </div>
-                </div>
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="penaltyDuration" class="mainText fw-bold fs-4">المــــــــــــــــــــــــــــــــــــــدة  :</label>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="number" min="1" class="form-control" name="penaltyDuration" id="penaltyDuration">
-                    </div>
-                    <div class="col-md-2">
-                        <span class="fs-3 fw-bold">سنين/ سنة</span>
-                    </div>
-                    <div class="col-md-1 text-center">
-                        <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" name="startDate" id="startDate">
-                    </div>
-                    <div class="col-md-1 text-center">
-                        <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" name="endDate" id="endDate">
-                    </div>
-                </div>
+            <div class="modal modal-xl fade" id="addPenaltyModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="container dataContainer p-3">
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــــــــــود العضــــــــــــــو  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
+                                    </div>
+                                </div> 
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــــــــم العضــــــــــــــو  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
+                                    </div>
+                                </div> 
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="penaltyDescription" class="mainText fw-bold fs-4">  الجــــــــــزاء أو العقوبـــــــــة :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control" name="penaltyDescription" id="penaltyDescription">
+                                    </div>
+                                </div>
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="penaltyDuration" class="mainText fw-bold fs-4">المــــــــــــــــــــــــــــــــــــــدة  :</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="number" min="1" class="form-control" name="penaltyDuration" id="penaltyDuration">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <span class="fs-3 fw-bold">سنين/ سنة</span>
+                                    </div>
+                                    <div class="col-md-1 text-center">
+                                        <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" name="startDate" id="startDate">
+                                    </div>
+                                    <div class="col-md-1 text-center">
+                                        <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" name="endDate" id="endDate">
+                                    </div>
+                                </div>
 
-                <div class="row my-2">
-                    <div class="col-md-2 text-center">
-                        <label for="penaltyReason" class="mainText fw-bold fs-4">الســـــــــــــــــــــــــــــــــبب  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <textarea name="penaltyReason" id="penaltyReason" rows="2" class="form-control fs-4"></textarea>
-                    </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col-md-2 text-center">
-                        <label for="penaltyFile" class="form-label mainText fw-bold fs-4"> إرفاق ملف الجزاء أو العقوبة :</label>  
-                    </div>
-                    <div class="col-md-2">
-                        <div class="fs-4 w-100 choosePenaltyFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
-                    </div>
-                    <div class="col-md-8 align-self-center">
-                        <input class="form-control d-none" type="file" id="penaltyFile" name="penaltyFile">
-                        <p class="selectedPenaltyFile fs-4"></p>                   
-                    </div>
-                </div>
+                                <div class="row my-2">
+                                    <div class="col-md-2 text-center">
+                                        <label for="penaltyReason" class="mainText fw-bold fs-4">الســـــــــــــــــــــــــــــــــبب  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <textarea name="penaltyReason" id="penaltyReason" rows="2" class="form-control fs-4"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row my-2">
+                                    <div class="col-md-2 text-center">
+                                        <label for="penaltyFile" class="form-label mainText fw-bold fs-4"> إرفاق ملف الجزاء أو العقوبة :</label>  
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="fs-4 w-100 choosePenaltyFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
+                                    </div>
+                                    <div class="col-md-8 align-self-center">
+                                        <input class="form-control d-none" type="file" id="penaltyFile" name="penaltyFile">
+                                        <p class="selectedPenaltyFile fs-4"></p>                   
+                                    </div>
+                                </div>
 
-                <div class="row my-2">
-                    <div class="col-md-2 text-center">
-                        <label for="penaltyNotes" class="mainText fw-bold fs-4">ملاحظــــــــــــــــــــــــــــات  :</label>
+                                <div class="row my-2">
+                                    <div class="col-md-2 text-center">
+                                        <label for="penaltyNotes" class="mainText fw-bold fs-4">ملاحظــــــــــــــــــــــــــــات  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <textarea name="penaltyNotes" id="penaltyNotes" rows="3" class="form-control fs-4"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row my-2 justify-content-end">
+                                    <div class="col-md-2">
+                                        <button type="submit" class="addPenaltyBtn rounded-pill border-0 w-100 my-3"  id="addPenaltyBtn" name="submit">إضافة</button>
+                                    </div> 
+                                </div>
+                        
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-10">
-                        <textarea name="penaltyNotes" id="penaltyNotes" rows="3" class="form-control fs-4"></textarea>
-                    </div>
-                </div>
-                <div class="row my-2 justify-content-end">
-                    <div class="col-md-2">
-                        <button type="submit" class="addPenaltyBtn rounded-pill border-0 w-100 my-3"  id="addPenaltyBtn" name="submit">إضافة</button>
-                    </div> 
                 </div>
             </div>
         </div>
