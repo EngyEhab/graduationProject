@@ -55,13 +55,8 @@ include "../Connections/syscon.php";
         <?php
             if (isset($_POST['search'])) {
                 $st=$_POST ['search'];
-            // $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
-            // $results=mysqli_query($bis,$myquery);
-            // while ($row=mysqli_fetch_array($results)){$Doctor_image=$row['Doctor_image']; 
-            //     $DoctorCode =$row['DoctorCode'];}
         ?>
         <?php
-        
         $myquery="SELECT * FROM penalities INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput AND doctorNameInput like '%$st%'  ";
         // $sql="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
         $results=mysqli_query($bis,$myquery);
@@ -78,10 +73,6 @@ include "../Connections/syscon.php";
                 </a>
             </div>
             <?php } } else{
-                
-                // $myquery="SELECT * FROM doctors_account WHERE DoctorCode =$DoctorCode";
-                // $results=mysqli_query($bis,$myquery);
-                // while ($row=mysqli_fetch_array($results)){$Doctor_image=$row['Doctor_image'];}
         $myquery="SELECT * FROM penalities INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){

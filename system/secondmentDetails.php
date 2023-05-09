@@ -1,3 +1,37 @@
+<?php
+include "../Connections/syscon.php"; 
+if (isset($_GET['id'])){
+
+    $id=$_GET['id'];
+
+    $myquery="SELECT * FROM doctors_account WHERE DoctorCode= '$id'";
+    $results=mysqli_query($bis,$myquery);
+    while ($row=mysqli_fetch_array($results)){$Doctor_image=$row['Doctor_image'];}
+
+    mysqli_select_db($bis,$database_bis);
+    $myquery="SELECT * FROM addsecondment_data WHERE doctorCodeInput= '$id'";
+    $result = $bis->query($myquery);
+    if ($result->num_rows === 1) {
+        $row = $result->fetch_assoc();
+
+        $doctorCodeInput=$row['doctorCodeInput'];
+        $doctorNameInput =$row['doctorNameInput'];
+        $secondmentDescription =$row['secondmentDescription']; 
+        $secondmentDestination=$row["secondmentDestination"]; 
+        $secondmentType=$row['secondmentType'];
+        $secondmentDuration =$row['secondmentDuration'];
+        $startDate =$row['startDate']; 
+        $endDate=$row["endDate"]; 
+        $secondmentFile =$row['secondmentFile']; 
+        $secondmentNotes=$row["secondmentNotes"]; 
+    }
+}
+// if (isset($_POST['deleteBtn'])){ 
+//     $id=$_GET['id']; 
+//     $Details = mysqli_query($bis , " DELETE FROM addsecondment_data WHERE doctorCodeInput='$id'");   
+
+// }
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -34,7 +68,7 @@
                             <h4 class="mainText fw-bold">اســم العضـــــــــــو  :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $doctorNameInput;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -42,7 +76,7 @@
                             <h4 class="mainText fw-bold"> الإعــــــــــــــــــــارة  :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $secondmentDescription;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -50,7 +84,7 @@
                             <h4 class="mainText fw-bold"> جهــــة الإعــــــــــارة  :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $secondmentDestination;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -58,7 +92,7 @@
                             <h4 class="mainText fw-bold"> نـــوع الإعــــــــــارة  :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $secondmentType;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -66,7 +100,7 @@
                             <h4 class="mainText fw-bold">المـــــــــــــــــــــــدة  :</h4>
                         </div>
                         <div class="col-md-1">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $secondmentDuration;?></p>
                         </div>
                         <div class="col-md-2">
                             <span class="fs-5 fw-bold">سنين/ سنة</span>
@@ -75,13 +109,13 @@
                             <h4 class="mainText fw-bold">من  :</h4>
                         </div>
                         <div class="col-md-2">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $startDate;?></p>
                         </div>
                         <div class="col-md-1">
                             <h4 class="mainText fw-bold">إلى  :</h4>
                         </div>
                         <div class="col-md-2">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $endDate;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -89,28 +123,28 @@
                             <h4 class="mainText fw-bold">الملاحظــــــــــــات  :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"> </p>
+                            <p class="fs-4"><?php echo $secondmentFile;?></p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="memberPhoto d-flex justify-content-center align-items-center p-5">
-                    <img src="../images/1.jpg" class="w-50 rounded-circle shadow" alt="">
+                    <img src="../images/users/<?php echo $Doctor_image;?>" class="w-50 rounded-circle shadow" alt="">
                 </div>
-                <h1 class="text-center mainTitle">محمد عبد السلام</h1>
+                <h1 class="text-center mainTitle"><?php echo $doctorNameInput;?></h1>
             </div>
         </div>
     </div>
     <div class="container mt-3 mb-5">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <a href="updateSecondmentData.php?id=">
+                <a href="updateSecondmentData.php?id=<?php echo $doctorCodeInput;?>">
                     <button id="updateBtn" name="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="deleteSecondmentData.php?id=">
+                <a href="deleteSecondmentData.php?id=<?php echo $doctorCodeInput;?>">
                     <button id="deleteBtn" name="deleteBtn" class="btn btn-danger w-100 rounded-pill fw-bold fs-4 border-2 shadow">حـــذف</button>
                 </a>
             </div>

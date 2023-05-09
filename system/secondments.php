@@ -1,3 +1,6 @@
+<?php
+include "../Connections/syscon.php"; 
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -38,7 +41,7 @@
             </div>
             <div class="col-md-6">
                 <div class="search">
-                    <form action="" method="" id="searchForm">
+                    <form action="secondments.php" method="post" id="searchForm">
                         <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="search" placeholder="بحث...">
                     </form>
                 </div>
@@ -49,27 +52,42 @@
 
     <div class="container my-5">
         <div class="row gy-5 gx-0 justify-content-center " id="members">
+        <?php
+            if (isset($_POST['search'])) {
+                $st=$_POST ['search'];
+        ?>
+        <?php
+        $myquery="SELECT * FROM addsecondment_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput AND doctorNameInput like '%$st%'  ";
+        // $sql="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
+        $results=mysqli_query($bis,$myquery);
+        while ($row=mysqli_fetch_array($results)){
+        ?>
             <div class="col-md-3">
-                <a href="secondmentDetails.php?id=" class="text-decoration-none">
+                <a href="secondmentDetails.php?id=<?php echo $row['doctorCodeInput']?>" class="text-decoration-none">
                 <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto border-0">
                     <div class="memberImage w-50 rounded-circle mx-auto">
-                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                        <img src="../images/users/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100" alt="">
                     </div>
-                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                    <h3 class="mainTitle pt-2"><?php echo $row['doctorNameInput']?></h3>
                 </div>
                 </a>
             </div>
-
+            <?php } } else{
+        $myquery="SELECT * FROM addsecondment_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput";
+        $results=mysqli_query($bis,$myquery);
+        while ($row=mysqli_fetch_array($results)){
+        ?>
             <div class="col-md-3">
-                <a href="secondmentDetails.php?id=" class="text-decoration-none">
+                <a href="secondmentDetails.php?id=<?php echo $row['doctorCodeInput']?>" class="text-decoration-none">
                 <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto border-0">
                     <div class="memberImage w-50 rounded-circle mx-auto">
-                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
+                        <img src="../images/users/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100" alt="">
                     </div>
-                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
+                    <h3 class="mainTitle pt-2"><?php echo $row['doctorNameInput']?></h3>
                 </div>
                 </a>
             </div>
+            <?php }}?>
         </div>
     </div>
 

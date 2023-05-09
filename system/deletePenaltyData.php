@@ -1,11 +1,11 @@
 <?php
 include "../Connections/syscon.php"; 
- 
+
 if (isset($_GET['id'])){ 
     $id=$_GET['id'];
-     $Details = mysqli_query($bis , " DELETE FROM penalities WHERE doctorCodeInput='$id'");   
-     header("location: penalties.php");
-     exit;
+    $Details = mysqli_query($bis , " DELETE FROM penalities WHERE doctorCodeInput='$id'");   
+    header("location: penalties.php");
+    exit;
 }
 ?>
 <!DOCTYPE html>

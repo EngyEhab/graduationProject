@@ -1,3 +1,51 @@
+<?php
+include "../Connections/syscon.php"; 
+$bis = mysqli_connect($hostname_bis, $username_bis, $password_bis, $database_bis);
+$id="";
+if (isset($_GET['id'])){
+    $id=$_GET['id'];
+    
+    $Select=mysqli_query($bis,"SELECT * FROM addsecondment_data WHERE  doctorCodeInput='$id' ");
+    $row=mysqli_fetch_assoc($Select);
+    
+    
+    $doctorCodeInput=$row['doctorCodeInput'];
+    $doctorNameInput =$row['doctorNameInput'];
+    $secondmentDescription =$row['secondmentDescription']; 
+    $secondmentDestination=$row["secondmentDestination"]; 
+    $secondmentType=$row['secondmentType'];
+    $secondmentDuration =$row['secondmentDuration'];
+    $startDate =$row['startDate']; 
+    $endDate=$row["endDate"]; 
+    $secondmentFile =$row['secondmentFile']; 
+    $secondmentNotes=$row["secondmentNotes"];  }
+
+if (isset($_POST['updateSecondmentBtn'])){
+    
+            
+    $doctorNameInput =$_POST['doctorNameInput'];
+    $secondmentDescription =$_POST['secondmentDescription']; 
+    $secondmentDestination=$_POST["secondmentDestination"]; 
+    $secondmentType=$_POST['secondmentType'];
+    $secondmentDuration =$_POST['secondmentDuration'];
+    $startDate =$_POST['startDate']; 
+    $endDate=$_POST["endDate"]; 
+    $secondmentFile =$_POST['secondmentFile']; 
+    $secondmentNotes=$_POST["secondmentNotes"]; 
+
+    if ((!empty($secondmentFile))){
+        $Details = mysqli_query($bis , "UPDATE addsecondment_data SET doctorNameInput='$doctorNameInput',
+        secondmentDescription='$secondmentDescription',secondmentDestination='$secondmentDestination',secondmentType='$secondmentType',
+        secondmentDuration='$secondmentDuration',startDate='$startDate',endDate='$endDate',secondmentFile='$secondmentFile',secondmentNotes='$secondmentNotes'
+        WHERE doctorCodeInput='$id'");
+        }
+        else{
+            $Details = mysqli_query($bis , "UPDATE addsecondment_data SET doctorNameInput='$doctorNameInput',
+            secondmentDescription='$secondmentDescription',secondmentDestination='$secondmentDestination',secondmentType='$secondmentType',
+            secondmentDuration='$secondmentDuration',startDate='$startDate',endDate='$endDate',secondmentNotes='$secondmentNotes'
+            WHERE doctorCodeInput='$id'");  
+        }}
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -27,7 +75,7 @@
     <!-- end button to up -->
     
     
-    <form action="" method="" id="updateVacationForm" class="mb-5">
+    <form action="" method="post" id="updateVacationForm" class="mb-5">
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
             <div class="row my-2 align-items-center">
@@ -35,7 +83,7 @@
                         <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضـــــــو  :</label>
                     </div>
                     <div class="col-md-10">
-                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
+                        <input name="doctorNameInput" id="doctorNameInput"value="<?php if (isset($_GET['id'])) {echo $doctorNameInput;}?>" readonly class="form-control fs-4"></input>
                     </div>
                 </div> 
                 <div class="row my-2 align-items-center">
@@ -43,15 +91,15 @@
                         <label for="secondmentDescription" class="mainText fw-bold fs-4"> الإعــــــــــــــــــــارة :</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" name="secondmentDescription" id="secondmentDescription">
+                        <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {echo $secondmentDescription;}?>" name="secondmentDescription" id="secondmentDescription">
                     </div>
                 </div>
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="secondmentDestination" class="mainText fw-bold fs-4">جهــــة الإعــــــــــارة :</label>
+                        <label for="secondmentDestination"  class="mainText fw-bold fs-4">جهــــة الإعــــــــــارة :</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" name="secondmentDestination" id="secondmentDestination">
+                        <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {echo $secondmentDestination;}?>" name="secondmentDestination" id="secondmentDestination">
                     </div>
                 </div>
                 <div class="row my-2 align-items-center">
@@ -60,12 +108,12 @@
                     </div>
                     
                     <div class="col-md-1">
-                        <input type="radio" id="inside" name="secondmentType" value="inside" class="form-check-input">
+                        <input type="radio" id="inside" name="secondmentType" value="inside" class="form-check-input"<?php if ($secondmentType == "inside") {echo "checked";}?>>
                         <label for="inside" class="fw-bold fs-4 px-1">داخلى </label>
                     </div>
                     
                     <div class="col-md-1">
-                        <input type="radio" id="outside" name="secondmentType" value="outside" class="form-check-input">
+                        <input type="radio" id="outside" name="secondmentType" value="outside" class="form-check-input"<?php if ($secondmentType == "outside") {echo "checked";}?>>
                         <label for="outside" class="fw-bold fs-4 px-1">خارجى </label>
                     </div>
                 </div>
@@ -74,7 +122,7 @@
                         <label for="secondmentDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة  :</label>
                     </div>
                     <div class="col-md-2">
-                        <input type="number" min="1" class="form-control" name="secondmentDuration" id="secondmentDuration">
+                        <input type="number" min="1" class="form-control" value="<?php if (isset($_GET['id'])) {echo $secondmentDuration;}?>" name="secondmentDuration" id="secondmentDuration">
                     </div>
                     <div class="col-md-2">
                         <span class="fs-3 fw-bold">سنين/ سنة</span>
@@ -83,13 +131,13 @@
                         <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
                     </div>
                     <div class="col-md-2">
-                        <input type="text" class="form-control" name="startDate" id="startDate">
+                        <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {echo $startDate;}?>" name="startDate" id="startDate">
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
                     </div>
                     <div class="col-md-2">
-                        <input type="text" class="form-control" name="endDate" id="endDate">
+                        <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {echo $endDate;}?>" name="endDate" id="endDate">
                     </div>
                 </div>
                 <div class="row my-2">
@@ -100,8 +148,8 @@
                         <div class="fs-4 w-100 chooseSecondmentFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
                     </div>
                     <div class="col-md-8 align-self-center">
-                        <input class="form-control d-none" type="file" id="secondmentFile" name="secondmentFile">  
-                        <p class="selectedSecondmentFile fs-4"></p>                  
+                        <input class="form-control d-none" type="file"  id="secondmentFile" name="secondmentFile">  
+                        <p class="selectedSecondmentFile fs-4"><?php if (isset($_GET['id'])) {echo $secondmentFile;}?></p>                  
                     </div>
                 </div>
                 <div class="row my-2">
@@ -109,12 +157,12 @@
                         <label for="secondmentNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات  :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="secondmentNotes" id="secondmentNotes" rows="5" class="form-control fs-4"></textarea>
+                        <textarea name="secondmentNotes" id="secondmentNotes" rows="5" class="form-control fs-4"><?php if (isset($_GET['id'])) {echo $secondmentNotes;}?></textarea>
                     </div>
                 </div>
                 <div class="row my-2 justify-content-end">
                     <div class="col-md-2">
-                        <button type="submit" class="updateSecondmentBtn rounded-pill border-0 w-100 my-3"  id="updateSecondmentBtn" name="update">تعديــل</button>
+                        <button type="submit" class="updateSecondmentBtn rounded-pill border-0 w-100 my-3"  id="updateSecondmentBtn" name="updateSecondmentBtn">تعديــل</button>
                     </div> 
                 </div>
             </div>
