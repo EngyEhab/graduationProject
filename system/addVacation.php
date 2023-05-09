@@ -66,7 +66,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['doctor_jobs']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة  </button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#addVacationModal" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة  </button></td>
                         </tr>
                         <?php }
                         
@@ -79,7 +79,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['doctor_jobs']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة  </button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#addVacationModal" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة  </button></td>
                         </tr>
                         <?php }}?>
                     </tbody>
@@ -89,7 +89,7 @@ include "../Connections/syscon.php";
     </div>
 
 
-    <form action="addVacation.php" method="post" id="addVacationForm" class="d-none">
+    <form action="addVacation.php" method="post" id="addVacationForm">
     <?php  if (isset($_POST['addVacationBtn'])) {
     if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
         isset($_POST['vacationDescription']) && isset($_POST['startDate']) &&
@@ -119,85 +119,93 @@ include "../Connections/syscon.php";
                         echo $stmt->error;
                     }}}} ?>
         <div class="w-75 mx-auto m-5">
-            <div class="container dataContainer p-3">
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــو  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
-                    </div>
-                </div> 
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضـــــــو  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
-                    </div>
-                </div> 
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="vacationDescription" class="mainText fw-bold fs-4"> الأجــــــــــــــــــــازة :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" name="vacationDescription" id="vacationDescription">
-                    </div>
-                </div>
+            <div class="modal modal-xl fade" id="addVacationModal">
+                <div class="modal-dialog  modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="container dataContainer p-3">
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــو  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
+                                    </div>
+                                </div> 
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضـــــــو  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
+                                    </div>
+                                </div> 
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="vacationDescription" class="mainText fw-bold fs-4"> الأجــــــــــــــــــــازة :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input type="text" class="form-control" name="vacationDescription" id="vacationDescription">
+                                    </div>
+                                </div>
 
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="vacationDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة  :</label>
-                    </div>
-                    <div class="col-md-1 text-center">
-                        <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" name="startDate" id="startDate">
-                    </div>
-                    <div class="col-md-1 text-center">
-                        <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
-                    </div>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" name="endDate" id="endDate">
-                    </div>
-                </div>
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="vacationDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة  :</label>
+                                    </div>
+                                    <div class="col-md-1 text-center">
+                                        <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" name="startDate" id="startDate">
+                                    </div>
+                                    <div class="col-md-1 text-center">
+                                        <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" name="endDate" id="endDate">
+                                    </div>
+                                </div>
 
-                <div class="row my-2">
-                    <div class="col-md-2 text-center">
-                        <label for="vacationReason" class="mainText fw-bold fs-4">الســــــــــــــــــبب  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <textarea name="vacationReason" id="vacationReason" rows="2" class="form-control fs-4"></textarea>
-                    </div>
-                </div>
+                                <div class="row my-2">
+                                    <div class="col-md-2 text-center">
+                                        <label for="vacationReason" class="mainText fw-bold fs-4">الســــــــــــــــــبب  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <textarea name="vacationReason" id="vacationReason" rows="2" class="form-control fs-4"></textarea>
+                                    </div>
+                                </div>
 
-                <div class="row my-2">
-                    <div class="col-md-2 text-center">
-                        <label for="vacationFile" class="form-label mainText fw-bold fs-4"> إرفاق ملف الأجازة :</label>                   
+                                <div class="row my-2">
+                                    <div class="col-md-2 text-center">
+                                        <label for="vacationFile" class="form-label mainText fw-bold fs-4"> إرفاق ملف الأجازة :</label>                   
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="fs-4 w-100 chooseVacationFileBtn text-center p-1 rounded-2" type="button">ارفق الملــف </div>
+                                    </div>
+                                    <div class="col-md-8 align-self-center">
+                                        <input class="form-control d-none" type="file" id="vacationFile" name="vacationFile">  
+                                        <p class="selectedVacationFile fs-4"></p>                   
+                                    </div>
+                                </div>
+                        
+                                
+                                <div class="row my-2">
+                                    <div class="col-md-2 text-center">
+                                        <label for="vacationNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <textarea name="vacationNotes" id="vacationNotes" rows="3" class="form-control fs-4"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row my-2 justify-content-end">
+                                    <div class="col-md-2">
+                                        <button type="submit" class="addVacationBtn rounded-pill border-0 w-100 my-3"  id="addVacationBtn" name="addVacationBtn">إضافة</button>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="fs-4 w-100 chooseVacationFileBtn text-center p-1 rounded-2" type="button">ارفق الملــف </div>
-                    </div>
-                    <div class="col-md-8 align-self-center">
-                        <input class="form-control d-none" type="file" id="vacationFile" name="vacationFile">  
-                        <p class="selectedVacationFile fs-4"></p>                   
-                    </div>
-                </div>
-        
-                
-                <div class="row my-2">
-                    <div class="col-md-2 text-center">
-                        <label for="vacationNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <textarea name="vacationNotes" id="vacationNotes" rows="3" class="form-control fs-4"></textarea>
-                    </div>
-                </div>
-                <div class="row my-2 justify-content-end">
-                    <div class="col-md-2">
-                        <button type="submit" class="addVacationBtn rounded-pill border-0 w-100 my-3"  id="addVacationBtn" name="addVacationBtn">إضافة</button>
-                    </div> 
                 </div>
             </div>
         </div>

@@ -287,7 +287,7 @@
     position:fixed;
     bottom:12%;
     right:5%;
-    z-index: 99999;
+    z-index: 3;
     display: none;
 }
 /* end button to up */
@@ -347,3 +347,9 @@
 }
 
 /* end select file in add penalty , add secondment and add vacation pages */
+
+
+.modal
+{
+    z-index: 999999;
+}

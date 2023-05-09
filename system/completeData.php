@@ -38,12 +38,6 @@ include "../Connections/syscon.php";
                     </form>
                 </div>
             </div>
-            <!-- <div class="col-md-6">
-                <select name="memberSelected" required class="form-select fs-5 border-0 shadow rounded-pill" id="memberSelection">
-                    <option selected value="">اختر العضو</option>
-                    <option value="mohamed">محمد عبد السلام</option>
-                </select>
-            </div> -->
         </div>
     </div>
 
@@ -71,7 +65,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['doctor_jobs']?></td>
-                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
+                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
                         </tr>
                     <?php }
                         
@@ -85,7 +79,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?>  </td>
                             <td><?php echo $row['doctor_jobs']?></td>
-                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
+                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" doctorJob="<?php echo $row['doctor_jobs']?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
                         </tr>
                     <?php }
                 }?>
@@ -120,43 +114,51 @@ include "../Connections/syscon.php";
                         echo $stmt->error;
                     }}}} ?>
         <div class="w-75 mx-auto m-5">
-            <div class="container dataContainer p-3 d-none" id="completeDataContainer">
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــــــــــود العضـــــــــــــــــــو  :</label>
+            <div class="modal modal-xl fade" id="completeDataModal">
+                <div class="modal-dialog  modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="container dataContainer p-3" id="completeDataContainer">
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــــــــــود العضــــــــــــــــو  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
+                                    </div>
+                                </div> 
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســــــــــــــم العضــــــــــــــــو  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
+                                    </div>
+                                </div> 
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorJobInput" class="mainText fw-bold fs-4"> الدرجــة الوظيفيــة الحاليــــــــة  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4"></input>
+                                    </div>
+                                </div> 
+                                <div class="row my-2">
+                                    <div class="col-md-2 text-center">
+                                        <label for="CompleteData" class="mainText fw-bold fs-4">استكمـال بيانـات الدرجـــــة الوظيفية الحاليـــــة   :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <textarea name="CompleteData" id="CompleteData" rows="5" class="form-control fs-4"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row my-2 justify-content-end">
+                                    <div class="col-md-2">
+                                        <button type="submit" class="CompleteDataBtn rounded-pill border-0 w-100 my-3"  id="CompleteDataBtn" name="CompleteDataBtn">استكمال</button>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-10">
-                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
-                    </div>
-                </div> 
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســــــــــــــم العضـــــــــــــــــــو  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
-                    </div>
-                </div> 
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="doctorJobInput" class="mainText fw-bold fs-4"> الدرجــة الوظيفيــة الحاليــــــــــة  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4"></input>
-                    </div>
-                </div> 
-                <div class="row my-2">
-                    <div class="col-md-2 text-center">
-                        <label for="CompleteData" class="mainText fw-bold fs-4">استكمال بيانات الدرجة الوظيفية الحاليــــــــــة   :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <textarea name="CompleteData" id="CompleteData" rows="5" class="form-control fs-4"></textarea>
-                    </div>
-                </div>
-                <div class="row my-2 justify-content-end">
-                    <div class="col-md-2">
-                        <button type="submit" class="CompleteDataBtn rounded-pill border-0 w-100 my-3"  id="CompleteDataBtn" name="CompleteDataBtn">استكمال</button>
-                    </div> 
                 </div>
             </div>
         </div>

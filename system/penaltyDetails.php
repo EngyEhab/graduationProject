@@ -59,6 +59,25 @@ if (isset($_POST['deleteBtn'])){
     </button>
     <!-- end button to up -->
 
+    <!-- start delete Modal -->
+    <div class="modal fade" id="deletePenaltyModal" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body">
+            <p class="fs-3 mainTitle fw-bold">هل  بالفعل تريد حذف العقوبة الخاصة بالعضو:</p>
+            <span class="fs-3 mainText"><?php echo $doctorNameInput?></span>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary fs-4" data-bs-dismiss="modal">الغاء</button>
+            <a href="deletePenaltyData.php?id=<?php echo $doctorCodeInput;?>">
+                <button id="deleteBtn" name="deleteBtn" class="btn btn-danger fs-4">حـــذف</button>
+            </a>
+        </div>
+        </div>
+    </div>
+    </div>
+    <!-- end delete Modal -->
+
     <div class="container bg-white p-5 shadow mt-5">
         <div class="row align-items-center">
             <div class="col-md-6">
@@ -136,9 +155,7 @@ if (isset($_POST['deleteBtn'])){
                 </a>
             </div>
             <div class="col-md-2">
-                <a href="deletePenaltyData.php?id=<?php echo $doctorCodeInput;?>">
-                    <button id="deleteBtn" name="deleteBtn" class="btn btn-danger w-100 rounded-pill fw-bold fs-4 border-2 shadow">حـــذف</button>
-                </a>
+                <button id="deleteBtn" data-bs-toggle="modal" data-bs-target="#deletePenaltyModal" name="deleteBtn" class="btn btn-danger w-100 rounded-pill fw-bold fs-4 border-2 shadow">حـــذف</button>
             </div>
         </div>
     </div>
