@@ -347,3 +347,9 @@
 }
 
 /* end select file in add penalty , add secondment and add vacation pages */
+
+
+.modal
+{
+    z-index: 999999;
+}
