@@ -139,7 +139,7 @@ $_SESSION ['faculties']=$faculties;
     <?php
         include('header.php');
     ?>
-    <div class="sidebarContainer position-fixed">
+    <div class="sidebarContainer position-fixed z-3">
     <?php
         include('sidebar.php');
     ?>

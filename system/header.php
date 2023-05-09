@@ -83,13 +83,13 @@ $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
                     <a class="nav-link fs-5" href="members.php">أعضاء هيئة التدريس</a>
                 </li>
                 <li class="nav-item linkStyle">
-                    <a class="nav-link fs-5" href="#">العقوبات و الجزاءات</a>
+                    <a class="nav-link fs-5" href="penalties.php">العقوبات أو الجزاءات</a>
                 </li>
                 <li class="nav-item linkStyle">
-                    <a class="nav-link fs-5" href="#">الأجازات الحالية</a>
+                    <a class="nav-link fs-5" href="#">الأجــــازات </a>
                 </li>
                 <li class="nav-item linkStyle">
-                    <a class="nav-link fs-5" href="#">الإعارات الحالية</a>
+                    <a class="nav-link fs-5" href="#">الإعــــارات </a>
                 </li>
                 </ul>
             </div>

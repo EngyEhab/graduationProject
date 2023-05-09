@@ -1,6 +1,3 @@
-<?php
-include "../Connections/syscon.php"; 
-?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -17,6 +14,7 @@ include "../Connections/syscon.php";
     <?php
         include('header.php');
     ?>
+    
     <div class="sidebarContainer position-fixed z-3">
     <?php
         include('sidebar.php');
@@ -32,15 +30,15 @@ include "../Connections/syscon.php";
     <div class="container-fluid mt-3">
         <div class="row align-items-center justify-content-center">
             <div class="col-md-2">
-                <div class="addMember">
-                    <a href="addMember.php" class="text-decoration-none text-white">
-                        <button class="addMemberBtn rounded-pill w-100 border-0" id="addMemberBtn">إضافة عضو جديد</button>
+                <div class="addPenalty">
+                    <a href="addPenalty.php" class="text-decoration-none text-white">
+                        <button class="addPenaltyBtn rounded-pill w-100 border-0" id="addPenaltyBtn">إضافة عقوبة أو جزاء</button>
                     </a>   
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="search">
-                    <form action="members.php" method="post" id="searchForm">
+                    <form action="" method="" id="searchForm">
                         <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="search" placeholder="بحث...">
                     </form>
                 </div>
@@ -51,51 +49,27 @@ include "../Connections/syscon.php";
 
     <div class="container my-5">
         <div class="row gy-5 gx-0 justify-content-center " id="members">
-        <?php
-            if (isset($_POST['search'])) {
-        ?>
-        <?php
-        $st=$_POST ['search'];
-        $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
-        $results=mysqli_query($bis,$myquery);
-        while ($row=mysqli_fetch_array($results)){
-        ?>
             <div class="col-md-3">
-                <a href="memberDetails.php?id=<?php echo $row['DoctorCode']?>" class="text-decoration-none">
+                <a href="penaltyDetails.php?id=" class="text-decoration-none">
                 <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto border-0">
                     <div class="memberImage w-50 rounded-circle mx-auto">
-                        <img src="../images/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100" alt="">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
                     </div>
-                    <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
                 </div>
                 </a>
             </div>
-        <?php } } else{
-        
-        $myquery="SELECT * FROM doctors_account";
-        $results=mysqli_query($bis,$myquery);
-        while ($row=mysqli_fetch_array($results)){
-        ?>
+
             <div class="col-md-3">
-                <a href="memberDetails.php?id=<?php echo $row['DoctorCode']?>" class="text-decoration-none">
-                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto">
+                <a href="penaltyDetails.php?id=" class="text-decoration-none">
+                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto border-0">
                     <div class="memberImage w-50 rounded-circle mx-auto">
-                        <img src="../images/users/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100" alt="">
+                        <img src="../images/1.jpg" class="rounded-circle w-100" alt="">
                     </div>
-                    <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
+                    <h3 class="mainTitle pt-2">محمد عبد السلام</h3>
                 </div>
                 </a>
             </div>
-        <?php } }?>
-        <!-- <div class="col-md-3">
-            <div class="w-75 p-3 text-center mx-auto">
-                <a href="addMember.php" class="text-decoration-none">
-                    <div id="plusIcon" class="plusIcon rounded-circle d-flex justify-content-center align-items-center mx-auto">
-                        <i class="fa-solid fa-plus fa-2xl fs-1" style="color:#AAB2BA;"></i>
-                    </div>
-                </a>
-            </div>
-        </div> -->
         </div>
     </div>
 

@@ -167,7 +167,7 @@
 /*start background of body */
 
 /* start addMemberButton and Search in members Page */
-.addMemberBtn , .addPenaltyBtn , .addSecondmentBtn ,.addVacationBtn , .updateJobGradeBtn , .CompleteDataBtn , .tableUpdateJobGradeBtn , .tableCompleteDataBtn , .updateMemberDataBtn , .tableDisplayBtn ,.tableAddPenaltyBtn , .tableAddSecondmentBtn , .tableAddVacationBtn ,.tableUpdateJobGradeBtn
+.addMemberBtn , .addPenaltyBtn , .addSecondmentBtn ,.addVacationBtn , .updateJobGradeBtn , .CompleteDataBtn , .tableUpdateJobGradeBtn , .tableCompleteDataBtn , .updateMemberDataBtn , .tableDisplayBtn ,.tableAddPenaltyBtn , .tableAddSecondmentBtn , .tableAddVacationBtn ,.tableUpdateJobGradeBtn ,.updatePenaltyBtn
 {
     background-color:var(--main-text,#023A71); 
     color:#fff;
@@ -331,7 +331,7 @@
 
 /* start memberDetails page */
 
-.memberData
+.memberData , .penaltyData
 {
     border-left: 3px solid rgba(170, 178, 186,0.5) ;
 }
