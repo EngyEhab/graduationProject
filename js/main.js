@@ -142,32 +142,21 @@ $('.tableCompleteDataBtn').click(function(){
 // end completeData page
 
 // start statement page
-
-$('.tableDisplayBtn').click(function(){
-    $('#statement').removeClass('d-none');
-    $('#statementBtn').removeClass('d-none');
-    $('.fixedFooter').removeClass('position-fixed');
-})
-
-
 $('.tableDisplayBtn').click(function(){
     var doctorCode = $(this).attr('doctorCode');
     $('#doctorCodeInput').val(doctorCode);
 
 })
-
 // end statement page
 
-// start addPenalty page
 
+// start addPenalty page
 $('.tableAddPenaltyBtn').click(function(){
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
     $('#doctorCodeInput').val(doctorCode);
     $('#doctorNameInput').val(doctorName);
-
 })
-
 // end addPenalty page
 
 // start addSecondment page

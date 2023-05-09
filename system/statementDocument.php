@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="container statement p-5 mt-5" id="statement">
+    <div class="container statement p-5 my-5" id="statement">
         <div class="row align-items-end">
             <div class="col-md-4">
                 <div class="universityData text-center" >
