@@ -190,13 +190,6 @@ $('.tableAddVacationBtn').click(function(){
 // end addVacation page
 
 // start UpdateJobGrade page
-
-$('.tableUpdateJobGradeBtn').click(function(){
-    $('#updateJobGradeForm').removeClass('d-none');
-    $('.fixedFooter').removeClass('position-fixed');
-})
-
-
 $('.tableUpdateJobGradeBtn').click(function(){
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');

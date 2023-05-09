@@ -65,7 +65,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['doctor_jobs']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }
                         
@@ -77,7 +77,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['doctor_jobs']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }}?>
                     </tbody>
@@ -86,7 +86,7 @@ include "../Connections/syscon.php";
         </div>
     </div>
 
-    <form action="updateJobGrade.php" method="post" id="updateJobGradeForm" class="d-none">
+    <form action="updateJobGrade.php" method="post" id="updateJobGradeForm">
 
     <?php
     $doctor_jobs = "SELECT * FROM doctor_jobs";
@@ -108,48 +108,56 @@ include "../Connections/syscon.php";
 
         ?>
         <div class="w-75 mx-auto m-5">
-            <div class="container dataContainer p-3">
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــــــــــــــــو  :</label>
+            <div class="modal modal-xl fade" id="updateJobGradeModal">
+                <div class="modal-dialog  modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="container dataContainer p-3">
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــــــــــــــــو  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
+                                    </div>
+                                </div> 
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســــــم العضـــــــــــــــــــــو  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
+                                    </div>
+                                </div> 
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorJobInput" class="mainText fw-bold fs-4"> الدرجــة الوظيفيــة الحاليـــــة  :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4"></input>
+                                    </div>
+                                </div> 
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="jobGrade" class="mainText fw-bold fs-4">تحديــث الدرجــة الوظيفيــــة   :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <select name="doctor_job" class="form-select" id="job">
+                                            <option selected value=""></option>
+                                            <?php  foreach($doctor_jobs as $row){?>
+                                        <option value='<?php echo $row['Doctor_job_ar_name']?>'><?php echo $row['Doctor_job_ar_name']?></option>
+                                        <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row my-2 justify-content-end">
+                                    <div class="col-md-2">
+                                        <button type="submit" class="updateJobGradeBtn rounded-pill border-0 w-100 my-3"  id="updateJobGradeBtn" name="updateJobGradeBtn">تحديــث</button>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-10">
-                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
-                    </div>
-                </div> 
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســــــم العضـــــــــــــــــــــو  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
-                    </div>
-                </div> 
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="doctorJobInput" class="mainText fw-bold fs-4"> الدرجــة الوظيفيــة الحاليـــــة  :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4"></input>
-                    </div>
-                </div> 
-                <div class="row my-2 align-items-center">
-                    <div class="col-md-2 text-center">
-                        <label for="jobGrade" class="mainText fw-bold fs-4">تحديــث الدرجــة الوظيفيــــة   :</label>
-                    </div>
-                    <div class="col-md-10">
-                        <select name="doctor_job" class="form-select" id="job">
-                            <option selected value=""></option>
-                            <?php  foreach($doctor_jobs as $row){?>
-                        <option value='<?php echo $row['Doctor_job_ar_name']?>'><?php echo $row['Doctor_job_ar_name']?></option>
-                        <?php } ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="row my-2 justify-content-end">
-                    <div class="col-md-2">
-                        <button type="submit" class="updateJobGradeBtn rounded-pill border-0 w-100 my-3"  id="updateJobGradeBtn" name="updateJobGradeBtn">تحديــث</button>
-                    </div> 
                 </div>
             </div>
         </div>
