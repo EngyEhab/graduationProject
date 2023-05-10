@@ -200,11 +200,12 @@ if (isset($_POST['deleteBtn'])){
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="memberPhoto d-flex justify-content-center align-items-center p-5">
-                    <img src="../images/<?php echo $Doctor_image?>" class="w-50 rounded-circle shadow" alt="">
+            <div class="col-md-6  d-flex justify-content-center align-items-center align-self-baseline mt-5">
+                <div class="memberPhoto">
+                    <img src="../images/<?php echo $Doctor_image?>" class="w-100 h-100 ratio-1x1 rounded-circle shadow" alt="">
+                    <h1 class="text-center mainTitle mt-5"><?php echo $Doctor_ar_Name;?></h1>
                 </div>
-                <h1 class="text-center mainTitle"><?php echo $Doctor_ar_Name;?>  </h1>
+                
             </div>
         </div>
     </div>

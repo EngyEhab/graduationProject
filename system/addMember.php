@@ -127,8 +127,8 @@ $_SESSION ['faculties']=$faculties;
         <div class="container dataContainer p-3">
             <div class="row mb-5">
                 <div class="col-md-4 mx-auto">
-                    <div class="profilePicture mx-auto">
-                        <img class="w-100 rounded-circle" id="profile">
+                    <div class="profilePicture mx-auto border-0">
+                        <img class="w-100 h-100 ratio-1x1 rounded-circle" id="profile">
                         <label for="imageSelectionField" class="imageSelection">
                             <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                         </label>

@@ -57,6 +57,7 @@
 {
     word-wrap: none;
 }
+
 /* end general style */
 
 
@@ -227,6 +228,7 @@
     box-shadow:0px 3px 6px #AAB2BA;
     position: relative;
 }
+
 .imageSelection
 {
     width:25px;
@@ -301,6 +303,18 @@
 }
 /* end button to up */
 
+
+.memberImage
+{
+    width:135px;
+    height: 135px;
+}
+
+.memberPhoto
+{
+    width: 250px;
+    height:250px;
+}
 /* start home page */
 .function
 {

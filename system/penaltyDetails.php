@@ -136,11 +136,11 @@ if (isset($_POST['deleteBtn'])){
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="memberPhoto d-flex justify-content-center align-items-center p-5">
-                    <img src="../images/users/<?php echo $Doctor_image;?>" class="w-50 rounded-circle shadow" alt="">
+            <div class="col-md-6 d-flex justify-content-center align-items-center pb-5">
+                <div class="memberPhoto">
+                    <img src="../images/users/<?php echo $Doctor_image;?>" class="w-100 h-100 ratio-1x1 rounded-circle shadow" alt="">
+                    <h1 class="text-center mainTitle pt-3"><?php echo $doctorNameInput;?></h1>
                 </div>
-                <h1 class="text-center mainTitle"><?php echo $doctorNameInput;?></h1>
             </div>
         </div>
     </div>
