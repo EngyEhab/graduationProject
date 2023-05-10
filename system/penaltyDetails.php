@@ -102,11 +102,8 @@ if (isset($_POST['deleteBtn'])){
                         <div class="col-md-3">
                             <h4 class="mainText fw-bold">المـــــــــــــــــــــــــــــــدة  :</h4>
                         </div>
-                        <div class="col-md-1">
-                            <p class="fs-4"><?php echo $penaltyDuration;?></p>
-                        </div>
                         <div class="col-md-2">
-                            <span class="fs-5 fw-bold">سنين/ سنة</span>
+                            <p class="fs-4"><?php echo $penaltyDuration;?></p>
                         </div>
                         <div class="col-md-1">
                             <h4 class="mainText fw-bold">من  :</h4>

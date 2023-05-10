@@ -152,11 +152,8 @@ include "../Connections/syscon.php";
                                     <div class="col-md-2 text-center">
                                         <label for="penaltyDuration" class="mainText fw-bold fs-4">المــــــــــــــــــــــــــــــــــــــدة  :</label>
                                     </div>
-                                    <div class="col-md-2">
-                                        <input type="number" min="1" class="form-control" name="penaltyDuration" id="penaltyDuration">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <span class="fs-3 fw-bold">سنين/ سنة</span>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="penaltyDuration" id="penaltyDuration">
                                     </div>
                                     <div class="col-md-1 text-center">
                                         <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>

@@ -99,11 +99,8 @@ if (isset($_GET['id'])){
                         <div class="col-md-3">
                             <h4 class="mainText fw-bold">المـــــــــــــــــــــــدة  :</h4>
                         </div>
-                        <div class="col-md-1">
-                            <p class="fs-4"><?php echo $secondmentDuration;?></p>
-                        </div>
                         <div class="col-md-2">
-                            <span class="fs-5 fw-bold">سنين/ سنة</span>
+                            <p class="fs-4"><?php echo $secondmentDuration;?></p>
                         </div>
                         <div class="col-md-1">
                             <h4 class="mainText fw-bold">من  :</h4>

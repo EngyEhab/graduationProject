@@ -80,6 +80,9 @@ if (isset($_GET['id'])){
                             <h4 class="mainText fw-bold">المـــــــــــــــــــــــــــــــدة  :</h4>
                         </div>
                         <div class="col-md-2">
+                            <p class="fs-4"></p>
+                        </div>
+                        <div class="col-md-2">
                             <h4 class="mainText fw-bold">من  :</h4>
                         </div>
                         <div class="col-md-2">

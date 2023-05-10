@@ -20,8 +20,8 @@ if (isset($_GET['id'])){
 if (isset($_POST['update'])){
     
             
-    $doctorCodeInput=$_POST['doctorCodeInput'];
-    $doctorNameInput =$_POST['doctorNameInput'];
+    // $doctorCodeInput=$_POST['doctorCodeInput'];
+    // $doctorNameInput =$_POST['doctorNameInput'];
     $vacationDescription =$_POST['vacationDescription']; 
     $startDate=$_POST["startDate"]; 
     $endDate=$_POST['endDate'];
@@ -30,13 +30,13 @@ if (isset($_POST['update'])){
     $vacationNotes=$_POST["vacationNotes"]; 
 
     if ((!empty($vacationFile))){
-        $Details = mysqli_query($bis , "UPDATE addvacation_data SET doctorNameInput='$doctorNameInput',
+        $Details = mysqli_query($bis , "UPDATE addvacation_data SET 
         startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
         vacationFile='$vacationFile',vacationNotes='$vacationNotes',vacationDescription='$vacationDescription'
         WHERE doctorCodeInput='$id'");
         }
         else{
-            $Details = mysqli_query($bis , "UPDATE addvacation_data SET doctorNameInput='$doctorNameInput',
+            $Details = mysqli_query($bis , "UPDATE addvacation_data SET
             startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
             vacationNotes='$vacationNotes',vacationDescription='$vacationDescription'
             WHERE doctorCodeInput='$id'");  
@@ -94,6 +94,9 @@ if (isset($_POST['update'])){
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
                         <label for="vacationDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة  :</label>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="vacationDuration" id="vacationDuration" value="" >
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>

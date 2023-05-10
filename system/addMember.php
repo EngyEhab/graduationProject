@@ -121,7 +121,7 @@ $_SESSION ['faculties']=$faculties;
     </button>
     <!-- end button to up -->
     
-    <form action="addMember.php" method="post">
+    <form action="" method="post">
     <div class="w-75 mx-auto m-5">
         <h3 class="mainTitle text-end p-2">إدخال بيانات عضو جديد</h3>
         <div class="container dataContainer p-3">

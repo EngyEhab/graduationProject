@@ -26,86 +26,86 @@
     <div class="container">
         <div class="row my-5">
             <div class="col">
-                <div class="function text-center">
-                    <a href="#" class="text-decoration-none">
+                <a href="#" class="text-decoration-none text-white function-link">
+                    <div class="function text-center">
                         <i class="fa-solid fa-desktop fa-2xl mb-3"></i>
                         <h3>لوحة التحكم</h3>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
             <div class="col">
-                <div class="function text-center">
-                    <a href="#" class="text-decoration-none">
+                <a href="#" class="text-decoration-none text-white">
+                    <div class="function text-center">
                         <i class="fa-solid fa-users fa-2xl mb-3"></i>
                         <h3>المستخدمون</h3>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
             <div class="col">
-                <div class="function text-center">
-                    <a href="addMember.php" class="text-decoration-none">
+                <a href="addMember.php" class="text-decoration-none text-white">
+                    <div class="function text-center">
                         <i class="fa-solid fa-user-plus fa-2xl mb-3"></i> 
                         <h3>إضافة عضو جديد</h3>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
             <div class="col">
-                <div class="function text-center">
-                    <a href="completeData.php" class="text-decoration-none">
+                <a href="completeData.php" class="text-decoration-none text-white">
+                    <div class="function text-center">
                         <i class="fa-solid fa-pen-to-square fa-2xl mb-3"></i> 
                         <h3>استكمال بيانات</h3>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
             <div class="col">
-                <div class="function text-center">
-                    <a href="updateJobGrade.php" class="text-decoration-none">
+                <a href="updateJobGrade.php" class="text-decoration-none text-white">
+                    <div class="function text-center">
                         <i class="fa-solid fa-user-tie fa-2xl mb-3"></i>
                         <h3>تحديث الدرجة الوظيفية</h3>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="row my-5">
             <div class="col">
-                <div class="function text-center">
-                    <a href="addPenalty.php" class="text-decoration-none">
+                <a href="addPenalty.php" class="text-decoration-none text-white">
+                    <div class="function text-center">
                         <i class="fa-solid fa-scale-balanced fa-2xl mb-3"></i>
                         <h3>إضافة العقوبات أو الجزاءات</h3>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
             <div class="col">
-                <div class="function text-center">
-                    <a href="addVacation.php" class="text-decoration-none">
+                <a href="addVacation.php" class="text-decoration-none text-white">
+                    <div class="function text-center">
                         <i class="fa-solid fa-house-user fa-2xl mb-3"></i>
                         <h3>إضافة الأجازات</h3>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
             <div class="col">
-                <div class="function text-center">
-                    <a href="addSecondment.php" class="text-decoration-none">
+                <a href="addSecondment.php" class="text-decoration-none text-white">
+                    <div class="function text-center">
                         <i class="fa-solid fa-plane-up fa-2xl mb-3"></i>
                         <h3>إضافة الإعارات</h3>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
             <div class="col">
-                <div class="function text-center">
-                    <a href="statement.php" class="text-decoration-none">
+                <a href="statement.php" class="text-decoration-none text-white">
+                    <div class="function text-center">
                         <i class="fa-solid fa-clipboard-user fa-2xl mb-3"></i>
                         <h3>عرض بيان حالة شامل</h3>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
             <div class="col">
-                <div class="function text-center">
-                    <a href="#" class="text-decoration-none">
+                <a href="#" class="text-decoration-none text-white">
+                    <div class="function text-center">
                         <i class="fa-solid fa-file-lines fa-2xl mb-3"></i>
                         <h3>تقارير</h3>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

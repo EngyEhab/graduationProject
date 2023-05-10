@@ -153,6 +153,9 @@ include "../Connections/syscon.php";
                                     <div class="col-md-2 text-center">
                                         <label for="vacationDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة  :</label>
                                     </div>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" name="vacationDuration" id="vacationDuration">
+                                    </div>
                                     <div class="col-md-1 text-center">
                                         <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
                                     </div>

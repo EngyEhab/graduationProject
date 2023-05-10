@@ -121,11 +121,8 @@ if (isset($_POST['updateSecondmentBtn'])){
                     <div class="col-md-2 text-center">
                         <label for="secondmentDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة  :</label>
                     </div>
-                    <div class="col-md-2">
-                        <input type="number" min="1" class="form-control" value="<?php if (isset($_GET['id'])) {echo $secondmentDuration;}?>" name="secondmentDuration" id="secondmentDuration">
-                    </div>
-                    <div class="col-md-2">
-                        <span class="fs-3 fw-bold">سنين/ سنة</span>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {echo $secondmentDuration;}?>" name="secondmentDuration" id="secondmentDuration">
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>

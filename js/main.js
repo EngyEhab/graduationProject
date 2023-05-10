@@ -1,5 +1,5 @@
 // start navbar
-    $('.nav-link').click(function(e){
+    $('.nav-link').hover(function(e){
         var clickedItem = e.target;
         $(clickedItem).parent().addClass('clickedLinkStyle');
         $(clickedItem).parent().siblings().removeClass('clickedLinkStyle');
@@ -57,6 +57,9 @@ $('.searchField').on('keypress',function(e){
         $('#searchForm').submit();
     }
 })
+
+
+
 // end using enter button to submit search form
 
 // start transform input type to date when focus on it
