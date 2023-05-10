@@ -1,3 +1,47 @@
+<?php
+include "../Connections/syscon.php"; 
+$bis = mysqli_connect($hostname_bis, $username_bis, $password_bis, $database_bis);
+$id="";
+if (isset($_GET['id'])){
+    $id=$_GET['id'];
+    
+    $Select=mysqli_query($bis,"SELECT * FROM  addvacation_data WHERE  doctorCodeInput='$id' ");
+    $row=mysqli_fetch_assoc($Select);
+    
+            $doctorCodeInput=$row['doctorCodeInput'];
+            $doctorNameInput =$row["doctorNameInput"];
+            $vacationDescription =$row["vacationDescription"]; 
+            $startDate=$row["startDate"]; 
+            $endDate=$row["endDate"];
+            $vacationReason =$row["vacationReason"];
+            $vacationFile =$row["vacationFile"]; 
+            $vacationNotes=$row["vacationNotes"];  }
+
+if (isset($_POST['update'])){
+    
+            
+    $doctorCodeInput=$_POST['doctorCodeInput'];
+    $doctorNameInput =$_POST['doctorNameInput'];
+    $vacationDescription =$_POST['vacationDescription']; 
+    $startDate=$_POST["startDate"]; 
+    $endDate=$_POST['endDate'];
+    $vacationReason =$_POST['vacationReason'];
+    $vacationFile =$_POST['vacationFile']; 
+    $vacationNotes=$_POST["vacationNotes"]; 
+
+    if ((!empty($vacationFile))){
+        $Details = mysqli_query($bis , "UPDATE addvacation_data SET doctorNameInput='$doctorNameInput',
+        startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
+        vacationFile='$vacationFile',vacationNotes='$vacationNotes',vacationDescription='$vacationDescription'
+        WHERE doctorCodeInput='$id'");
+        }
+        else{
+            $Details = mysqli_query($bis , "UPDATE addvacation_data SET doctorNameInput='$doctorNameInput',
+            startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
+            vacationNotes='$vacationNotes',vacationDescription='$vacationDescription'
+            WHERE doctorCodeInput='$id'");  
+        }}
+?>
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -27,7 +71,7 @@
     <!-- end button to up -->
     
     
-    <form action="" method="" id="updateVacationForm" class="mb-5">
+    <form action="" method="post" id="updateVacationForm" class="mb-5">
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">
@@ -35,7 +79,7 @@
                         <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضــــــو  :</label>
                     </div>
                     <div class="col-md-10">
-                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
+                        <input name="doctorNameInput" id="doctorNameInput" value="<?php if (isset($_GET['id'])) {echo $doctorNameInput;}?>"  readonly class="form-control fs-4"></input>
                     </div>
                 </div> 
                 <div class="row my-2 align-items-center">
@@ -43,7 +87,7 @@
                         <label for="vacationDescription" class="mainText fw-bold fs-4"> الأجـــــــــــــــــــازة :</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" name="vacationDescription" id="vacationDescription">
+                        <input type="text" class="form-control" name="vacationDescription" id="vacationDescription" value="<?php if (isset($_GET['id'])) {echo $vacationDescription;}?>" >
                     </div>
                 </div>
 
@@ -55,13 +99,13 @@
                         <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
                     </div>
                     <div class="col-md-2">
-                        <input type="text" class="form-control" name="startDate" id="startDate">
+                        <input type="text" class="form-control" name="startDate" id="startDate" value="<?php if (isset($_GET['id'])) {echo $startDate;}?>" >
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
                     </div>
                     <div class="col-md-2">
-                        <input type="text" class="form-control" name="endDate" id="endDate">
+                        <input type="text" class="form-control" name="endDate" id="endDate" value="<?php if (isset($_GET['id'])) {echo $endDate;}?>" >
                     </div>
                 </div>
 
@@ -70,7 +114,7 @@
                         <label for="vacationReason" class="mainText fw-bold fs-4">الســــــــــــــــــبب  :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="vacationReason" id="vacationReason" rows="2" class="form-control fs-4"></textarea>
+                        <textarea name="vacationReason" id="vacationReason"  rows="2" class="form-control fs-4"><?php if (isset($_GET['id'])) {echo $vacationReason;}?></textarea>
                     </div>
                 </div>
 
@@ -83,7 +127,7 @@
                     </div>
                     <div class="col-md-8 align-self-center">
                         <input class="form-control d-none" type="file" id="vacationFile" name="vacationFile">  
-                        <p class="selectedVacationFile fs-4"></p>                   
+                        <p class="selectedVacationFile fs-4"><?php if (isset($_GET['id'])) {echo $vacationFile;}?></p>                   
                     </div>
                 </div>
         
@@ -92,7 +136,7 @@
                         <label for="vacationNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات  :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="vacationNotes" id="vacationNotes" rows="3" class="form-control fs-4"></textarea>
+                        <textarea name="vacationNotes" id="vacationNotes" rows="3" class="form-control fs-4"><?php if (isset($_GET['id'])) {echo $vacationNotes;}?></textarea>
                     </div>
                 </div>
                 <div class="row my-2 justify-content-end">
