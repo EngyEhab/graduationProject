@@ -8,8 +8,6 @@
 </head>
 <body>
     
-
-
     <div class="sidebar py-3" id="sidebar">
         <button class="sidebarButton d-flex align-items-center border-0" id="openBtn">
             <i class="fa-solid fa-bars fa-xl mx-auto"  style="color: #ffffff;"></i>

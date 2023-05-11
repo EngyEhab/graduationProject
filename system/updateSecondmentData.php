@@ -62,7 +62,7 @@ if (isset($_POST['updateSecondmentBtn'])){
     <?php
         include('header.php');
     ?>
-    <div class="sidebarContainer position-fixed z-3">
+    <div class="sidebarContainer">
     <?php
         include('sidebar.php');
     ?>

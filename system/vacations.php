@@ -18,7 +18,7 @@ include "../Connections/syscon.php";
         include('header.php');
     ?>
     
-    <div class="sidebarContainer position-fixed z-3">
+    <div class="sidebarContainer">
     <?php
         include('sidebar.php');
     ?>
@@ -67,15 +67,17 @@ include "../Connections/syscon.php";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){
         ?>
-            <div class="col-md-3">
-                <a href="vacationDetails.php?id=<?php echo $row['doctorCodeInput']?>" class="text-decoration-none">
-                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto border-0">
-                    <div class="memberImage rounded-circle mx-auto">
-                        <img src="../images/users/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
+            <div class="col-md-3 d-flex justify-content-center">
+                <div class="memberContainer w-75">
+                    <a href="vacationDetails.php?id=<?php echo $row['doctorCodeInput']?>" class="text-decoration-none">
+                    <div class="member rounded-3 bg-white w-100 p-3 text-center mx-auto">
+                        <div class="memberImage rounded-circle mx-auto">
+                            <img src="../images/users/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
+                        </div>
+                        <h3 class="mainTitle pt-2"><?php echo $row['doctorNameInput']?></h3>
                     </div>
-                    <h3 class="mainTitle pt-2"><?php echo $row['doctorNameInput']?></h3>
+                    </a>
                 </div>
-                </a>
             </div>
             <?php } } else{
                 // $myquery="SELECT * FROM doctors_account WHERE DoctorCode =$DoctorCode";
@@ -85,18 +87,17 @@ include "../Connections/syscon.php";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){
         ?>
-
-
-            <div class="col-md-3">
-                <a href="vacationDetails.php?id=<?php echo $row['doctorCodeInput']?>" class="text-decoration-none">
-
-                <div class="member rounded-3 bg-white w-75 p-3 text-center mx-auto border-0">
-                    <div class="memberImage rounded-circle mx-auto">
-                        <img src="../images/users/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
+            <div class="col-md-3 d-flex justify-content-center">
+                <div class="memberContainer w-75">
+                    <a href="vacationDetails.php?id=<?php echo $row['doctorCodeInput']?>" class="text-decoration-none">
+                    <div class="member rounded-3 bg-white w-100 p-3 text-center mx-auto">
+                        <div class="memberImage rounded-circle mx-auto">
+                            <img src="../images/users/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
+                        </div>
+                        <h3 class="mainTitle pt-2"><?php echo $row['doctorNameInput']?></h3>
                     </div>
-                    <h3 class="mainTitle pt-2"><?php echo $row['doctorNameInput']?></h3>
+                    </a>
                 </div>
-                </a>
             </div>
             <?php }}?>
         </div>

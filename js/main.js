@@ -1,9 +1,15 @@
 // start navbar
-    $('.nav-link').hover(function(e){
-        var clickedItem = e.target;
-        $(clickedItem).parent().addClass('clickedLinkStyle');
-        $(clickedItem).parent().siblings().removeClass('clickedLinkStyle');
-    })
+    $(document).ready(function() {
+        var links = $('.nav-link');
+        var relativePath = location.pathname.split("/")[3];
+        for(var i = 0; i<links.length;i++)
+        {
+            if(links[i].pathname.split('/')[3] == relativePath)
+            {
+                $('a[href^="'+relativePath+'"]').parent().addClass('clickedLinkStyle')
+            }
+        }
+    });
 //end navbar
 
 // start select image in add member page
@@ -17,13 +23,13 @@ $('#imageSelectionField').change(function(e){
 $('#openBtn').click(function(){
     $('#openBtn').addClass('d-none');
     $('#closeBtn').removeClass('d-none');
-    $('#sidebar').animate({right:'0'},1000);
+    $('.sidebarContainer').animate({right:'-80%'},1000);
 })
 
 $('#closeBtn').click(function(){
     $('#closeBtn').addClass('d-none');
     $('#openBtn').removeClass('d-none');
-    $('#sidebar').animate({right:'-100%'},1000);
+    $('.sidebarContainer').animate({right:'-100%'},1000);
 })
 //end open and close sidebar
 

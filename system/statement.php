@@ -17,7 +17,7 @@ include "../Connections/syscon.php";
     <?php
         include('header.php');
     ?>
-    <div class="sidebarContainer position-fixed z-3">
+    <div class="sidebarContainer">
     <?php
         include('sidebar.php');
     ?>
@@ -40,7 +40,6 @@ include "../Connections/syscon.php";
             </div>
         </div>
     </div>
-    
     
     <div class="container mb-5">
         <div class="row justify-content-center">
@@ -66,7 +65,11 @@ include "../Connections/syscon.php";
                     <td><?php echo $row['DoctorCode'] ?></td>
                     <td><?php echo $row['Doctor_ar_Name'] ?></td>
                     <td><?php echo $row['departments'] ?></td>
-                    <td><button doctorCode="<?php echo $row['DoctorCode'] ?>" data-bs-toggle="modal" data-bs-target="#statementModal" class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button></td>
+                    <td>
+                        <a href="statementDocument.php?id=<?php echo $row['DoctorCode'] ?>">
+                            <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button>
+                        </a>
+                    </td>
                 </tr>
                 <?php }
             }
@@ -79,7 +82,11 @@ include "../Connections/syscon.php";
                     <td><?php echo $row['DoctorCode'] ?></td>
                     <td><?php echo $row['Doctor_ar_Name'] ?></td>
                     <td><?php echo $row['departments'] ?></td>
-                    <td><button doctorCode="<?php echo $row['DoctorCode'] ?>" data-bs-toggle="modal" data-bs-target="#statementModal" class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button></td>
+                    <td>
+                        <a href="statementDocument.php?id=<?php echo $row['DoctorCode'] ?>">
+                            <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button>
+                        </a>
+                    </td>                
                 </tr>
                 <?php }
             }
@@ -90,7 +97,7 @@ include "../Connections/syscon.php";
         </div>
     </div>
 
-    <div class="modal modal-xl fade" id="statementModal">
+    <!-- <div class="modal modal-xl fade" id="statementModal">
         <div class="modal-dialog  modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-body">
@@ -236,7 +243,7 @@ include "../Connections/syscon.php";
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     
 
 
