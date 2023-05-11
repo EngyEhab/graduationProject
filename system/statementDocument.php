@@ -1,3 +1,38 @@
+<?php 
+// session_start();
+include "../Connections/syscon.php"; 
+if(isset($_GET['id'])){
+    $id=$_GET['id'];
+    $query1 = "SELECT * FROM doctors_account WHERE DoctorCode = '$id' ";
+    $results1 =mysqli_query($bis, $query1);
+    $row1 = mysqli_fetch_array($results1);
+
+    $query2 = "SELECT * FROM penalities WHERE DoctorCodeInput = '$id' ";
+    $results2 =mysqli_query($bis, $query2);
+    $row2 = mysqli_fetch_array($results2);
+
+    $query3 = "SELECT * FROM addsecondment_data WHERE DoctorCodeInput = '$id' ";
+    $results3 =mysqli_query($bis, $query3);
+    $row3 = mysqli_fetch_array($results3);
+
+    $query4 = "SELECT * FROM addvacation_data WHERE DoctorCodeInput = '$id' ";
+    $results4 =mysqli_query($bis, $query4);
+    $row4 = mysqli_fetch_array($results4);
+
+    // $query5 = "SELECT * FROM missions WHERE DoctorCodeInput = '$id' ";
+    // $results5 =mysqli_query($bis, $query5);
+    // $row5 = mysqli_fetch_array($results5);
+
+    // $query6 = "SELECT * FROM public_vacation WHERE DoctorCodeInput = '$id' ";
+    // $results6 =mysqli_query($bis, $query6);
+    // $row6 = mysqli_fetch_array($results6);
+
+    // $query7 = "SELECT * FROM assignments WHERE DoctorCodeInput = '$id' ";
+    // $results7 =mysqli_query($bis, $query7);
+    // $row7 = mysqli_fetch_array($results7);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,7 +78,7 @@
                 <h4 class="text-start"> الإســــــــــــــــــــم : </h4>
             </div>
             <div class="col-md-6">
-                <p></p>
+                <p><?php if ((!empty($row1['Doctor_ar_Name']))){echo $row1['Doctor_ar_Name'];} else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -51,7 +86,7 @@
                 <h4 class="text-start"> تاريخ الميـــــــــلاد :</h4>
             </div>
             <div class="col-md-6">
-                <p></p>
+                <p><?php if ((!empty($row1['date_of_birth']))){echo $row1['date_of_birth'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -59,7 +94,7 @@
                 <h4 class="text-start"> تاريخ التعييــــــــن :</h4>
             </div>
             <div class="col-md-6">
-                <p></p>
+                <p><?php if ((!empty($row1['hiring_date']))){echo $row1['hiring_date'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -67,7 +102,7 @@
                 <h4 class="text-start"> المؤهلات العلميــــة :</h4>
             </div>
             <div class="col-md-6">
-                <p></p>
+                <p><?php if ((!empty($row1['qualifications']))){echo $row1['qualifications'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -75,7 +110,7 @@
                 <h4 class="text-start">التدرج الوظيفــــى :</h4>
             </div>
             <div class="col-md-6">
-                <p></p>
+                <p><?php if ((!empty($row1['doctor_jobs']))){echo $row1['doctor_jobs'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -83,7 +118,7 @@
                 <h4 class="text-start">الجـــــــــــــــزاءات :</h4>
             </div>
             <div class="col-md-6">
-                <p></p>
+                <p>لا يوجد</p>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -91,7 +126,7 @@
                 <h4 class="text-start">الإعـــــــــــــــارات :</h4>
             </div>
             <div class="col-md-6">
-                <p></p>
+                <p><?php if ((!empty($row3['secondmentDescription']))){echo $row3['secondmentDescription'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -99,7 +134,7 @@
                 <h4 class="text-start"> الأجـازات الخاصــــة :</h4>
             </div>
             <div class="col-md-6">
-                <p></p>
+                <p><?php if ((!empty($row4['vacationDescription']))){echo $row4['vacationDescription'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -107,7 +142,7 @@
                 <h4 class="text-start">البعثــــــــــــــــــات :</h4>
             </div>
             <div class="col-md-6">
-                <p></p>
+                <p>لا يوجد</p>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -115,7 +150,7 @@
                 <h4 class="text-start">الأجازات الدراسية :</h4>
             </div>
             <div class="col-md-6">
-                <p></p>
+                <p>لا يوجد</p>
             </div>
         </div>
         <div class="row justify-content-center">
@@ -123,7 +158,7 @@
                 <h4 class="text-start">الإنتدابـــــــــــــــات :</h4>
             </div>
             <div class="col-md-6">
-                <p></p>
+                <p>لا يوجد</p>
             </div>
         </div>
             
