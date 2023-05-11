@@ -2,13 +2,16 @@
 <?php
 session_start();
 include ("Connections/syscon.php");
-mysqli_select_db($bis,$database_bis);
-$query_appata = "SELECT * FROM users";
-$appata = mysqli_query ($bis, $query_appata) or die (mysqli_error ($bis));
-$row_appata = mysqli_fetch_assoc ($appata);
-$_SESSION['username'] = $row_appata["username"];
-$_SESSION[ 'user_ar_name' ] = $row_appata ['user_ar_name'];
-$_SESSION ['image'] = $row_appata ['image'];
+if(isset($_SESSION['username'])){
+    header("location:system/home.php");
+}
+// mysqli_select_db($bis,$database_bis);
+// $query_appata = "SELECT * FROM users";
+// $appata = mysqli_query ($bis, $query_appata) or die (mysqli_error ($bis));
+// $row_appata = mysqli_fetch_assoc ($appata);
+// $_SESSION['username'] = $row_appata["username"];
+// $_SESSION[ 'user_ar_name' ] = $row_appata ['user_ar_name'];
+// $_SESSION ['image'] = $row_appata ['image'];
 
 $con = new mysqli("localhost","root","","staff_affairs");
 if($con->connect_error) {
@@ -17,9 +20,9 @@ if($con->connect_error) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
-    $user_ar_name =$_post['user_ar_name'];
+    // $user_ar_name =$_post['user_ar_name'];
     $password = $_POST['password'];
-    $image = $_post['image'];
+    // $image = $_post['image'];
     $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password' AND is_enable='yes'";
     $result = $con->query($query);
     if ($result->num_rows === 1) {
@@ -30,6 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['username'] = $username;
         $_SESSION['user_ar_name'] = $user_ar_name;
         $_SESSION['image'] = $image;
+        $_SESSION['start'] = time();
+        $_SESSION['expire'] = $_SESSION['start'] + (4 * 2000);
+
         header("location:system/home.php");
         exit();
     } else {

@@ -1,5 +1,16 @@
 <?php
 session_start();
+if (!isset($_SESSION['username'])) {
+    header("location:../index.php");
+    exit;
+} else {
+    $now = time();
+    if ($now > $_SESSION['expire']) {
+        session_destroy();
+        header("Location: ../index.php");
+    }
+}
+
 
 $hostname_bis = "localhost";
 $database_bis = "staff_affairs";

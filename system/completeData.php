@@ -148,7 +148,7 @@ include "../Connections/syscon.php";
                                 </div> 
                                 <div class="row my-2">
                                     <div class="col-md-2 text-center">
-                                        <label for="CompleteData" class="mainText fw-bold fs-4 text-nowrap">استكمـال بيانـات الدرجـــــة الوظيفية الحاليـــــة   :</label>
+                                        <label for="CompleteData" class="mainText fw-bold fs-4 ">استكمـال بيانـات الدرجــــــــة الوظيفية الحاليـــــة   :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <textarea name="CompleteData" id="CompleteData" rows="5" class="form-control fs-4"></textarea>
