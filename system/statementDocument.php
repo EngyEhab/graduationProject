@@ -19,9 +19,9 @@ if(isset($_GET['id'])){
     $results4 =mysqli_query($bis, $query4);
     $row4 = mysqli_fetch_array($results4);
 
-    // $query5 = "SELECT * FROM missions WHERE DoctorCodeInput = '$id' ";
-    // $results5 =mysqli_query($bis, $query5);
-    // $row5 = mysqli_fetch_array($results5);
+    $query5 = "SELECT * FROM completedata WHERE DoctorCodeInput = '$id' ";
+    $results5 =mysqli_query($bis, $query5);
+    $row5 = mysqli_fetch_array($results5);
 
     // $query6 = "SELECT * FROM public_vacation WHERE DoctorCodeInput = '$id' ";
     // $results6 =mysqli_query($bis, $query6);
@@ -110,7 +110,7 @@ if(isset($_GET['id'])){
                 <h4 class="text-start">التدرج الوظيفــــى :</h4>
             </div>
             <div class="col-md-6">
-                <p><?php if ((!empty($row1['doctor_jobs']))){echo $row1['doctor_jobs'];}else{ echo "لا يوجد";}?></p>
+                <p><?php if ((!empty($row5['doctorJobInput']))){echo $row5['doctorJobInput'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
