@@ -33,9 +33,12 @@ include "../Connections/syscon.php";
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="search">
+                <div class="search position-relative">
                     <form action="" method="post" id="searchForm">
-                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="search" placeholder="بحث...">
+                        <input type="text" class="searchField form-control w-100 rounded-pill border-0" name="search" placeholder="بحث...">
+                        <button type="submit" class="searchBtn rounded-start-pill">
+                            <i class="fa-solid fa-magnifying-glass fa-rotate-90 fa-lg" style="color: #fff;"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -126,7 +129,7 @@ include "../Connections/syscon.php";
                             <div class="container dataContainer p-3">
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــــــــــود العضــــــــــــــو  :</label>
+                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4 text-nowrap">كــــــــــــــود العضــــــــــــــو  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
@@ -134,7 +137,7 @@ include "../Connections/syscon.php";
                                 </div> 
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــــــــم العضــــــــــــــو  :</label>
+                                        <label for="doctorNameInput" class="mainText fw-bold fs-4 text-nowrap">اســـــــــــــم العضــــــــــــــو  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
@@ -142,7 +145,7 @@ include "../Connections/syscon.php";
                                 </div> 
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="penaltyDescription" class="mainText fw-bold fs-4">  الجــــــــــزاء أو العقوبـــــــــة :</label>
+                                        <label for="penaltyDescription" class="mainText fw-bold fs-4 text-nowrap">  الجــــــــــزاء أو العقوبـــــــــة :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="penaltyDescription" id="penaltyDescription">
@@ -150,19 +153,19 @@ include "../Connections/syscon.php";
                                 </div>
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="penaltyDuration" class="mainText fw-bold fs-4">المــــــــــــــــــــــــــــــــــــــدة  :</label>
+                                        <label for="penaltyDuration" class="mainText fw-bold fs-4 text-nowrap">المــــــــــــــــــــــــــــــــــــــدة  :</label>
                                     </div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" name="penaltyDuration" id="penaltyDuration">
                                     </div>
                                     <div class="col-md-1 text-center">
-                                        <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
+                                        <label for="startDate" class="mainText fw-bold fs-4 text-nowrap">مــن  :</label>
                                     </div>
                                     <div class="col-md-2">
                                         <input type="text" class="form-control" name="startDate" id="startDate">
                                     </div>
                                     <div class="col-md-1 text-center">
-                                        <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
+                                        <label for="endDate" class="mainText fw-bold fs-4 text-nowrap">إلــى  :</label>
                                     </div>
                                     <div class="col-md-2">
                                         <input type="text" class="form-control" name="endDate" id="endDate">
@@ -171,7 +174,7 @@ include "../Connections/syscon.php";
 
                                 <div class="row my-2">
                                     <div class="col-md-2 text-center">
-                                        <label for="penaltyReason" class="mainText fw-bold fs-4">الســـــــــــــــــــــــــــــــــبب  :</label>
+                                        <label for="penaltyReason" class="mainText fw-bold fs-4 text-nowrap">الســـــــــــــــــــــــــــــــــبب  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <textarea name="penaltyReason" id="penaltyReason" rows="2" class="form-control fs-4"></textarea>
@@ -179,7 +182,7 @@ include "../Connections/syscon.php";
                                 </div>
                                 <div class="row my-2">
                                     <div class="col-md-2 text-center">
-                                        <label for="penaltyFile" class="form-label mainText fw-bold fs-4"> إرفاق ملف الجزاء أو العقوبة :</label>  
+                                        <label for="penaltyFile" class="form-label mainText fw-bold fs-4 text-nowrap"> إرفاق ملف الجزاء أو العقوبة :</label>  
                                     </div>
                                     <div class="col-md-2">
                                         <div class="fs-4 w-100 choosePenaltyFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
@@ -192,7 +195,7 @@ include "../Connections/syscon.php";
 
                                 <div class="row my-2">
                                     <div class="col-md-2 text-center">
-                                        <label for="penaltyNotes" class="mainText fw-bold fs-4">ملاحظــــــــــــــــــــــــــــات  :</label>
+                                        <label for="penaltyNotes" class="mainText fw-bold fs-4 text-nowrap">ملاحظــــــــــــــــــــــــــــات  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <textarea name="penaltyNotes" id="penaltyNotes" rows="3" class="form-control fs-4"></textarea>

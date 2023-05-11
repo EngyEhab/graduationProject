@@ -31,9 +31,12 @@ include "../Connections/syscon.php";
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="search">
-                    <form action="" method="" id="searchForm">
-                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="updateJobGradeSearch" placeholder="بحث...">
+                <div class="search position-relative">
+                    <form action="" method="post" id="searchForm">
+                        <input type="text" class="searchField form-control w-100 rounded-pill border-0" name="search" placeholder="بحث...">
+                        <button type="submit" class="searchBtn rounded-start-pill">
+                            <i class="fa-solid fa-magnifying-glass fa-rotate-90 fa-lg" style="color: #fff;"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -115,7 +118,7 @@ include "../Connections/syscon.php";
                             <div class="container dataContainer p-3">
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــــــــــــــــو  :</label>
+                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4 text-nowrap">كــــــود العضـــــــــــــــــــــو  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
@@ -123,7 +126,7 @@ include "../Connections/syscon.php";
                                 </div> 
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســــــم العضـــــــــــــــــــــو  :</label>
+                                        <label for="doctorNameInput" class="mainText fw-bold fs-4 text-nowrap">اســــــم العضـــــــــــــــــــــو  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
@@ -131,7 +134,7 @@ include "../Connections/syscon.php";
                                 </div> 
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorJobInput" class="mainText fw-bold fs-4"> الدرجــة الوظيفيــة الحاليـــــة  :</label>
+                                        <label for="doctorJobInput" class="mainText fw-bold fs-4 text-nowrap"> الدرجــة الوظيفيــة الحاليـــــة  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4"></input>
@@ -139,7 +142,7 @@ include "../Connections/syscon.php";
                                 </div> 
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="jobGrade" class="mainText fw-bold fs-4">تحديــث الدرجــة الوظيفيــــة   :</label>
+                                        <label for="jobGrade" class="mainText fw-bold fs-4 text-nowrap">تحديــث الدرجــة الوظيفيــــة   :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <select name="doctor_job" class="form-select" id="job">

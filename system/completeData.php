@@ -32,9 +32,12 @@ include "../Connections/syscon.php";
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="search">
-                    <form action="completeData.php" method="post" id="searchForm">
-                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="completesearch" placeholder="بحث...">
+                <div class="search position-relative">
+                    <form action="" method="post" id="searchForm">
+                        <input type="text" class="searchField form-control w-100 rounded-pill border-0" name="search" placeholder="بحث...">
+                        <button type="submit" class="searchBtn rounded-start-pill">
+                            <i class="fa-solid fa-magnifying-glass fa-rotate-90 fa-lg" style="color: #fff;"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -121,7 +124,7 @@ include "../Connections/syscon.php";
                             <div class="container dataContainer p-3" id="completeDataContainer">
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــــــــــود العضــــــــــــــــو  :</label>
+                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4 text-nowrap">كــــــــــــــود العضــــــــــــــــو  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
@@ -129,7 +132,7 @@ include "../Connections/syscon.php";
                                 </div> 
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســــــــــــــم العضــــــــــــــــو  :</label>
+                                        <label for="doctorNameInput" class="mainText fw-bold fs-4 text-nowrap">اســــــــــــــم العضــــــــــــــــو  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
@@ -137,7 +140,7 @@ include "../Connections/syscon.php";
                                 </div> 
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorJobInput" class="mainText fw-bold fs-4"> الدرجــة الوظيفيــة الحاليــــــــة  :</label>
+                                        <label for="doctorJobInput" class="mainText fw-bold fs-4 text-nowrap"> الدرجــة الوظيفيــة الحاليــــــــة  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4"></input>
@@ -145,7 +148,7 @@ include "../Connections/syscon.php";
                                 </div> 
                                 <div class="row my-2">
                                     <div class="col-md-2 text-center">
-                                        <label for="CompleteData" class="mainText fw-bold fs-4">استكمـال بيانـات الدرجـــــة الوظيفية الحاليـــــة   :</label>
+                                        <label for="CompleteData" class="mainText fw-bold fs-4 text-nowrap">استكمـال بيانـات الدرجـــــة الوظيفية الحاليـــــة   :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <textarea name="CompleteData" id="CompleteData" rows="5" class="form-control fs-4"></textarea>

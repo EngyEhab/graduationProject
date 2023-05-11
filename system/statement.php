@@ -32,9 +32,12 @@ include "../Connections/syscon.php";
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="search">
-                    <form action="" method="" id="searchForm">
-                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="statementSearch" placeholder="بحث...">
+                <div class="search position-relative">
+                    <form action="" method="post" id="searchForm">
+                        <input type="text" class="searchField form-control w-100 rounded-pill border-0" name="search" placeholder="بحث...">
+                        <button type="submit" class="searchBtn rounded-start-pill">
+                            <i class="fa-solid fa-magnifying-glass fa-rotate-90 fa-lg" style="color: #fff;"></i>
+                        </button>
                     </form>
                 </div>
             </div>

@@ -64,6 +64,10 @@ $('.searchField').on('keypress',function(e){
     }
 })
 
+$('.searchBtn').click(function(){
+    $('#searchForm').submit();
+})
+
 
 
 // end using enter button to submit search form

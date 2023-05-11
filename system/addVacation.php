@@ -33,9 +33,12 @@ include "../Connections/syscon.php";
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="search">
-                    <form action="addVacation.php" method="post" id="searchForm">
-                        <input type="text" class="searchField form-control w-100 rounded-pill border-0 px-4" name="search" placeholder="بحث...">
+                <div class="search position-relative">
+                    <form action="" method="post" id="searchForm">
+                        <input type="text" class="searchField form-control w-100 rounded-pill border-0" name="search" placeholder="بحث...">
+                        <button type="submit" class="searchBtn rounded-start-pill">
+                            <i class="fa-solid fa-magnifying-glass fa-rotate-90 fa-lg" style="color: #fff;"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -126,7 +129,7 @@ include "../Connections/syscon.php";
                             <div class="container dataContainer p-3">
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4">كــــــود العضـــــــو  :</label>
+                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4 text-nowrap">كــــــود العضـــــــو  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
@@ -134,7 +137,7 @@ include "../Connections/syscon.php";
                                 </div> 
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضـــــــو  :</label>
+                                        <label for="doctorNameInput" class="mainText fw-bold fs-4 text-nowrap">اســـــــم العضـــــــو  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
@@ -142,7 +145,7 @@ include "../Connections/syscon.php";
                                 </div> 
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="vacationDescription" class="mainText fw-bold fs-4"> الأجــــــــــــــــــــازة :</label>
+                                        <label for="vacationDescription" class="mainText fw-bold fs-4 text-nowrap"> الأجــــــــــــــــــــازة :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="vacationDescription" id="vacationDescription">
@@ -151,19 +154,19 @@ include "../Connections/syscon.php";
 
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="vacationDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة  :</label>
+                                        <label for="vacationDuration" class="mainText fw-bold fs-4 text-nowrap">المـــــــــــــــــــــــدة  :</label>
                                     </div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" name="vacationDuration" id="vacationDuration">
                                     </div>
                                     <div class="col-md-1 text-center">
-                                        <label for="startDate" class="mainText fw-bold fs-4">مــن  :</label>
+                                        <label for="startDate" class="mainText fw-bold fs-4 text-nowrap">مــن  :</label>
                                     </div>
                                     <div class="col-md-2">
                                         <input type="text" class="form-control" name="startDate" id="startDate">
                                     </div>
                                     <div class="col-md-1 text-center">
-                                        <label for="endDate" class="mainText fw-bold fs-4">إلــى  :</label>
+                                        <label for="endDate" class="mainText fw-bold fs-4 text-nowrap">إلــى  :</label>
                                     </div>
                                     <div class="col-md-2">
                                         <input type="text" class="form-control" name="endDate" id="endDate">
@@ -172,7 +175,7 @@ include "../Connections/syscon.php";
 
                                 <div class="row my-2">
                                     <div class="col-md-2 text-center">
-                                        <label for="vacationReason" class="mainText fw-bold fs-4">الســــــــــــــــــبب  :</label>
+                                        <label for="vacationReason" class="mainText fw-bold fs-4 text-nowrap">الســــــــــــــــــبب  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <textarea name="vacationReason" id="vacationReason" rows="2" class="form-control fs-4"></textarea>
@@ -181,7 +184,7 @@ include "../Connections/syscon.php";
 
                                 <div class="row my-2">
                                     <div class="col-md-2 text-center">
-                                        <label for="vacationFile" class="form-label mainText fw-bold fs-4"> إرفاق ملف الأجازة :</label>                   
+                                        <label for="vacationFile" class="form-label mainText fw-bold fs-4 text-nowrap"> إرفاق ملف الأجازة :</label>                   
                                     </div>
                                     <div class="col-md-2">
                                         <div class="fs-4 w-100 chooseVacationFileBtn text-center p-1 rounded-2" type="button">ارفق الملــف </div>
@@ -195,7 +198,7 @@ include "../Connections/syscon.php";
                                 
                                 <div class="row my-2">
                                     <div class="col-md-2 text-center">
-                                        <label for="vacationNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات  :</label>
+                                        <label for="vacationNotes" class="mainText fw-bold fs-4 text-nowrap">ملاحظـــــــــــــات  :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <textarea name="vacationNotes" id="vacationNotes" rows="3" class="form-control fs-4"></textarea>
