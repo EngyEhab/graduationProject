@@ -19,20 +19,26 @@ if(isset($_GET['id'])){
     $results4 =mysqli_query($bis, $query4);
     $row4 = mysqli_fetch_array($results4);
 
-    $query5 = "SELECT * FROM completedata WHERE DoctorCodeInput = '$id' ";
+    $query5 = "SELECT * FROM missions WHERE DoctorCodeInput = '$id' ";
     $results5 =mysqli_query($bis, $query5);
     $row5 = mysqli_fetch_array($results5);
 
-    // $query6 = "SELECT * FROM public_vacation WHERE DoctorCodeInput = '$id' ";
-    // $results6 =mysqli_query($bis, $query6);
-    // $row6 = mysqli_fetch_array($results6);
+    $query6 = "SELECT * FROM public_vacation WHERE DoctorCodeInput = '$id' ";
+    $results6 =mysqli_query($bis, $query6);
+    $row6 = mysqli_fetch_array($results6);
 
-    // $query7 = "SELECT * FROM assignments WHERE DoctorCodeInput = '$id' ";
-    // $results7 =mysqli_query($bis, $query7);
-    // $row7 = mysqli_fetch_array($results7);
+    $query7 = "SELECT * FROM assignments WHERE DoctorCodeInput = '$id' ";
+    $results7 =mysqli_query($bis, $query7);
+    $row7 = mysqli_fetch_array($results7);
 }
-?>
 
+// if(isset($_GET['id'])){
+
+//     $query2 = "SELECT * FROM penalities WHERE DoctorCodeInput = '$id' ";
+//     $results2 =mysqli_query($bis, $query2);
+//     $row2 = mysqli_fetch_array($results2);
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -75,90 +81,90 @@ if(isset($_GET['id'])){
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h3 class="text-start"> الإســــــــــــــــــــم : </h3>
+                <h4 class="text-start"> الإســــــــــــــــــــم : <?php echo $row1['Doctor_ar_Name'] ?></h4>
             </div>
             <div class="col-md-6">
-                <p class="fs-4"><?php if ((!empty($row1['Doctor_ar_Name']))){echo $row1['Doctor_ar_Name'];} else{ echo "لا يوجد";}?></p>
+                <p></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h3 class="text-start"> تاريخ الميـــــــــلاد :</h3>
+                <h4 class="text-start"> تاريخ الميـــــــــلاد : <?php echo $row1['date_of_birth'] ?> </h4>
             </div>
             <div class="col-md-6">
-                <p class="fs-4"><?php if ((!empty($row1['date_of_birth']))){echo $row1['date_of_birth'];}else{ echo "لا يوجد";}?></p>
+                <p></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h3 class="text-start"> تاريخ التعييــــــــن :</h3>
+                <h4 class="text-start"> تاريخ التعييــــــــن : <?php echo $row1['hiring_date'] ?> </h4>
             </div>
             <div class="col-md-6">
-                <p class="fs-4"><?php if ((!empty($row1['hiring_date']))){echo $row1['hiring_date'];}else{ echo "لا يوجد";}?></p>
+                <p></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h3 class="text-start"> المؤهلات العلميــــة :</h3>
+                <h4 class="text-start"> المؤهلات العلميــــة : <?php echo $row1['qualifications'] ?> </h4>
             </div>
             <div class="col-md-6">
-                <p class="fs-4"><?php if ((!empty($row1['qualifications']))){echo $row1['qualifications'];}else{ echo "لا يوجد";}?></p>
+                <p></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h3 class="text-start">التدرج الوظيفــــى :</h3>
+                <h4 class="text-start">التدرج الوظيفــــى : <?php echo $row1['doctor_jobs'] ?> </h4>
             </div>
             <div class="col-md-6">
-                <p class="fs-4"><?php if ((!empty($row5['CompleteData']))){echo $row5['CompleteData'];}else{ echo "لا يوجد";}?></p>
+                <p></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h3 class="text-start">الجـــــــــــــــزاءات :</h3>
+                <h4 class="text-start">الجـــــــــــــــزاءات : <?php echo $row2['penaltyDescription'] ?> </h4>
             </div>
             <div class="col-md-6">
-                <p class="fs-4"><?php if ((!empty($row2['penaltyDescription']))){echo $row2['penaltyDescription'];}else{ echo "لا يوجد";}?></p>
+                <p></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h3 class="text-start">الإعـــــــــــــــارات :</h3>
+                <h4 class="text-start">الإعـــــــــــــــارات : <?php echo $row3['secondmentDescription'] ?> </h4>
             </div>
             <div class="col-md-6">
-                <p class="fs-4"><?php if ((!empty($row3['secondmentDescription']))){echo $row3['secondmentDescription'];}else{ echo "لا يوجد";}?></p>
+                <p></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h3 class="text-start"> الأجـازات الخاصــــة :</h3>
+                <h4 class="text-start"> الأجـازات الخاصــــة : <?php echo $row4['vacationDescription'] ?></h4>
             </div>
             <div class="col-md-6">
-                <p class="fs-4"><?php if ((!empty($row4['vacationDescription']))){echo $row4['vacationDescription'];}else{ echo "لا يوجد";}?></p>
+                <p></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h3 class="text-start">البعثــــــــــــــــــات :</h3>
+                <h4 class="text-start">البعثــــــــــــــــــات : <?php echo $row5['missionDescription'] ?> </h4>
             </div>
             <div class="col-md-6">
-                <p class="fs-4">لا يوجد</p>
+                <p></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h3 class="text-start">الأجازات الدراسية :</h3>
+                <h4 class="text-start">الأجازات الدراسية :  <?php echo $row6['publicVacationDesc'] ?></h4>
             </div>
             <div class="col-md-6">
-                <p class="fs-4">لا يوجد</p>
+                <p></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h3 class="text-start">الإنتدابـــــــــــــــات :</h3>
+                <h4 class="text-start">الإنتدابـــــــــــــــات :  <?php echo $row7['assignmentDescription'] ?></h4>
             </div>
             <div class="col-md-6">
-                <p class="fs-4">لا يوجد</p>
+                <p></p>
             </div>
         </div>
             
