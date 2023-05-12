@@ -69,7 +69,7 @@ include "../Connections/syscon.php";
                     <td><?php echo $row['Doctor_ar_Name'] ?></td>
                     <td><?php echo $row['departments'] ?></td>
                     <td>
-                        <a href="statementDocument.php?id=<?php echo $row['DoctorCode'] ?>">
+                        <a href="pdf.php?id=<?php echo $row['DoctorCode'] ?>">
                             <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button>
                         </a>
                     </td>
@@ -86,7 +86,7 @@ include "../Connections/syscon.php";
                     <td><?php echo $row['Doctor_ar_Name'] ?></td>
                     <td><?php echo $row['departments'] ?></td>
                     <td>
-                        <a href="statementDocument.php?id=<?php echo $row['DoctorCode'] ?>">
+                        <a href="pdf.php?id=<?php echo $row['DoctorCode'] ?>">
                             <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button>
                         </a>
                     </td>                
