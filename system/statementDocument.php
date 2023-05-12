@@ -75,90 +75,90 @@ if(isset($_GET['id'])){
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h4 class="text-start"> الإســــــــــــــــــــم : </h4>
+                <h3 class="text-start"> الإســــــــــــــــــــم : </h3>
             </div>
             <div class="col-md-6">
-                <p><?php if ((!empty($row1['Doctor_ar_Name']))){echo $row1['Doctor_ar_Name'];} else{ echo "لا يوجد";}?></p>
+                <p class="fs-4"><?php if ((!empty($row1['Doctor_ar_Name']))){echo $row1['Doctor_ar_Name'];} else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h4 class="text-start"> تاريخ الميـــــــــلاد :</h4>
+                <h3 class="text-start"> تاريخ الميـــــــــلاد :</h3>
             </div>
             <div class="col-md-6">
-                <p><?php if ((!empty($row1['date_of_birth']))){echo $row1['date_of_birth'];}else{ echo "لا يوجد";}?></p>
+                <p class="fs-4"><?php if ((!empty($row1['date_of_birth']))){echo $row1['date_of_birth'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h4 class="text-start"> تاريخ التعييــــــــن :</h4>
+                <h3 class="text-start"> تاريخ التعييــــــــن :</h3>
             </div>
             <div class="col-md-6">
-                <p><?php if ((!empty($row1['hiring_date']))){echo $row1['hiring_date'];}else{ echo "لا يوجد";}?></p>
+                <p class="fs-4"><?php if ((!empty($row1['hiring_date']))){echo $row1['hiring_date'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h4 class="text-start"> المؤهلات العلميــــة :</h4>
+                <h3 class="text-start"> المؤهلات العلميــــة :</h3>
             </div>
             <div class="col-md-6">
-                <p><?php if ((!empty($row1['qualifications']))){echo $row1['qualifications'];}else{ echo "لا يوجد";}?></p>
+                <p class="fs-4"><?php if ((!empty($row1['qualifications']))){echo $row1['qualifications'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h4 class="text-start">التدرج الوظيفــــى :</h4>
+                <h3 class="text-start">التدرج الوظيفــــى :</h3>
             </div>
             <div class="col-md-6">
-                <p><?php if ((!empty($row5['doctorJobInput']))){echo $row5['doctorJobInput'];}else{ echo "لا يوجد";}?></p>
+                <p class="fs-4"><?php if ((!empty($row5['CompleteData']))){echo $row5['CompleteData'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h4 class="text-start">الجـــــــــــــــزاءات :</h4>
+                <h3 class="text-start">الجـــــــــــــــزاءات :</h3>
             </div>
             <div class="col-md-6">
-                <p>لا يوجد</p>
+                <p class="fs-4"><?php if ((!empty($row2['penaltyDescription']))){echo $row2['penaltyDescription'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h4 class="text-start">الإعـــــــــــــــارات :</h4>
+                <h3 class="text-start">الإعـــــــــــــــارات :</h3>
             </div>
             <div class="col-md-6">
-                <p><?php if ((!empty($row3['secondmentDescription']))){echo $row3['secondmentDescription'];}else{ echo "لا يوجد";}?></p>
+                <p class="fs-4"><?php if ((!empty($row3['secondmentDescription']))){echo $row3['secondmentDescription'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h4 class="text-start"> الأجـازات الخاصــــة :</h4>
+                <h3 class="text-start"> الأجـازات الخاصــــة :</h3>
             </div>
             <div class="col-md-6">
-                <p><?php if ((!empty($row4['vacationDescription']))){echo $row4['vacationDescription'];}else{ echo "لا يوجد";}?></p>
+                <p class="fs-4"><?php if ((!empty($row4['vacationDescription']))){echo $row4['vacationDescription'];}else{ echo "لا يوجد";}?></p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h4 class="text-start">البعثــــــــــــــــــات :</h4>
+                <h3 class="text-start">البعثــــــــــــــــــات :</h3>
             </div>
             <div class="col-md-6">
-                <p>لا يوجد</p>
+                <p class="fs-4">لا يوجد</p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h4 class="text-start">الأجازات الدراسية :</h4>
+                <h3 class="text-start">الأجازات الدراسية :</h3>
             </div>
             <div class="col-md-6">
-                <p>لا يوجد</p>
+                <p class="fs-4">لا يوجد</p>
             </div>
         </div>
         <div class="row justify-content-center">
             <div class="col-md-2">
-                <h4 class="text-start">الإنتدابـــــــــــــــات :</h4>
+                <h3 class="text-start">الإنتدابـــــــــــــــات :</h3>
             </div>
             <div class="col-md-6">
-                <p>لا يوجد</p>
+                <p class="fs-4">لا يوجد</p>
             </div>
         </div>
             
