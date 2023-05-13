@@ -17,7 +17,6 @@ function fetchData($tableName , $requiredElement ,$conditionColumn){
 include('../TCPDF-main/tcpdf.php');
 
 $pdf = new TCPDF('P','mm','A4');
-
 $pdf->setPrintHeader(false);
 $pdf->setPrintFooter(false);
 $pdf->SetMargins(15, 15, 15);
@@ -27,11 +26,21 @@ $pdf->setRTL(true);
 
 $pdf->AddPage();
 
+$pdf->writeHTMLCell(30, 25, 15, 5,'<img src="../images/Facultylogo.jpg">', 0, 1, 0, true, "C", true);
+$pdf->writeHTMLCell(50, 20, 5, 38,'<h5>Helwan University</h5>', 0, 1, 0, true, "C", true);
+$pdf->writeHTMLCell(50, 20, 5, 45,'<p>*******************</p>', 0, 1, 0, true, "C", true);
+$pdf->writeHTMLCell(50, 20, 150,15,'<h5>الإدارة العامة لشئون الأفراد</h5>', 0, 1, 0, true, "C", true);
+$pdf->writeHTMLCell(50, 20, 150,25,'<h5>و أعضاء هيئة التدريس</h5>', 0, 1, 0, true, "C", true);
+$pdf->writeHTMLCell(50, 20, 150,35,'<h5>إدارة وثائق الخدمة</h5>', 0, 1, 0, true, "C", true);
+$pdf->writeHTMLCell(50, 20, 150,45,'<p>*******************</p>', 0, 1, 0, true, "C", true);
+$pdf->writeHTMLCell(50, 20, 80,25,'<h5>بيان حاله</h5>', 0, 1, 0, true, "C", true);
+$pdf->writeHTMLCell(0, 8, 0, 50,'', 0, 1, 0, true, "C", true);
 
-$html .= '<h5>بيان حاله</h5>';
 
 
-$html .='<p>نفيـد انه بالاطـلاع على ملف خدمـة سيادتـه بالجامعـة وجـد الآتـى:</p>
+
+
+$html ='<p>نفيـد انه بالاطـلاع على ملف خدمـة سيادتـه بالجامعـة وجـد الآتـى:</p>
 <span>الإســــــــــــم :</span>'. fetchData("doctors_account","Doctor_ar_Name","DoctorCode").'<br><span>تاريخ الميــــــلاد:</span>'
 .fetchData("doctors_account","date_of_birth","DoctorCode").'<br><span>تاريخ التعييـــــن :</span>'. fetchData("doctors_account","hiring_date","DoctorCode").'<br><span>المؤهلات العلميــة :</span>'
 . fetchData("doctors_account","qualifications","DoctorCode").'<br><span>التدرج الوظيفــــى :</span>'. fetchData("CompleteData","CompleteData","DoctorCodeInput").'<br><span>الجـــــــــزاءات :</span>'
