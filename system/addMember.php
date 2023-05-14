@@ -6,12 +6,13 @@ if (isset($_POST['submit'])) {
     if (isset($_POST['Doctor_ar_Name']) && isset($_POST['Doctor_eng_Name']) &&
         isset($_POST['National_id']) && isset($_POST['Mobile']) &&
         isset($_POST['Academic_Mail']) && isset($_POST['Personal_Mail'])&& 
-        isset($_POST['Doctor_image']) && isset($_POST['departments']) &&
+        isset($_POST['departments']) && 
         isset($_POST['university'])&& isset($_POST['faculty'])&& 
         isset($_POST['doctor_jobs'])&& isset($_POST["Notes"])&&
         isset($_POST['qualifications'])&& isset($_POST["date_of_birth"])&&
         isset($_POST['hiring_date'])) {
-
+            
+            
             $qualifications=$_POST['qualifications'];
             $date_of_birth =$_POST['date_of_birth'];
             $hiring_date =$_POST['hiring_date']; 
@@ -22,11 +23,36 @@ if (isset($_POST['submit'])) {
             $Academic_Mail=$_POST["Academic_Mail"]; 
             $Personal_Mail=$_POST["Personal_Mail"]; 
             $Notes=$_POST["Notes"]; 
-            $Doctor_image=$_POST["Doctor_image"]; 
+            // $Doctor_image=$_POST["Doctor_image"]; 
             $departments=$_POST["departments"]; 
             $university=$_POST["university"];
             $faculty=$_POST["faculty"];
             $doctor_jobs=$_POST["doctor_jobs"];
+            $imgFile = $_FILES['Doctor_image']['name'];
+            $tmp_dir = $_FILES['Doctor_image']['tmp_name'];
+            $imgSize = $_FILES['Doctor_image']['size']; 
+
+            if(!empty($imgFile))
+            {
+            
+            $upload_dir = '../images/users/'; // upload directory
+            
+            $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+            
+            // valid image extensions
+            $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+            
+            // rename uploading image
+            $coverpic = rand(1000,1000000).".".$imgExt;
+            
+            // allow valid image file formats
+            if(in_array($imgExt, $valid_extensions)){ 
+            // Check file size '5MB'
+            if($imgSize < 5000000) {
+            move_uploaded_file($tmp_dir,$upload_dir.$coverpic);
+            }
+        }
+            
         
         $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
         if ($bis->connect_error) {
@@ -34,10 +60,10 @@ if (isset($_POST['submit'])) {
         }
         else {
             $Select = "SELECT * FROM doctors_account ";
-            $Insert = "INSERT INTO doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, Doctor_image, departments, university, faculty, doctor_jobs, qualifications, date_of_birth, hiring_date) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?)";
+            $Insert = "INSERT INTO doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, departments, university, faculty, doctor_jobs, qualifications, date_of_birth, hiring_date,Doctor_image) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
             $stmt = $bis->prepare($Select);
                 $stmt = $bis->prepare($Insert);
-                $stmt->bind_param("sssssssssssssss",$Doctor_ar_Name, $Doctor_eng_Name, $National_id, $Mobile, $Academic_Mail, $Personal_Mail, $Notes,$Doctor_image, $departments, $university, $faculty, $doctor_jobs, $qualifications, $date_of_birth, $hiring_date);
+                $stmt->bind_param("sssssssssssssss",$Doctor_ar_Name, $Doctor_eng_Name, $National_id, $Mobile, $Academic_Mail, $Personal_Mail, $Notes, $departments, $university, $faculty, $doctor_jobs, $qualifications, $date_of_birth, $hiring_date,$coverpic);
                 if ($stmt->execute()) {
                 }
                 else {
@@ -45,7 +71,8 @@ if (isset($_POST['submit'])) {
                 }
             }
         }
-    }
+    }}
+
 
 $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
 if ($bis->connect_error) {
@@ -121,7 +148,7 @@ $_SESSION ['faculties']=$faculties;
     </button>
     <!-- end button to up -->
     
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
     <div class="w-75 mx-auto m-5">
         <h3 class="mainTitle text-end p-2">إدخال بيانات عضو جديد</h3>
         <div class="container dataContainer p-3">
@@ -133,7 +160,7 @@ $_SESSION ['faculties']=$faculties;
                             <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                         </label>
                     </div>
-                    <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="Doctor_image">
+                    <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="Doctor_image" required="">
                 </div>
             </div>
             <div class="row my-2">
@@ -217,7 +244,6 @@ $_SESSION ['faculties']=$faculties;
     </div>
     </form>
 
-   
     <?php
         include('footer.php');
     ?>
