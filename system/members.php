@@ -69,7 +69,7 @@ include "../Connections/syscon.php";
                     <a href="memberDetails.php?id=<?php echo $row['DoctorCode']?>" class="text-decoration-none">
                     <div class="member rounded-3 bg-white w-100 p-3 text-center mx-auto">
                         <div class="memberImage rounded-circle mx-auto">
-                            <img src="../images/users/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
+                            <img src="../images/members/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
                         </div>
                         <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
                     </div>
@@ -87,7 +87,7 @@ include "../Connections/syscon.php";
                     <a href="memberDetails.php?id=<?php echo $row['DoctorCode']?>" class="text-decoration-none">
                     <div class="member rounded-3 bg-white w-100 p-3 text-center mx-auto">
                         <div class="memberImage rounded-circle mx-auto">
-                            <img src="../images/users/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
+                            <img src="../images/members/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
                         </div>
                         <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
                     </div>

@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
             if(!empty($imgFile))
             {
             
-            $upload_dir = '../images/users/'; // upload directory
+            $upload_dir = '../images/members/'; // upload directory
             
             $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
             

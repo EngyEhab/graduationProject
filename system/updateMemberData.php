@@ -158,7 +158,7 @@ $_SESSION ['faculties']=$faculties;
             <div class="row mb-5">
                 <div class="col-md-4 mx-auto">
                     <div class="profilePicture mx-auto">
-                        <img class="w-100 h-100 ratio-1x1 rounded-circle" id="profile" src="../images/<?php if (isset($_GET['id'])) {echo $Doctor_image;}?>">
+                        <img class="w-100 h-100 ratio-1x1 rounded-circle" id="profile" src="../images/members/<?php if (isset($_GET['id'])) {echo $Doctor_image;}?>">
                         <label for="imageSelectionField" class="imageSelection">
                             <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                         </label>

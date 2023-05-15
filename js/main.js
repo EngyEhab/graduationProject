@@ -1,3 +1,6 @@
+if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}
 // start navbar
     $(document).ready(function() {
         var links = $('.nav-link');
@@ -14,8 +17,8 @@
 
 // start select image in add member page
 $('#imageSelectionField').change(function(e){
-    var selectedImage = e.target.files[0].name;
-    $('#profile').attr('src','../images/'+selectedImage);
+    var selectedImage = URL.createObjectURL(e.target.files[0]);
+    $('#profile').attr('src',selectedImage);
 })
 // end select image in add member page
 

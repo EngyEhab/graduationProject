@@ -202,7 +202,7 @@ if (isset($_POST['deleteBtn'])){
             </div>
             <div class="col-md-6  d-flex justify-content-center align-items-center align-self-baseline mt-5">
                 <div class="memberPhoto">
-                    <img src="../images/<?php echo $Doctor_image?>" class="w-100 h-100 ratio-1x1 rounded-circle shadow" alt="">
+                    <img src="../images/members/<?php echo $Doctor_image?>" class="w-100 h-100 ratio-1x1 rounded-circle shadow" alt="">
                     <h1 class="text-center mainTitle mt-5"><?php echo $Doctor_ar_Name;?></h1>
                 </div>
                 

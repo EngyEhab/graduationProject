@@ -134,7 +134,7 @@ if (isset($_GET['id'])){
             </div>
             <div class="col-md-6 d-flex justify-content-center align-items-center pb-5">
                 <div class="memberPhoto">
-                    <img src="../images/users/<?php echo $Doctor_image;?>" class="w-100 h-100 ratio-1x1 rounded-circle shadow" alt="">
+                    <img src="../images/members/<?php echo $Doctor_image;?>" class="w-100 h-100 ratio-1x1 rounded-circle shadow" alt="">
                     <h1 class="text-center mainTitle pt-3"><?php echo $doctorNameInput;?></h1>
                 </div> 
             </div>
