@@ -60,7 +60,7 @@ include "../Connections/syscon.php";
                         <?php
             if (isset($_POST['completesearch'])) {
                     $cst=$_POST['completesearch'];
-                    $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$cst%'";
+                    $myquery="SELECT * FROM p74_doctors_account WHERE Doctor_ar_Name like '%$cst%'";
                     $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){
                     ?>
@@ -74,7 +74,7 @@ include "../Connections/syscon.php";
                         
             }
                 else { 
-                        $myquery="SELECT * FROM doctors_account";
+                        $myquery="SELECT * FROM p74_doctors_account";
                         $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){?>
                     
@@ -106,8 +106,8 @@ include "../Connections/syscon.php";
                 die('Could not connect to the database.');
             }
             else {
-                $Select = "SELECT * FROM completedata ";
-                $Insert = "INSERT INTO completedata(doctorCodeInput, doctorNameInput, doctorJobInput, CompleteData) values(?, ?, ?, ?)";
+                $Select = "SELECT * FROM p74_completedata ";
+                $Insert = "INSERT INTO p74_completedata(doctorCodeInput, doctorNameInput, doctorJobInput, CompleteData) values(?, ?, ?, ?)";
                 $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
                     $stmt->bind_param("ssss",$doctorCodeInput, $doctorNameInput, $doctorJobInput, $CompleteData);

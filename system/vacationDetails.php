@@ -3,12 +3,12 @@ include "../Connections/syscon.php";
 if (isset($_GET['id'])){
     $id=$_GET['id'];
 
-    $myquery="SELECT * FROM doctors_account WHERE DoctorCode= '$id'";
+    $myquery="SELECT * FROM p74_doctors_account WHERE DoctorCode= '$id'";
     $results=mysqli_query($bis,$myquery);
     while ($row=mysqli_fetch_array($results)){$Doctor_image=$row['Doctor_image'];}
 
     mysqli_select_db($bis,$database_bis);
-    $myquery="SELECT * FROM  addvacation_data WHERE doctorCodeInput= '$id'";
+    $myquery="SELECT * FROM  p74_vacation_data WHERE doctorCodeInput= '$id'";
     $result = $bis->query($myquery);
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
@@ -21,6 +21,7 @@ if (isset($_GET['id'])){
             $vacationReason =$row["vacationReason"];
             $vacationFile =$row["vacationFile"]; 
             $vacationNotes=$row["vacationNotes"]; 
+            $vacationDuration=$row["vacationDuration"];
     }
 }
 // if (isset($_POST['deleteBtn'])){ 
@@ -99,7 +100,7 @@ if (isset($_GET['id'])){
                             <h4 class="mainText fw-bold">المـــــــــــــــــــــــــــــــدة  :</h4>
                         </div>
                         <div class="col-md-2">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $vacationDuration;?></p>
                         </div>
                         <div class="col-md-1">
                             <h4 class="mainText fw-bold">من  :</h4>

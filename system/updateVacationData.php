@@ -5,7 +5,7 @@ $id="";
 if (isset($_GET['id'])){
     $id=$_GET['id'];
     
-    $Select=mysqli_query($bis,"SELECT * FROM  addvacation_data WHERE  doctorCodeInput='$id' ");
+    $Select=mysqli_query($bis,"SELECT * FROM  p74_vacation_data WHERE  doctorCodeInput='$id' ");
     $row=mysqli_fetch_assoc($Select);
     
             $doctorCodeInput=$row['doctorCodeInput'];
@@ -30,13 +30,13 @@ if (isset($_POST['update'])){
     $vacationNotes=$_POST["vacationNotes"]; 
 
     if ((!empty($vacationFile))){
-        $Details = mysqli_query($bis , "UPDATE addvacation_data SET 
+        $Details = mysqli_query($bis , "UPDATE p74_vacation_data SET 
         startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
         vacationFile='$vacationFile',vacationNotes='$vacationNotes',vacationDescription='$vacationDescription'
         WHERE doctorCodeInput='$id'");
         }
         else{
-            $Details = mysqli_query($bis , "UPDATE addvacation_data SET
+            $Details = mysqli_query($bis , "UPDATE p74_vacation_data SET
             startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
             vacationNotes='$vacationNotes',vacationDescription='$vacationDescription'
             WHERE doctorCodeInput='$id'");  

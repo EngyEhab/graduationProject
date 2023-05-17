@@ -35,7 +35,7 @@ include "../Connections/syscon.php";
                 <div class="search position-relative">
                     <form action="" method="post" id="searchForm">
                         <input type="text" class="searchField form-control w-100 rounded-pill border-0" name="search" placeholder="بحث...">
-                        <button type="submit" class="searchBtn rounded-start-pill">
+                        <button type="submit" class="searchBtn rounded-start-pill" name="submit">
                             <i class="fa-solid fa-magnifying-glass fa-rotate-90 fa-lg" style="color: #fff;"></i>
                         </button>
                     </form>
@@ -58,16 +58,18 @@ include "../Connections/syscon.php";
                     </thead>   
                     <tbody>
                     <?php
-            if (isset($_POST['statementSearch'])) {
-        $st=$_POST ['statementSearch'];
-        $query="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
+            if (isset($_POST['submit'])) {
+        $st=$_POST ['search'];
+        $query="SELECT * FROM p74_doctors_account 
+        INNER JOIN  p74_departments  
+        ON p74_doctors_account.Department_id=p74_departments.Department_id WHERE Doctor_ar_Name like '%$st%' ";
         $results=mysqli_query($bis,$query);
         while($row=mysqli_fetch_array($results)) {
             ?>
                 <tr>
                     <td><?php echo $row['DoctorCode'] ?></td>
                     <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                    <td><?php echo $row['departments'] ?></td>
+                    <td><?php echo $row['Department_ar_name'] ?></td>
                     <td>
                         <a href="pdf.php?id=<?php echo $row['DoctorCode'] ?>">
                             <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button>
@@ -77,14 +79,16 @@ include "../Connections/syscon.php";
                 <?php }
             }
             else{
-                $query="SELECT * FROM doctors_account";
+                $query="SELECT * FROM p74_doctors_account 
+                INNER JOIN  p74_departments  
+                ON p74_doctors_account.Department_id=p74_departments.Department_id";
                 $results=mysqli_query($bis,$query);
                 while($row=mysqli_fetch_array($results)) {
                 ?>
                 <tr>
                     <td><?php echo $row['DoctorCode'] ?></td>
                     <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                    <td><?php echo $row['departments'] ?></td>
+                    <td><?php echo $row['Department_ar_name'] ?></td>
                     <td>
                         <a href="pdf.php?id=<?php echo $row['DoctorCode'] ?>">
                             <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button>

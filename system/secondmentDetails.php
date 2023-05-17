@@ -4,12 +4,12 @@ if (isset($_GET['id'])){
 
     $id=$_GET['id'];
 
-    $myquery="SELECT * FROM doctors_account WHERE DoctorCode= '$id'";
+    $myquery="SELECT * FROM p74_doctors_account WHERE DoctorCode= '$id'";
     $results=mysqli_query($bis,$myquery);
     while ($row=mysqli_fetch_array($results)){$Doctor_image=$row['Doctor_image'];}
 
     mysqli_select_db($bis,$database_bis);
-    $myquery="SELECT * FROM addsecondment_data WHERE doctorCodeInput= '$id'";
+    $myquery="SELECT * FROM p74_secondment_data WHERE doctorCodeInput= '$id'";
     $result = $bis->query($myquery);
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();

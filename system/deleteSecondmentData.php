@@ -3,8 +3,8 @@ include "../Connections/syscon.php";
 
 if (isset($_GET['id'])){ 
     $id=$_GET['id'];
-    $Details = mysqli_query($bis , " DELETE FROM addsecondment_data WHERE doctorCodeInput='$id'");   
-    header("location: penalties.php");
+    $Details = mysqli_query($bis , " DELETE FROM p74_secondment_data WHERE doctorCodeInput='$id'");   
+    header("location: secondments.php");
     exit;
 }
 ?>

@@ -60,7 +60,7 @@ include "../Connections/syscon.php";
                     <tbody>
                     <?php   if (isset($_POST['search'])) {
                     $st=$_POST ['search'];
-                    $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
+                    $myquery="SELECT * FROM p74_doctors_account WHERE Doctor_ar_Name like '%$st%' ";
                     $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){  
                     ?>
@@ -72,7 +72,7 @@ include "../Connections/syscon.php";
                         </tr>
                     <?php }} 
                     else{
-                        $myquery="SELECT * FROM doctors_account";
+                        $myquery="SELECT * FROM p74_doctors_account";
                         $results=mysqli_query($bis,$myquery);
                         while ($row=mysqli_fetch_array($results)){
                         
@@ -111,8 +111,8 @@ include "../Connections/syscon.php";
                 die('Could not connect to the database.');
             }
             else {
-                $Select = "SELECT * FROM penalities ";
-                $Insert = "INSERT INTO penalities(doctorCodeInput, doctorNameInput, penaltyDescription, penaltyDuration, startDate, endDate, penaltyReason, penaltyNotes, penaltyFile) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $Select = "SELECT * FROM p74_penalities ";
+                $Insert = "INSERT INTO p74_penalities(doctorCodeInput, doctorNameInput, penaltyDescription, penaltyDuration, startDate, endDate, penaltyReason, penaltyNotes, penaltyFile) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
                     $stmt->bind_param("sssssssss",$doctorCodeInput, $doctorNameInput, $penaltyDescription, $penaltyDuration, $startDate, $endDate, $penaltyReason, $penaltyNotes, $penaltyFile);

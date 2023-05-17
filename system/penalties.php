@@ -60,7 +60,7 @@ include "../Connections/syscon.php";
                 $st=$_POST ['search'];
         ?>
         <?php
-        $myquery="SELECT * FROM penalities INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput AND doctorNameInput like '%$st%'  ";
+        $myquery="SELECT * FROM p74_penalities INNER JOIN  p74_doctors_account   ON DoctorCode=doctorCodeInput AND doctorNameInput like '%$st%'  ";
         // $sql="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){
@@ -78,7 +78,7 @@ include "../Connections/syscon.php";
                 </div>
             </div>
             <?php } } else{
-        $myquery="SELECT * FROM penalities INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput";
+        $myquery="SELECT * FROM p74_penalities INNER JOIN  p74_doctors_account   ON DoctorCode=doctorCodeInput";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){
         ?>

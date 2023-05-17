@@ -65,7 +65,7 @@ include "../Connections/syscon.php";
         ?>
         <?php
         
-        $myquery="SELECT * FROM  addvacation_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput AND doctorNameInput like '%$st%'  ";
+        $myquery="SELECT * FROM  p74_vacation_data INNER JOIN  p74_doctors_account   ON DoctorCode=doctorCodeInput AND doctorNameInput like '%$st%'  ";
         // $sql="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){
@@ -86,7 +86,7 @@ include "../Connections/syscon.php";
                 // $myquery="SELECT * FROM doctors_account WHERE DoctorCode =$DoctorCode";
                 // $results=mysqli_query($bis,$myquery);
                 // while ($row=mysqli_fetch_array($results)){$Doctor_image=$row['Doctor_image'];}
-        $myquery="SELECT * FROM  addvacation_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput";
+        $myquery="SELECT * FROM  p74_vacation_data INNER JOIN  p74_doctors_account   ON DoctorCode=doctorCodeInput";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){
         ?>

@@ -61,27 +61,31 @@ include "../Connections/syscon.php";
                          <?php
             if (isset($_POST['search'])) {
                     $st=$_POST['search'];
-                    $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%'";
+                    $myquery="SELECT * FROM p74_doctors_account 
+                    INNER JOIN  p74_doctor_jobs  
+                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
                     $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){
                     ?>
                         <tr>
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
-                            <td><?php echo $row['doctor_jobs']?></td>
+                            <td><?php echo $row['Doctor_job_ar_name']?></td>
                             <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#addVacationModal" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة  </button></td>
                         </tr>
                         <?php }
                         
             }
                 else { 
-                        $myquery="SELECT * FROM doctors_account";
+                        $myquery="SELECT * FROM p74_doctors_account 
+                        INNER JOIN  p74_doctor_jobs  
+                        ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id";
                         $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){?>
                         <tr>
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
-                            <td><?php echo $row['doctor_jobs']?></td>
+                            <td><?php echo $row['Doctor_job_ar_name']?></td>
                             <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#addVacationModal" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة  </button></td>
                         </tr>
                         <?php }}?>
@@ -97,7 +101,7 @@ include "../Connections/syscon.php";
     if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
         isset($_POST['vacationDescription']) && isset($_POST['startDate']) &&
         isset($_POST['endDate']) && isset($_POST['vacationReason']) &&
-        isset($_POST['vacationFile']) && isset($_POST['vacationNotes'])){
+        isset($_POST['vacationFile']) && isset($_POST['vacationNotes'])&& isset($_POST['vacationDuration'])){
             $doctorCodeInput=$_POST['doctorCodeInput'];
             $doctorNameInput =$_POST['doctorNameInput'];
             $vacationDescription =$_POST['vacationDescription']; 
@@ -105,17 +109,18 @@ include "../Connections/syscon.php";
             $endDate=$_POST['endDate'];
             $vacationReason =$_POST['vacationReason'];
             $vacationFile =$_POST['vacationFile']; 
-            $vacationNotes=$_POST["vacationNotes"]; 
+            $vacationNotes=$_POST["vacationNotes"];
+            $vacationDuration=$_POST["vacationDuration"]; 
             $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
             if ($bis->connect_error) {
                 die('Could not connect to the database.');
             }
             else {
-                $Select = "SELECT * FROM addvacation_data ";
-                $Insert = "INSERT INTO addvacation_data(doctorCodeInput, doctorNameInput, vacationDescription, startDate, endDate, vacationReason, vacationFile, vacationNotes) values(?, ?, ?, ?, ?, ?, ?, ?)";
+                $Select = "SELECT * FROM p74_vacation_data ";
+                $Insert = "INSERT INTO p74_vacation_data(doctorCodeInput, doctorNameInput, vacationDescription, startDate, endDate, vacationReason, vacationFile, vacationNotes, vacationDuration) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("ssssssss",$doctorCodeInput, $doctorNameInput, $vacationDescription, $startDate, $endDate, $vacationReason, $vacationFile, $vacationNotes);
+                    $stmt->bind_param("sssssssss",$doctorCodeInput, $doctorNameInput, $vacationDescription, $startDate, $endDate, $vacationReason, $vacationFile, $vacationNotes, $vacationDuration);
                     if ($stmt->execute()) {
                     }
                     else {

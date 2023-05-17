@@ -61,7 +61,7 @@ include "../Connections/syscon.php";
                     <?php
             if (isset($_POST['search'])) {
                     $st=$_POST['search'];
-                    $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%'";
+                    $myquery="SELECT * FROM p74_doctors_account WHERE Doctor_ar_Name like '%$st%'";
                     $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){
                     ?>
@@ -75,7 +75,7 @@ include "../Connections/syscon.php";
                         
             }
                 else { 
-                        $myquery="SELECT * FROM doctors_account";
+                        $myquery="SELECT * FROM p74_doctors_account";
                         $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){?>
                         <tr>
@@ -114,8 +114,8 @@ include "../Connections/syscon.php";
                 die('Could not connect to the database.');
             }
             else {
-                $Select = "SELECT * FROM addsecondment_data ";
-                $Insert = "INSERT INTO addsecondment_data(doctorCodeInput, doctorNameInput, secondmentDescription, secondmentDestination, secondmentType, secondmentDuration, startDate, endDate, secondmentFile, secondmentNotes) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $Select = "SELECT * FROM p74_secondment_data ";
+                $Insert = "INSERT INTO p74_secondment_data(doctorCodeInput, doctorNameInput, secondmentDescription, secondmentDestination, secondmentType, secondmentDuration, startDate, endDate, secondmentFile, secondmentNotes) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
                     $stmt->bind_param("ssssssssss",$doctorCodeInput, $doctorNameInput, $secondmentDescription, $secondmentDestination, $secondmentType, $secondmentDuration, $startDate, $endDate, $secondmentFile, $secondmentNotes);

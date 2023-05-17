@@ -3,19 +3,19 @@
 include "../Connections/syscon.php"; 
 if(isset($_GET['id'])){
     $id=$_GET['id'];
-    $query1 = "SELECT * FROM doctors_account WHERE DoctorCode = '$id' ";
+    $query1 = "SELECT * FROM p74_doctors_account WHERE DoctorCode = '$id' ";
     $results1 =mysqli_query($bis, $query1);
     $row1 = mysqli_fetch_array($results1);
 
-    $query2 = "SELECT * FROM penalities WHERE DoctorCodeInput = '$id' ";
+    $query2 = "SELECT * FROM p74_penalities WHERE DoctorCodeInput = '$id' ";
     $results2 =mysqli_query($bis, $query2);
     $row2 = mysqli_fetch_array($results2);
 
-    $query3 = "SELECT * FROM addsecondment_data WHERE DoctorCodeInput = '$id' ";
+    $query3 = "SELECT * FROM p74_secondment_data WHERE DoctorCodeInput = '$id' ";
     $results3 =mysqli_query($bis, $query3);
     $row3 = mysqli_fetch_array($results3);
 
-    $query4 = "SELECT * FROM addvacation_data WHERE DoctorCodeInput = '$id' ";
+    $query4 = "SELECT * FROM p74_vacation_data WHERE DoctorCodeInput = '$id' ";
     $results4 =mysqli_query($bis, $query4);
     $row4 = mysqli_fetch_array($results4);
 

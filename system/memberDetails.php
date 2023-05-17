@@ -6,7 +6,16 @@ if (isset($_GET['id'])){
     $id=$_GET['id'];
 
     mysqli_select_db($bis,$database_bis);
-    $myquery="SELECT * FROM doctors_account WHERE DoctorCode= $id";
+    $myquery="SELECT * FROM p74_doctors_account 
+    INNER JOIN  p74_departments  
+    ON p74_doctors_account.Department_id=p74_departments.Department_id 
+    INNER JOIN  p74_universities
+    ON p74_doctors_account.uni_id=p74_universities.uni_id
+    INNER JOIN  p74_faculties
+    ON p74_doctors_account.Faculty_id=p74_faculties.Faculty_id
+    INNER JOIN  p74_doctor_jobs
+    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id
+    WHERE p74_doctors_account.DoctorCode= $id";
     $result = $bis->query($myquery);
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
@@ -22,16 +31,25 @@ if (isset($_GET['id'])){
         $Personal_Mail=$row["Personal_Mail"]; 
         $Notes=$row["Notes"]; 
         $Doctor_image=$row["Doctor_image"]; 
-        $departments=$row["departments"]; 
-        $university=$row["university"];
-        $faculty=$row["faculty"];
-        $doctor_jobs=$row["doctor_jobs"];
-    
-    }
+        $Department_ar_name=$row["Department_ar_name"]; 
+        $uni_ar_name=$row["uni_ar_name"];
+        $Faculty_ar_name=$row["Faculty_ar_name"];
+        $Doctor_job_ar_name=$row["Doctor_job_ar_name"];
+
+//         mysqli_select_db($bis,$database_bis);
+// $sql="SELECT * FROM p74_doctors_account INNER JOIN  p74_departments   ON p74_doctors_account.Department_id=p74_departments.department_id WHERE p74_doctors_account.DoctorCode= $id";
+// $result1 = $bis->query($sql);
+// if ($result->num_rows === 1) {
+//     $row = $result->fetch_assoc();
+//     $Department_ar_name=$row["Department_ar_name"]; 
 }
+    
+     
+    }
+   
 if (isset($_POST['deleteBtn'])){ 
     $id=$_GET['id']; 
-     $Details = mysqli_query($bis , " DELETE FROM doctors_account WHERE DoctorCode='$id'");   
+     $Details = mysqli_query($bis , " DELETE FROM p74_doctors_account WHERE DoctorCode='$id'");   
 
 }
 ?>
@@ -139,7 +157,7 @@ if (isset($_POST['deleteBtn'])){
                             <h4 class="mainText fw-bold">الجامعــــــــــــــــــــــــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"><?php echo $university?></p>
+                            <p class="fs-4"><?php echo $uni_ar_name?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -147,7 +165,7 @@ if (isset($_POST['deleteBtn'])){
                             <h4 class="mainText fw-bold">الكليــــــــــــــــــــــــــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">  <?php echo $faculty?>  </p>
+                            <p class="fs-4">  <?php echo $Faculty_ar_name?>  </p>
                         </div>
                     </div>
                     <div class="row">
@@ -155,7 +173,7 @@ if (isset($_POST['deleteBtn'])){
                             <h4 class="mainText fw-bold">القســــــــــــــــــــــــــــم :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"><?php echo $departments?></p>
+                            <p class="fs-4"><?php echo $Department_ar_name?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -163,7 +181,7 @@ if (isset($_POST['deleteBtn'])){
                             <h4 class="mainText fw-bold">الدرجة الوظيفية الحالية :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"><?php echo $doctor_jobs?></p>
+                            <p class="fs-4"><?php echo $Doctor_job_ar_name?></p>
                         </div>
                     </div>
                     <div class="row">

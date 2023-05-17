@@ -5,7 +5,7 @@ $id="";
 if (isset($_GET['id'])){
     $id=$_GET['id'];
     
-    $Select=mysqli_query($bis,"SELECT * FROM penalities WHERE  doctorCodeInput='$id' ");
+    $Select=mysqli_query($bis,"SELECT * FROM p74_penalities WHERE  doctorCodeInput='$id' ");
     $row=mysqli_fetch_assoc($Select);
     
     
@@ -32,13 +32,13 @@ if (isset($_POST['updatePenaltyBtn'])){
             $penaltyDuration=$_POST["penaltyDuration"];
 
     if ((!empty($penaltyFile))){
-        $Details = mysqli_query($bis , "UPDATE penalities SET penaltyDescription='$penaltyDescription',
+        $Details = mysqli_query($bis , "UPDATE p74_penalities SET penaltyDescription='$penaltyDescription',
         startDate='$startDate',endDate='$endDate',penaltyReason='$penaltyReason',
         penaltyFile='$penaltyFile',penaltyNotes='$penaltyNotes',penaltyDuration='$penaltyDuration'
         WHERE doctorCodeInput='$id'");
         }
         else{
-            $Details = mysqli_query($bis , "UPDATE penalities SET penaltyDescription='$penaltyDescription',
+            $Details = mysqli_query($bis , "UPDATE p74_penalities SET penaltyDescription='$penaltyDescription',
             startDate='$startDate',endDate='$endDate',penaltyReason='$penaltyReason',
             penaltyNotes='$penaltyNotes',penaltyDuration='$penaltyDuration' WHERE doctorCodeInput='$id'");  
         }}

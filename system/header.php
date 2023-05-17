@@ -21,7 +21,7 @@ if($conn->connect_error) {
     die("failed to connect : ".$con->connect_error);}
 
     mysqli_select_db($conn,$database_bis);
-    $query_appata = "SELECT * FROM application_data";
+    $query_appata = "SELECT * FROM p74_application_data";
     $appata = mysqli_query ($conn, $query_appata) or die (mysqli_error ($bis));
     $row_appata = mysqli_fetch_assoc ($appata);
 

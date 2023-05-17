@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // $user_ar_name =$_post['user_ar_name'];
     $password = $_POST['password'];
     // $image = $_post['image'];
-    $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password' AND is_enable='yes'";
+    $query = "SELECT * FROM p74_users WHERE username = '$username' AND password = '$password' AND is_enable='yes'";
     $result = $con->query($query);
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
