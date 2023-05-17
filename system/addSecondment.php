@@ -61,27 +61,31 @@ include "../Connections/syscon.php";
                     <?php
             if (isset($_POST['search'])) {
                     $st=$_POST['search'];
-                    $myquery="SELECT * FROM p74_doctors_account WHERE Doctor_ar_Name like '%$st%'";
+                    $myquery="SELECT * FROM p74_doctors_account 
+                    INNER JOIN  p74_doctor_jobs  
+                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
                     $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){
                     ?>
                         <tr>
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
-                            <td><?php echo $row['doctor_jobs']?></td>
+                            <td><?php echo $row['Doctor_job_ar_name']?></td>
                             <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#addSecondmentModal" class="border-0 rounded-pill w-50 fs-4 tableAddSecondmentBtn">إضافة  </button></td>
                         </tr>
                         <?php }
                         
             }
                 else { 
-                        $myquery="SELECT * FROM p74_doctors_account";
+                        $myquery="SELECT * FROM p74_doctors_account 
+                        INNER JOIN  p74_doctor_jobs  
+                        ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id";
                         $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){?>
                         <tr>
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
-                            <td><?php echo $row['doctor_jobs']?></td>
+                            <td><?php echo $row['Doctor_job_ar_name']?></td>
                             <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#addSecondmentModal" class="border-0 rounded-pill w-50 fs-4 tableAddSecondmentBtn">إضافة  </button></td>
                         </tr>
                         <?php }} ?>

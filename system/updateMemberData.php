@@ -2,26 +2,34 @@
 include "../Connections/syscon.php"; 
 $bis = mysqli_connect($hostname_bis, $username_bis, $password_bis, $database_bis);
 
-$qualifications="";
-$date_of_birth ="";
-$hiring_date =""; 
-$Doctor_ar_Name ="";              
-$Doctor_eng_Name="";                   
-$National_id="";                   
-$Mobile="";                   
-$Academic_Mail=""; 
-$Personal_Mail=""; 
-$Notes=""; 
-$Doctor_image=""; 
-$department=""; 
-$university="";
-$faculty="";
-$doctorjob="";
+// $qualifications="";
+// $date_of_birth ="";
+// $hiring_date =""; 
+// $Doctor_ar_Name ="";              
+// $Doctor_eng_Name="";                   
+// $National_id="";                   
+// $Mobile="";                   
+// $Academic_Mail=""; 
+// $Personal_Mail=""; 
+// $Notes=""; 
+// $Doctor_image=""; 
+// $department=""; 
+// $university="";
+// $faculty="";
+// $doctorjob="";
 
 if (isset($_GET['id'])){
     $id=$_GET['id'];
     
-    $Select=mysqli_query($bis,"SELECT * FROM p74_doctors_account WHERE  DoctorCode='$id' ");
+    $Select=mysqli_query($bis,"SELECT * FROM p74_doctors_account 
+    INNER JOIN  p74_departments  
+    ON p74_doctors_account.Department_id=p74_departments.Department_id 
+    INNER JOIN  p74_universities
+    ON p74_doctors_account.uni_id=p74_universities.uni_id
+    INNER JOIN  p74_faculties
+    ON p74_doctors_account.Faculty_id=p74_faculties.Faculty_id
+    INNER JOIN  p74_doctor_jobs
+    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id WHERE  DoctorCode='$id' ");
     $row=mysqli_fetch_assoc($Select);
     
     
@@ -36,10 +44,10 @@ if (isset($_GET['id'])){
     $Personal_Mail=$row["Personal_Mail"]; 
     $Notes=$row["Notes"]; 
     $Doctor_image=$row["Doctor_image"]; 
-    $department=$row["departments"]; 
-    $university=$row["university"];
-    $faculty=$row["faculty"];
-    $doctorjob=$row["doctor_jobs"];}
+    $Department_ar_name=$row["Department_ar_name"]; 
+    $uni_ar_name=$row["uni_ar_name"];
+    $Faculty_ar_name=$row["Faculty_ar_name"];
+    $Doctor_job_ar_name=$row["Doctor_job_ar_name"];}
 
 if (isset($_POST['updateMemberData'])){
   
@@ -54,10 +62,10 @@ if (isset($_POST['updateMemberData'])){
     $Personal_Mail=$_POST["Personal_Mail"]; 
     $Notes=$_POST["Notes"]; 
     $Doctor_image=$_POST["Doctor_image"]; 
-    $department=$_POST["departments"]; 
-    $university=$_POST["university"];
-    $faculty=$_POST["faculty"];
-    $doctorjob=$_POST["doctor_jobs"];
+    $Department_id=$_POST["Department_id"]; 
+    $uni_id=$_POST["uni_id"];
+    $Faculty_id=$_POST["Faculty_id"];
+    $Doctor_job_id=$_POST["Doctor_job_id"];
     
    
      if ((!empty($Doctor_image))){
@@ -65,16 +73,16 @@ if (isset($_POST['updateMemberData'])){
         Doctor_ar_Name='$Doctor_ar_Name',Doctor_eng_Name='$Doctor_eng_Name',
         National_id='$National_id',Mobile='$Mobile',Academic_Mail='$Academic_Mail',
         Personal_Mail='$Personal_Mail',Notes='$Notes',Doctor_image='$Doctor_image',
-        departments='$department',university='$university',faculty='$faculty',
-        doctor_jobs='$doctorjob', qualifications='$qualifications',
+        Department_id='$Department_id',uni_id='$uni_id',Faculty_id='$Faculty_id',
+        Doctor_job_id='$Doctor_job_id', qualifications='$qualifications',
         date_of_birth ='$date_of_birth' , hiring_date ='$hiring_date'  WHERE DoctorCode='$id'");
         }else{
             $Details = mysqli_query($bis , "UPDATE p74_doctors_account SET 
         Doctor_ar_Name='$Doctor_ar_Name',Doctor_eng_Name='$Doctor_eng_Name',
         National_id='$National_id',Mobile='$Mobile',Academic_Mail='$Academic_Mail',
         Personal_Mail='$Personal_Mail',Notes='$Notes',
-        departments='$department',university='$university',faculty='$faculty',
-        doctor_jobs='$doctorjob', qualifications='$qualifications',
+        Department_id='$Department_id',uni_id='$uni_id',Faculty_id='$Faculty_id',
+        Doctor_job_id='$Doctor_job_id', qualifications='$qualifications',
         date_of_birth ='$date_of_birth' , hiring_date ='$hiring_date'  WHERE DoctorCode='$id'");
     
         }
@@ -190,35 +198,35 @@ $_SESSION ['faculties']=$faculties;
             </div>
             <div class="row my-2">
                 <div class="col-md-4">
-                    <select name="university" class="form-select" id="university">
+                    <select name="uni_id" class="form-select" id="university">
                     <?php foreach($universities as $row){?>
-                        <option selected value='<?php echo $row['uni_ar_name'];?>'> <?php echo $row['uni_ar_name']?></option>
-                        <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $university;} ?></option>?>
+                        <option selected value='<?php echo $row['uni_id'];?>'> <?php echo $row['uni_ar_name']?></option>
+                        <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $uni_ar_name;} ?></option>?>
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <select name="faculty" class="form-select" id="faculty">
+                    <select name="Faculty_id" class="form-select" id="faculty">
                     <?php foreach($faculties as $row){?>
-                        <option selected value='<?php echo $row['Faculty_ar_name']?>'><?php echo $row['Faculty_ar_name']?> </option>
-                        <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $faculty;} ?></option>
+                        <option selected value='<?php echo $row['Faculty_id']?>'><?php echo $row['Faculty_ar_name']?> </option>
+                        <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $Faculty_ar_name;} ?></option>
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <select name="departments" class="form-select" id="department">
+                    <select name="Department_id" class="form-select" id="department">
                     <option selected value="">القسم</option>
                     <?php foreach ($departments as $row){?>
-                        <option value='<?php echo $row['Department_ar_name']?>'><?php echo $row['Department_ar_name']?></option> 
-                        <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $department;} ?></option> 
+                        <option value='<?php echo $row['Department_id']?>'><?php echo $row['Department_ar_name']?></option> 
+                        <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $Department_ar_name;} ?></option> 
                     </select>
                 </div>
             </div>
             <div class="row my-2">
                 <div class="col-md-4">
-                    <select name="doctor_jobs" class="form-select" id="job">
+                    <select name="Doctor_job_id" class="form-select" id="job">
                     <option selected value="">الدرجة الوظيفية الحالية</option>
                     <?php  foreach($doctor_jobs as $row){?>
-                        <option value='<?php echo $row['Doctor_job_ar_name']?>'><?php echo $row['Doctor_job_ar_name']?></option>
-                        <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $doctorjob;} ?></option>
+                        <option value='<?php echo $row['Doctor_job_id']?>'><?php echo $row['Doctor_job_ar_name']?></option>
+                        <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $Doctor_job_ar_name;} ?></option>
                     </select>
                 </div>
                 <div class="col-md-4">

@@ -61,26 +61,30 @@ include "../Connections/syscon.php";
                         <?php
             if (isset($_POST['search'])) {
                     $st=$_POST['search'];
-                    $myquery="SELECT * FROM p74_doctors_account WHERE Doctor_ar_Name like '%$st%'";
+                    $myquery="SELECT * FROM p74_doctors_account 
+                    INNER JOIN  p74_doctor_jobs  
+                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
                     $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){
                     ?>
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
-                            <td><?php echo $row['doctor_jobs']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><?php echo $row['Doctor_job_ar_name']?></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_ar_name']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }
                         
             }
-                else { $myquery="SELECT * FROM p74_doctors_account";
+                else { $myquery="SELECT * FROM p74_doctors_account 
+                    INNER JOIN  p74_doctor_jobs  
+                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id";
                         $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){?>
                         <tr>
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
-                            <td><?php echo $row['doctor_jobs']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['doctor_jobs']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><?php echo $row['Doctor_job_ar_name']?></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_ar_name']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }}?>
                     </tbody>
