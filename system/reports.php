@@ -132,7 +132,7 @@ include "../Connections/syscon.php";
                         </tr>
                     </thead>
                     <tbody>
-                   <?php
+                    <?php
                 //    if (isset($_POST['displayReport'])){
                     
                     // if (isset($_POST['reportAbout'])){
