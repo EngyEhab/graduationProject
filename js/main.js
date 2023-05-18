@@ -206,17 +206,3 @@ $('.tableUpdateJobGradeBtn').click(function(){
 
 // end UpdateJobGrade page
 
-$('#displayReportForm').on('submit' , function(e){
-    e.preventDefault();
-})
-$('#displayReport').click(function(){
-    $('#displayReportSearch').removeClass('d-none');
-    $('#displayReportTable').removeClass('d-none');
-    $('#displayReportForm').addClass('d-none');
-})
-
-$('#anotherReport').click(function(){
-    $('#displayReportForm').removeClass('d-none');
-    $('#displayReportSearch').addClass('d-none');
-    $('#displayReportTable').addClass('d-none');
-})
