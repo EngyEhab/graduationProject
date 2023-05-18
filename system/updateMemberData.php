@@ -50,7 +50,7 @@ if (isset($_GET['id'])){
     $Doctor_job_ar_name=$row["Doctor_job_ar_name"];}
 
 if (isset($_POST['updateMemberData'])){
-  
+    
     $qualifications=$_POST['qualifications'];
     $date_of_birth =$_POST['date_of_birth'];
     $hiring_date =$_POST['hiring_date']; 
@@ -67,8 +67,8 @@ if (isset($_POST['updateMemberData'])){
     $Faculty_id=$_POST["Faculty_id"];
     $Doctor_job_id=$_POST["Doctor_job_id"];
     
-   
-     if ((!empty($Doctor_image))){
+    
+    if ((!empty($Doctor_image))){
         $Details = mysqli_query($bis , "UPDATE p74_doctors_account SET 
         Doctor_ar_Name='$Doctor_ar_Name',Doctor_eng_Name='$Doctor_eng_Name',
         National_id='$National_id',Mobile='$Mobile',Academic_Mail='$Academic_Mail',
@@ -77,7 +77,7 @@ if (isset($_POST['updateMemberData'])){
         Doctor_job_id='$Doctor_job_id', qualifications='$qualifications',
         date_of_birth ='$date_of_birth' , hiring_date ='$hiring_date'  WHERE DoctorCode='$id'");
         }else{
-            $Details = mysqli_query($bis , "UPDATE p74_doctors_account SET 
+            $sql = mysqli_query($bis , "UPDATE p74_doctors_account SET 
         Doctor_ar_Name='$Doctor_ar_Name',Doctor_eng_Name='$Doctor_eng_Name',
         National_id='$National_id',Mobile='$Mobile',Academic_Mail='$Academic_Mail',
         Personal_Mail='$Personal_Mail',Notes='$Notes',
@@ -201,14 +201,14 @@ $_SESSION ['faculties']=$faculties;
                     <select name="uni_id" class="form-select" id="university">
                     <?php foreach($universities as $row){?>
                         <option selected value='<?php echo $row['uni_id'];?>'> <?php echo $row['uni_ar_name']?></option>
-                        <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $uni_ar_name;} ?></option>?>
+                        <?php } if (isset($_GET['id'])){?> <option selected value='<?php echo $row['uni_id'];?>'> <?php echo $uni_ar_name;} ?></option>?>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <select name="Faculty_id" class="form-select" id="faculty">
                     <?php foreach($faculties as $row){?>
                         <option selected value='<?php echo $row['Faculty_id']?>'><?php echo $row['Faculty_ar_name']?> </option>
-                        <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $Faculty_ar_name;} ?></option>
+                        <?php } if (isset($_GET['id'])){?> <option selected value='<?php echo $row['Faculty_id']?>'> <?php echo $Faculty_ar_name;} ?></option>
                     </select>
                 </div>
                 <div class="col-md-4">
@@ -216,7 +216,7 @@ $_SESSION ['faculties']=$faculties;
                     <option selected value="">القسم</option>
                     <?php foreach ($departments as $row){?>
                         <option value='<?php echo $row['Department_id']?>'><?php echo $row['Department_ar_name']?></option> 
-                        <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $Department_ar_name;} ?></option> 
+                        <?php } if (isset($_GET['id'])){?> <option selected value='<?php echo $row['Department_id']?>'> <?php echo $Department_ar_name;} ?></option> 
                     </select>
                 </div>
             </div>
@@ -226,7 +226,7 @@ $_SESSION ['faculties']=$faculties;
                     <option selected value="">الدرجة الوظيفية الحالية</option>
                     <?php  foreach($doctor_jobs as $row){?>
                         <option value='<?php echo $row['Doctor_job_id']?>'><?php echo $row['Doctor_job_ar_name']?></option>
-                        <?php } if (isset($_GET['id'])){?> <option selected value=''> <?php echo $Doctor_job_ar_name;} ?></option>
+                        <?php } if (isset($_GET['id'])){?> <option selected value='<?php echo $row['Doctor_job_id']?>'> <?php echo $Doctor_job_ar_name;} ?></option>
                     </select>
                 </div>
                 <div class="col-md-4">
@@ -248,14 +248,14 @@ $_SESSION ['faculties']=$faculties;
             </div>
             <div class="row my-2 justify-content-end">
                 <div class="col-md-2">
-                 <a href="memberDetails.php?id=<?php echo $Doctor_Code?>"><button type="submit" class="updateMemberDataBtn rounded-pill border-0 w-100 my-3"  id="updateMemberData" name="updateMemberData">تعديل</button></a>
+                <a href="memberDetails.php?id=<?php echo $Doctor_Code?>"><button type="submit" class="updateMemberDataBtn rounded-pill border-0 w-100 my-3"  id="updateMemberData" name="updateMemberData">تعديل</button></a>
                 </div> 
             </div>
         </div>
     </div>
     </form>
 
-   
+
     <?php
         include('footer.php');
     ?>
