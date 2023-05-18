@@ -1,33 +1,18 @@
 <?php
 include "../Connections/syscon.php";
 
-
-    // $date_of_birth =$_POST['date_of_birth'];
-    // $hiring_date =$_POST['hiring_date']; 
-    // $Doctor_ar_Name = $_POST['Doctor_ar_Name'];
     $reportAbout="";
+    $startDate="";
+    $endDate="";
     if (isset($_POST['displayReport'])) {
-        // if (isset($_POST['reportAbout'])) {
-
-        // $reportAbout=array('reportAbout'=>$_POST['reportAbout'],'vacation'=>$_POST['vacations'],'secondments'=>$_POST['secondments']);
-        // // $vacations=$_POST['vacations'];
-        // // $secondments=$_POST['secondments'];}}
-        // $reportAbout['vacation']
-        // $reportAbout= [
-        //     'vacation'=>$_POST['vacations'],
-        //     'secondments'=>$_POST['secondments'],
-        //     'p74_penalities'=>$_POST['p74_penalities'],
-
-        // ];
-        // foreach ($reportAbout as $key => $value) {
-        //     echo $reportAbout;
-        // }
-        // }
+        
             $reportAbout =$_POST['reportAbout'];
-            // $_SESSION['reportAbout']=$reportAbout;
-
+            $startDate =$_POST['startDate'];
+            $endDate =$_POST['endDate'];
     }
     echo $reportAbout;
+    echo $startDate;
+    echo $endDate;
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +43,7 @@ include "../Connections/syscon.php";
     <!-- end button to up -->
 
     <div class="w-75 mx-auto m-5">
-        <form action="" method="post" id="displayReportForm">
+        <form action="" method="post" id="displayReportForm" >
             <div class="container dataContainer p-3 px-5" >
                 <div class="row my-3 mt-5 align-items-center justify-content-center">
                     <div class="col-md-2 text-center">
@@ -67,7 +52,7 @@ include "../Connections/syscon.php";
                     <div class="col-md-8">
                         <select name="reportAbout" id="reportAbout"  class="form-select fs-4">
                             <option value="">اختر نوع التقرير</option>
-                            <option value="p74_penalities">العقوبات أو الجزاءات</option>
+                            <option value="penalties">العقوبات أو الجزاءات</option>
                             <option value="vacations">الأجازات</option>
                             <option value="secondments">الإعارات</option>
                         </select>
@@ -137,7 +122,7 @@ include "../Connections/syscon.php";
                     
                     // if (isset($_POST['reportAbout'])){
                     //     $reportAbout=$_POST['reportAbout'];
-                    //     if($reportAbout == "p74_penalities"){
+                    //     if($reportAbout == "penalties"){
                             
                         $myquery="SELECT * FROM p74_penalities 
                     INNER JOIN  p74_doctor_jobs  
