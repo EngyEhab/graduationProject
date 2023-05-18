@@ -206,7 +206,9 @@ $('.tableUpdateJobGradeBtn').click(function(){
 
 // end UpdateJobGrade page
 
-
+$('#displayReportForm').on('submit' , function(e){
+    e.preventDefault();
+})
 $('#displayReport').click(function(){
     $('#displayReportSearch').removeClass('d-none');
     $('#displayReportTable').removeClass('d-none');
