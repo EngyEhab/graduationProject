@@ -24,7 +24,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="text-decoration-none pe-3">
+                <a href="users.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-users fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">المستخدمون</span>
                     <div class="line mb-1"></div>

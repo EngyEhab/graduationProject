@@ -34,7 +34,7 @@
                 </a>
             </div>
             <div class="col">
-                <a href="#" class="text-decoration-none text-white">
+                <a href="users.php" class="text-decoration-none text-white">
                     <div class="function text-center">
                         <i class="fa-solid fa-users fa-2xl mb-3"></i>
                         <h3>المستخدمون</h3>
