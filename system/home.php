@@ -100,7 +100,7 @@
                 </a>
             </div>
             <div class="col">
-                <a href="#" class="text-decoration-none text-white">
+                <a href="reports.php" class="text-decoration-none text-white">
                     <div class="function text-center">
                         <i class="fa-solid fa-file-lines fa-2xl mb-3"></i>
                         <h3>تقارير</h3>

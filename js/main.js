@@ -207,3 +207,14 @@ $('.tableUpdateJobGradeBtn').click(function(){
 // end UpdateJobGrade page
 
 
+$('#displayReport').click(function(){
+    $('#displayReportSearch').removeClass('d-none');
+    $('#displayReportTable').removeClass('d-none');
+    $('#displayReportForm').addClass('d-none');
+})
+
+$('#anotherReport').click(function(){
+    $('#displayReportForm').removeClass('d-none');
+    $('#displayReportSearch').addClass('d-none');
+    $('#displayReportTable').addClass('d-none');
+})

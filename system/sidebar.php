@@ -80,7 +80,7 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="text-decoration-none pe-3">
+                <a href="reports.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-file-lines fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">تقارير</span>
                 </a>
