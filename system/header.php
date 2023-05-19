@@ -28,7 +28,7 @@ $_SESSION ['Uni_name'] = $row_appata['Uni_name'];
 $_SESSION ['app_name'] = $row_appata['app_name'];
 $_SESSION ['Faculty_name'] = $row_appata['Faculty_name'];
 $_SESSION ['Program_name'] = $row_appata['Program_name'];
-$_SESSION ['Faculty-Uni_logo'] = $row_appata['Faculty-Uni_logo'];
+$_SESSION ['Faculty_Uni_logo'] = $row_appata['Faculty_Uni_logo'];
 $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
 
 
@@ -78,7 +78,7 @@ $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
                 </div>
 
                 <div class="col-xxl-1">
-                    <img src="../images/<?php echo $_SESSION ['Faculty-Uni_logo'] ?>" class="w-100" alt="Helwan-LOGO">
+                    <img src="../images/<?php echo $_SESSION ['Faculty_Uni_logo'] ?>" class="w-100" alt="Helwan-LOGO">
                 </div>
                 <!-- end logo bis and helwan -->
             </div>

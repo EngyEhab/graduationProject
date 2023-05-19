@@ -1,3 +1,44 @@
+<?php
+include "../Connections/syscon.php"; 
+$Select=mysqli_query($bis,"SELECT * FROM p74_application_data ");
+$row=mysqli_fetch_assoc($Select);
+
+
+    $app_id=$row['app_id'];
+    $app_name=$row['app_name'];
+    $Uni_name =$row['Uni_name'];
+    $Faculty_name =$row['Faculty_name'];  
+    $Program_name = $row['Program_name'];     
+    $Faculty_Uni_logo=$row["Faculty_Uni_logo"];                   
+    $Program_logo=$row["Program_logo"];                   
+    $Faculty_Dean=$row["Faculty_Dean"];                   
+    $Post_grad_vice_dean=$row["Post_grad_vice_dean"]; 
+    $st_affairs_vice_dean=$row["st_affairs_vice_dean"]; 
+    $Program_coordinator=$row["Program_coordinator"];
+    
+    if (isset($_POST['submit'])){
+    // $app_name=$_POST['app_name'];
+    $Uni_name =$_POST['Uni_name'];
+    $Faculty_name =$_POST['Faculty_name'];  
+    $Program_name = $_POST['Program_name'];     
+    $Faculty_Uni_logo=$_POST["Faculty_Uni_logo"];                   
+    $Program_logo=$_POST["Program_logo"];                   
+    $Faculty_Dean=$_POST["Faculty_Dean"];                   
+    $Post_grad_vice_dean=$_POST["Post_grad_vice_dean"]; 
+    $st_affairs_vice_dean=$_POST["st_affairs_vice_dean"]; 
+    $Program_coordinator=$_POST["Program_coordinator"];
+
+
+    $sql = mysqli_query($bis , "UPDATE p74_application_data SET 
+        Uni_name='$Uni_name',Faculty_name='$Faculty_name',
+        Program_name='$Program_name',Faculty_Uni_logo='$Faculty_Uni_logo',Program_logo='$Program_logo',
+        Faculty_Dean='$Faculty_Dean',Post_grad_vice_dean='$Post_grad_vice_dean',
+        st_affairs_vice_dean='$st_affairs_vice_dean',Program_coordinator='$Program_coordinator'
+        WHERE app_id='$app_id'");
+
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +79,7 @@
     <!-- end button to up -->
     
 
-    <form action="" method="">
+    <form action="" method="post">
         <div class="w-75 mx-auto m-5">
             <h3 class="mainTitle text-end p-2">تحديث بيانات النظام</h3>
             <div class="container dataContainer mb-5 p-3">
@@ -47,7 +88,7 @@
                         <label for="universityName" class="mainText fw-bold fs-4 text-nowrap"> الجــامعـــــــــــــــــــــــــــــــة  :</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" name="universityName" id="universityName" class="form-control fs-4"></input>
+                        <input type="text" name="Uni_name" id="universityName" value="<?php {echo $Uni_name;}?>" class="form-control fs-4"></input>
                     </div>
                 </div> 
                 <div class="row my-2 align-items-center">
@@ -55,7 +96,7 @@
                         <label for="facultyName" class="mainText fw-bold fs-4 text-nowrap"> الكليــــــــــــــــــــــــــــــــــة  :</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" name="facultyName" id="facultyName" class="form-control fs-4"></input>
+                        <input type="text" name="Faculty_name" id="facultyName" value="<?php {echo $Faculty_name;}?>" class="form-control fs-4"></input>
                     </div>
                 </div> 
 
@@ -64,7 +105,7 @@
                         <label for="facultyLogo" class="mainText fw-bold fs-4 text-nowrap"> لوجــــــــــــو الكليـــــــــــــة  :</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="file" name="facultyLogo" accept="image/*" id="facultyLogo" class="form-control fs-4"></input>
+                        <input type="file" name="Faculty_Uni_logo" accept="image/*" id="facultyLogo" value="<?php  {echo $Faculty_Uni_logo;}?>" class="form-control fs-4"></input>
                     </div>
                 </div>
 
@@ -73,7 +114,7 @@
                         <label for="programName" class="mainText fw-bold fs-4 text-nowrap"> البرنامــــــــــــــــــــــــــــــــج :</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" name="programName" id="programName">
+                        <input type="text" class="form-control" name="Program_name" id="programName" value="<?php  {echo $Program_name;}?>">
                     </div>
                 </div>
 
@@ -82,7 +123,7 @@
                         <label for="programLogo" class="mainText fw-bold fs-4 text-nowrap"> لوجــــــــــــو البرنامـــــــــــج  :</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="file" name="programLogo" accept="image/*" id="programLogo" class="form-control fs-4"></input>
+                        <input type="file" name="Program_logo" accept="image/*" id="programLogo" value="<?php  {echo $Program_logo;}?>" class="form-control fs-4"></input>
                     </div>
                 </div>
 
@@ -91,7 +132,7 @@
                         <label for="facultyDean" class="mainText fw-bold fs-4 text-nowrap"> عميــــــد الكليـــــــــــــــــــــة :</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" name="facultyDean" id="facultyDean">
+                        <input type="text" class="form-control" name="Faculty_Dean" id="facultyDean" value="<?php  {echo $Faculty_Dean;}?>">
                     </div>
                 </div>
 
@@ -100,7 +141,7 @@
                         <label for="postGradViceDean" class="mainText fw-bold fs-4">وكيل الكلية لشئون الدراسات العليا والبحوث :</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" name="postGradViceDean" id="postGradViceDean">
+                        <input type="text" class="form-control" name="Post_grad_vice_dean" id="postGradViceDean" value="<?php  {echo $Post_grad_vice_dean;}?>">
                     </div>
                 </div>
 
@@ -109,7 +150,7 @@
                         <label for="studentAffairsViceDean" class="mainText fw-bold fs-4">وكيل الكلية لشئون التعليم والطلاب :</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" name="studentAffairsViceDean" id="studentAffairsViceDean">
+                        <input type="text" class="form-control" name="st_affairs_vice_dean" id="studentAffairsViceDean" value="<?php  {echo $st_affairs_vice_dean;}?>">
                     </div>
                 </div>
 
@@ -118,7 +159,7 @@
                         <label for="programCoordinator" class="mainText fw-bold fs-4 text-nowrap"> منســــــق البرنامـــــــــــج :</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="text" class="form-control" name="programCoordinator" id="programCoordinator">
+                        <input type="text" class="form-control" name="Program_coordinator" id="programCoordinator" value="<?php  {echo $Program_coordinator;}?>">
                     </div>
                 </div>
 
