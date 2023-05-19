@@ -1,4 +1,16 @@
+<?php
+include "../Connections/syscon.php";
+$bis = mysqli_connect($hostname_bis, $username_bis, $password_bis, $database_bis);
 
+
+$reportAbout="";
+$startDate="";
+$endDate="";
+if (isset($_GET['reportAbout'])){
+$reportAbout=$_GET['reportAbout'];}
+$startDate=$_GET['startDate'];
+$endDate=$_GET['endDate'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,17 +74,153 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        
+                    if ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate)) {
+                    $myquery=("SELECT * FROM p74_doctors_account 
+                    INNER JOIN  p74_departments  
+                    ON p74_doctors_account.Department_id=p74_departments.Department_id
+                    INNER JOIN  p74_doctor_jobs
+                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id
+                    INNER JOIN  p74_penalities
+                    ON p74_doctors_account.DoctorCode=p74_penalities.doctorCodeInput WHERE p74_penalities.startDate>=$startDate AND p74_penalities.endDate<=$endDate");
+                    $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){
+                    ?>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo $row['DoctorCode'];?></td>
+                            <td><?php echo $row['Doctor_ar_Name']?></td>
+                            <td><?php echo $row['Department_ar_name']?></td>
+                            <td><?php echo $row['Doctor_job_ar_name']?></td>
                             <td>
-                                <a href="#">
+                                <a href="penaltyDetails.php?id=<?php echo $row['DoctorCode'];?>">
                                     <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                 </a>
                             </td>
-                        </tr>      
+                        </tr>   
+                        <?php }}
+                        elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate)){
+                            $myquery=("SELECT * FROM p74_doctors_account 
+                    INNER JOIN  p74_departments  
+                    ON p74_doctors_account.Department_id=p74_departments.Department_id
+                    INNER JOIN  p74_doctor_jobs
+                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id
+                    INNER JOIN  p74_penalities
+                    ON p74_doctors_account.DoctorCode=p74_penalities.doctorCodeInput ");
+                    $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){
+                    ?>
+                        <tr>
+                            <td><?php echo $row['DoctorCode'];?></td>
+                            <td><?php echo $row['Doctor_ar_Name']?></td>
+                            <td><?php echo $row['Department_ar_name']?></td>
+                            <td><?php echo $row['Doctor_job_ar_name']?></td>
+                            <td>
+                                <a href="penaltyDetails.php?id=<?php echo $row['DoctorCode'];?>">
+                                    <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                </a>
+                            </td>
+                        </tr>   
+                        <?php }}
+                        
+                        elseif($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate)){
+                        
+                    $myquery=("SELECT * FROM p74_doctors_account 
+                    INNER JOIN  p74_departments  
+                    ON p74_doctors_account.Department_id=p74_departments.Department_id
+                    INNER JOIN  p74_doctor_jobs
+                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id
+                    INNER JOIN  p74_vacation_data
+                    ON p74_doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate>=$startDate AND p74_vacation_data.endDate<=$endDate");
+                    $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){
+                        
+                    ?>
+                        <tr>
+                            <td><?php echo $row['DoctorCode'];?></td>
+                            <td><?php echo $row['Doctor_ar_Name']?></td>
+                            <td><?php echo $row['Department_ar_name']?></td>
+                            <td><?php echo $row['Doctor_job_ar_name']?></td>
+                            <td>
+                                <a href="vacationDetails.php?id=<?php echo $row['DoctorCode'];?>">
+                                    <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                </a>
+                            </td>
+                        </tr>   
+                        <?php }}elseif($reportAbout == "vacations" &&  empty($startDate) && empty($endDate)){
+                        
+                        $myquery=("SELECT * FROM p74_doctors_account 
+                        INNER JOIN  p74_departments  
+                        ON p74_doctors_account.Department_id=p74_departments.Department_id
+                        INNER JOIN  p74_doctor_jobs
+                        ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id
+                        INNER JOIN  p74_vacation_data
+                        ON p74_doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput ");
+                        $results=mysqli_query($bis,$myquery);
+                        while ($row=mysqli_fetch_array($results)){
+                            
+                        ?>
+                            <tr>
+                                <td><?php echo $row['DoctorCode'];?></td>
+                                <td><?php echo $row['Doctor_ar_Name']?></td>
+                                <td><?php echo $row['Department_ar_name']?></td>
+                                <td><?php echo $row['Doctor_job_ar_name']?></td>
+                                <td>
+                                    <a href="vacationDetails.php?id=<?php echo $row['DoctorCode'];?>">
+                                        <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                    </a>
+                                </td>
+                            </tr>   
+                            <?php }}
+                            
+                    elseif($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate)) {
+                    $myquery=("SELECT * FROM p74_doctors_account 
+                    INNER JOIN  p74_departments  
+                    ON p74_doctors_account.Department_id=p74_departments.Department_id
+                    INNER JOIN  p74_doctor_jobs
+                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id
+                    INNER JOIN  p74_secondment_data
+                    ON p74_doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_secondment_data.startDate>=$startDate AND p74_secondment_data.endDate<=$endDate");
+                    $results=mysqli_query($bis,$myquery);
+                    while ($row=mysqli_fetch_array($results)){
+                    ?>
+                        <tr>
+                            <td><?php echo $row['DoctorCode'];?></td>
+                            <td><?php echo $row['Doctor_ar_Name']?></td>
+                            <td><?php echo $row['Department_ar_name']?></td>
+                            <td><?php echo $row['Doctor_job_ar_name']?></td>
+                            <td>
+                                <a href="secondmentDetails.php?id=<?php echo $row['DoctorCode'];?>">
+                                    <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                </a>
+                            </td>
+                        </tr>   
+                        <?php }}else{
+                            if($reportAbout == "secondments" &&  empty($startDate) && empty($endDate)) {
+                                $myquery=("SELECT * FROM p74_doctors_account 
+                                INNER JOIN  p74_departments  
+                                ON p74_doctors_account.Department_id=p74_departments.Department_id
+                                INNER JOIN  p74_doctor_jobs
+                                ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id
+                                INNER JOIN  p74_secondment_data
+                                ON p74_doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput ");
+                                $results=mysqli_query($bis,$myquery);
+                                while ($row=mysqli_fetch_array($results)){
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode'];?></td>
+                                        <td><?php echo $row['Doctor_ar_Name']?></td>
+                                        <td><?php echo $row['Department_ar_name']?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name']?></td>
+                                        <td>
+                                            <a href="secondmentDetails.php?id=<?php echo $row['DoctorCode'];?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>   
+                                    <?php }}
+
+                        }?>
                     </tbody>
                 </table>
             </div>

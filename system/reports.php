@@ -1,4 +1,14 @@
+<?php
+include "../Connections/syscon.php";
 
+if (isset($_POST['displayReport'])) {
+$reportAbout=$_POST['reportAbout'];
+$startDate=$_POST['startDate'];
+$endDate=$_POST['endDate'];
+// header("location:../system/reportTable.php");
+header("location:../system/reportTable.php?reportAbout=$_POST[reportAbout]&startDate=$_POST[startDate]&endDate=$_POST[endDate]");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +38,7 @@
     <!-- end button to up -->
 
 
-    <form action="" method="" id="displayReportForm" >
+    <form action="" method="post" id="displayReportForm" >
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3 px-5" >
                 <div class="row my-3 mt-5 align-items-center justify-content-center">

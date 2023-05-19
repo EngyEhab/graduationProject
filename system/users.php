@@ -1,3 +1,6 @@
+<?php
+include "../Connections/syscon.php"; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
