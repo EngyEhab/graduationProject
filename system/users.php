@@ -30,7 +30,14 @@ include "../Connections/syscon.php";
     <!-- end button to up -->
 
     <div class="container my-5">
-        <div class="row justify-content-center">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-md-2">
+                <div class="addUser">
+                    <a href="addUser.php" class="text-decoration-none text-white">
+                        <button class="addUserBtn rounded-pill w-100 border-0" id="addUserBtn">إضافة مستخدم</button>
+                    </a>   
+                </div>
+            </div>
             <div class="col-md-6">
                 <div class="search position-relative">
                     <form action="" method="post" id="searchForm">
@@ -52,21 +59,50 @@ include "../Connections/syscon.php";
                         <tr>
                             <th>كود المستخدم</th>
                             <th>اسم المستخدم</th>
-                            <th>تمكين / تعطيل</th>
+                            <th>حالة المستخدم</th>
+                            <th>الإعدادات</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td></td>
                             <td></td>
-                            <td><button class="border-0  rounded-pill w-50 fs-4 enabledBtn">تمكين  </button></td>
-                            <td><button class="border-0  rounded-pill w-50 fs-4 disabledBtn">تعطيل  </button></td>
+                            <td>
+                                <button class="btn btn-success w-50 fw-bold fs-5">تمكيــــن  </button>
+                                <button class="btn btn-danger w-50 fw-bold fs-5">تعـطيـــل  </button>
+                            </td>
+                            <td>
+                                <a href="updateUserData.php" class="text-decoration-none">
+                                    <button class="btn btn-warning">
+                                        <i class="fa-solid fa-pencil fa-lg"></i>
+                                    </button>
+                                </a>
+                                <a href="deleteUserData.php"class="text-decoration-none">
+                                    <button class="btn btn-danger">
+                                        <i class="fa-solid fa-trash-can fa-lg"></i>
+                                    </button>
+                                </a>
+                            </td>
                         </tr>
                         <tr>
                             <td></td>
                             <td></td>
-                            <td><button class="border-0  rounded-pill w-50 fs-4 enabledBtn">تمكين  </button></td>
-                            <td><button class="border-0  rounded-pill w-50 fs-4 disabledBtn">تعطيل  </button></td>
+                            <td>
+                                <button class="btn btn-success w-50 fw-bold fs-5">تمكيــــن  </button>
+                                <button class="btn btn-danger w-50 fw-bold fs-5">تعـطيـــل  </button>
+                            </td>
+                            <td>
+                                <a href="updateUserData.php" class="text-decoration-none">
+                                    <button class="btn btn-warning">
+                                        <i class="fa-solid fa-pencil fa-lg"></i>
+                                    </button>
+                                </a>
+                                <a href="deleteUserData.php"  class="text-decoration-none">
+                                    <button class="btn btn-danger">
+                                        <i class="fa-solid fa-trash-can fa-lg"></i>
+                                    </button>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

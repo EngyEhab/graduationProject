@@ -26,7 +26,7 @@
     <div class="container">
         <div class="row my-5">
             <div class="col">
-                <a href="#" class="text-decoration-none text-white function-link">
+                <a href="dashboard.php" class="text-decoration-none text-white function-link">
                     <div class="function text-center">
                         <i class="fa-solid fa-desktop fa-2xl mb-3"></i>
                         <h3>لوحة التحكم</h3>

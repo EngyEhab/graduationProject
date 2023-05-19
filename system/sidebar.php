@@ -17,7 +17,7 @@
         </button>
         <ul>
             <li>
-                <a href="#" class="text-decoration-none pe-3">
+                <a href="dashboard.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-desktop fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">لوحة التحكم</span>
                     <div class="line mb-1"></div>
