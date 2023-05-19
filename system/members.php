@@ -57,8 +57,6 @@ include "../Connections/syscon.php";
         <div class="row gy-5 gx-0 justify-content-center " id="members">
         <?php
             if (isset($_POST['search'])) {
-        ?>
-        <?php
         $st=$_POST ['search'];
         $myquery="SELECT * FROM p74_doctors_account WHERE Doctor_ar_Name like '%$st%' ";
         $results=mysqli_query($bis,$myquery);
