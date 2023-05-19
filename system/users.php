@@ -85,12 +85,16 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['user_id']?></td>
                             <td><?php echo $row['user_ar_name']?></td>
                             <td>
-                                <?php if ($row['is_enable'] == "no") { ?>
-                                    <a href="inableUser.php?id=<?php echo $row ['user_id']?>">
-                                <button class="btn btn-success w-50 fw-bold fs-5">تمكيــــن  </button> <?php } ?>
+                            <?php if ($row['is_enable'] == "no") { ?>
+                                <a href="inableUser.php?id=<?php echo $row ['user_id']?>">
+                                <button class="btn btn-success w-50 fw-bold fs-5">تمكيــــن  </button>
                                 </a>
-                                <?php if ($row['is_enable'] == "yes") { ?>  
-                                <button class="btn btn-danger w-50 fw-bold fs-5">تعـطيـــل  </button><?php }  ?>
+                                <?php }else{?>
+                                
+                                <a href="disableUser.php?id=<?php echo $row ['user_id']?>">
+                                <button class="btn btn-danger w-50 fw-bold fs-5">تعـطيـــل  </button>
+                                </a>
+                                <?php } ?>
                             </td>
                             <td>
                                 <a href="updateUserData.php" class="text-decoration-none">
