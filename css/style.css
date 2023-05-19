@@ -396,7 +396,7 @@ label
 
 
 /* start select file in add penalty , add secondment and add vacation pages */
-.choosePenaltyFileBtn , .chooseSecondmentFileBtn , .chooseVacationFileBtn
+.choosePenaltyFileBtn , .chooseSecondmentFileBtn , .chooseVacationFileBtn ,.chooseFacultyLogoBtn ,.chooseProgramLogoBtn
 {
     background-color: rgba(170, 178, 186,0.5);
     cursor: pointer;

@@ -176,8 +176,12 @@ $row=mysqli_fetch_assoc($Select);
                                     <div class="col-md-2 text-center">
                                         <label for="facultyLogo" class="mainText fw-bold fs-4 text-nowrap"> لوجــــــــــــو الكليـــــــــــــة  :</label>
                                     </div>
-                                    <div class="col-md-10">
-                                        <input type="file" name="Faculty_Uni_logo" accept="image/*" id="facultyLogo" value="<?php  {echo $Faculty_Uni_logo;}?>" class="form-control fs-4"></input>
+                                    <div class="col-md-2">
+                                        <div class="fs-4 w-100 chooseFacultyLogoBtn text-center p-1 rounded-2" type="button">ارفق الصورة </div>
+                                    </div>
+                                    <div class="col-md-8 align-self-center">
+                                        <input type="file" name="Faculty_Uni_logo" accept="image/*" id="facultyLogo" class="d-none"></input>  
+                                        <p class="selectedFacultyLogo fs-4 mt-3"><?php  {echo $Faculty_Uni_logo;}?></p>                   
                                     </div>
                                 </div>
 
@@ -194,8 +198,12 @@ $row=mysqli_fetch_assoc($Select);
                                     <div class="col-md-2 text-center">
                                         <label for="programLogo" class="mainText fw-bold fs-4 text-nowrap"> لوجــــــــــــو البرنامـــــــــــج  :</label>
                                     </div>
-                                    <div class="col-md-10">
-                                        <input type="file" name="Program_logo" accept="image/*" id="programLogo" value="<?php  {echo $Program_logo;}?>" class="form-control fs-4"></input>
+                                    <div class="col-md-2">
+                                        <div class="fs-4 w-100 chooseProgramLogoBtn text-center p-1 rounded-2" type="button">ارفق الصورة </div>
+                                    </div>
+                                    <div class="col-md-8 align-self-center">
+                                        <input type="file" name="Program_logo" accept="image/*" id="programLogo" class="d-none"></input>  
+                                        <p class="selectedProgramLogo fs-4 mt-3"><?php  {echo $Program_logo;}?></p>                   
                                     </div>
                                 </div>
 

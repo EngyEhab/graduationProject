@@ -206,3 +206,20 @@ $('.tableUpdateJobGradeBtn').click(function(){
 
 // end UpdateJobGrade page
 
+$('.chooseFacultyLogoBtn').click(function(e){
+    $('#facultyLogo').click();
+});
+
+$('#facultyLogo').change(function(e){
+    var selectedVacationFile = e.target.files[0].name;
+    $('.selectedFacultyLogo').text(selectedVacationFile);
+});
+
+$('.chooseProgramLogoBtn').click(function(e){
+    $('#programLogo').click();
+});
+
+$('#programLogo').change(function(e){
+    var selectedVacationFile = e.target.files[0].name;
+    $('.selectedProgramLogo').text(selectedVacationFile);
+});
