@@ -119,8 +119,8 @@ include "../Connections/syscon.php";
                                 <a href="inableUser.php?id=<?php echo $row ['user_id']?>">
                                 <button class="btn btn-success w-50 fw-bold fs-5">تمكيــــن  </button>
                                 </a>
-                                <?php } ?>
-                                <?php if ($row['is_enable'] == "yes") { ?>
+                                <?php }else{?>
+                                
                                 <a href="disableUser.php?id=<?php echo $row ['user_id']?>">
                                 <button class="btn btn-danger w-50 fw-bold fs-5">تعـطيـــل  </button>
                                 </a>
