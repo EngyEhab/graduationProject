@@ -1,3 +1,4 @@
+
 <?php
 
 include "../Connections/syscon.php"; 
@@ -68,6 +69,7 @@ while($row=mysqli_fetch_assoc($appata)){
 }
 $_SESSION ['p74_users_types']=$p74_users_types;
 ?>
+
 
 
 <!DOCTYPE html>
