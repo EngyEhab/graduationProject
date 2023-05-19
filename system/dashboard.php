@@ -139,9 +139,9 @@ $row=mysqli_fetch_assoc($Select);
             </div>
         </div>
         <div class="container">
-            <div class="row my-2 justify-content-end">
+            <div class="row mt-2 justify-content-end">
                 <div class="col-md-2">
-                    <button type="submit" class="updateSystemDataModalBtn rounded-pill border-0 w-100 my-3" data-bs-toggle="modal" data-bs-target="#updateSystemDataModal" id="updateSystemDataModalBtn" name="updateSystemDataModalBtn">تحديث</button>
+                    <button type="submit" class="updateSystemDataModalBtn rounded-pill border-0 w-100 mt-3" data-bs-toggle="modal" data-bs-target="#updateSystemDataModal" id="updateSystemDataModalBtn" name="updateSystemDataModalBtn">تحديث</button>
                 </div> 
             </div>
         </div>

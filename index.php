@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_ar_name =$row['user_ar_name'];
         $image = $row['image'];
         $_SESSION['username'] = $username;
-        $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['user_id'] = $user_id;
         $_SESSION['user_ar_name'] = $user_ar_name;
         $_SESSION['image'] = $image;
         $_SESSION['start'] = time();
