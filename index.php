@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['start'] = time();
         $_SESSION['expire'] = $_SESSION['start'] + (4 * 2000);
 
-        header("location:system/home.php?user_id=$_SESSION[user_id]");
+        header("location:system/home.php");
         exit();
     } else {
         header("location: index.php");
