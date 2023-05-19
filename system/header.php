@@ -47,8 +47,8 @@ $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
                 <!-- start user image , name and link to logout -->
                 <div class="col-xxl-1 col-md col-3">
                     <div class="user pt-2 text-center">
-                        <div class="userImage">
-                            <img src="../images/users/<?php echo $_SESSION['image'] ?>" class="w-75 rounded-circle" alt="user-image">
+                        <div class="userImage me-1">
+                            <img src="../images/users/<?php echo $_SESSION['image'] ?>" class="w-100 h-100 ratio-1x1 rounded-circle" alt="user-image">
                         </div>
                         <p class="mainTitle fs-4 mb-0 mt-1 lh-1">
                         <?php echo $_SESSION[ 'user_ar_name' ]?>

@@ -64,7 +64,7 @@ include "../Connections/syscon.php";
     <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-9">
-                <table class="table text-center fs-4 bg-white shadow rounded-2">
+                <table class="table text-center fs-4 bg-white shadow rounded-2 align-middle">
                     <thead class="mainText table-light">
                         <tr>
                             <th>كود المستخدم</th>
@@ -99,12 +99,12 @@ include "../Connections/syscon.php";
                             <td>
                                 <a href="updateUserData.php" class="text-decoration-none">
                                     <button class="btn btn-warning">
-                                        <i class="fa-solid fa-pencil fa-lg"></i>
+                                        <i class="fa-solid fa-pencil fa-lg p-1"></i>
                                     </button>
                                 </a>
                                 <a href="deleteUserData.php"class="text-decoration-none">
                                     <button class="btn btn-danger">
-                                        <i class="fa-solid fa-trash-can fa-lg"></i>
+                                        <i class="fa-solid fa-trash-can fa-lg p-1"></i>
                                     </button>
                                 </a>
                             </td>
@@ -133,12 +133,12 @@ include "../Connections/syscon.php";
                             <td>
                                 <a href="updateUserData.php" class="text-decoration-none">
                                     <button class="btn btn-warning">
-                                        <i class="fa-solid fa-pencil fa-lg"></i>
+                                        <i class="fa-solid fa-pencil fa-lg p-1"></i>
                                     </button>
                                 </a>
                                 <a href="deleteUserData.php"  class="text-decoration-none">
                                     <button class="btn btn-danger">
-                                        <i class="fa-solid fa-trash-can fa-lg"></i>
+                                        <i class="fa-solid fa-trash-can fa-lg p-1"></i>
                                     </button>
                                 </a>
                             </td>

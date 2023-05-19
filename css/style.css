@@ -329,7 +329,11 @@ label
     display: none;
 }
 /* end button to up */
-
+.userImage
+{
+    width:100px;
+    height: 100px;
+}
 
 .memberImage
 {
