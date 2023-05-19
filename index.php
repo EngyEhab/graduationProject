@@ -28,15 +28,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
         $username = $row['username'];
+        $user_id = $row['user_id'];
         $user_ar_name =$row['user_ar_name'];
         $image = $row['image'];
         $_SESSION['username'] = $username;
+        $_SESSION['user_id'] = $row['user_id'];
         $_SESSION['user_ar_name'] = $user_ar_name;
         $_SESSION['image'] = $image;
         $_SESSION['start'] = time();
         $_SESSION['expire'] = $_SESSION['start'] + (4 * 2000);
 
-        header("location:system/home.php");
+        header("location:system/home.php?user_id=$_SESSION[user_id]");
         exit();
     } else {
         header("location: index.php");

@@ -11,7 +11,6 @@ if (!isset($_SESSION['username'])) {
     }
 }
 
-
 $hostname_bis = "localhost";
 $database_bis = "staff_affairs";
 $username_bis = "root";
@@ -21,7 +20,7 @@ if($conn->connect_error) {
     die("failed to connect : ".$con->connect_error);}
 
     mysqli_select_db($conn,$database_bis);
-    $query_appata = "SELECT * FROM p74_application_data";
+    $query_appata = "SELECT * FROM p74_application_data INNER JOIN p74_users";
     $appata = mysqli_query ($conn, $query_appata) or die (mysqli_error ($bis));
     $row_appata = mysqli_fetch_assoc ($appata);
 
@@ -31,6 +30,8 @@ $_SESSION ['Faculty_name'] = $row_appata['Faculty_name'];
 $_SESSION ['Program_name'] = $row_appata['Program_name'];
 $_SESSION ['Faculty-Uni_logo'] = $row_appata['Faculty-Uni_logo'];
 $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
+
+
 ?>
 
 <!DOCTYPE html>

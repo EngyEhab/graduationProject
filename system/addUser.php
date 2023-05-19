@@ -1,33 +1,19 @@
 <?php
 
 include "../Connections/syscon.php"; 
+?>
 
-if (isset($_POST['submit'])) {
-    if (isset($_POST['Doctor_ar_Name']) && isset($_POST['Doctor_eng_Name']) &&
-        isset($_POST['National_id']) && isset($_POST['Mobile']) &&
-        isset($_POST['Academic_Mail']) && isset($_POST['Personal_Mail'])&& 
-        isset($_POST['Department_id']) && 
-        isset($_POST['uni_id'])&& isset($_POST['Faculty_id'])&& 
-        isset($_POST['Doctor_job_id'])&& isset($_POST["Notes"])&&
-        isset($_POST['qualifications'])&& isset($_POST["date_of_birth"])&&
-        isset($_POST['hiring_date'])) {
-            
-            
-            $qualifications=$_POST['qualifications'];
-            $date_of_birth =$_POST['date_of_birth'];
-            $hiring_date =$_POST['hiring_date']; 
-            $Doctor_ar_Name=$_POST["Doctor_ar_Name"];                   
-            $Doctor_eng_Name=$_POST["Doctor_eng_Name"];                   
-            $National_id=$_POST["National_id"];                   
-            $Mobile=$_POST["Mobile"];                   
-            $Academic_Mail=$_POST["Academic_Mail"]; 
-            $Personal_Mail=$_POST["Personal_Mail"]; 
+<?php if (isset($_POST['submit'])) {
+    if (isset($_POST['user_ar_Name']) && isset($_POST['userName']) &&
+        isset($_POST['user_type_id']) && isset($_POST['password'])
+        && isset($_POST['Notes'])
+        )
+        
+            $user_ar_Name=$_POST["user_ar_Name"]; 
+            $userName=$_POST["userName"]; 
+            $user_type_id=$_POST["user_type_id"]; 
+            $password=$_POST["password"]; 
             $Notes=$_POST["Notes"]; 
-            // $Doctor_image=$_POST["Doctor_image"]; 
-            $Department_id=$_POST["Department_id"]; 
-            $uni_id=$_POST["uni_id"];
-            $Faculty_id=$_POST["Faculty_id"];
-            $Doctor_job_id=$_POST["Doctor_job_id"];
             $imgFile = $_FILES['Doctor_image']['name'];
             $tmp_dir = $_FILES['Doctor_image']['tmp_name'];
             $imgSize = $_FILES['Doctor_image']['size']; 
@@ -35,7 +21,7 @@ if (isset($_POST['submit'])) {
             if(!empty($imgFile))
             {
             
-            $upload_dir = '../images/members/'; // upload directory
+            $upload_dir = '../images/users/'; // upload directory
             
             $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
             
@@ -59,11 +45,11 @@ if (isset($_POST['submit'])) {
             die('Could not connect to the database.');
         }
         else {
-            $Select = "SELECT * FROM p74_doctors_account ";
-            $Insert = "INSERT INTO p74_doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, Department_id, uni_id, Faculty_id, Doctor_job_id, qualifications, date_of_birth, hiring_date,Doctor_image) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
+            $Select = "SELECT * FROM  p74_users ";
+            $Insert = "INSERT INTO  p74_users(user_ar_Name, userName, user_type_id, password, Notes, image) values(?, ?, ?, ?, ?, ?)";
             $stmt = $bis->prepare($Select);
                 $stmt = $bis->prepare($Insert);
-                $stmt->bind_param("sssssssiiiissss",$Doctor_ar_Name, $Doctor_eng_Name, $National_id, $Mobile, $Academic_Mail, $Personal_Mail, $Notes, $Department_id, $uni_id, $Faculty_id, $Doctor_job_id, $qualifications, $date_of_birth, $hiring_date,$coverpic);
+                $stmt->bind_param("ssisss",$user_ar_Name, $userName, $user_type_id, $password,$Notes, $coverpic);
                 if ($stmt->execute()) {
                 }
                 else {
@@ -71,55 +57,19 @@ if (isset($_POST['submit'])) {
                 }
             }
         }
-    }}
-
-
-$bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
-if ($bis->connect_error) {
-    die('Could not connect to the database.');
-}
-else {
-$p74_departments = "SELECT * FROM p74_departments";
-$result = $bis->query($p74_departments);
-$appata = mysqli_query ($bis, $p74_departments) or die (mysqli_error ($bis));
+    }
+    $p74_users_types = "SELECT * FROM  p74_users_types";
+$result = $bis->query($p74_users_types);
+$appata = mysqli_query ($bis, $p74_users_types) or die (mysqli_error ($bis));
 $row_appata = mysqli_fetch_assoc ($appata);
-$p74_departments=array($row_appata);
+$p74_users_types=array($row_appata);
 while($row=mysqli_fetch_assoc($appata)){
-    array_push($p74_departments,$row);
+    array_push($p74_users_types,$row);
 }
-$_SESSION ['p74_departments']=$p74_departments;
-};
-$p74_doctor_jobs = "SELECT * FROM p74_doctor_jobs";
-$result = $bis->query($p74_doctor_jobs);
-$appata = mysqli_query ($bis, $p74_doctor_jobs) or die (mysqli_error ($bis));
-$row_appata = mysqli_fetch_assoc ($appata);
-$p74_doctor_jobs=array($row_appata);
-while($row=mysqli_fetch_assoc($appata)){
-    array_push($p74_doctor_jobs,$row);
-}
-$_SESSION ['p74_doctor_jobs']=$p74_doctor_jobs;
-
-$p74_universities = "SELECT * FROM p74_universities";
-$result = $bis->query($p74_universities);
-$appata = mysqli_query ($bis, $p74_universities) or die (mysqli_error ($bis));
-$row_appata = mysqli_fetch_assoc ($appata);
-$p74_universities=array($row_appata);
-while($row=mysqli_fetch_assoc($appata)){
-    array_push($p74_universities,$row);
-}
-$_SESSION ['p74_universities']=$p74_universities;
-
-$p74_faculties = "SELECT * FROM p74_faculties";
-$result = $bis->query($p74_faculties);
-$appata = mysqli_query ($bis, $p74_faculties) or die (mysqli_error ($bis));
-$row_appata = mysqli_fetch_assoc ($appata);
-$p74_faculties=array($row_appata);
-while($row=mysqli_fetch_assoc($appata)){
-    array_push($p74_faculties,$row);
-}
-$_SESSION ['p74_faculties']=$p74_faculties;
-
+$_SESSION ['p74_users_types']=$p74_users_types;
 ?>
+
+
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -148,7 +98,7 @@ $_SESSION ['p74_faculties']=$p74_faculties;
     </button>
     <!-- end button to up -->
     
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="addUser.php" method="post" enctype="multipart/form-data">
     <div class="w-75 mx-auto m-5">
         <h3 class="mainTitle text-end p-2">إدخال بيانات مستخدم جديد</h3>
         <div class="container dataContainer p-3">
@@ -171,10 +121,12 @@ $_SESSION ['p74_faculties']=$p74_faculties;
                     <input type="text" class="form-control" placeholder="اسم المستخدم باللغة الانجليزية"  name="userName">
                 </div>
                 <div class="col-md-4">
-                    <select name="userType" id="userType" class="form-select">
+                    <select name="user_type_id" id="userType" class="form-select">
                         <option value="">نوع المستخدم</option>
-                        <option value="admin">مسئول نظام</option>
-                        <option value="employee">موظف</option>
+                        <?php foreach ($p74_users_types as $row){?>
+                        <option value="<?php echo $row['user_type_id']?>"><?php echo $row['user_type_ar_name']?> </option>
+                        
+                    <?php } ?>
                     </select>
                 </div>
             </div>

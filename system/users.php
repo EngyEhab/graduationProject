@@ -1,5 +1,15 @@
 <?php
 include "../Connections/syscon.php"; 
+
+
+
+    mysqli_select_db($bis,$database_bis);
+    $query_appata = "SELECT * FROM p74_application_data INNER JOIN p74_users";
+    $appata = mysqli_query ($bis, $query_appata) or die (mysqli_error ($bis));
+    $row_appata = mysqli_fetch_assoc ($appata);
+    $_SESSION ['user_id'] = $row_appata['user_id'];
+    echo $_SESSION ['user_id']
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,12 +74,23 @@ include "../Connections/syscon.php";
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        if (isset($_POST['search'])) {
+                            $st=$_POST ['search'];
+                        $myquery="SELECT * FROM  p74_users WHERE user_ar_name like '%$st%' ";
+                        $results=mysqli_query($bis,$myquery);
+                        while ($row=mysqli_fetch_array($results)){
+                        ?>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo $row['user_id']?></td>
+                            <td><?php echo $row['user_ar_name']?></td>
                             <td>
-                                <button class="btn btn-success w-50 fw-bold fs-5">تمكيــــن  </button>
-                                <button class="btn btn-danger w-50 fw-bold fs-5">تعـطيـــل  </button>
+                                <?php if ($row['is_enable'] == "no") { ?>
+                                    <a href="inableUser.php?id=<?php echo $row ['user_id']?>">
+                                <button class="btn btn-success w-50 fw-bold fs-5">تمكيــــن  </button> <?php } ?>
+                                </a>
+                                <?php if ($row['is_enable'] == "yes") { ?>  
+                                <button class="btn btn-danger w-50 fw-bold fs-5">تعـطيـــل  </button><?php }  ?>
                             </td>
                             <td>
                                 <a href="updateUserData.php" class="text-decoration-none">
@@ -84,12 +105,26 @@ include "../Connections/syscon.php";
                                 </a>
                             </td>
                         </tr>
+                        <?php }}
+                        else{
+                            $myquery="SELECT * FROM  p74_users ";
+                            $results=mysqli_query($bis,$myquery);
+                            while ($row=mysqli_fetch_array($results)){
+                            ?>
                         <tr>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo $row['user_id']?></td>
+                            <td><?php echo $row['user_ar_name']?></td>
                             <td>
+                            <?php if ($row['is_enable'] == "no") { ?>
+                                <a href="inableUser.php?id=<?php echo $row ['user_id']?>">
                                 <button class="btn btn-success w-50 fw-bold fs-5">تمكيــــن  </button>
+                                </a>
+                                <?php } ?>
+                                <?php if ($row['is_enable'] == "yes") { ?>
+                                <a href="disableUser.php?id=<?php echo $row ['user_id']?>">
                                 <button class="btn btn-danger w-50 fw-bold fs-5">تعـطيـــل  </button>
+                                </a>
+                                <?php } ?>
                             </td>
                             <td>
                                 <a href="updateUserData.php" class="text-decoration-none">
@@ -104,6 +139,7 @@ include "../Connections/syscon.php";
                                 </a>
                             </td>
                         </tr>
+                        <?php }} ?>
                     </tbody>
                 </table>
             </div>
