@@ -30,8 +30,6 @@ $_SESSION ['Faculty_name'] = $row_appata['Faculty_name'];
 $_SESSION ['Program_name'] = $row_appata['Program_name'];
 $_SESSION ['Faculty_Uni_logo'] = $row_appata['Faculty_Uni_logo'];
 $_SESSION ['Program_logo'] = $row_appata['Program_logo'];
-
-
 ?>
 
 <!DOCTYPE html>
