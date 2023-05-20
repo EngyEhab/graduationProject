@@ -8,7 +8,7 @@ include "../Connections/syscon.php";
     $appata = mysqli_query ($bis, $query_appata) or die (mysqli_error ($bis));
     $row_appata = mysqli_fetch_assoc ($appata);
     $_SESSION ['user_id'] = $row_appata['user_id'];
-    echo $_SESSION ['user_id']
+    
 
 ?>
 <!DOCTYPE html>
@@ -97,12 +97,12 @@ include "../Connections/syscon.php";
                                 <?php } ?>
                             </td>
                             <td>
-                                <a href="updateUserData.php" class="text-decoration-none">
+                                <a href="updateUserData.php?id=<?php echo $row ['user_id']?>" class="text-decoration-none">
                                     <button class="btn btn-warning">
                                         <i class="fa-solid fa-pencil fa-lg p-1"></i>
                                     </button>
                                 </a>
-                                <a href="deleteUserData.php"class="text-decoration-none">
+                                <a href="deleteUserData.php?id=<?php echo $row ['user_id']?>"class="text-decoration-none">
                                     <button class="btn btn-danger">
                                         <i class="fa-solid fa-trash-can fa-lg p-1"></i>
                                     </button>
@@ -131,12 +131,12 @@ include "../Connections/syscon.php";
                                 <?php } ?>
                             </td>
                             <td>
-                                <a href="updateUserData.php" class="text-decoration-none">
+                                <a href="updateUserData.php?id=<?php echo $row ['user_id']?>" class="text-decoration-none">
                                     <button class="btn btn-warning">
                                         <i class="fa-solid fa-pencil fa-lg p-1"></i>
                                     </button>
                                 </a>
-                                <a href="deleteUserData.php"  class="text-decoration-none">
+                                <a href="deleteUserData.php?id=<?php echo $row ['user_id']?>"  class="text-decoration-none">
                                     <button class="btn btn-danger">
                                         <i class="fa-solid fa-trash-can fa-lg p-1"></i>
                                     </button>

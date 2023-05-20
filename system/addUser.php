@@ -1,9 +1,65 @@
 
 <?php
 include "../Connections/syscon.php"; 
-?>
 
-<?php
+if (isset($_POST['submit'])) {
+    if (isset($_POST['user_ar_Name']) && isset($_POST['userName']) &&
+        isset($_POST['user_type_id']) && isset($_POST['password'])
+        && isset($_POST['Notes'])
+        )
+        
+            $user_ar_Name=$_POST["user_ar_Name"]; 
+            $userName=$_POST["userName"]; 
+            $user_type_id=$_POST["user_type_id"]; 
+            $password=$_POST["password"]; 
+            $Notes=$_POST["Notes"]; 
+            $imgFile = $_FILES['Doctor_image']['name'];
+            $tmp_dir = $_FILES['Doctor_image']['tmp_name'];
+            $imgSize = $_FILES['Doctor_image']['size']; 
+            $user_id = $_SESSION['user_id'];
+
+            if(!empty($imgFile))
+            {
+            
+            $upload_dir = '../images/users/'; // upload directory
+            
+            $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
+            
+            // valid image extensions
+            $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
+            
+            // rename uploading image
+            $coverpic = rand(1000,1000000).".".$imgExt;
+            
+            // allow valid image file formats
+            if(in_array($imgExt, $valid_extensions)){ 
+            // Check file size '5MB'
+            if($imgSize < 5000000) {
+            move_uploaded_file($tmp_dir,$upload_dir.$coverpic);
+            }
+        }
+            
+        
+        $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
+        if ($bis->connect_error) {
+            die('Could not connect to the database.');
+        }
+        else {
+            $Select = "SELECT * FROM  p74_users ";
+            $Insert = "INSERT INTO  p74_users(user_ar_name, userName, user_type_id,added_by, password, Notes, image ) values(?, ?, ?, ?, ?, ? ,?)";
+            $stmt = $bis->prepare($Select);
+                $stmt = $bis->prepare($Insert);
+                $stmt->bind_param("sssssss",$user_ar_Name, $userName, $user_type_id ,$user_id, $password,$Notes, $coverpic);
+                if ($stmt->execute()) {
+                }
+                else {
+                    echo $stmt->error;
+                }
+            }
+        }
+    }
+
+
 $p74_users_types = "SELECT * FROM  p74_users_types";
 $result = $bis->query($p74_users_types);
 $appata = mysqli_query ($bis, $p74_users_types) or die (mysqli_error ($bis));
@@ -102,63 +158,7 @@ $_SESSION ['p74_users_types']=$p74_users_types;
     ?>
 
 
-<?php if (isset($_POST['submit'])) {
-    if (isset($_POST['user_ar_Name']) && isset($_POST['userName']) &&
-        isset($_POST['user_type_id']) && isset($_POST['password'])
-        && isset($_POST['Notes'])
-        )
-        
-            $user_ar_Name=$_POST["user_ar_Name"]; 
-            $userName=$_POST["userName"]; 
-            $user_type_id=$_POST["user_type_id"]; 
-            $password=$_POST["password"]; 
-            $Notes=$_POST["Notes"]; 
-            $imgFile = $_FILES['Doctor_image']['name'];
-            $tmp_dir = $_FILES['Doctor_image']['tmp_name'];
-            $imgSize = $_FILES['Doctor_image']['size']; 
-            $user_id = $_SESSION['user_id'];
 
-            if(!empty($imgFile))
-            {
-            
-            $upload_dir = '../images/users/'; // upload directory
-            
-            $imgExt = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); // get image extension
-            
-            // valid image extensions
-            $valid_extensions = array('jpeg', 'jpg', 'png', 'gif'); // valid extensions
-            
-            // rename uploading image
-            $coverpic = rand(1000,1000000).".".$imgExt;
-            
-            // allow valid image file formats
-            if(in_array($imgExt, $valid_extensions)){ 
-            // Check file size '5MB'
-            if($imgSize < 5000000) {
-            move_uploaded_file($tmp_dir,$upload_dir.$coverpic);
-            }
-        }
-            
-        
-        $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
-        if ($bis->connect_error) {
-            die('Could not connect to the database.');
-        }
-        else {
-            $Select = "SELECT * FROM  p74_users ";
-            $Insert = "INSERT INTO  p74_users(user_ar_Name, userName, user_type_id,added_by, password, Notes, image ) values(?, ?, ?, ?, ?, ? ,?)";
-            $stmt = $bis->prepare($Select);
-                $stmt = $bis->prepare($Insert);
-                $stmt->bind_param("sssssss",$user_ar_Name, $userName, $user_type_id ,$user_id, $password,$Notes, $coverpic);
-                if ($stmt->execute()) {
-                }
-                else {
-                    echo $stmt->error;
-                }
-            }
-        }
-    }
-?>
 
     <script src="../js/all.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>

@@ -28,7 +28,7 @@ $row=mysqli_fetch_assoc($Select);
     $st_affairs_vice_dean=$_POST["st_affairs_vice_dean"]; 
     $Program_coordinator=$_POST["Program_coordinator"];
 
-
+    if (!empty($Faculty_Uni_logo) || !empty($Program_logo)){
     $sql = mysqli_query($bis , "UPDATE p74_application_data SET 
         Uni_name='$Uni_name',Faculty_name='$Faculty_name',
         Program_name='$Program_name',Faculty_Uni_logo='$Faculty_Uni_logo',Program_logo='$Program_logo',
@@ -37,7 +37,14 @@ $row=mysqli_fetch_assoc($Select);
         WHERE app_id='$app_id'");
 
     }
-
+    else {
+        $sql = mysqli_query($bis , "UPDATE p74_application_data SET 
+            Uni_name='$Uni_name',Faculty_name='$Faculty_name',
+            Program_name='$Program_name',Faculty_Dean='$Faculty_Dean',Post_grad_vice_dean='$Post_grad_vice_dean',
+            st_affairs_vice_dean='$st_affairs_vice_dean',Program_coordinator='$Program_coordinator'
+            WHERE app_id='$app_id'");
+}
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
