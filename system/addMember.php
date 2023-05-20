@@ -59,7 +59,15 @@ if (isset($_POST['submit'])) {
             die('Could not connect to the database.');
         }
         else {
-            $Select = "SELECT * FROM p74_doctors_account ";
+            $Select = "SELECT * FROM p74_doctors_account 
+            INNER JOIN  p74_departments  
+            ON p74_doctors_account.Department_id=p74_departments.Department_id 
+            INNER JOIN  p74_universities
+            ON p74_doctors_account.uni_id=p74_universities.uni_id
+            INNER JOIN  p74_faculties
+            ON p74_doctors_account.Faculty_id=p74_faculties.Faculty_id
+            INNER JOIN  p74_doctor_jobs
+            ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id ";
             $Insert = "INSERT INTO p74_doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, Department_id, uni_id, Faculty_id, Doctor_job_id, qualifications, date_of_birth, hiring_date,Doctor_image) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
             $stmt = $bis->prepare($Select);
                 $stmt = $bis->prepare($Insert);
@@ -79,7 +87,7 @@ if ($bis->connect_error) {
     die('Could not connect to the database.');
 }
 else {
-$p74_departments = "SELECT * FROM p74_departments";
+$p74_departments = "SELECT * FROM p74_departments ";
 $result = $bis->query($p74_departments);
 $appata = mysqli_query ($bis, $p74_departments) or die (mysqli_error ($bis));
 $row_appata = mysqli_fetch_assoc ($appata);
@@ -204,7 +212,7 @@ $_SESSION ['p74_faculties']=$p74_faculties;
                     <select name="Department_id" class="form-select" id="department">
                     <option selected value="">القسم</option>
                     <?php foreach ($p74_departments as $row){?>
-                        <option value='<?php echo $row['department_id']?>'><?php echo $row['Department_ar_name']?></option> 
+                        <option value='<?php echo $row['Department_id']?>'><?php echo $row['Department_ar_name']?></option> 
                         <?php } ?>
                     </select>
                 </div>
