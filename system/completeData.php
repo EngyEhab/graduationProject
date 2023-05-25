@@ -114,7 +114,7 @@ include "../Connections/syscon.php";
                 $Insert = "INSERT INTO p74_completedata(doctorCodeInput, doctorNameInput, doctorJobInput, CompleteData) values(?, ?, ?, ?)";
                 $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("ssss",$doctorCodeInput, $doctorNameInput, $doctorJobInput, $CompleteData);
+                    $stmt->bind_param("isis",$doctorCodeInput, $doctorNameInput, $doctorJobInput, $CompleteData);
                     if ($stmt->execute()) {
                     }
                     else {
