@@ -149,10 +149,12 @@ $('#secondmentFile').change(function(e){
 $('.tableCompleteDataBtn').click(function(){
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
-    var doctorJob = $(this).attr('doctorJob');
+    var doctorJobID = $(this).attr('doctorJobID');
+    var doctorJobName = $(this).attr('doctorJobName');
     $('#doctorCodeInput').val(doctorCode);
     $('#doctorNameInput').val(doctorName);
-    $('#doctorJobInput').val(doctorJob);
+    $('#doctorJobInput').val(doctorJobID);
+    $('#doctorJobNameInput').val(doctorJobName);
 })
 
 // end completeData page

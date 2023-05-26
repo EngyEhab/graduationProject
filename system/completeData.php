@@ -70,7 +70,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['Doctor_job_ar_name']?></td>
-                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
+                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJobID="<?php echo $row['Doctor_job_id']?>"  doctorJobName="<?php echo $row['Doctor_job_ar_name']?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
                         </tr>
                     <?php }}
                 else { 
@@ -84,7 +84,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?>  </td>
                             <td><?php echo $row['Doctor_job_ar_name']?></td>
-                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" doctorJob="<?php echo $row['Doctor_job_id']?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
+                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" doctorJobID="<?php echo $row['Doctor_job_id']?>" doctorJobName="<?php echo $row['Doctor_job_ar_name']?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
                         </tr>
                     <?php }
                 }?>
@@ -140,14 +140,15 @@ include "../Connections/syscon.php";
                                         <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
                                     </div>
                                 </div> 
+                                <input name="doctorJobInput" id="doctorJobInput"  readonly class="form-control fs-4 d-none"></input>
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorJobInput" class="mainText fw-bold fs-4 text-nowrap"> الدرجــة الوظيفيــة الحاليــــــــة  :</label>
+                                        <label for="doctorJobNameInput" class="mainText fw-bold fs-4 text-nowrap"> الدرجــة الوظيفيــة الحاليــــــــة  :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input name="doctorJobInput" id="doctorJobInput"  readonly class="form-control fs-4"></input>
+                                        <input name="doctorJobNameInput" id="doctorJobNameInput"  readonly  class="form-control fs-4"></input>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="row my-2">
                                     <div class="col-md-2 text-center">
                                         <label for="CompleteData" class="mainText fw-bold fs-4 ">استكمـال بيانـات الدرجــــــــة الوظيفية الحاليـــــة   :</label>
