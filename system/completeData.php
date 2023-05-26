@@ -84,7 +84,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?>  </td>
                             <td><?php echo $row['Doctor_job_ar_name']?></td>
-                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" doctorJob="<?php echo $row['Doctor_job_ar_name']?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
+                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" doctorJob="<?php echo $row['Doctor_job_id']?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
                         </tr>
                     <?php }
                 }?>
