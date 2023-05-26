@@ -16,6 +16,9 @@
             <i class="fa-solid fa-xmark fa-xl mx-auto" style="color: #ffffff;"></i>
         </button>
         <ul>
+        <?php 
+            $user_type_id = $_SESSION['user_type_id'];
+            if($user_type_id == "1"){?>
             <li>
                 <a href="dashboard.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-desktop fa-xl sidebarIcon" style="color: #ffffff;"></i>
@@ -23,6 +26,9 @@
                     <div class="line mb-1"></div>
                 </a>
             </li>
+            <?php }
+            $user_type_id = $_SESSION['user_type_id'];
+            if($user_type_id == "1"){?>?>
             <li>
                 <a href="users.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-users fa-xl sidebarIcon" style="color: #ffffff;"></i>
@@ -30,6 +36,7 @@
                     <div class="line mb-1"></div>
                 </a>
             </li>
+            <?php } ?>
             <li>
                 <a href="addMember.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-user-plus fa-xl sidebarIcon" style="color: #ffffff;"></i>                    
