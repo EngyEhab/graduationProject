@@ -2,7 +2,7 @@
 <?php
 include "../Connections/syscon.php"; 
 
-$p74_users_types = "SELECT * FROM  p74_users_types";
+        $p74_users_types = "SELECT * FROM  p74_users_types";
         $result = $bis->query($p74_users_types);
         $appata = mysqli_query ($bis, $p74_users_types) or die (mysqli_error ($bis));
         $row_appata = mysqli_fetch_assoc ($appata);
@@ -158,7 +158,6 @@ $p74_users_types = "SELECT * FROM  p74_users_types";
         
         
         ?>
-    ?>
 
 
 

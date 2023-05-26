@@ -35,7 +35,7 @@ include "../Connections/syscon.php";
                 <div class="search position-relative">
                     <form action="" method="post" id="searchForm">
                         <input type="text" class="searchField form-control w-100 rounded-pill border-0" name="search" placeholder="بحث...">
-                        <button type="submit" class="searchBtn rounded-start-pill">
+                        <button type="submit" name="completesearch" class="searchBtn rounded-start-pill">
                             <i class="fa-solid fa-magnifying-glass fa-rotate-90 fa-lg" style="color: #fff;"></i>
                         </button>
                     </form>
@@ -59,7 +59,7 @@ include "../Connections/syscon.php";
                     <tbody>
                         <?php
             if (isset($_POST['completesearch'])) {
-                    $cst=$_POST['completesearch'];
+                    $cst=$_POST['search'];
                     $myquery="SELECT * FROM p74_doctors_account 
                     INNER JOIN  p74_doctor_jobs  
                     ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$cst%'";
@@ -70,11 +70,9 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['Doctor_job_ar_name']?></td>
-                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_ar_name']?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
+                            <td><button name= "tableCompletedata" doctorCode ="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
                         </tr>
-                    <?php }
-                        
-            }
+                    <?php }}
                 else { 
                         $myquery="SELECT * FROM p74_doctors_account 
                         INNER JOIN  p74_doctor_jobs  
@@ -96,9 +94,9 @@ include "../Connections/syscon.php";
             </div>
         </div>
     </div>
-   
+    
     <form action="completeData.php" method="post" id="completeDataForm">
-   <?php  if (isset($_POST['CompleteDataBtn'])) {
+    <?php  if (isset($_POST['CompleteDataBtn'])) {
     if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
         isset($_POST['doctorJobInput']) && isset($_POST['CompleteData'])){
             $doctorCodeInput=$_POST['doctorCodeInput'];
@@ -147,7 +145,7 @@ include "../Connections/syscon.php";
                                         <label for="doctorJobInput" class="mainText fw-bold fs-4 text-nowrap"> الدرجــة الوظيفيــة الحاليــــــــة  :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4"></input>
+                                        <input name="doctorJobInput" id="doctorJobInput"  readonly class="form-control fs-4"></input>
                                     </div>
                                 </div> 
                                 <div class="row my-2">

@@ -70,7 +70,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['Doctor_job_ar_name']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_ar_name']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }
                         
@@ -84,7 +84,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['Doctor_job_ar_name']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_ar_name']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }}?>
                     </tbody>
