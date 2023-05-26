@@ -196,14 +196,17 @@ $('.tableAddVacationBtn').click(function(){
 })
 // end addVacation page
 
+
 // start UpdateJobGrade page
 $('.tableUpdateJobGradeBtn').click(function(){
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
     var doctorJob = $(this).attr('doctorJob');
+    var doctorJobName = $(this).attr('doctorJobName');
     $('#doctorCodeInput').val(doctorCode);
     $('#doctorNameInput').val(doctorName);
     $('#doctorJobInput').val(doctorJob);
+    $('#doctorJobNameInput').val(doctorJobName);
 })
 
 // end UpdateJobGrade page

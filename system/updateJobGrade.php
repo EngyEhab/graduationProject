@@ -70,7 +70,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['Doctor_job_ar_name']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>"  doctorJobName="<?php echo $row['Doctor_job_ar_name']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }
                         
@@ -84,7 +84,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['Doctor_job_ar_name']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>" doctorJobName="<?php echo $row['Doctor_job_ar_name']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }}?>
                     </tbody>
@@ -111,7 +111,9 @@ include "../Connections/syscon.php";
         $p74_doctor_job =$_POST['doctor_job'];
         if ((!empty($p74_doctor_job))){
         $Details = mysqli_query($bis , "UPDATE p74_doctors_account SET 
-        Doctor_job_id='$p74_doctor_job'  WHERE DoctorCode='$doctorCodeInput'");}}
+        Doctor_job_id='$p74_doctor_job'  WHERE DoctorCode='$doctorCodeInput'");}
+        echo "<meta http-equiv='refresh' content='0'>";
+    }
 
         ?>
         <div class="w-75 mx-auto m-5">
@@ -136,14 +138,15 @@ include "../Connections/syscon.php";
                                         <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
                                     </div>
                                 </div> 
+                                <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4 d-none"></input> 
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorJobInput" class="mainText fw-bold fs-4 text-nowrap"> الدرجــة الوظيفيــة الحاليـــــة  :</label>
+                                        <label for="doctorJobNameInput" class="mainText fw-bold fs-4 text-nowrap"> الدرجــة الوظيفيــة الحاليـــــة  :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4"></input>
+                                        <input name="doctorJobNameInput" id="doctorJobNameInput" readonly class="form-control fs-4"></input>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
                                         <label for="jobGrade" class="mainText fw-bold fs-4 text-nowrap">تحديــث الدرجــة الوظيفيــــة   :</label>
