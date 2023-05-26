@@ -111,7 +111,7 @@ include "../Connections/syscon.php";
         $p74_doctor_job =$_POST['doctor_job'];
         if ((!empty($p74_doctor_job))){
         $Details = mysqli_query($bis , "UPDATE p74_doctors_account SET 
-        doctor_jobs='$p74_doctor_job'  WHERE DoctorCode='$doctorCodeInput'");}}
+        Doctor_job_id='$p74_doctor_job'  WHERE DoctorCode='$doctorCodeInput'");}}
 
         ?>
         <div class="w-75 mx-auto m-5">
@@ -152,7 +152,7 @@ include "../Connections/syscon.php";
                                         <select name="doctor_job" class="form-select" id="job">
                                             <option selected value=""></option>
                                             <?php  foreach($p74_doctor_jobs as $row){?>
-                                        <option value='<?php echo $row['Doctor_job_ar_name']?>'><?php echo $row['Doctor_job_ar_name']?></option>
+                                        <option value='<?php echo $row['Doctor_job_id']?>'><?php echo $row['Doctor_job_ar_name']?></option>
                                         <?php } ?>
                                         </select>
                                     </div>
