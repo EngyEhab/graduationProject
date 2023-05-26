@@ -31,6 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user_id = $row['user_id'];
         $user_ar_name =$row['user_ar_name'];
         $image = $row['image'];
+        $user_type_id = $row['user_type_id'];
+        $_SESSION['user_type_id'] = $user_type_id;
         $_SESSION['username'] = $username;
         $_SESSION['user_id'] = $user_id;
         $_SESSION['user_ar_name'] = $user_ar_name;

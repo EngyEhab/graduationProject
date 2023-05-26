@@ -26,6 +26,9 @@
     
     <div class="container">
         <div class="row my-5">
+            <?php 
+            $user_type_id = $_SESSION['user_type_id'];
+            if($user_type_id == "1"){?>
             <div class="col">
                 <a href="dashboard.php" class="text-decoration-none text-white function-link">
                     <div class="function text-center">
@@ -34,6 +37,9 @@
                     </div>
                 </a>
             </div>
+            <?php }
+            $user_type_id = $_SESSION['user_type_id'];
+            if($user_type_id == "1"){?>
             <div class="col">
                 <a href="users.php" class="text-decoration-none text-white">
                     <div class="function text-center">
@@ -42,6 +48,7 @@
                     </div>
                 </a>
             </div>
+            <?php } ?>
             <div class="col">
                 <a href="addMember.php" class="text-decoration-none text-white">
                     <div class="function text-center">
@@ -116,10 +123,6 @@
             include('footer.php');
         ?>
     </div>
-    
-
-
-
 
 
     <script src="../js/all.min.js"></script>
