@@ -23,7 +23,6 @@ if (isset($_POST['submit'])) {
             $Academic_Mail=$_POST["Academic_Mail"]; 
             $Personal_Mail=$_POST["Personal_Mail"]; 
             $Notes=$_POST["Notes"]; 
-            // $Doctor_image=$_POST["Doctor_image"]; 
             $Department_id=$_POST["Department_id"]; 
             $uni_id=$_POST["uni_id"];
             $Faculty_id=$_POST["Faculty_id"];
@@ -196,6 +195,7 @@ $_SESSION ['p74_faculties']=$p74_faculties;
             <div class="row my-2">
                 <div class="col-md-4">
                     <select name="uni_id" class="form-select" id="university">
+                    <option selected value="">الجامعة</option>
                     <?php foreach($p74_universities as $row){?>
                         <option selected value='<?php echo $row['uni_id'];?>'> <?php echo $row['uni_ar_name']?></option>
                         <?php } ?>
@@ -203,6 +203,7 @@ $_SESSION ['p74_faculties']=$p74_faculties;
                 </div>
                 <div class="col-md-4">
                     <select name="Faculty_id" class="form-select" id="faculty">
+                    <option selected value="">الكلية</option>
                         <?php foreach($p74_faculties as $row){?>
                         <option selected value='<?php echo $row['Faculty_id']?>'><?php echo $row['Faculty_ar_name']?> </option>
                         <?php } ?>

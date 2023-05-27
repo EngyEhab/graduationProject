@@ -14,6 +14,8 @@ $Select=mysqli_query($bis,"SELECT * FROM p74_users INNER JOIN p74_users_types ON
             $Notes=$row["Notes"]; 
             $image=$row["image"]; 
             $user_type_ar_name=$row["user_type_ar_name"]; 
+            $user_type_id=$row["user_type_id"]; 
+
 }
 
 if (isset($_POST['submit'])){
@@ -100,9 +102,10 @@ $_SESSION ['p74_users_types']=$p74_users_types;
                 <div class="col-md-4">
                     <select name="user_type_id" id="userType" class="form-select">
                         <option value="">نوع المستخدم</option>
+                        <option selected class="d-none"  value="<?php echo $user_type_id?>"><?php echo $user_type_ar_name?></option> 
                         <?php foreach ($p74_users_types as $row){?>
                         <option value="<?php echo $row['user_type_id']?>"><?php echo $row['user_type_ar_name']?> </option>
-                        <?php } if (isset($_GET['id'])){?> <option selected value='<?php echo $row['user_type_id']?>'> <?php echo $user_type_ar_name; }?></option>
+                        <?php } ?>
                         
                     
                     </select>
@@ -110,7 +113,7 @@ $_SESSION ['p74_users_types']=$p74_users_types;
             </div>
             <div class="row my-2">
                 <div class="col-md-4">
-                    <input type="password" class="form-control" placeholder="كلمة المرور" value="<?php if (isset($_GET['id'])) {echo $password;}?>" 	 name="password">
+                    <input type="password" class="form-control" placeholder="كلمة المرور" value="<?php if (isset($_GET['id'])) {echo $password;}?>" name="password">
                 </div>
                 <div class="col-md-4">
                     <input type="password" class="form-control" placeholder="تأكيد كلمة المرور" value="<?php if (isset($_GET['id'])) {echo $password;}?>"  name="confirmPassword">

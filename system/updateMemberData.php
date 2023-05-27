@@ -2,21 +2,6 @@
 include "../Connections/syscon.php"; 
 $bis = mysqli_connect($hostname_bis, $username_bis, $password_bis, $database_bis);
 
-// $qualifications="";
-// $date_of_birth ="";
-// $hiring_date =""; 
-// $Doctor_ar_Name ="";              
-// $Doctor_eng_Name="";                   
-// $National_id="";                   
-// $Mobile="";                   
-// $Academic_Mail=""; 
-// $Personal_Mail=""; 
-// $Notes=""; 
-// $Doctor_image=""; 
-// $department=""; 
-// $university="";
-// $faculty="";
-// $doctorjob="";
 
 if (isset($_GET['id'])){
     $id=$_GET['id'];
@@ -47,7 +32,13 @@ if (isset($_GET['id'])){
     $Department_ar_name=$row["Department_ar_name"]; 
     $uni_ar_name=$row["uni_ar_name"];
     $Faculty_ar_name=$row["Faculty_ar_name"];
-    $Doctor_job_ar_name=$row["Doctor_job_ar_name"];}
+    $Doctor_job_ar_name=$row["Doctor_job_ar_name"];
+    $Department_id=$row["Department_id"];
+    $uni_id=$row["uni_id"];
+    $Faculty_id=$row["Faculty_id"];
+    $Doctor_job_id=$row["Doctor_job_id"];
+
+}
 
 if (isset($_POST['updateMemberData'])){
     
@@ -84,6 +75,9 @@ if (isset($_POST['updateMemberData'])){
         Department_id='$Department_id',uni_id='$uni_id',Faculty_id='$Faculty_id',
         Doctor_job_id='$Doctor_job_id', qualifications='$qualifications',
         date_of_birth ='$date_of_birth' , hiring_date ='$hiring_date'  WHERE DoctorCode='$id'");
+
+        // header("location:../system/memberDetails.php");
+
     
         }
 
@@ -199,34 +193,40 @@ $_SESSION ['faculties']=$faculties;
             <div class="row my-2">
                 <div class="col-md-4">
                     <select name="uni_id" class="form-select" id="university">
+                    <option  value="">الجامعة</option>
+                    <option selected class="d-none"  value="<?php echo $uni_id?>"><?php echo $uni_ar_name?></option> 
                     <?php foreach($universities as $row){?>
                         <option selected value='<?php echo $row['uni_id'];?>'> <?php echo $row['uni_ar_name']?></option>
-                        <?php } if (isset($_GET['id'])){?> <option selected value='<?php echo $row['uni_id'];?>'> <?php echo $uni_ar_name;} ?></option>?>
+                        <?php }  ?>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <select name="Faculty_id" class="form-select" id="faculty">
+                    <option  value="">الكلية</option>
+                    <option selected class="d-none"  value="<?php echo $Faculty_id?>"><?php echo $Faculty_ar_name?></option> 
                     <?php foreach($faculties as $row){?>
                         <option selected value='<?php echo $row['Faculty_id']?>'><?php echo $row['Faculty_ar_name']?> </option>
-                        <?php } if (isset($_GET['id'])){?> <option selected value='<?php echo $row['Faculty_id']?>'> <?php echo $Faculty_ar_name;} ?></option>
+                        <?php } ?>
                     </select>
-                </div>
+                    </div>
                 <div class="col-md-4">
                     <select name="Department_id" class="form-select" id="department">
-                    <option selected value="">القسم</option>
+                    <option  value="">القسم</option>
+                    <option selected class="d-none"  value="<?php echo $Department_id?>"><?php echo $Department_ar_name?></option> 
                     <?php foreach ($departments as $row){?>
                         <option value='<?php echo $row['Department_id']?>'><?php echo $row['Department_ar_name']?></option> 
-                        <?php } if (isset($_GET['id'])){?> <option selected value='<?php echo $row['Department_id']?>'> <?php echo $Department_ar_name;} ?></option> 
+                        <?php } ?>
                     </select>
                 </div>
             </div>
             <div class="row my-2">
                 <div class="col-md-4">
                     <select name="Doctor_job_id" class="form-select" id="job">
-                    <option selected value="">الدرجة الوظيفية الحالية</option>
+                    <option value="">الدرجة الوظيفية الحالية</option>
+                    <option selected class="d-none"  value="<?php echo $Doctor_job_id?>"><?php echo $Doctor_job_ar_name?></option> 
                     <?php  foreach($doctor_jobs as $row){?>
                         <option value='<?php echo $row['Doctor_job_id']?>'><?php echo $row['Doctor_job_ar_name']?></option>
-                        <?php } if (isset($_GET['id'])){?> <option selected value='<?php echo $row['Doctor_job_id']?>'> <?php echo $Doctor_job_ar_name;} ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="col-md-4">
