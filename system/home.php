@@ -37,18 +37,8 @@
                     </div>
                 </a>
             </div>
-            <?php }
-            $user_type_id = $_SESSION['user_type_id'];
-            if($user_type_id == "1"){?>
-            <div class="col">
-                <a href="users.php" class="text-decoration-none text-white">
-                    <div class="function text-center">
-                        <i class="fa-solid fa-users fa-2xl mb-3"></i>
-                        <h3>المستخدمون</h3>
-                    </div>
-                </a>
-            </div>
-            <?php } ?>
+            <?php }?>
+           
             <div class="col">
                 <a href="addMember.php" class="text-decoration-none text-white">
                     <div class="function text-center">
@@ -73,8 +63,28 @@
                     </div>
                 </a>
             </div>
+            <div class="col">
+                <a href="statement.php" class="text-decoration-none text-white">
+                    <div class="function text-center">
+                        <i class="fa-solid fa-clipboard-user fa-2xl mb-3"></i>
+                        <h3>عرض بيان حالة شامل</h3>
+                    </div>
+                </a>
+            </div>
         </div>
         <div class="row my-5">
+            <?php
+            $user_type_id = $_SESSION['user_type_id'];
+            if($user_type_id == "1"){?>
+            <div class="col">
+                <a href="users.php" class="text-decoration-none text-white">
+                    <div class="function text-center">
+                        <i class="fa-solid fa-users fa-2xl mb-3"></i>
+                        <h3>المستخدمون</h3>
+                    </div>
+                </a>
+            </div>
+            <?php } ?>
             <div class="col">
                 <a href="addPenalty.php" class="text-decoration-none text-white">
                     <div class="function text-center">
@@ -96,14 +106,6 @@
                     <div class="function text-center">
                         <i class="fa-solid fa-plane-up fa-2xl mb-3"></i>
                         <h3>إضافة الإعارات</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <a href="statement.php" class="text-decoration-none text-white">
-                    <div class="function text-center">
-                        <i class="fa-solid fa-clipboard-user fa-2xl mb-3"></i>
-                        <h3>عرض بيان حالة شامل</h3>
                     </div>
                 </a>
             </div>
