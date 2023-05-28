@@ -5,12 +5,12 @@ $id="";
 if (isset($_GET['id'])){
     $id=$_GET['id'];
     
-    $Select=mysqli_query($bis,"SELECT * FROM p74_secondment_data WHERE  doctorCodeInput='$id' ");
+    $Select=mysqli_query($bis," SELECT * FROM p74_secondment_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput WHERE doctorCodeInput='$id' ");
     $row=mysqli_fetch_assoc($Select);
     
     
     $doctorCodeInput=$row['doctorCodeInput'];
-    $doctorNameInput =$row['doctorNameInput'];
+    $Doctor_ar_Name =$row['Doctor_ar_Name'];
     $secondmentDescription =$row['secondmentDescription']; 
     $secondmentDestination=$row["secondmentDestination"]; 
     $secondmentType=$row['secondmentType'];
@@ -23,7 +23,7 @@ if (isset($_GET['id'])){
 if (isset($_POST['updateSecondmentBtn'])){
     
             
-    $doctorNameInput =$_POST['doctorNameInput'];
+    
     $secondmentDescription =$_POST['secondmentDescription']; 
     $secondmentDestination=$_POST["secondmentDestination"]; 
     $secondmentType=$_POST['secondmentType'];
@@ -34,13 +34,13 @@ if (isset($_POST['updateSecondmentBtn'])){
     $secondmentNotes=$_POST["secondmentNotes"]; 
 
     if ((!empty($secondmentFile))){
-        $Details = mysqli_query($bis , "UPDATE p74_secondment_data SET doctorNameInput='$doctorNameInput',
+        $Details = mysqli_query($bis , "UPDATE p74_secondment_data SET 
         secondmentDescription='$secondmentDescription',secondmentDestination='$secondmentDestination',secondmentType='$secondmentType',
         secondmentDuration='$secondmentDuration',startDate='$startDate',endDate='$endDate',secondmentFile='$secondmentFile',secondmentNotes='$secondmentNotes'
         WHERE doctorCodeInput='$id'");
         }
         else{
-            $Details = mysqli_query($bis , "UPDATE p74_secondment_data SET doctorNameInput='$doctorNameInput',
+            $Details = mysqli_query($bis , "UPDATE p74_secondment_data SET 
             secondmentDescription='$secondmentDescription',secondmentDestination='$secondmentDestination',secondmentType='$secondmentType',
             secondmentDuration='$secondmentDuration',startDate='$startDate',endDate='$endDate',secondmentNotes='$secondmentNotes'
             WHERE doctorCodeInput='$id'");  
@@ -83,7 +83,7 @@ if (isset($_POST['updateSecondmentBtn'])){
                         <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضـــــــو  :</label>
                     </div>
                     <div class="col-md-10">
-                        <input name="doctorNameInput" id="doctorNameInput"value="<?php if (isset($_GET['id'])) {echo $doctorNameInput;}?>" readonly class="form-control fs-4"></input>
+                        <input name="doctorNameInput" id="doctorNameInput"value="<?php if (isset($_GET['id'])) {echo $Doctor_ar_Name;}?>" readonly class="form-control fs-4"></input>
                     </div>
                 </div> 
                 <div class="row my-2 align-items-center">

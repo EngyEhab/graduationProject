@@ -38,7 +38,7 @@
                 </a>
             </div>
             <?php }?>
-           
+            
             <div class="col">
                 <a href="addMember.php" class="text-decoration-none text-white">
                     <div class="function text-center">

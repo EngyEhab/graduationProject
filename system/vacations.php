@@ -58,15 +58,8 @@ include "../Connections/syscon.php";
         <?php
             if (isset($_POST['search'])) {
                 $st=$_POST ['search'];
-            // $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
-            // $results=mysqli_query($bis,$myquery);
-            // while ($row=mysqli_fetch_array($results)){$Doctor_image=$row['Doctor_image']; 
-            //     $DoctorCode =$row['DoctorCode'];}
-        ?>
-        <?php
+        $myquery="SELECT * FROM  p74_vacation_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput AND doctorNameInput like '%$st%'  ";
         
-        $myquery="SELECT * FROM  p74_vacation_data INNER JOIN  p74_doctors_account   ON DoctorCode=doctorCodeInput AND doctorNameInput like '%$st%'  ";
-        // $sql="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){
         ?>
@@ -77,7 +70,7 @@ include "../Connections/syscon.php";
                         <div class="memberImage rounded-circle mx-auto">
                             <img src="../images/members/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
                         </div>
-                        <h3 class="mainTitle pt-2"><?php echo $row['doctorNameInput']?></h3>
+                        <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
                     </div>
                     </a>
                 </div>
@@ -86,7 +79,7 @@ include "../Connections/syscon.php";
                 // $myquery="SELECT * FROM doctors_account WHERE DoctorCode =$DoctorCode";
                 // $results=mysqli_query($bis,$myquery);
                 // while ($row=mysqli_fetch_array($results)){$Doctor_image=$row['Doctor_image'];}
-        $myquery="SELECT * FROM  p74_vacation_data INNER JOIN  p74_doctors_account   ON DoctorCode=doctorCodeInput";
+        $myquery="SELECT * FROM  p74_vacation_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){
         ?>
@@ -97,7 +90,7 @@ include "../Connections/syscon.php";
                         <div class="memberImage rounded-circle mx-auto">
                             <img src="../images/members/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
                         </div>
-                        <h3 class="mainTitle pt-2"><?php echo $row['doctorNameInput']?></h3>
+                        <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
                     </div>
                     </a>
                 </div>

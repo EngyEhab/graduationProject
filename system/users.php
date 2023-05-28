@@ -4,7 +4,7 @@ include "../Connections/syscon.php";
 
 
     mysqli_select_db($bis,$database_bis);
-    $query_appata = "SELECT * FROM p74_application_data INNER JOIN p74_users";
+    $query_appata = "SELECT * FROM application_data INNER JOIN users";
     $appata = mysqli_query ($bis, $query_appata) or die (mysqli_error ($bis));
     $row_appata = mysqli_fetch_assoc ($appata);
     $_SESSION ['user_id'] = $row_appata['user_id'];
@@ -77,7 +77,7 @@ include "../Connections/syscon.php";
                         <?php
                         if (isset($_POST['search'])) {
                             $st=$_POST ['search'];
-                        $myquery="SELECT * FROM  p74_users WHERE user_ar_name like '%$st%' ";
+                        $myquery="SELECT * FROM  users WHERE user_ar_name like '%$st%' ";
                         $results=mysqli_query($bis,$myquery);
                         while ($row=mysqli_fetch_array($results)){
                         ?>
@@ -111,7 +111,7 @@ include "../Connections/syscon.php";
                         </tr>
                         <?php }}
                         else{
-                            $myquery="SELECT * FROM  p74_users ";
+                            $myquery="SELECT * FROM  users ";
                             $results=mysqli_query($bis,$myquery);
                             while ($row=mysqli_fetch_array($results)){
                             ?>

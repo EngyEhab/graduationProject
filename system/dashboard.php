@@ -1,6 +1,6 @@
 <?php
 include "../Connections/syscon.php"; 
-$Select=mysqli_query($bis,"SELECT * FROM p74_application_data ");
+$Select=mysqli_query($bis,"SELECT * FROM application_data ");
 $row=mysqli_fetch_assoc($Select);
 
 
@@ -29,7 +29,7 @@ $row=mysqli_fetch_assoc($Select);
     $Program_coordinator=$_POST["Program_coordinator"];
 
     if (!empty($Faculty_Uni_logo) || !empty($Program_logo)){
-    $sql = mysqli_query($bis , "UPDATE p74_application_data SET 
+    $sql = mysqli_query($bis , "UPDATE application_data SET 
         Uni_name='$Uni_name',Faculty_name='$Faculty_name',
         Program_name='$Program_name',Faculty_Uni_logo='$Faculty_Uni_logo',Program_logo='$Program_logo',
         Faculty_Dean='$Faculty_Dean',Post_grad_vice_dean='$Post_grad_vice_dean',
@@ -38,7 +38,7 @@ $row=mysqli_fetch_assoc($Select);
 
     }
     else {
-        $sql = mysqli_query($bis , "UPDATE p74_application_data SET 
+        $sql = mysqli_query($bis , "UPDATE application_data SET 
             Uni_name='$Uni_name',Faculty_name='$Faculty_name',
             Program_name='$Program_name',Faculty_Dean='$Faculty_Dean',Post_grad_vice_dean='$Post_grad_vice_dean',
             st_affairs_vice_dean='$st_affairs_vice_dean',Program_coordinator='$Program_coordinator'

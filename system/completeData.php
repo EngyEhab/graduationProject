@@ -60,9 +60,9 @@ include "../Connections/syscon.php";
                         <?php
             if (isset($_POST['completesearch'])) {
                     $cst=$_POST['search'];
-                    $myquery="SELECT * FROM p74_doctors_account 
-                    INNER JOIN  p74_doctor_jobs  
-                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$cst%'";
+                    $myquery="SELECT * FROM doctors_account 
+                    INNER JOIN  doctor_jobs  
+                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$cst%'";
                     $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){
                     ?>
@@ -74,9 +74,9 @@ include "../Connections/syscon.php";
                         </tr>
                     <?php }}
                 else { 
-                        $myquery="SELECT * FROM p74_doctors_account 
-                        INNER JOIN  p74_doctor_jobs  
-                        ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id";
+                        $myquery="SELECT * FROM doctors_account 
+                        INNER JOIN  doctor_jobs  
+                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
                         $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){?>
                     
@@ -97,10 +97,10 @@ include "../Connections/syscon.php";
     
     <form action="completeData.php" method="post" id="completeDataForm">
     <?php  if (isset($_POST['CompleteDataBtn'])) {
-    if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
+    if (isset($_POST['doctorCodeInput']) && 
         isset($_POST['doctorJobInput']) && isset($_POST['CompleteData'])){
             $doctorCodeInput=$_POST['doctorCodeInput'];
-            $doctorNameInput =$_POST['doctorNameInput'];
+            
             $doctorJobInput =$_POST['doctorJobInput']; 
             $CompleteData=$_POST["CompleteData"]; 
             $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
@@ -109,10 +109,10 @@ include "../Connections/syscon.php";
             }
             else {
                 $Select = "SELECT * FROM p74_completedata ";
-                $Insert = "INSERT INTO p74_completedata(doctorCodeInput, doctorNameInput, doctorJobInput, CompleteData) values(?, ?, ?, ?)";
+                $Insert = "INSERT INTO p74_completedata(doctorCodeInput, doctorJobInput, CompleteData) values(?, ?, ?)";
                 $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("isis",$doctorCodeInput, $doctorNameInput, $doctorJobInput, $CompleteData);
+                    $stmt->bind_param("iis",$doctorCodeInput, $doctorJobInput, $CompleteData);
                     if ($stmt->execute()) {
                     }
                     else {

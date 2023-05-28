@@ -3,7 +3,7 @@ include "../Connections/syscon.php";
 
 if (isset($_GET['id'])){ 
     $id=$_GET['id'];
-    $Details = mysqli_query($bis , "UPDATE p74_users SET is_enable = 'no' WHERE user_id='$id'");   
+    $Details = mysqli_query($bis , "UPDATE users SET is_enable = 'no' WHERE user_id='$id'");   
     header("location: users.php");
     exit;
 }

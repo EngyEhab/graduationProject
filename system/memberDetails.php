@@ -6,16 +6,16 @@ if (isset($_GET['id'])){
     $id=$_GET['id'];
 
     mysqli_select_db($bis,$database_bis);
-    $myquery="SELECT * FROM p74_doctors_account 
-    INNER JOIN  p74_departments  
-    ON p74_doctors_account.Department_id=p74_departments.Department_id 
-    INNER JOIN  p74_universities
-    ON p74_doctors_account.uni_id=p74_universities.uni_id
-    INNER JOIN  p74_faculties
-    ON p74_doctors_account.Faculty_id=p74_faculties.Faculty_id
-    INNER JOIN  p74_doctor_jobs
-    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id
-    WHERE p74_doctors_account.DoctorCode= $id";
+    $myquery="SELECT * FROM doctors_account 
+    INNER JOIN  departments  
+    ON doctors_account.Department_id=departments.Department_id 
+    INNER JOIN  universities
+    ON doctors_account.uni_id=universities.uni_id
+    INNER JOIN  faculties
+    ON doctors_account.Faculty_id=faculties.Faculty_id
+    INNER JOIN  doctor_jobs
+    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+    WHERE doctors_account.DoctorCode= $id";
     $result = $bis->query($myquery);
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
@@ -36,20 +36,15 @@ if (isset($_GET['id'])){
         $Faculty_ar_name=$row["Faculty_ar_name"];
         $Doctor_job_ar_name=$row["Doctor_job_ar_name"];
 
-//         mysqli_select_db($bis,$database_bis);
-// $sql="SELECT * FROM p74_doctors_account INNER JOIN  p74_departments   ON p74_doctors_account.Department_id=p74_departments.department_id WHERE p74_doctors_account.DoctorCode= $id";
-// $result1 = $bis->query($sql);
-// if ($result->num_rows === 1) {
-//     $row = $result->fetch_assoc();
-//     $Department_ar_name=$row["Department_ar_name"]; 
+
 }
     
-     
+
     }
-   
+    
 if (isset($_POST['deleteBtn'])){ 
     $id=$_GET['id']; 
-     $Details = mysqli_query($bis , " DELETE FROM p74_doctors_account WHERE DoctorCode='$id'");   
+    $Details = mysqli_query($bis , " DELETE FROM doctors_account WHERE DoctorCode='$id'");   
 
 }
 ?>

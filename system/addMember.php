@@ -58,16 +58,16 @@ if (isset($_POST['submit'])) {
             die('Could not connect to the database.');
         }
         else {
-            $Select = "SELECT * FROM p74_doctors_account 
+            $Select = "SELECT * FROM doctors_account 
             INNER JOIN  p74_departments  
-            ON p74_doctors_account.Department_id=p74_departments.Department_id 
-            INNER JOIN  p74_universities
-            ON p74_doctors_account.uni_id=p74_universities.uni_id
-            INNER JOIN  p74_faculties
-            ON p74_doctors_account.Faculty_id=p74_faculties.Faculty_id
-            INNER JOIN  p74_doctor_jobs
-            ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id ";
-            $Insert = "INSERT INTO p74_doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, Department_id, uni_id, Faculty_id, Doctor_job_id, qualifications, date_of_birth, hiring_date,Doctor_image) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
+            ON doctors_account.Department_id=departments.Department_id 
+            INNER JOIN  universities
+            ON doctors_account.uni_id=universities.uni_id
+            INNER JOIN  faculties
+            ON doctors_account.Faculty_id=faculties.Faculty_id
+            INNER JOIN  doctor_jobs
+            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id ";
+            $Insert = "INSERT INTO doctors_account(Doctor_ar_Name, Doctor_eng_Name, National_id, Mobile, Academic_Mail, Personal_Mail,Notes, Department_id, uni_id, Faculty_id, Doctor_job_id, qualifications, date_of_birth, hiring_date,Doctor_image) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?)";
             $stmt = $bis->prepare($Select);
                 $stmt = $bis->prepare($Insert);
                 $stmt->bind_param("sssssssiiiissss",$Doctor_ar_Name, $Doctor_eng_Name, $National_id, $Mobile, $Academic_Mail, $Personal_Mail, $Notes, $Department_id, $uni_id, $Faculty_id, $Doctor_job_id, $qualifications, $date_of_birth, $hiring_date,$coverpic);
@@ -86,45 +86,45 @@ if ($bis->connect_error) {
     die('Could not connect to the database.');
 }
 else {
-$p74_departments = "SELECT * FROM p74_departments ";
-$result = $bis->query($p74_departments);
-$appata = mysqli_query ($bis, $p74_departments) or die (mysqli_error ($bis));
+$departments = "SELECT * FROM departments ";
+$result = $bis->query($departments);
+$appata = mysqli_query ($bis, $departments) or die (mysqli_error ($bis));
 $row_appata = mysqli_fetch_assoc ($appata);
-$p74_departments=array($row_appata);
+$departments=array($row_appata);
 while($row=mysqli_fetch_assoc($appata)){
-    array_push($p74_departments,$row);
+    array_push($departments,$row);
 }
-$_SESSION ['p74_departments']=$p74_departments;
+$_SESSION ['departments']=$departments;
 };
-$p74_doctor_jobs = "SELECT * FROM p74_doctor_jobs";
-$result = $bis->query($p74_doctor_jobs);
-$appata = mysqli_query ($bis, $p74_doctor_jobs) or die (mysqli_error ($bis));
+$doctor_jobs = "SELECT * FROM doctor_jobs";
+$result = $bis->query($doctor_jobs);
+$appata = mysqli_query ($bis, $doctor_jobs) or die (mysqli_error ($bis));
 $row_appata = mysqli_fetch_assoc ($appata);
-$p74_doctor_jobs=array($row_appata);
+$doctor_jobs=array($row_appata);
 while($row=mysqli_fetch_assoc($appata)){
-    array_push($p74_doctor_jobs,$row);
+    array_push($doctor_jobs,$row);
 }
-$_SESSION ['p74_doctor_jobs']=$p74_doctor_jobs;
+$_SESSION ['doctor_jobs']=$doctor_jobs;
 
-$p74_universities = "SELECT * FROM p74_universities";
-$result = $bis->query($p74_universities);
-$appata = mysqli_query ($bis, $p74_universities) or die (mysqli_error ($bis));
+$universities = "SELECT * FROM universities";
+$result = $bis->query($universities);
+$appata = mysqli_query ($bis, $universities) or die (mysqli_error ($bis));
 $row_appata = mysqli_fetch_assoc ($appata);
-$p74_universities=array($row_appata);
+$universities=array($row_appata);
 while($row=mysqli_fetch_assoc($appata)){
-    array_push($p74_universities,$row);
+    array_push($universities,$row);
 }
-$_SESSION ['p74_universities']=$p74_universities;
+$_SESSION ['universities']=$universities;
 
-$p74_faculties = "SELECT * FROM p74_faculties";
-$result = $bis->query($p74_faculties);
-$appata = mysqli_query ($bis, $p74_faculties) or die (mysqli_error ($bis));
+$faculties = "SELECT * FROM faculties";
+$result = $bis->query($faculties);
+$appata = mysqli_query ($bis, $faculties) or die (mysqli_error ($bis));
 $row_appata = mysqli_fetch_assoc ($appata);
-$p74_faculties=array($row_appata);
+$faculties=array($row_appata);
 while($row=mysqli_fetch_assoc($appata)){
-    array_push($p74_faculties,$row);
+    array_push($faculties,$row);
 }
-$_SESSION ['p74_faculties']=$p74_faculties;
+$_SESSION ['faculties']=$faculties;
 
 ?>
 <!DOCTYPE html>
@@ -196,7 +196,7 @@ $_SESSION ['p74_faculties']=$p74_faculties;
                 <div class="col-md-4">
                     <select name="uni_id" class="form-select" id="university">
                     <option selected value="">الجامعة</option>
-                    <?php foreach($p74_universities as $row){?>
+                    <?php foreach($universities as $row){?>
                         <option selected value='<?php echo $row['uni_id'];?>'> <?php echo $row['uni_ar_name']?></option>
                         <?php } ?>
                     </select>
@@ -204,7 +204,7 @@ $_SESSION ['p74_faculties']=$p74_faculties;
                 <div class="col-md-4">
                     <select name="Faculty_id" class="form-select" id="faculty">
                     <option selected value="">الكلية</option>
-                        <?php foreach($p74_faculties as $row){?>
+                        <?php foreach($faculties as $row){?>
                         <option selected value='<?php echo $row['Faculty_id']?>'><?php echo $row['Faculty_ar_name']?> </option>
                         <?php } ?>
                     </select>
@@ -212,7 +212,7 @@ $_SESSION ['p74_faculties']=$p74_faculties;
                 <div class="col-md-4">
                     <select name="Department_id" class="form-select" id="department">
                     <option selected value="">القسم</option>
-                    <?php foreach ($p74_departments as $row){?>
+                    <?php foreach ($departments as $row){?>
                         <option value='<?php echo $row['Department_id']?>'><?php echo $row['Department_ar_name']?></option> 
                         <?php } ?>
                     </select>
@@ -222,7 +222,7 @@ $_SESSION ['p74_faculties']=$p74_faculties;
                 <div class="col-md-4">
                     <select name="Doctor_job_id" class="form-select" id="job">
                     <option selected value="">الدرجة الوظيفية الحالية</option>
-                    <?php  foreach($p74_doctor_jobs as $row){?>
+                    <?php  foreach($doctor_jobs as $row){?>
                         <option value='<?php echo $row['Doctor_job_id']?>'><?php echo $row['Doctor_job_ar_name']?></option>
                         <?php } ?>
                     </select>

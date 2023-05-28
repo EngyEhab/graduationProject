@@ -2,15 +2,15 @@
 <?php
 include "../Connections/syscon.php"; 
 
-        $p74_users_types = "SELECT * FROM  p74_users_types";
-        $result = $bis->query($p74_users_types);
-        $appata = mysqli_query ($bis, $p74_users_types) or die (mysqli_error ($bis));
+        $users_types = "SELECT * FROM  users_types";
+        $result = $bis->query($users_types);
+        $appata = mysqli_query ($bis, $users_types) or die (mysqli_error ($bis));
         $row_appata = mysqli_fetch_assoc ($appata);
-        $p74_users_types=array($row_appata);
+        $users_types=array($row_appata);
         while($row=mysqli_fetch_assoc($appata)){
-            array_push($p74_users_types,$row);
+            array_push($users_types,$row);
         }
-        $_SESSION ['p74_users_types']=$p74_users_types;
+        $_SESSION ['users_types']=$users_types;
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +65,7 @@ include "../Connections/syscon.php";
                 <div class="col-md-4">
                     <select name="user_type_id" id="userType" class="form-select">
                         <option value="">نوع المستخدم</option>
-                        <?php foreach ($p74_users_types as $row){?>
+                        <?php foreach ($users_types as $row){?>
                         <option value="<?php echo $row['user_type_id']?>"><?php echo $row['user_type_ar_name']?> </option>
                         
                     <?php } ?>
@@ -140,8 +140,8 @@ include "../Connections/syscon.php";
                     die('Could not connect to the database.');
                 }
                 else {
-                    $Select = "SELECT * FROM  p74_users ";
-                    $Insert = "INSERT INTO  p74_users(user_ar_name, userName, user_type_id,added_by, password, Notes, image ) values(?, ?, ?, ?, ?, ? ,?)";
+                    $Select = "SELECT * FROM  users ";
+                    $Insert = "INSERT INTO  users(user_ar_name, userName, user_type_id,added_by, password, Notes, image ) values(?, ?, ?, ?, ?, ? ,?)";
                     $stmt = $bis->prepare($Select);
                         $stmt = $bis->prepare($Insert);
                         $stmt->bind_param("sssssss",$user_ar_Name, $userName, $user_type_id ,$user_id, $password,$Notes, $coverpic);

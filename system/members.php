@@ -58,7 +58,7 @@ include "../Connections/syscon.php";
         <?php
             if (isset($_POST['search'])) {
         $st=$_POST ['search'];
-        $myquery="SELECT * FROM p74_doctors_account WHERE Doctor_ar_Name like '%$st%' ";
+        $myquery="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){
         ?>
@@ -76,7 +76,7 @@ include "../Connections/syscon.php";
             </div>
         <?php } } else{
         
-        $myquery="SELECT * FROM p74_doctors_account";
+        $myquery="SELECT * FROM doctors_account";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){
         ?>

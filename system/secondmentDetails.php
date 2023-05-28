@@ -4,9 +4,12 @@ if (isset($_GET['id'])){
 
     $id=$_GET['id'];
 
-    $myquery="SELECT * FROM p74_doctors_account WHERE DoctorCode= '$id'";
+    $myquery="SELECT * FROM doctors_account WHERE DoctorCode= '$id'";
     $results=mysqli_query($bis,$myquery);
-    while ($row=mysqli_fetch_array($results)){$Doctor_image=$row['Doctor_image'];}
+    while ($row=mysqli_fetch_array($results)){
+        $Doctor_image=$row['Doctor_image'];
+        $Doctor_ar_Name =$row['Doctor_ar_Name'];
+    }
 
     mysqli_select_db($bis,$database_bis);
     $myquery="SELECT * FROM p74_secondment_data WHERE doctorCodeInput= '$id'";
@@ -15,7 +18,7 @@ if (isset($_GET['id'])){
         $row = $result->fetch_assoc();
 
         $doctorCodeInput=$row['doctorCodeInput'];
-        $doctorNameInput =$row['doctorNameInput'];
+        
         $secondmentDescription =$row['secondmentDescription']; 
         $secondmentDestination=$row["secondmentDestination"]; 
         $secondmentType=$row['secondmentType'];
@@ -65,7 +68,7 @@ if (isset($_GET['id'])){
         <div class="modal-content">
         <div class="modal-body">
             <p class="fs-3 mainTitle fw-bold">هل  بالفعل تريد حذف الإعارة الخاصة بالعضو:</p>
-            <span class="fs-3 mainText"><?php echo $doctorNameInput?></span>
+            <span class="fs-3 mainText"><?php echo $Doctor_ar_Name?></span>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary fs-4" data-bs-dismiss="modal">الغاء</button>
@@ -87,7 +90,7 @@ if (isset($_GET['id'])){
                             <h4 class="mainText fw-bold">اســم العضـــــــــــو  :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"><?php echo $doctorNameInput;?></p>
+                            <p class="fs-4"><?php echo $Doctor_ar_Name;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -147,7 +150,7 @@ if (isset($_GET['id'])){
             <div class="col-md-6 d-flex justify-content-center align-items-center pb-5">
                 <div class="memberPhoto">
                     <img src="../images/members/<?php echo $Doctor_image;?>" class="w-100 h-100 ratio-1x1 rounded-circle shadow" alt="">
-                    <h1 class="text-center mainTitle pt-3"><?php echo $doctorNameInput;?></h1>
+                    <h1 class="text-center mainTitle pt-3"><?php echo $Doctor_ar_Name;?></h1>
                 </div>
             </div>
         </div>

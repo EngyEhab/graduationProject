@@ -5,12 +5,12 @@ $id="";
 if (isset($_GET['id'])){
     $id=$_GET['id'];
     
-    $Select=mysqli_query($bis,"SELECT * FROM p74_penalities WHERE  doctorCodeInput='$id' ");
+    $Select=mysqli_query($bis,"SELECT * FROM p74_penalties INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput WHERE doctorCodeInput='$id' ");
     $row=mysqli_fetch_assoc($Select);
     
     
             $doctorCodeInput=$row['doctorCodeInput'];
-            $doctorNameInput =$row['doctorNameInput'];
+            $Doctor_ar_Name =$row['Doctor_ar_Name'];
             $penaltyDescription =$row['penaltyDescription']; 
             $startDate=$row["startDate"]; 
             $endDate=$row["endDate"]; 
@@ -32,13 +32,13 @@ if (isset($_POST['updatePenaltyBtn'])){
             $penaltyDuration=$_POST["penaltyDuration"];
 
     if ((!empty($penaltyFile))){
-        $Details = mysqli_query($bis , "UPDATE p74_penalities SET penaltyDescription='$penaltyDescription',
+        $Details = mysqli_query($bis , "UPDATE p74_penalties SET penaltyDescription='$penaltyDescription',
         startDate='$startDate',endDate='$endDate',penaltyReason='$penaltyReason',
         penaltyFile='$penaltyFile',penaltyNotes='$penaltyNotes',penaltyDuration='$penaltyDuration'
         WHERE doctorCodeInput='$id'");
         }
         else{
-            $Details = mysqli_query($bis , "UPDATE p74_penalities SET penaltyDescription='$penaltyDescription',
+            $Details = mysqli_query($bis , "UPDATE p74_penalties SET penaltyDescription='$penaltyDescription',
             startDate='$startDate',endDate='$endDate',penaltyReason='$penaltyReason',
             penaltyNotes='$penaltyNotes',penaltyDuration='$penaltyDuration' WHERE doctorCodeInput='$id'");  
         }}
@@ -80,7 +80,7 @@ if (isset($_POST['updatePenaltyBtn'])){
                         <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــــــــم العضــــــــــــــو  :</label>
                     </div>
                     <div class="col-md-10">
-                        <input name="doctorNameInput" id="doctorNameInput" value="<?php if (isset($_GET['id'])) {echo $doctorNameInput;}?>" readonly class="form-control fs-4"></input>
+                        <input name="doctorNameInput" id="doctorNameInput" value="<?php if (isset($_GET['id'])) {echo $Doctor_ar_Name;}?>" readonly class="form-control fs-4"></input>
                     </div>
                 </div> 
                 <div class="row my-2 align-items-center">

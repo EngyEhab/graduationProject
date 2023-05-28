@@ -60,7 +60,7 @@ include "../Connections/syscon.php";
                 $st=$_POST ['search'];
         ?>
         <?php
-        $myquery="SELECT * FROM p74_penalities INNER JOIN  p74_doctors_account   ON DoctorCode=doctorCodeInput AND doctorNameInput like '%$st%'  ";
+        $myquery="SELECT * FROM p74_penalties INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput AND Doctor_ar_Name like '%$st%'  ";
         // $sql="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){
@@ -72,13 +72,13 @@ include "../Connections/syscon.php";
                         <div class="memberImage rounded-circle mx-auto">
                             <img src="../images/members/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
                         </div>
-                        <h3 class="mainTitle pt-2"><?php echo $row['doctorNameInput']?></h3>
+                        <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
                     </div>
                     </a>
                 </div>
             </div>
             <?php } } else{
-        $myquery="SELECT * FROM p74_penalities INNER JOIN  p74_doctors_account   ON DoctorCode=doctorCodeInput";
+        $myquery="SELECT * FROM p74_penalties INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput";
         $results=mysqli_query($bis,$myquery);
         while ($row=mysqli_fetch_array($results)){
         ?>
@@ -89,7 +89,7 @@ include "../Connections/syscon.php";
                         <div class="memberImage rounded-circle mx-auto">
                             <img src="../images/members/<?php echo $row['Doctor_image']?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
                         </div>
-                        <h3 class="mainTitle pt-2"><?php echo $row['doctorNameInput']?></h3>
+                        <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name']?></h3>
                     </div>
                     </a>
                 </div>

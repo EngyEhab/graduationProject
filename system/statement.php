@@ -60,9 +60,9 @@ include "../Connections/syscon.php";
                     <?php
             if (isset($_POST['submit'])) {
         $st=$_POST ['search'];
-        $query="SELECT * FROM p74_doctors_account 
-        INNER JOIN  p74_departments  
-        ON p74_doctors_account.Department_id=p74_departments.Department_id WHERE Doctor_ar_Name like '%$st%' ";
+        $query="SELECT * FROM doctors_account 
+        INNER JOIN  departments  
+        ON doctors_account.Department_id=departments.Department_id WHERE Doctor_ar_Name like '%$st%' ";
         $results=mysqli_query($bis,$query);
         while($row=mysqli_fetch_array($results)) {
             ?>
@@ -79,9 +79,9 @@ include "../Connections/syscon.php";
                 <?php }
             }
             else{
-                $query="SELECT * FROM p74_doctors_account 
-                INNER JOIN  p74_departments  
-                ON p74_doctors_account.Department_id=p74_departments.Department_id";
+                $query="SELECT * FROM doctors_account 
+                INNER JOIN  departments  
+                ON doctors_account.Department_id=departments.Department_id";
                 $results=mysqli_query($bis,$query);
                 while($row=mysqli_fetch_array($results)) {
                 ?>

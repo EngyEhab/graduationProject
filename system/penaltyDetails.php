@@ -4,18 +4,21 @@ if (isset($_GET['id'])){
 
     $id=$_GET['id'];
 
-    $myquery="SELECT * FROM p74_doctors_account WHERE DoctorCode= '$id'";
+    $myquery="SELECT * FROM doctors_account WHERE DoctorCode= '$id'";
     $results=mysqli_query($bis,$myquery);
-    while ($row=mysqli_fetch_array($results)){$Doctor_image=$row['Doctor_image'];}
+    while ($row=mysqli_fetch_array($results)){
+        $Doctor_image=$row['Doctor_image'];
+        $Doctor_ar_Name = $row['Doctor_ar_Name'];
+    }
 
     mysqli_select_db($bis,$database_bis);
-    $myquery="SELECT * FROM p74_penalities WHERE doctorCodeInput= '$id'";
+    $myquery="SELECT * FROM p74_penalties WHERE doctorCodeInput= '$id'";
     $result = $bis->query($myquery);
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
 
         $doctorCodeInput=$row['doctorCodeInput'];
-        $doctorNameInput =$row['doctorNameInput'];
+
         $penaltyDescription =$row['penaltyDescription']; 
         $startDate=$row["startDate"]; 
         $endDate=$row["endDate"]; 
@@ -28,7 +31,7 @@ if (isset($_GET['id'])){
 }
 if (isset($_POST['deleteBtn'])){ 
     $id=$_GET['id']; 
-    $Details = mysqli_query($bis , " DELETE FROM penalities WHERE doctorCodeInput='$id'");   
+    $Details = mysqli_query($bis , " DELETE FROM p74_penalties WHERE doctorCodeInput='$id'");   
 
 }
 ?>
@@ -65,7 +68,7 @@ if (isset($_POST['deleteBtn'])){
         <div class="modal-content">
         <div class="modal-body">
             <p class="fs-3 mainTitle fw-bold">هل  بالفعل تريد حذف العقوبة الخاصة بالعضو:</p>
-            <span class="fs-3 mainText"><?php echo $doctorNameInput?></span>
+            <span class="fs-3 mainText"><?php echo $Doctor_ar_Name?></span>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary fs-4" data-bs-dismiss="modal">الغاء</button>
@@ -87,7 +90,7 @@ if (isset($_POST['deleteBtn'])){
                             <h4 class="mainText fw-bold">اســــــــــم العضــــــــــو  :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"><?php echo $doctorNameInput;?></p>
+                            <p class="fs-4"><?php echo $Doctor_ar_Name;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -139,7 +142,7 @@ if (isset($_POST['deleteBtn'])){
             <div class="col-md-6 d-flex justify-content-center align-items-center pb-5">
                 <div class="memberPhoto">
                     <img src="../images/members/<?php echo $Doctor_image;?>" class="w-100 h-100 ratio-1x1 rounded-circle shadow" alt="">
-                    <h1 class="text-center mainTitle pt-3"><?php echo $doctorNameInput;?></h1>
+                    <h1 class="text-center mainTitle pt-3"><?php echo $Doctor_ar_Name;?></h1>
                 </div>
             </div>
         </div>

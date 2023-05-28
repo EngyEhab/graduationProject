@@ -4,7 +4,7 @@ include "../Connections/syscon.php";
 if (isset($_GET['id'])){
     $id=$_GET['id'];
     
-$Select=mysqli_query($bis,"SELECT * FROM p74_users INNER JOIN p74_users_types ON p74_users.user_type_id=p74_users_types.user_type_id WHERE  user_id=$id ");
+$Select=mysqli_query($bis,"SELECT * FROM users INNER JOIN users_types ON users.user_type_id=users_types.user_type_id WHERE  user_id=$id ");
     $row=mysqli_fetch_assoc($Select);
 
             $user_ar_name=$row["user_ar_name"]; 
@@ -28,11 +28,11 @@ if (isset($_POST['submit'])){
     $image=$_POST["image"]; 
 
     if ((!empty($image))){
-        $Details = mysqli_query($bis , "UPDATE p74_users SET 
+        $Details = mysqli_query($bis , "UPDATE users SET 
         user_ar_name='$user_ar_name',username='$username',
         user_type_id='$user_type_id',password='$password',Notes='$Notes', image='$image' WHERE user_id='$id'");
         }else{
-            $sql = mysqli_query($bis , "UPDATE p74_users SET 
+            $sql = mysqli_query($bis , "UPDATE users SET 
             user_ar_name='$user_ar_name',username='$username',
             user_type_id='$user_type_id',password='$password',Notes='$Notes' WHERE user_id='$id'");
         }
@@ -40,15 +40,15 @@ if (isset($_POST['submit'])){
     
 }
 
-$p74_users_types = "SELECT * FROM  p74_users_types";
-$result = $bis->query($p74_users_types);
-$appata = mysqli_query ($bis, $p74_users_types) or die (mysqli_error ($bis));
+$users_types = "SELECT * FROM  users_types";
+$result = $bis->query($users_types);
+$appata = mysqli_query ($bis, $users_types) or die (mysqli_error ($bis));
 $row_appata = mysqli_fetch_assoc ($appata);
-$p74_users_types=array($row_appata);
+$users_types=array($row_appata);
 while($row=mysqli_fetch_assoc($appata)){
-    array_push($p74_users_types,$row);
+    array_push($users_types,$row);
 }
-$_SESSION ['p74_users_types']=$p74_users_types;
+$_SESSION ['users_types']=$users_types;
 ?>
 <!DOCTYPE html>
 <html lang="ar">
@@ -103,7 +103,7 @@ $_SESSION ['p74_users_types']=$p74_users_types;
                     <select name="user_type_id" id="userType" class="form-select">
                         <option value="">نوع المستخدم</option>
                         <option selected class="d-none"  value="<?php echo $user_type_id?>"><?php echo $user_type_ar_name?></option> 
-                        <?php foreach ($p74_users_types as $row){?>
+                        <?php foreach ($users_types as $row){?>
                         <option value="<?php echo $row['user_type_id']?>"><?php echo $row['user_type_ar_name']?> </option>
                         <?php } ?>
                         

@@ -61,9 +61,9 @@ include "../Connections/syscon.php";
                         <?php
             if (isset($_POST['search'])) {
                     $st=$_POST['search'];
-                    $myquery="SELECT * FROM p74_doctors_account 
-                    INNER JOIN  p74_doctor_jobs  
-                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
+                    $myquery="SELECT * FROM doctors_account 
+                    INNER JOIN  doctor_jobs  
+                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
                     $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){
                     ?>
@@ -75,9 +75,9 @@ include "../Connections/syscon.php";
                         <?php }
                         
             }
-                else { $myquery="SELECT * FROM p74_doctors_account 
-                    INNER JOIN  p74_doctor_jobs  
-                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id";
+                else { $myquery="SELECT * FROM doctors_account 
+                    INNER JOIN  doctor_jobs  
+                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
                         $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){?>
                         <tr>
@@ -96,21 +96,21 @@ include "../Connections/syscon.php";
     <form action="updateJobGrade.php" method="post" id="updateJobGradeForm">
 
     <?php
-    $p74_doctor_jobs = "SELECT * FROM p74_doctor_jobs";
-    $result = $bis->query($p74_doctor_jobs);
-    $appata = mysqli_query ($bis, $p74_doctor_jobs) or die (mysqli_error ($bis));
+    $doctor_jobs = "SELECT * FROM doctor_jobs";
+    $result = $bis->query($doctor_jobs);
+    $appata = mysqli_query ($bis, $doctor_jobs) or die (mysqli_error ($bis));
     $row_appata = mysqli_fetch_assoc ($appata);
-    $p74_doctor_jobs=array($row_appata);
+    $doctor_jobs=array($row_appata);
     while($row=mysqli_fetch_assoc($appata)){
-        array_push($p74_doctor_jobs,$row);
+        array_push($doctor_jobs,$row);
     }
-    $_SESSION ['p74_doctor_jobs']=$p74_doctor_jobs;
+    $_SESSION ['doctor_jobs']=$doctor_jobs;
 
     if (isset($_POST['updateJobGradeBtn'])){
         $doctorCodeInput=$_POST['doctorCodeInput'];
         $p74_doctor_job =$_POST['doctor_job'];
         if ((!empty($p74_doctor_job))){
-        $Details = mysqli_query($bis , "UPDATE p74_doctors_account SET 
+        $Details = mysqli_query($bis , "UPDATE doctors_account SET 
         Doctor_job_id='$p74_doctor_job'  WHERE DoctorCode='$doctorCodeInput'");}
         echo "<meta http-equiv='refresh' content='0'>";
     }
@@ -154,7 +154,7 @@ include "../Connections/syscon.php";
                                     <div class="col-md-10">
                                         <select name="doctor_job" class="form-select" id="job">
                                             <option selected value=""></option>
-                                            <?php  foreach($p74_doctor_jobs as $row){?>
+                                            <?php  foreach($doctor_jobs as $row){?>
                                         <option value='<?php echo $row['Doctor_job_id']?>'><?php echo $row['Doctor_job_ar_name']?></option>
                                         <?php } ?>
                                         </select>

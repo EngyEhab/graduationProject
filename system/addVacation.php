@@ -58,12 +58,12 @@ include "../Connections/syscon.php";
                         </tr>
                     </thead>
                     <tbody>
-                         <?php
+                        <?php
             if (isset($_POST['search'])) {
                     $st=$_POST['search'];
-                    $myquery="SELECT * FROM p74_doctors_account 
-                    INNER JOIN  p74_doctor_jobs  
-                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
+                    $myquery="SELECT * FROM doctors_account 
+                    INNER JOIN  doctor_jobs  
+                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
                     $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){
                     ?>
@@ -77,9 +77,9 @@ include "../Connections/syscon.php";
                         
             }
                 else { 
-                        $myquery="SELECT * FROM p74_doctors_account 
-                        INNER JOIN  p74_doctor_jobs  
-                        ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id";
+                        $myquery="SELECT * FROM doctors_account 
+                        INNER JOIN  doctor_jobs  
+                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
                         $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){?>
                         <tr>
@@ -98,12 +98,11 @@ include "../Connections/syscon.php";
 
     <form action="addVacation.php" method="post" id="addVacationForm">
     <?php  if (isset($_POST['addVacationBtn'])) {
-    if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
+    if (isset($_POST['doctorCodeInput']) && 
         isset($_POST['vacationDescription']) && isset($_POST['startDate']) &&
         isset($_POST['endDate']) && isset($_POST['vacationReason']) &&
         isset($_POST['vacationFile']) && isset($_POST['vacationNotes'])&& isset($_POST['vacationDuration'])){
             $doctorCodeInput=$_POST['doctorCodeInput'];
-            $doctorNameInput =$_POST['doctorNameInput'];
             $vacationDescription =$_POST['vacationDescription']; 
             $startDate=$_POST["startDate"]; 
             $endDate=$_POST['endDate'];
@@ -117,10 +116,10 @@ include "../Connections/syscon.php";
             }
             else {
                 $Select = "SELECT * FROM p74_vacation_data ";
-                $Insert = "INSERT INTO p74_vacation_data(doctorCodeInput, doctorNameInput, vacationDescription, startDate, endDate, vacationReason, vacationFile, vacationNotes, vacationDuration) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $Insert = "INSERT INTO p74_vacation_data(doctorCodeInput, vacationDescription, startDate, endDate, vacationReason, vacationFile, vacationNotes, vacationDuration) values(?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("sssssssss",$doctorCodeInput, $doctorNameInput, $vacationDescription, $startDate, $endDate, $vacationReason, $vacationFile, $vacationNotes, $vacationDuration);
+                    $stmt->bind_param("ssssssss",$doctorCodeInput, $vacationDescription, $startDate, $endDate, $vacationReason, $vacationFile, $vacationNotes, $vacationDuration);
                     if ($stmt->execute()) {
                     }
                     else {

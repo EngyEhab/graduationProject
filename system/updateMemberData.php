@@ -6,15 +6,15 @@ $bis = mysqli_connect($hostname_bis, $username_bis, $password_bis, $database_bis
 if (isset($_GET['id'])){
     $id=$_GET['id'];
     
-    $Select=mysqli_query($bis,"SELECT * FROM p74_doctors_account 
-    INNER JOIN  p74_departments  
-    ON p74_doctors_account.Department_id=p74_departments.Department_id 
-    INNER JOIN  p74_universities
-    ON p74_doctors_account.uni_id=p74_universities.uni_id
-    INNER JOIN  p74_faculties
-    ON p74_doctors_account.Faculty_id=p74_faculties.Faculty_id
-    INNER JOIN  p74_doctor_jobs
-    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id WHERE  DoctorCode='$id' ");
+    $Select=mysqli_query($bis,"SELECT * FROM doctors_account 
+    INNER JOIN  departments  
+    ON doctors_account.Department_id=departments.Department_id 
+    INNER JOIN  universities
+    ON doctors_account.uni_id=universities.uni_id
+    INNER JOIN  faculties
+    ON doctors_account.Faculty_id=faculties.Faculty_id
+    INNER JOIN  doctor_jobs
+    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE  DoctorCode='$id' ");
     $row=mysqli_fetch_assoc($Select);
     
     
@@ -60,7 +60,7 @@ if (isset($_POST['updateMemberData'])){
     
     
     if ((!empty($Doctor_image))){
-        $Details = mysqli_query($bis , "UPDATE p74_doctors_account SET 
+        $Details = mysqli_query($bis , "UPDATE doctors_account SET 
         Doctor_ar_Name='$Doctor_ar_Name',Doctor_eng_Name='$Doctor_eng_Name',
         National_id='$National_id',Mobile='$Mobile',Academic_Mail='$Academic_Mail',
         Personal_Mail='$Personal_Mail',Notes='$Notes',Doctor_image='$Doctor_image',
@@ -68,7 +68,7 @@ if (isset($_POST['updateMemberData'])){
         Doctor_job_id='$Doctor_job_id', qualifications='$qualifications',
         date_of_birth ='$date_of_birth' , hiring_date ='$hiring_date'  WHERE DoctorCode='$id'");
         }else{
-            $sql = mysqli_query($bis , "UPDATE p74_doctors_account SET 
+            $sql = mysqli_query($bis , "UPDATE doctors_account SET 
         Doctor_ar_Name='$Doctor_ar_Name',Doctor_eng_Name='$Doctor_eng_Name',
         National_id='$National_id',Mobile='$Mobile',Academic_Mail='$Academic_Mail',
         Personal_Mail='$Personal_Mail',Notes='$Notes',
@@ -85,7 +85,7 @@ if (isset($_POST['updateMemberData'])){
 
     
     
-$query_appata = "SELECT * FROM p74_departments";
+$query_appata = "SELECT * FROM departments";
 $result = $bis->query($query_appata);
 $appata = mysqli_query ($bis, $query_appata) or die (mysqli_error ($bis));
 $row_appata = mysqli_fetch_assoc ($appata);
@@ -95,7 +95,7 @@ while($row=mysqli_fetch_assoc($appata)){
 }
 $_SESSION ['departments']=$departments;
 ;
-$doctor_jobs = "SELECT * FROM p74_doctor_jobs";
+$doctor_jobs = "SELECT * FROM doctor_jobs";
 $result = $bis->query($doctor_jobs);
 $appata = mysqli_query ($bis, $doctor_jobs) or die (mysqli_error ($bis));
 $row_appata = mysqli_fetch_assoc ($appata);
@@ -105,7 +105,7 @@ while($row=mysqli_fetch_assoc($appata)){
 }
 $_SESSION ['doctor_jobs']=$doctor_jobs;
 
-$universities = "SELECT * FROM p74_universities";
+$universities = "SELECT * FROM universities";
 $result = $bis->query($universities);
 $appata = mysqli_query ($bis, $universities) or die (mysqli_error ($bis));
 $row_appata = mysqli_fetch_assoc ($appata);
@@ -115,7 +115,7 @@ while($row=mysqli_fetch_assoc($appata)){
 }
 $_SESSION ['universities']=$universities;
 
-$faculties = "SELECT * FROM p74_faculties";
+$faculties = "SELECT * FROM faculties";
 $result = $bis->query($faculties);
 $appata = mysqli_query ($bis, $faculties) or die (mysqli_error ($bis));
 $row_appata = mysqli_fetch_assoc ($appata);

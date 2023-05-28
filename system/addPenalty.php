@@ -60,9 +60,9 @@ include "../Connections/syscon.php";
                     <tbody>
                     <?php   if (isset($_POST['search'])) {
                     $st=$_POST ['search'];
-                    $myquery="SELECT * FROM p74_doctors_account 
-                    INNER JOIN  p74_doctor_jobs  
-                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%' ";
+                    $myquery="SELECT * FROM doctors_account 
+                    INNER JOIN  doctor_jobs  
+                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%' ";
                     $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){  
                     ?>
@@ -74,9 +74,9 @@ include "../Connections/syscon.php";
                         </tr>
                     <?php }} 
                     else{
-                        $myquery="SELECT * FROM p74_doctors_account 
-                        INNER JOIN  p74_doctor_jobs  
-                        ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id";
+                        $myquery="SELECT * FROM doctors_account 
+                        INNER JOIN  doctor_jobs  
+                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
                         $results=mysqli_query($bis,$myquery);
                         while ($row=mysqli_fetch_array($results)){
                         
@@ -96,12 +96,12 @@ include "../Connections/syscon.php";
 
     <form action="addPenalty.php" method="POST" id="addPenaltyForm">
     <?php  if (isset($_POST['submit'])) {
-    if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
+    if (isset($_POST['doctorCodeInput']) && 
         isset($_POST['penaltyDescription']) && isset($_POST['penaltyDuration']) &&
         isset($_POST['startDate']) && isset($_POST['endDate']) && isset($_POST['penaltyReason']) && 
         isset($_POST['penaltyFile']) && isset($_POST['penaltyNotes']) ){
             $doctorCodeInput=$_POST['doctorCodeInput'];
-            $doctorNameInput =$_POST['doctorNameInput'];
+            
             $penaltyDescription =$_POST['penaltyDescription']; 
             $startDate=$_POST["startDate"]; 
             $endDate=$_POST["endDate"]; 
@@ -115,11 +115,11 @@ include "../Connections/syscon.php";
                 die('Could not connect to the database.');
             }
             else {
-                $Select = "SELECT * FROM p74_penalities ";
-                $Insert = "INSERT INTO p74_penalities(doctorCodeInput, doctorNameInput, penaltyDescription, penaltyDuration, startDate, endDate, penaltyReason, penaltyNotes, penaltyFile) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $Select = "SELECT * FROM p74_penalties ";
+                $Insert = "INSERT INTO p74_penalties(doctorCodeInput, penaltyDescription, penaltyDuration, startDate, endDate, penaltyReason, penaltyNotes, penaltyFile) values(?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("sssssssss",$doctorCodeInput, $doctorNameInput, $penaltyDescription, $penaltyDuration, $startDate, $endDate, $penaltyReason, $penaltyNotes, $penaltyFile);
+                    $stmt->bind_param("ssssssss",$doctorCodeInput, $penaltyDescription, $penaltyDuration, $startDate, $endDate, $penaltyReason, $penaltyNotes, $penaltyFile);
                     if ($stmt->execute()) {
                     }
                     else {

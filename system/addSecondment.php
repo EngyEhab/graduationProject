@@ -61,9 +61,9 @@ include "../Connections/syscon.php";
                     <?php
             if (isset($_POST['search'])) {
                     $st=$_POST['search'];
-                    $myquery="SELECT * FROM p74_doctors_account 
-                    INNER JOIN  p74_doctor_jobs  
-                    ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
+                    $myquery="SELECT * FROM doctors_account 
+                    INNER JOIN  doctor_jobs  
+                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
                     $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){
                     ?>
@@ -77,9 +77,9 @@ include "../Connections/syscon.php";
                         
             }
                 else { 
-                        $myquery="SELECT * FROM p74_doctors_account 
-                        INNER JOIN  p74_doctor_jobs  
-                        ON p74_doctors_account.Doctor_job_id=p74_doctor_jobs.Doctor_job_id";
+                        $myquery="SELECT * FROM doctors_account 
+                        INNER JOIN  doctor_jobs  
+                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
                         $results=mysqli_query($bis,$myquery);
                     while ($row=mysqli_fetch_array($results)){?>
                         <tr>
@@ -98,13 +98,12 @@ include "../Connections/syscon.php";
 
     <form action="addSecondment.php" method="post" id="addSecondmentForm">
     <?php  if (isset($_POST['addSecondmentBtn'])) {
-    if (isset($_POST['doctorCodeInput']) && isset($_POST['doctorNameInput']) &&
+    if (isset($_POST['doctorCodeInput']) && 
         isset($_POST['secondmentDescription']) && isset($_POST['secondmentDestination']) &&
         isset($_POST['secondmentType']) && isset($_POST['secondmentDuration']) &&
         isset($_POST['startDate']) && isset($_POST['endDate']) &&
         isset($_POST['secondmentFile']) && isset($_POST['secondmentNotes'])){
             $doctorCodeInput=$_POST['doctorCodeInput'];
-            $doctorNameInput =$_POST['doctorNameInput'];
             $secondmentDescription =$_POST['secondmentDescription']; 
             $secondmentDestination=$_POST["secondmentDestination"]; 
             $secondmentType=$_POST['secondmentType'];
@@ -119,10 +118,10 @@ include "../Connections/syscon.php";
             }
             else {
                 $Select = "SELECT * FROM p74_secondment_data ";
-                $Insert = "INSERT INTO p74_secondment_data(doctorCodeInput, doctorNameInput, secondmentDescription, secondmentDestination, secondmentType, secondmentDuration, startDate, endDate, secondmentFile, secondmentNotes) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $Insert = "INSERT INTO p74_secondment_data(doctorCodeInput, secondmentDescription, secondmentDestination, secondmentType, secondmentDuration, startDate, endDate, secondmentFile, secondmentNotes) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("ssssssssss",$doctorCodeInput, $doctorNameInput, $secondmentDescription, $secondmentDestination, $secondmentType, $secondmentDuration, $startDate, $endDate, $secondmentFile, $secondmentNotes);
+                    $stmt->bind_param("ssssssssss",$doctorCodeInput, $secondmentDescription, $secondmentDestination, $secondmentType, $secondmentDuration, $startDate, $endDate, $secondmentFile, $secondmentNotes);
                     if ($stmt->execute()) {
                     }
                     else {

@@ -3,11 +3,11 @@
 include "../Connections/syscon.php"; 
 if(isset($_GET['id'])){
     $id=$_GET['id'];
-    $query1 = "SELECT * FROM p74_doctors_account WHERE DoctorCode = '$id' ";
+    $query1 = "SELECT * FROM doctors_account WHERE DoctorCode = '$id' ";
     $results1 =mysqli_query($bis, $query1);
     $row1 = mysqli_fetch_array($results1);
 
-    $query2 = "SELECT * FROM p74_penalities WHERE DoctorCodeInput = '$id' ";
+    $query2 = "SELECT * FROM p74_penalties WHERE DoctorCodeInput = '$id' ";
     $results2 =mysqli_query($bis, $query2);
     $row2 = mysqli_fetch_array($results2);
 

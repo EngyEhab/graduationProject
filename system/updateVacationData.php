@@ -5,11 +5,11 @@ $id="";
 if (isset($_GET['id'])){
     $id=$_GET['id'];
     
-    $Select=mysqli_query($bis,"SELECT * FROM  p74_vacation_data WHERE  doctorCodeInput='$id' ");
+    $Select=mysqli_query($bis," SELECT * FROM p74_vacation_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput WHERE doctorCodeInput='$id' ");
     $row=mysqli_fetch_assoc($Select);
     
             $doctorCodeInput=$row['doctorCodeInput'];
-            $doctorNameInput =$row["doctorNameInput"];
+            $Doctor_ar_Name =$row["Doctor_ar_Name"];
             $vacationDescription =$row["vacationDescription"]; 
             $startDate=$row["startDate"]; 
             $endDate=$row["endDate"];
@@ -20,8 +20,7 @@ if (isset($_GET['id'])){
 if (isset($_POST['update'])){
     
             
-    // $doctorCodeInput=$_POST['doctorCodeInput'];
-    // $doctorNameInput =$_POST['doctorNameInput'];
+    
     $vacationDescription =$_POST['vacationDescription']; 
     $startDate=$_POST["startDate"]; 
     $endDate=$_POST['endDate'];
@@ -79,7 +78,7 @@ if (isset($_POST['update'])){
                         <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــم العضــــــو  :</label>
                     </div>
                     <div class="col-md-10">
-                        <input name="doctorNameInput" id="doctorNameInput" value="<?php if (isset($_GET['id'])) {echo $doctorNameInput;}?>"  readonly class="form-control fs-4"></input>
+                        <input name="doctorNameInput" id="doctorNameInput" value="<?php if (isset($_GET['id'])) {echo $Doctor_ar_Name;}?>"  readonly class="form-control fs-4"></input>
                     </div>
                 </div> 
                 <div class="row my-2 align-items-center">
