@@ -409,3 +409,16 @@ label
 {
     z-index: 999999;
 }
+
+
+.supervisorImage , .teamMemberImage
+{
+    width: 150px;
+    height:150px;
+}
+
+.link
+{
+    width:30px;
+    height:30px;
+}

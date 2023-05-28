@@ -228,3 +228,4 @@ $('#programLogo').change(function(e){
     var selectedVacationFile = e.target.files[0].name;
     $('.selectedProgramLogo').text(selectedVacationFile);
 });
+

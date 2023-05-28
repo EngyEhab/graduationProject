@@ -11,7 +11,7 @@
     <footer>
         <div class="footer py-2 d-flex justify-content-center">
             <span>جميع الحقوق محفوظة ل </span>
-            <a href="#" >فريق برنامج BIS 2023</a>
+            <a href="team.html" >فريق برنامج BIS 2023</a>
             <div class="bisLogo d-flex align-items-center me-2">
                 <img src="../images/program.png" alt="BIS-LOGO">
             </div>
