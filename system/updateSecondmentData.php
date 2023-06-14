@@ -38,12 +38,18 @@ if (isset($_POST['updateSecondmentBtn'])){
         secondmentDescription='$secondmentDescription',secondmentDestination='$secondmentDestination',secondmentType='$secondmentType',
         secondmentDuration='$secondmentDuration',startDate='$startDate',endDate='$endDate',secondmentFile='$secondmentFile',secondmentNotes='$secondmentNotes'
         WHERE doctorCodeInput='$id'");
+        if (isset($_POST['updateSecondmentBtn'])){
+
+            header("location:secondmentDetails.php?id=$id"); }
         }
         else{
             $Details = mysqli_query($bis , "UPDATE p74_secondment_data SET 
             secondmentDescription='$secondmentDescription',secondmentDestination='$secondmentDestination',secondmentType='$secondmentType',
             secondmentDuration='$secondmentDuration',startDate='$startDate',endDate='$endDate',secondmentNotes='$secondmentNotes'
-            WHERE doctorCodeInput='$id'");  
+            WHERE doctorCodeInput='$id'");
+            if (isset($_POST['updateSecondmentBtn'])){
+
+                header("location:secondmentDetails.php?id=$id"); }  
         }}
 ?>
 <!DOCTYPE html>

@@ -36,11 +36,17 @@ if (isset($_POST['updatePenaltyBtn'])){
         startDate='$startDate',endDate='$endDate',penaltyReason='$penaltyReason',
         penaltyFile='$penaltyFile',penaltyNotes='$penaltyNotes',penaltyDuration='$penaltyDuration'
         WHERE doctorCodeInput='$id'");
+        if (isset($_POST['updatePenaltyBtn'])){
+
+            header("location:penaltyDetails.php?id=$id"); }
         }
         else{
             $Details = mysqli_query($bis , "UPDATE p74_penalties SET penaltyDescription='$penaltyDescription',
             startDate='$startDate',endDate='$endDate',penaltyReason='$penaltyReason',
             penaltyNotes='$penaltyNotes',penaltyDuration='$penaltyDuration' WHERE doctorCodeInput='$id'");  
+        if (isset($_POST['updatePenaltyBtn'])){
+
+                header("location:penaltyDetails.php?id=$id"); }
         }}
 ?>
 <!DOCTYPE html>

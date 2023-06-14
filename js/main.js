@@ -203,10 +203,19 @@ $('.tableUpdateJobGradeBtn').click(function(){
     var doctorName = $(this).attr('doctorName');
     var doctorJob = $(this).attr('doctorJob');
     var doctorJobName = $(this).attr('doctorJobName');
+    var jobOrder = $(this).attr('job_order');
     $('#doctorCodeInput').val(doctorCode);
     $('#doctorNameInput').val(doctorName);
     $('#doctorJobInput').val(doctorJob);
     $('#doctorJobNameInput').val(doctorJobName);
+    $('#jobOrder').val(jobOrder);
+
+   $('#jobOrderForm').submit();
+})
+
+$('#jobOrderForm').on('submit' , function(e)
+{
+    e.preventDefault;
 })
 
 // end UpdateJobGrade page

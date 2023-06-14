@@ -33,12 +33,18 @@ if (isset($_POST['update'])){
         startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
         vacationFile='$vacationFile',vacationNotes='$vacationNotes',vacationDescription='$vacationDescription'
         WHERE doctorCodeInput='$id'");
+        if (isset($_POST['update'])){
+
+            header("location:vacationDetails.php?id=$id"); }
         }
         else{
             $Details = mysqli_query($bis , "UPDATE p74_vacation_data SET
             startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
             vacationNotes='$vacationNotes',vacationDescription='$vacationDescription'
-            WHERE doctorCodeInput='$id'");  
+            WHERE doctorCodeInput='$id'");
+            if (isset($_POST['update'])){
+
+                header("location:vacationDetails.php?id=$id"); }  
         }}
 ?>
 <!DOCTYPE html>

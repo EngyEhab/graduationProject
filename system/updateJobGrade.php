@@ -70,7 +70,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['Doctor_job_ar_name']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>"  doctorJobName="<?php echo $row['Doctor_job_ar_name']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>"  doctorJobName="<?php echo $row['Doctor_job_ar_name']?>" job_order="<?php echo $row['job_order']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }
                         
@@ -84,7 +84,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['Doctor_job_ar_name']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>" doctorJobName="<?php echo $row['Doctor_job_ar_name']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>" doctorJobName="<?php echo $row['Doctor_job_ar_name']?>" job_order="<?php echo $row['job_order']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }}?>
                     </tbody>
@@ -94,9 +94,27 @@ include "../Connections/syscon.php";
     </div>
 
     <form action="updateJobGrade.php" method="post" id="updateJobGradeForm">
+        <form action="" method="post" id="jobOrderForm">
+
+        <input name="jobOrder" id="jobOrder" readonly class="form-control fs-4"></input>
+        <button type="submit" class="updateJobGradeBtn rounded-pill border-0 w-100 my-3"  id="updateJobGradeBtn" name="pola">تحديــث</button>
+
+
+        </form>
+        <?php 
+        if (isset($_POST['search'])) {
+
+         $jobOrder= $_POST['jobOrder'];}?>
+
+
+
 
     <?php
-    $doctor_jobs = "SELECT * FROM doctor_jobs";
+    // $doctor_jobs1 = "SELECT * FROM doctor_jobs INNER JOIN doctors_account ON doctor_jobs.Doctor_job_id=doctors_account.Doctor_job_id";
+    // $result = $bis->query($doctor_jobs1);
+    // $job_order=$row['job_order'];
+    echo $jobOrder;
+    $doctor_jobs = "SELECT * FROM doctor_jobs ";
     $result = $bis->query($doctor_jobs);
     $appata = mysqli_query ($bis, $doctor_jobs) or die (mysqli_error ($bis));
     $row_appata = mysqli_fetch_assoc ($appata);
@@ -155,7 +173,7 @@ include "../Connections/syscon.php";
                                         <select name="doctor_job" class="form-select" id="job">
                                             <option selected value=""></option>
                                             <?php  foreach($doctor_jobs as $row){?>
-                                        <option value='<?php echo $row['Doctor_job_id']?>'><?php echo $row['Doctor_job_ar_name']?></option>
+                                        <option value='<?php  echo $row['Doctor_job_id']?>'><?php echo $row['Doctor_job_ar_name']?></option>
                                         <?php } ?>
                                         </select>
                                     </div>

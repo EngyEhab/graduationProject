@@ -9,8 +9,13 @@ function fetchData($tableName , $requiredElement ,$conditionColumn){
     $results =mysqli_query($bis, $query);
     $row = mysqli_fetch_array($results);
     $content.=" ".$row[$requiredElement]." " ;
-    }
-    return $content;
+    if ((!empty($row[$requiredElement]))){
+        
+    
+    return $content;}
+    else{
+        return"لا يوجد";
+    }}
 };
 
 

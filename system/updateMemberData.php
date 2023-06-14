@@ -17,7 +17,7 @@ if (isset($_GET['id'])){
     ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE  DoctorCode='$id' ");
     $row=mysqli_fetch_assoc($Select);
     
-    
+    $Doctor_Code=$row["Doctor_Code"];
     $qualifications=$row['qualifications'];
     $date_of_birth =$row['date_of_birth'];
     $hiring_date =$row['hiring_date'];  
@@ -67,6 +67,10 @@ if (isset($_POST['updateMemberData'])){
         Department_id='$Department_id',uni_id='$uni_id',Faculty_id='$Faculty_id',
         Doctor_job_id='$Doctor_job_id', qualifications='$qualifications',
         date_of_birth ='$date_of_birth' , hiring_date ='$hiring_date'  WHERE DoctorCode='$id'");
+        if (isset($_POST['updateMemberData'])){
+
+            header("location:memberDetails.php?id=$id"); }
+        
         }else{
             $sql = mysqli_query($bis , "UPDATE doctors_account SET 
         Doctor_ar_Name='$Doctor_ar_Name',Doctor_eng_Name='$Doctor_eng_Name',
@@ -75,15 +79,19 @@ if (isset($_POST['updateMemberData'])){
         Department_id='$Department_id',uni_id='$uni_id',Faculty_id='$Faculty_id',
         Doctor_job_id='$Doctor_job_id', qualifications='$qualifications',
         date_of_birth ='$date_of_birth' , hiring_date ='$hiring_date'  WHERE DoctorCode='$id'");
+        if (isset($_POST['updateMemberData'])){
 
-        // header("location:../system/memberDetails.php");
+        header("location:memberDetails.php?id=$id"); }
+
+        
 
     
         }
+        
 
 }
 
-    
+  
     
 $query_appata = "SELECT * FROM departments";
 $result = $bis->query($query_appata);
@@ -153,7 +161,7 @@ $_SESSION ['faculties']=$faculties;
     </button>
     <!-- end button to up -->
     
-    <form action="" method="post">
+    <form action="" method="post" id="updateMemberDataForm">
     <div class="w-75 mx-auto m-5">
         <h3 class="mainTitle text-end p-2">إدخال بيانات عضو جديد</h3>
         <div class="container dataContainer p-3">
@@ -248,7 +256,9 @@ $_SESSION ['faculties']=$faculties;
             </div>
             <div class="row my-2 justify-content-end">
                 <div class="col-md-2">
-                <a href="memberDetails.php?id=<?php echo $Doctor_Code?>"><button type="submit" class="updateMemberDataBtn rounded-pill border-0 w-100 my-3"  id="updateMemberData" name="updateMemberData">تعديل</button></a>
+                    <a href="home.php">
+                        <button type="submit" class="updateMemberDataBtn rounded-pill border-0 w-100 my-3"  id="updateMemberData" name="updateMemberData">تعديل</button>
+                    </a>
                 </div> 
             </div>
         </div>

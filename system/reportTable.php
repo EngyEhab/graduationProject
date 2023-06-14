@@ -44,7 +44,9 @@ $endDate=$_GET['endDate'];
         <div class="row align-items-center justify-content-center">
             <div class="col-md-2">
                 <div>
-                    <button class="anotherReport rounded-pill w-100 border-0" id="anotherReport">عرض تقرير آخر</button>
+                    <a href="reports.php">
+                        <button class="anotherReport rounded-pill w-100 border-0" id="anotherReport">عرض تقرير آخر</button>
+                    </a>
                 </div>
             </div>
             <div class="col-md-6">
