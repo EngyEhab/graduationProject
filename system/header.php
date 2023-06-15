@@ -1,4 +1,6 @@
 <?php
+
+include "../Connections/syscon.php"; 
 session_start();
 if (!isset($_SESSION['username'])) {
     header("location:../index.php");
@@ -11,17 +13,17 @@ if (!isset($_SESSION['username'])) {
     }
 }
 
-$hostname_bis = "localhost";
-$database_bis = "staff_affairs";
-$username_bis = "root";
-$password_bis = "";
-$conn = new mysqli($hostname_bis, $username_bis, $password_bis, "$database_bis");
-if($conn->connect_error) {
-    die("failed to connect : ".$con->connect_error);}
+// $hostname_bis = "localhost";
+// $database_bis = "staff_affairs";
+// $username_bis = "root";
+// $password_bis = "";
+// $conn = new mysqli($hostname_bis, $username_bis, $password_bis, "$database_bis");
+// if($conn->connect_error) {
+//     die("failed to connect : ".$con->connect_error);}
 
-    mysqli_select_db($conn,$database_bis);
+    mysqli_select_db($bis,$database_bis);
     $query_appata = "SELECT * FROM application_data INNER JOIN users";
-    $appata = mysqli_query ($conn, $query_appata) or die (mysqli_error ($bis));
+    $appata = mysqli_query ($bis, $query_appata) or die (mysqli_error ($bis));
     $row_appata = mysqli_fetch_assoc ($appata);
 
 $_SESSION ['Uni_name'] = $row_appata['Uni_name']; 
