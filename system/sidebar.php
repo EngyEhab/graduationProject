@@ -28,7 +28,7 @@
             </li>
             <?php }
             $user_type_id = $_SESSION['user_type_id'];
-            if($user_type_id == "1"){?>?>
+            if($user_type_id == "1"){?>
             <li>
                 <a href="users.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-users fa-xl sidebarIcon" style="color: #ffffff;"></i>

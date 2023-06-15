@@ -198,16 +198,51 @@ $('.tableAddVacationBtn').click(function(){
 
 
 // start UpdateJobGrade page
+var doctorJobs = [{jodId:1 , jobName:"معيد" , jobOrder:1},
+    {jodId:2 , jobName:"مدرس مساعد" , jobOrder:2},
+    {jodId:3 , jobName:"مدرس" , jobOrder:3},
+    {jodId:4 , jobName:"مدرس متفرغ" , jobOrder:4},
+    {jodId:5 , jobName:"استاذ مساعد" , jobOrder:5},
+    {jodId:6 , jobName:"استاذ مساعد متفرغ" , jobOrder:6},
+    {jodId:7 , jobName:"استاذ" , jobOrder:7},
+    {jodId:8 , jobName:"استاذ متفرغ" , jobOrder:8}]
+
 $('.tableUpdateJobGradeBtn').click(function(){
+    
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
     var doctorJob = $(this).attr('doctorJob');
     var doctorJobName = $(this).attr('doctorJobName');
+    var jobOrder = $(this).attr('job_order');
+
+    var newDoctorJobs =[...doctorJobs];
+    var upcomingDoctorJobs = newDoctorJobs.slice(jobOrder);
+    newDoctorJobs = upcomingDoctorJobs;
+    var select = document.getElementById("job");
+    $('#job').empty();
+    var options = newDoctorJobs;
+    for(var i = 0; i < options.length; i++) {
+        var opt = options[i];
+        var el = document.createElement("option");
+        el.textContent = opt.jobName;
+        el.value = opt.jodId;
+        select.appendChild(el);
+    }
+
     $('#doctorCodeInput').val(doctorCode);
     $('#doctorNameInput').val(doctorName);
     $('#doctorJobInput').val(doctorJob);
     $('#doctorJobNameInput').val(doctorJobName);
+
+
+
+//    $('#jobOrderForm').submit();
 })
+
+// $('#jobOrderForm').on('submit' , function(e)
+// {
+//     e.preventDefault;
+// })
 
 // end UpdateJobGrade page
 

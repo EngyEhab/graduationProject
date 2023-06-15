@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
         }
         else {
             $Select = "SELECT * FROM doctors_account 
-            INNER JOIN  p74_departments  
+            INNER JOIN  departments  
             ON doctors_account.Department_id=departments.Department_id 
             INNER JOIN  universities
             ON doctors_account.uni_id=universities.uni_id

@@ -142,7 +142,7 @@ if (isset($_GET['id'])){
                             <h4 class="mainText fw-bold">الملاحظــــــــــــات  :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"><?php echo $secondmentFile;?></p>
+                            <p class="fs-4"><?php echo $secondmentNotes;?></p>
                         </div>
                     </div>
                 </div>

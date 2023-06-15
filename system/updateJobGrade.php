@@ -70,7 +70,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['Doctor_job_ar_name']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>"  doctorJobName="<?php echo $row['Doctor_job_ar_name']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>"  doctorJobName="<?php echo $row['Doctor_job_ar_name']?>" job_order="<?php echo $row['job_order']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }
                         
@@ -84,7 +84,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['DoctorCode'];?></td>
                             <td><?php echo $row['Doctor_ar_Name']?></td>
                             <td><?php echo $row['Doctor_job_ar_name']?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>" doctorJobName="<?php echo $row['Doctor_job_ar_name']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
+                            <td><button doctorCode="<?php echo $row['DoctorCode'];?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" doctorJob="<?php echo $row['Doctor_job_id']?>" doctorJobName="<?php echo $row['Doctor_job_ar_name']?>" job_order="<?php echo $row['job_order']?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
                         <?php }}?>
                     </tbody>
@@ -94,12 +94,15 @@ include "../Connections/syscon.php";
     </div>
 
     <form action="updateJobGrade.php" method="post" id="updateJobGradeForm">
-
+        
     <?php
-    $doctor_jobs = "SELECT * FROM doctor_jobs";
+    // $doctor_jobs1 = "SELECT * FROM doctor_jobs INNER JOIN doctors_account ON doctor_jobs.Doctor_job_id=doctors_account.Doctor_job_id";
+    // $result = $bis->query($doctor_jobs1);
+    // $job_order=$row['job_order'];
+    $doctor_jobs = "SELECT * FROM doctor_jobs ";
     $result = $bis->query($doctor_jobs);
     $appata = mysqli_query ($bis, $doctor_jobs) or die (mysqli_error ($bis));
-    $row_appata = mysqli_fetch_assoc ($appata);
+    $row_appata = mysqli_fetch_assoc ($appata);  
     $doctor_jobs=array($row_appata);
     while($row=mysqli_fetch_assoc($appata)){
         array_push($doctor_jobs,$row);
@@ -153,10 +156,7 @@ include "../Connections/syscon.php";
                                     </div>
                                     <div class="col-md-10">
                                         <select name="doctor_job" class="form-select" id="job">
-                                            <option selected value=""></option>
-                                            <?php  foreach($doctor_jobs as $row){?>
-                                        <option value='<?php echo $row['Doctor_job_id']?>'><?php echo $row['Doctor_job_ar_name']?></option>
-                                        <?php } ?>
+                                            
                                         </select>
                                     </div>
                                 </div>
