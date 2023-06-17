@@ -97,14 +97,14 @@ include "../Connections/syscon.php";
     </div>
 
 
-    <form action="addSecondment.php" method="post" id="addSecondmentForm">
+    <form action="addSecondment.php" method="post" id="addSecondmentForm" enctype="multipart/form-data">
         <?php if (isset($_POST['addSecondmentBtn'])) {
             if (
                 isset($_POST['doctorCodeInput']) &&
                 isset($_POST['secondmentDescription']) && isset($_POST['secondmentDestination']) &&
                 isset($_POST['secondmentType']) && isset($_POST['secondmentDuration']) &&
                 isset($_POST['startDate']) && isset($_POST['endDate']) &&
-                isset($_POST['secondmentFile']) && isset($_POST['secondmentNotes'])
+                isset($_POST['secondmentNotes'])
             ) {
                 $doctorCodeInput = $_POST['doctorCodeInput'];
                 $secondmentDescription = $_POST['secondmentDescription'];
@@ -113,8 +113,31 @@ include "../Connections/syscon.php";
                 $secondmentDuration = $_POST['secondmentDuration'];
                 $startDate = $_POST['startDate'];
                 $endDate = $_POST["endDate"];
-                $secondmentFile = $_POST['secondmentFile'];
                 $secondmentNotes = $_POST["secondmentNotes"];
+                $filFile = $_FILES['secondmentFile']['name'];
+                $tmp_dir = $_FILES['secondmentFile']['tmp_name'];
+                $filSize = $_FILES['secondmentFile']['size'];
+
+                if (!empty($filFile)) {
+
+                    $upload_dir = '../files/secondment_files/'; // upload directory
+
+                    $filExt = strtolower(pathinfo($filFile, PATHINFO_EXTENSION)); // get image extension
+
+                    // valid image extensions
+                    $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'pdf', 'docx'); // valid extensions
+
+                    // rename uploading image
+                    $coverfil = rand(1000, 1000000) . "." . $filExt;
+
+                    // allow valid image file formats
+                    if (in_array($filExt, $valid_extensions)) {
+                        // Check file size '5MB'
+                        if ($filSize < 5000000) {
+                            move_uploaded_file($tmp_dir, $upload_dir . $coverfil);
+                        }
+                    }
+                }
                 $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
                 if ($bis->connect_error) {
                     die('Could not connect to the database.');
@@ -123,7 +146,7 @@ include "../Connections/syscon.php";
                     $Insert = "INSERT INTO p74_secondment_data(doctorCodeInput, secondmentDescription, secondmentDestination, secondmentType, secondmentDuration, startDate, endDate, secondmentFile, secondmentNotes) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("sssssssss", $doctorCodeInput, $secondmentDescription, $secondmentDestination, $secondmentType, $secondmentDuration, $startDate, $endDate, $secondmentFile, $secondmentNotes);
+                    $stmt->bind_param("sssssssss", $doctorCodeInput, $secondmentDescription, $secondmentDestination, $secondmentType, $secondmentDuration, $startDate, $endDate, $coverfil, $secondmentNotes);
                     if ($stmt->execute()) {
                     } else {
                         echo $stmt->error;

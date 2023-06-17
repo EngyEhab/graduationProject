@@ -97,22 +97,45 @@ include "../Connections/syscon.php";
     </div>
 
 
-    <form action="addVacation.php" method="post" id="addVacationForm">
+    <form action="addVacation.php" method="post" id="addVacationForm" enctype="multipart/form-data">
         <?php if (isset($_POST['addVacationBtn'])) {
             if (
                 isset($_POST['doctorCodeInput']) &&
                 isset($_POST['vacationDescription']) && isset($_POST['startDate']) &&
                 isset($_POST['endDate']) && isset($_POST['vacationReason']) &&
-                isset($_POST['vacationFile']) && isset($_POST['vacationNotes']) && isset($_POST['vacationDuration'])
+                isset($_POST['vacationNotes']) && isset($_POST['vacationDuration'])
             ) {
                 $doctorCodeInput = $_POST['doctorCodeInput'];
                 $vacationDescription = $_POST['vacationDescription'];
                 $startDate = $_POST["startDate"];
                 $endDate = $_POST['endDate'];
                 $vacationReason = $_POST['vacationReason'];
-                $vacationFile = $_POST['vacationFile'];
                 $vacationNotes = $_POST["vacationNotes"];
                 $vacationDuration = $_POST["vacationDuration"];
+                $filFile = $_FILES['vacationFile']['name'];
+                $tmp_dir = $_FILES['vacationFile']['tmp_name'];
+                $filSize = $_FILES['vacationFile']['size'];
+
+                if (!empty($filFile)) {
+
+                    $upload_dir = '../files/vacation_files/'; // upload directory
+
+                    $filExt = strtolower(pathinfo($filFile, PATHINFO_EXTENSION)); // get image extension
+
+                    // valid image extensions
+                    $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'pdf', 'docx'); // valid extensions
+
+                    // rename uploading image
+                    $coverfil = rand(1000, 1000000) . "." . $filExt;
+
+                    // allow valid image file formats
+                    if (in_array($filExt, $valid_extensions)) {
+                        // Check file size '5MB'
+                        if ($filSize < 5000000) {
+                            move_uploaded_file($tmp_dir, $upload_dir . $coverfil);
+                        }
+                    }
+                }
                 $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
                 if ($bis->connect_error) {
                     die('Could not connect to the database.');
@@ -121,7 +144,7 @@ include "../Connections/syscon.php";
                     $Insert = "INSERT INTO p74_vacation_data(doctorCodeInput, vacationDescription, startDate, endDate, vacationReason, vacationFile, vacationNotes, vacationDuration) values(?, ?, ?, ?, ?, ?, ?, ?)";
                     $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("ssssssss", $doctorCodeInput, $vacationDescription, $startDate, $endDate, $vacationReason, $vacationFile, $vacationNotes, $vacationDuration);
+                    $stmt->bind_param("ssssssss", $doctorCodeInput, $vacationDescription, $startDate, $endDate, $vacationReason, $coverfil, $vacationNotes, $vacationDuration);
                     if ($stmt->execute()) {
                     } else {
                         echo $stmt->error;

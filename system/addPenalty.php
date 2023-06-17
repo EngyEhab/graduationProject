@@ -97,8 +97,9 @@ include "../Connections/syscon.php";
         </div>
     </div>
 
-    <form action="" method="POST" id="addPenaltyForm">
-        <?php if (isset($_POST['submit'])) {
+    <form action="" method="POST" id="addPenaltyForm" enctype="multipart/form-data">
+
+    <?php if (isset($_POST['submit'])) {
             if (
                 isset($_POST['doctorCodeInput']) &&
                 isset($_POST['penaltyDescription']) && isset($_POST['penaltyDuration']) &&
@@ -115,25 +116,25 @@ include "../Connections/syscon.php";
                 $penaltyDuration = $_POST["penaltyDuration"];
                 $filFile = $_FILES['penaltyFile']['name'];
                 $tmp_dir = $_FILES['penaltyFile']['tmp_name'];
-                $imgSize = $_FILES['penaltyFile']['size'];
+                $filSize = $_FILES['penaltyFile']['size'];
 
                 if (!empty($filFile)) {
 
-                    $upload_dir = '../files/penalty_file/'; // upload directory
+                    $upload_dir = '../files/penalty_files/'; // upload directory
 
-                    $imgExt = strtolower(pathinfo($filFile, PATHINFO_EXTENSION)); // get image extension
+                    $filExt = strtolower(pathinfo($filFile, PATHINFO_EXTENSION)); // get image extension
 
                     // valid image extensions
                     $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'pdf', 'docx'); // valid extensions
 
                     // rename uploading image
-                    $coverpic = rand(1000, 1000000) . "." . $imgExt;
+                    $coverfil = rand(1000, 1000000) . "." . $filExt;
 
                     // allow valid image file formats
-                    if (in_array($imgExt, $valid_extensions)) {
+                    if (in_array($filExt, $valid_extensions)) {
                         // Check file size '5MB'
-                        if ($imgSize < 5000000) {
-                            move_uploaded_file($tmp_dir, $upload_dir . $coverpic);
+                        if ($filSize < 5000000) {
+                            move_uploaded_file($tmp_dir, $upload_dir . $coverfil);
                         }
                     }
                 }
@@ -146,7 +147,7 @@ include "../Connections/syscon.php";
                     $Insert = "INSERT INTO p74_penalties(doctorCodeInput, penaltyDescription, penaltyDuration, startDate, endDate, penaltyReason, penaltyNotes, penaltyFile) values(?, ?, ?, ?, ?, ?, ?, ?)";
                     $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("ssssssss", $doctorCodeInput, $penaltyDescription, $penaltyDuration, $startDate, $endDate, $penaltyReason, $penaltyNotes, $penaltyFile);
+                    $stmt->bind_param("ssssssss", $doctorCodeInput, $penaltyDescription, $penaltyDuration, $startDate, $endDate, $penaltyReason, $penaltyNotes, $coverfil);
                     if ($stmt->execute()) {
                     } else {
                         echo $stmt->error;
@@ -154,6 +155,7 @@ include "../Connections/syscon.php";
                 }
             }
         } ?>
+        
         <div class="w-75 mx-auto m-5">
             <div class="modal modal-xl fade" id="addPenaltyModal">
                 <div class="modal-dialog  modal-dialog-centered">
@@ -248,7 +250,7 @@ include "../Connections/syscon.php";
             </div>
         </div>
     </form>
-
+    
     <div class="fixedFooter position-fixed bottom-0 start-0 end-0 z-3">
         <?php
         include('footer.php');
