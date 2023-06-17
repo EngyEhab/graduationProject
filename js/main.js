@@ -252,14 +252,31 @@ $('#programLogo').change(function (e) {
     $('.selectedProgramLogo').text(selectedVacationFile);
 });
 
-$('.addUserBtn').click(function(e){
-    var userPass  = $('.password').val();
-    var userConfirmPass  = $('.confirmPassword').val();
-    if(userPass !== userConfirmPass)
-    {
+// start validation of password addUser page
+$('.addUserBtn').click(function (e) {
+    var userPass = $('.password').val();
+    var userConfirmPass = $('.confirmPassword').val();
+    if (userPass !== userConfirmPass) {
         $('.confirmPassword').after('<p class="mainTitle mb-0 me-2">كلمة المرور غير مطابقة</p>')
         e.preventDefault();
     }
 })
+
+// end validation of password addUser page
+
+$(function () {
+    var dtToday = new Date();
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if (month < 10)
+        month = '0' + month.toString();
+    if (day < 10)
+        day = '0' + day.toString();
+    var maxDate = year + '-' + month + '-' + day;
+    $('#startDate').attr('min', maxDate);
+    $('#endDate').attr('min', maxDate);
+});
+
 
 

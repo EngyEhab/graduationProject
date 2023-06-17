@@ -203,7 +203,7 @@ include "../Connections/syscon.php";
                                         <label for="endDate" class="mainText fw-bold fs-4 text-nowrap">إلــى :</label>
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="text" class="form-control" name="endDate" id="endDate" required>
+                                        <input type="text" class="form-control" name="endDate" id="endDate"  required>
                                     </div>
                                 </div>
 
