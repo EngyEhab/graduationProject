@@ -29,7 +29,7 @@ function fetchData1($tableName , $requiredElement ,$conditionColumn){
     $query = "SELECT * FROM $tableName WHERE $conditionColumn = '$id' ";
     $results =mysqli_query($bis, $query);
     while ($row=mysqli_fetch_array($results)){
-    $content.="<br>".$row[$requiredElement]."&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; " ;}
+    $content.="<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;".$row[$requiredElement]." " ;}
     }
     return $content;
 };
