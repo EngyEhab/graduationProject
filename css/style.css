@@ -1,4 +1,4 @@
-/* colores used in design */
+/* colors used in design */
 :root {
     --main-title: #f00;
     --main-text: #023A71;
@@ -11,10 +11,6 @@
     src: url(../webfonts/Arabic\ Typesetting\ Regular.ttf);
 }
 
-/* @font-face {
-    font-family: "times-new-roman";
-    src: url(../webfonts/times\ new\ roman.ttf);
-} */
 /* start general style */
 * {
     font-family: "typesetting";

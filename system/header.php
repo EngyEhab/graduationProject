@@ -75,12 +75,12 @@ $_SESSION['Program_logo'] = $row_appata['Program_logo'];
                 <!-- end application data -->
 
                 <!-- start logo bis and helwan -->
-                <div class="col-xxl-1">
-                    <img src="../images/<?php echo $_SESSION['Program_logo'] ?>" class="w-100" alt="BIS-LOGO">
+                <div class="col-xxl-1 col-sm-1">
+                    <img src="../images/<?php echo $_SESSION['Program_logo'] ?>" class="w-100 logo" alt="BIS-LOGO">
                 </div>
 
-                <div class="col-xxl-1">
-                    <img src="../images/<?php echo $_SESSION['Faculty_Uni_logo'] ?>" class="w-100" alt="Helwan-LOGO">
+                <div class="col-xxl-1 col-sm-1">
+                    <img src="../images/<?php echo $_SESSION['Faculty_Uni_logo'] ?>" class="w-100 logo" alt="Helwan-LOGO">
                 </div>
                 <!-- end logo bis and helwan -->
             </div>
