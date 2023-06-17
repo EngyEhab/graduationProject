@@ -193,14 +193,14 @@ $('.tableAddVacationBtn').click(function () {
 
 
 // start UpdateJobGrade page
-var doctorJobs = [{ jodId: 1, jobName: "معيد", jobOrder: 1 },
-{ jodId: 2, jobName: "مدرس مساعد", jobOrder: 2 },
+var doctorJobs = [{ jodId: 5, jobName: "معيد", jobOrder: 1 },
+{ jodId: 4, jobName: "مدرس مساعد", jobOrder: 2 },
 { jodId: 3, jobName: "مدرس", jobOrder: 3 },
-{ jodId: 4, jobName: "مدرس متفرغ", jobOrder: 4 },
-{ jodId: 5, jobName: "استاذ مساعد", jobOrder: 5 },
-{ jodId: 6, jobName: "استاذ مساعد متفرغ", jobOrder: 6 },
-{ jodId: 7, jobName: "استاذ", jobOrder: 7 },
-{ jodId: 8, jobName: "استاذ متفرغ", jobOrder: 8 }]
+{ jodId: 8, jobName: "مدرس متفرغ", jobOrder: 4 },
+{ jodId: 2, jobName: "استاذ مساعد", jobOrder: 5 },
+{ jodId: 7, jobName: "استاذ مساعد متفرغ", jobOrder: 6 },
+{ jodId: 1, jobName: "استاذ", jobOrder: 7 },
+{ jodId: 6, jobName: "استاذ متفرغ", jobOrder: 8 }]
 
 $('.tableUpdateJobGradeBtn').click(function () {
 
