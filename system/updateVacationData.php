@@ -155,7 +155,7 @@ if (isset($_POST['update'])) {
                         <div class="fs-4 w-100 chooseVacationFileBtn text-center p-1 rounded-2" type="button">ارفق الملــف </div>
                     </div>
                     <div class="col-md-8 align-self-center">
-                        <input class="form-control d-none" type="file" id="vacationFile" name="vacationFile" required>
+                        <input class="form-control d-none" type="file" id="vacationFile" name="vacationFile">
                         <p class="selectedVacationFile fs-4"><?php if (isset($_GET['id'])) {
                                                                     echo $vacationFile;
                                                                 } ?></p>

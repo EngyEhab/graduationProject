@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2023 at 03:46 PM
+-- Generation Time: Jun 17, 2023 at 05:35 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -203,7 +203,9 @@ CREATE TABLE `p74_penalties` (
 
 INSERT INTO `p74_penalties` (`penality_id`, `doctorCodeInput`, `penaltyDescription`, `penaltyReason`, `penaltyFile`, `penaltyDuration`, `startDate`, `endDate`, `penaltyNotes`) VALUES
 (4, 55, 'فصل مؤقت', 'اداري', 'karen.jpg', '20 يوم', '2023-01-01', '2023-01-20', 'لا يوجد'),
-(5, 48, 'فصل مؤقت', 'اداري', 'paulaSherif.jpg', '10 ايام', '2023-01-01', '2023-01-10', 'لا يوجد');
+(5, 48, 'فصل مؤقت', 'اداري', 'paulaSherif.jpg', '10 ايام', '2023-01-01', '2023-01-10', 'لا يوجد'),
+(12, 14, 'فصل مؤقت', 'aa', '67165.jpg', '10 ايام', '2023-06-03', '2023-06-13', 'aa'),
+(13, 14, 'فصل مؤقت', 'dd', '354540.jpg', '20 يوم', '2023-06-01', '2023-06-20', 'dd');
 
 -- --------------------------------------------------------
 
@@ -230,7 +232,9 @@ CREATE TABLE `p74_secondment_data` (
 
 INSERT INTO `p74_secondment_data` (`Secondment_id`, `doctorCodeInput`, `secondmentDescription`, `secondmentDestination`, `secondmentType`, `secondmentDuration`, `startDate`, `endDate`, `secondmentFile`, `secondmentNotes`) VALUES
 (3, 54, 'رسمية', 'الامارات العربية المتحدة', 'outside', '1 شهر', '2023-01-01', '2023-02-01', 'engy.jpg', 'لا يوجد'),
-(4, 49, 'رسمية', 'الامارات العربية المتحدة', 'outside', '2 شهر', '2023-01-01', '2023-03-01', 'bavly.jpg', 'لا يوجد');
+(4, 49, 'رسمية', 'الامارات العربية المتحدة', 'outside', '2 شهر', '2023-01-01', '2023-03-01', 'bavly.jpg', 'لا يوجد'),
+(7, 14, 'pola555', 'لا', 'outside', '5 ايام', '2023-06-01', '2023-06-05', '667837.jpg', 'www'),
+(8, 14, 'pola555', 'eee', 'outside', '4', '2023-06-01', '2023-06-04', '862882.jpg', 'ff');
 
 -- --------------------------------------------------------
 
@@ -256,7 +260,9 @@ CREATE TABLE `p74_vacation_data` (
 
 INSERT INTO `p74_vacation_data` (`Vacation_id`, `doctorCodeInput`, `vacationDescription`, `startDate`, `endDate`, `vacationReason`, `vacationFile`, `vacationNotes`, `vacationDuration`) VALUES
 (4, 50, 'رسمية', '2023-01-01', '2023-01-20', 'لا يوجد', 'anton.jpg', 'لا يوجد', '20 يوم'),
-(5, 51, 'رسمية', '2023-01-01', '2023-01-05', 'لا يوجد', 'youssef.jpg', 'لا يوجد', '5 ايام');
+(5, 51, 'رسمية', '2023-01-01', '2023-01-05', 'لا يوجد', 'youssef.jpg', 'لا يوجد', '5 ايام'),
+(9, 14, 'رسمية', '2023-06-08', '2023-06-13', 'qq', '195701.jpg', 'qq', '5 ايام'),
+(10, 14, 'pola', '2023-06-01', '2023-06-20', 'qww', '591827.jpg', 'ww', '20 يوم');
 
 -- --------------------------------------------------------
 
@@ -453,19 +459,19 @@ ALTER TABLE `p74_completedata`
 -- AUTO_INCREMENT for table `p74_penalties`
 --
 ALTER TABLE `p74_penalties`
-  MODIFY `penality_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `penality_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `p74_secondment_data`
 --
 ALTER TABLE `p74_secondment_data`
-  MODIFY `Secondment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Secondment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `p74_vacation_data`
 --
 ALTER TABLE `p74_vacation_data`
-  MODIFY `Vacation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Vacation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `universities`

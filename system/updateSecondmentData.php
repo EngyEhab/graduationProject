@@ -172,7 +172,7 @@ if (isset($_POST['updateSecondmentBtn'])) {
                         <div class="fs-4 w-100 chooseSecondmentFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
                     </div>
                     <div class="col-md-8 align-self-center">
-                        <input class="form-control d-none" type="file" id="secondmentFile" name="secondmentFile" required>
+                        <input class="form-control d-none" type="file" id="secondmentFile" name="secondmentFile">
                         <p class="selectedSecondmentFile fs-4"><?php if (isset($_GET['id'])) {
                                                                     echo $secondmentFile;
                                                                 } ?></p>

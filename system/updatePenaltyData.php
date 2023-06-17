@@ -149,7 +149,7 @@ if (isset($_POST['updatePenaltyBtn'])) {
                         <div class="fs-4 w-100 choosePenaltyFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
                     </div>
                     <div class="col-md-8 align-self-center">
-                        <input class="form-control d-none" type="file" id="penaltyFile" name="penaltyFile" required>
+                        <input class="form-control d-none" type="file" id="penaltyFile" name="penaltyFile">
                         <p class="selectedPenaltyFile fs-4"><?php if (isset($_GET['id'])) {
                                                                 echo $penaltyFile;
                                                             } ?></p>
