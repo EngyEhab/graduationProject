@@ -118,10 +118,10 @@ include "../Connections/syscon.php";
             }
             else {
                 $Select = "SELECT * FROM p74_secondment_data ";
-                $Insert = "INSERT INTO p74_secondment_data(doctorCodeInput, secondmentDescription, secondmentDestination, secondmentType, secondmentDuration, startDate, endDate, secondmentFile, secondmentNotes) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                $Insert = "INSERT INTO p74_secondment_data(doctorCodeInput, secondmentDescription, secondmentDestination, secondmentType, secondmentDuration, startDate, endDate, secondmentFile, secondmentNotes) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("ssssssssss",$doctorCodeInput, $secondmentDescription, $secondmentDestination, $secondmentType, $secondmentDuration, $startDate, $endDate, $secondmentFile, $secondmentNotes);
+                    $stmt->bind_param("sssssssss",$doctorCodeInput, $secondmentDescription, $secondmentDestination, $secondmentType, $secondmentDuration, $startDate, $endDate, $secondmentFile, $secondmentNotes);
                     if ($stmt->execute()) {
                     }
                     else {

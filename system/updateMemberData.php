@@ -17,7 +17,7 @@ if (isset($_GET['id'])){
     ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE  DoctorCode='$id' ");
     $row=mysqli_fetch_assoc($Select);
     
-    $Doctor_Code=$row["Doctor_Code"];
+    // $Doctor_Code=$row["Doctor_Code"];
     $qualifications=$row['qualifications'];
     $date_of_birth =$row['date_of_birth'];
     $hiring_date =$row['hiring_date'];  

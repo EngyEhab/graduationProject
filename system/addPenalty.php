@@ -94,21 +94,46 @@ include "../Connections/syscon.php";
         </div>
     </div>
 
-    <form action="addPenalty.php" method="POST" id="addPenaltyForm">
+    <form action="" method="POST" id="addPenaltyForm">
     <?php  if (isset($_POST['submit'])) {
     if (isset($_POST['doctorCodeInput']) && 
         isset($_POST['penaltyDescription']) && isset($_POST['penaltyDuration']) &&
         isset($_POST['startDate']) && isset($_POST['endDate']) && isset($_POST['penaltyReason']) && 
-        isset($_POST['penaltyFile']) && isset($_POST['penaltyNotes']) ){
+        isset($_POST['penaltyNotes']) ){
             $doctorCodeInput=$_POST['doctorCodeInput'];
             
             $penaltyDescription =$_POST['penaltyDescription']; 
             $startDate=$_POST["startDate"]; 
             $endDate=$_POST["endDate"]; 
             $penaltyReason=$_POST["penaltyReason"]; 
-            $penaltyFile=$_POST["penaltyFile"]; 
+            // $penaltyFile=$_POST["penaltyFile"]; 
             $penaltyNotes=$_POST["penaltyNotes"]; 
             $penaltyDuration=$_POST["penaltyDuration"]; 
+            
+            $filFile = $_FILES['penaltyFile']['name'];
+            $tmp_dir = $_FILES['penaltyFile']['tmp_name'];
+            $imgSize = $_FILES['penaltyFile']['size']; 
+
+            if(!empty($filFile))
+            {
+            
+            $upload_dir = '../files/penalty_file/'; // upload directory
+            
+            $imgExt = strtolower(pathinfo($filFile,PATHINFO_EXTENSION)); // get image extension
+            
+            // valid image extensions
+            $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'pdf', 'docx'); // valid extensions
+            
+            // rename uploading image
+            $coverpic = rand(1000,1000000).".".$imgExt;
+            
+            // allow valid image file formats
+            if(in_array($imgExt, $valid_extensions)){ 
+            // Check file size '5MB'
+            if($imgSize < 5000000) {
+            move_uploaded_file($tmp_dir,$upload_dir.$coverpic);
+            }
+        }}
 
             $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
             if ($bis->connect_error) {
@@ -192,7 +217,7 @@ include "../Connections/syscon.php";
                                         <div class="fs-4 w-100 choosePenaltyFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
                                     </div>
                                     <div class="col-md-8 align-self-center">
-                                        <input class="form-control d-none" type="file" id="penaltyFile" name="penaltyFile">
+                                        <input class="form-control d-none" type="file" accept="image/*" id="penaltyFile" name="penaltyFile">
                                         <p class="selectedPenaltyFile fs-4"></p>                   
                                     </div>
                                 </div>
@@ -211,7 +236,7 @@ include "../Connections/syscon.php";
                                         <button type="submit" class="addPenaltyBtn rounded-pill border-0 w-100 my-3"  id="addPenaltyBtn" name="submit">إضافة</button>
                                     </div> 
                                 </div>
-                        
+
                             </div>
                         </div>
                     </div>
