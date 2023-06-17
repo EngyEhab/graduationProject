@@ -63,8 +63,8 @@ include "../Connections/syscon.php";
                         if (isset($_POST['completesearch'])) {
                             $cst = $_POST['search'];
                             $myquery = "SELECT * FROM doctors_account 
-                    INNER JOIN  doctor_jobs  
-                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$cst%'";
+                                        INNER JOIN  doctor_jobs  
+                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$cst%'";
                             $results = mysqli_query($bis, $myquery);
                             while ($row = mysqli_fetch_array($results)) {
                         ?>
@@ -77,8 +77,8 @@ include "../Connections/syscon.php";
                             <?php }
                         } else {
                             $myquery = "SELECT * FROM doctors_account 
-                        INNER JOIN  doctor_jobs  
-                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
+                                        INNER JOIN  doctor_jobs  
+                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
                             $results = mysqli_query($bis, $myquery);
                             while ($row = mysqli_fetch_array($results)) { ?>
 
@@ -159,7 +159,7 @@ include "../Connections/syscon.php";
                                         <label for="CompleteData" class="mainText fw-bold fs-4 ">استكمـال بيانـات الدرجــــــــة الوظيفية الحاليـــــة :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <textarea name="CompleteData" id="CompleteData" rows="5" class="form-control fs-4"></textarea>
+                                        <textarea name="CompleteData" id="CompleteData" rows="5" class="form-control fs-4" required></textarea>
                                     </div>
                                 </div>
                                 <div class="row my-2 justify-content-end">

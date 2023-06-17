@@ -64,8 +64,8 @@ include "../Connections/syscon.php";
                         if (isset($_POST['search'])) {
                             $st = $_POST['search'];
                             $myquery = "SELECT * FROM doctors_account 
-                    INNER JOIN  doctor_jobs  
-                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
+                                        INNER JOIN  doctor_jobs  
+                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
                             $results = mysqli_query($bis, $myquery);
                             while ($row = mysqli_fetch_array($results)) {
                         ?>
@@ -158,7 +158,7 @@ include "../Connections/syscon.php";
                                         <label for="secondmentDescription" class="mainText fw-bold fs-4 text-nowrap"> الإعــــــــــــــــــــارة :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input type="text" class="form-control" name="secondmentDescription" id="secondmentDescription">
+                                        <input type="text" class="form-control" name="secondmentDescription" id="secondmentDescription" required>
                                     </div>
                                 </div>
                                 <div class="row my-2 align-items-center">
@@ -166,7 +166,7 @@ include "../Connections/syscon.php";
                                         <label for="secondmentDestination" class="mainText fw-bold fs-4 text-nowrap">جهــــة الإعــــــــــارة :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input type="text" class="form-control" name="secondmentDestination" id="secondmentDestination">
+                                        <input type="text" class="form-control" name="secondmentDestination" id="secondmentDestination" required>
                                     </div>
                                 </div>
                                 <div class="row my-2 align-items-center">
@@ -175,12 +175,12 @@ include "../Connections/syscon.php";
                                     </div>
 
                                     <div class="col-md-1">
-                                        <input type="radio" id="inside" name="secondmentType" value="inside" class="form-check-input">
+                                        <input type="radio" id="inside" name="secondmentType" value="inside" class="form-check-input" required>
                                         <label for="inside" class="fw-bold fs-4 px-1 text-nowrap">داخلى </label>
                                     </div>
 
                                     <div class="col-md-2">
-                                        <input type="radio" id="outside" name="secondmentType" value="outside" class="form-check-input">
+                                        <input type="radio" id="outside" name="secondmentType" value="outside" class="form-check-input" required>
                                         <label for="outside" class="fw-bold fs-4 px-1 text-nowrap">خارجى </label>
                                     </div>
                                 </div>
@@ -189,20 +189,20 @@ include "../Connections/syscon.php";
                                         <label for="secondmentDuration" class="mainText fw-bold fs-4 text-nowrap">المـــــــــــــــــــــــدة :</label>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="secondmentDuration" id="secondmentDuration">
+                                        <input type="text" class="form-control" name="secondmentDuration" id="secondmentDuration" required>
                                     </div>
 
                                     <div class="col-md-1 text-center">
                                         <label for="startDate" class="mainText fw-bold fs-4 text-nowrap">مــن :</label>
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="text" class="form-control" name="startDate" id="startDate">
+                                        <input type="text" class="form-control" name="startDate" id="startDate" required>
                                     </div>
                                     <div class="col-md-1 text-center">
                                         <label for="endDate" class="mainText fw-bold fs-4 text-nowrap">إلــى :</label>
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="text" class="form-control" name="endDate" id="endDate">
+                                        <input type="text" class="form-control" name="endDate" id="endDate" required>
                                     </div>
                                 </div>
                                 <div class="row my-2">
@@ -213,7 +213,7 @@ include "../Connections/syscon.php";
                                         <div class="fs-4 w-100 chooseSecondmentFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
                                     </div>
                                     <div class="col-md-8 align-self-center">
-                                        <input class="form-control d-none" type="file" id="secondmentFile" name="secondmentFile">
+                                        <input class="form-control d-none" type="file" id="secondmentFile" name="secondmentFile" required>
                                         <p class="selectedSecondmentFile fs-4"></p>
                                     </div>
                                 </div>
@@ -222,7 +222,7 @@ include "../Connections/syscon.php";
                                         <label for="secondmentNotes" class="mainText fw-bold fs-4 text-nowrap">ملاحظـــــــــــــات :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <textarea name="secondmentNotes" id="secondmentNotes" rows="3" class="form-control fs-4"></textarea>
+                                        <textarea name="secondmentNotes" id="secondmentNotes" rows="3" class="form-control fs-4" required></textarea>
                                     </div>
                                 </div>
                                 <div class="row my-2 justify-content-end">

@@ -106,7 +106,7 @@ if (isset($_POST['updateSecondmentBtn'])) {
                     <div class="col-md-10">
                         <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {
                                                                             echo $secondmentDescription;
-                                                                        } ?>" name="secondmentDescription" id="secondmentDescription">
+                                                                        } ?>" name="secondmentDescription" id="secondmentDescription" required>
                     </div>
                 </div>
                 <div class="row my-2 align-items-center">
@@ -116,7 +116,7 @@ if (isset($_POST['updateSecondmentBtn'])) {
                     <div class="col-md-10">
                         <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {
                                                                             echo $secondmentDestination;
-                                                                        } ?>" name="secondmentDestination" id="secondmentDestination">
+                                                                        } ?>" name="secondmentDestination" id="secondmentDestination" required>
                     </div>
                 </div>
                 <div class="row my-2 align-items-center">
@@ -127,14 +127,14 @@ if (isset($_POST['updateSecondmentBtn'])) {
                     <div class="col-md-1">
                         <input type="radio" id="inside" name="secondmentType" value="inside" class="form-check-input" <?php if ($secondmentType == "inside") {
                                                                                                                             echo "checked";
-                                                                                                                        } ?>>
+                                                                                                                        } ?> required>
                         <label for="inside" class="fw-bold fs-4 px-1">داخلى </label>
                     </div>
 
                     <div class="col-md-1">
                         <input type="radio" id="outside" name="secondmentType" value="outside" class="form-check-input" <?php if ($secondmentType == "outside") {
                                                                                                                             echo "checked";
-                                                                                                                        } ?>>
+                                                                                                                        } ?> required>
                         <label for="outside" class="fw-bold fs-4 px-1">خارجى </label>
                     </div>
                 </div>
@@ -145,7 +145,7 @@ if (isset($_POST['updateSecondmentBtn'])) {
                     <div class="col-md-4">
                         <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {
                                                                             echo $secondmentDuration;
-                                                                        } ?>" name="secondmentDuration" id="secondmentDuration">
+                                                                        } ?>" name="secondmentDuration" id="secondmentDuration" required>
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="startDate" class="mainText fw-bold fs-4">مــن :</label>
@@ -153,7 +153,7 @@ if (isset($_POST['updateSecondmentBtn'])) {
                     <div class="col-md-2">
                         <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {
                                                                             echo $startDate;
-                                                                        } ?>" name="startDate" id="startDate">
+                                                                        } ?>" name="startDate" id="startDate" required>
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="endDate" class="mainText fw-bold fs-4">إلــى :</label>
@@ -161,7 +161,7 @@ if (isset($_POST['updateSecondmentBtn'])) {
                     <div class="col-md-2">
                         <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {
                                                                             echo $endDate;
-                                                                        } ?>" name="endDate" id="endDate">
+                                                                        } ?>" name="endDate" id="endDate" required>
                     </div>
                 </div>
                 <div class="row my-2">
@@ -172,7 +172,7 @@ if (isset($_POST['updateSecondmentBtn'])) {
                         <div class="fs-4 w-100 chooseSecondmentFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
                     </div>
                     <div class="col-md-8 align-self-center">
-                        <input class="form-control d-none" type="file" id="secondmentFile" name="secondmentFile">
+                        <input class="form-control d-none" type="file" id="secondmentFile" name="secondmentFile" required>
                         <p class="selectedSecondmentFile fs-4"><?php if (isset($_GET['id'])) {
                                                                     echo $secondmentFile;
                                                                 } ?></p>
@@ -183,7 +183,7 @@ if (isset($_POST['updateSecondmentBtn'])) {
                         <label for="secondmentNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="secondmentNotes" id="secondmentNotes" rows="5" class="form-control fs-4"><?php if (isset($_GET['id'])) {
+                        <textarea name="secondmentNotes" id="secondmentNotes" rows="5" class="form-control fs-4" required><?php if (isset($_GET['id'])) {
                                                                                                                         echo $secondmentNotes;
                                                                                                                     } ?></textarea>
                     </div>

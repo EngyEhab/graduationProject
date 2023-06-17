@@ -48,7 +48,7 @@ if (isset($_POST['displayReport'])) {
                         <label for="reportAbout" class="mainText fw-bold fs-4 text-nowrap">تقريـــــر عــن :</label>
                     </div>
                     <div class="col-md-8">
-                        <select name="reportAbout" id="reportAbout" class="form-select fs-4">
+                        <select name="reportAbout" id="reportAbout" class="form-select fs-4" required>
                             <option value="">اختر نوع التقرير</option>
                             <option value="penalties">العقوبات أو الجزاءات</option>
                             <option value="vacations">الأجازات</option>
@@ -64,13 +64,13 @@ if (isset($_POST['displayReport'])) {
                         <label for="startDate" class="mainText fw-bold fs-4 text-nowrap">مــن :</label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" name="startDate" id="startDate">
+                        <input type="text" class="form-control" name="startDate" id="startDate" required>
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="endDate" class="mainText fw-bold fs-4 text-nowrap">إلــى :</label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" name="endDate" id="endDate">
+                        <input type="text" class="form-control" name="endDate" id="endDate" required>
                     </div>
                 </div>
                 <div class="row justify-content-end">

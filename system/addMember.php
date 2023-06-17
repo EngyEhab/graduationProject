@@ -168,34 +168,34 @@ $_SESSION['faculties'] = $faculties;
                                 <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                             </label>
                         </div>
-                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="Doctor_image" required="">
+                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="Doctor_image" required>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-4">
-                        <input type="text" class="form-control" placeholder="الاسم باللغة العربية" name="Doctor_ar_Name">
+                        <input type="text" class="form-control" placeholder="الاسم باللغة العربية" name="Doctor_ar_Name" required>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" placeholder="الاسم باللغة الانجليزية" name="Doctor_eng_Name">
+                        <input type="text" class="form-control" placeholder="الاسم باللغة الانجليزية" name="Doctor_eng_Name" required>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" placeholder=" الرقم القومى" id="nationalID" name="National_id">
-                    </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" placeholder="تاريخ الميلاد" name="date_of_birth" id="birthDate">
-                    </div>
-                    <div class="col-md-4">
-                        <input type="email" class="form-control" placeholder="الايميل الشخصى" id="personalEmail" name="Personal_Mail">
-                    </div>
-                    <div class="col-md-4">
-                        <input type="tel" class="form-control" placeholder="رقم الهاتف" id="phoneNumber" name="Mobile">
+                        <input type="text" class="form-control" placeholder=" الرقم القومى" id="nationalID" name="National_id" required>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-4">
-                        <select name="uni_id" class="form-select" id="university">
+                        <input type="text" class="form-control" placeholder="تاريخ الميلاد" name="date_of_birth" id="birthDate" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="email" class="form-control" placeholder="الايميل الشخصى" id="personalEmail" name="Personal_Mail" required>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="tel" class="form-control" placeholder="رقم الهاتف" id="phoneNumber" name="Mobile" required>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-md-4">
+                        <select name="uni_id" class="form-select" id="university" required>
                             <option selected value="">الجامعة</option>
                             <?php foreach ($universities as $row) { ?>
                                 <option selected value='<?php echo $row['uni_id']; ?>'> <?php echo $row['uni_ar_name'] ?></option>
@@ -203,7 +203,7 @@ $_SESSION['faculties'] = $faculties;
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <select name="Faculty_id" class="form-select" id="faculty">
+                        <select name="Faculty_id" class="form-select" id="faculty" required>
                             <option selected value="">الكلية</option>
                             <?php foreach ($faculties as $row) { ?>
                                 <option selected value='<?php echo $row['Faculty_id'] ?>'><?php echo $row['Faculty_ar_name'] ?> </option>
@@ -211,7 +211,7 @@ $_SESSION['faculties'] = $faculties;
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <select name="Department_id" class="form-select" id="department">
+                        <select name="Department_id" class="form-select" id="department" required>
                             <option selected value="">القسم</option>
                             <?php foreach ($departments as $row) { ?>
                                 <option value='<?php echo $row['Department_id'] ?>'><?php echo $row['Department_ar_name'] ?></option>
@@ -221,7 +221,7 @@ $_SESSION['faculties'] = $faculties;
                 </div>
                 <div class="row my-2">
                     <div class="col-md-4">
-                        <select name="Doctor_job_id" class="form-select" id="job">
+                        <select name="Doctor_job_id" class="form-select" id="job" required>
                             <option selected value="">الدرجة الوظيفية الحالية</option>
                             <?php foreach ($doctor_jobs as $row) { ?>
                                 <option value='<?php echo $row['Doctor_job_id'] ?>'><?php echo $row['Doctor_job_ar_name'] ?></option>
@@ -229,20 +229,20 @@ $_SESSION['faculties'] = $faculties;
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" placeholder="تاريخ التعيين" name="hiring_date" id="hiringDate">
+                        <input type="text" class="form-control" placeholder="تاريخ التعيين" name="hiring_date" id="hiringDate" required>
                     </div>
                     <div class="col-md-4">
-                        <input type="email" class="form-control" placeholder="الايميل الاكاديمى" id="academicEmail" name="Academic_Mail">
+                        <input type="email" class="form-control" placeholder="الايميل الاكاديمى" id="academicEmail" name="Academic_Mail" required>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-12">
-                        <textarea name="qualifications" id="Qualifications" rows="3" placeholder="المؤهلات العلمية" class="form-control fs-4"></textarea>
+                        <textarea name="qualifications" id="Qualifications" rows="3" placeholder="المؤهلات العلمية" class="form-control fs-4" required></textarea>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-12">
-                        <textarea name="Notes" id="notes" rows="3" placeholder="ملاحظــــــــــــات" class="form-control fs-4"></textarea>
+                        <textarea name="Notes" id="notes" rows="3" placeholder="ملاحظــــــــــــات" class="form-control fs-4" required></textarea>
                     </div>
                 </div>
                 <div class="row my-2 justify-content-end">

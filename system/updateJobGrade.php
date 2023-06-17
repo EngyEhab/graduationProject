@@ -64,8 +64,8 @@ include "../Connections/syscon.php";
                             if (isset($_POST['search'])) {
                                 $st = $_POST['search'];
                                 $myquery = "SELECT * FROM doctors_account 
-                    INNER JOIN  doctor_jobs  
-                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
+                                            INNER JOIN  doctor_jobs  
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%'";
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                             ?>
@@ -77,8 +77,8 @@ include "../Connections/syscon.php";
                     <?php }
                             } else {
                                 $myquery = "SELECT * FROM doctors_account 
-                    INNER JOIN  doctor_jobs  
-                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
+                                            INNER JOIN  doctor_jobs  
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) { ?>
                         <tr>
@@ -87,7 +87,7 @@ include "../Connections/syscon.php";
                             <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                             <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name'] ?>" doctorJob="<?php echo $row['Doctor_job_id'] ?>" doctorJobName="<?php echo $row['Doctor_job_ar_name'] ?>" job_order="<?php echo $row['job_order'] ?>" data-bs-toggle="modal" data-bs-target="#updateJobGradeModal" class="border-0 rounded-pill w-50 fs-4 tableUpdateJobGradeBtn">تحديث</button></td>
                         </tr>
-                <?php }
+                    <?php }
                             } ?>
                     </tbody>
                 </table>
@@ -158,7 +158,7 @@ include "../Connections/syscon.php";
                                         <label for="jobGrade" class="mainText fw-bold fs-4 text-nowrap">تحديــث الدرجــة الوظيفيــــة :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <select name="doctor_job" class="form-select" id="job">
+                                        <select name="doctor_job" class="form-select" id="job" required>
 
                                         </select>
                                     </div>

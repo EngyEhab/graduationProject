@@ -184,7 +184,7 @@ if (isset($_POST['submit'])) {
                                     <div class="col-md-10">
                                         <input type="text" name="Uni_name" id="universityName" value="<?php {
                                                                                                             echo $Uni_name;
-                                                                                                        } ?>" class="form-control fs-4"></input>
+                                                                                                        } ?>" class="form-control fs-4" required></input>
                                     </div>
                                 </div>
                                 <div class="row my-2 align-items-center">
@@ -194,7 +194,7 @@ if (isset($_POST['submit'])) {
                                     <div class="col-md-10">
                                         <input type="text" name="Faculty_name" id="facultyName" value="<?php {
                                                                                                             echo $Faculty_name;
-                                                                                                        } ?>" class="form-control fs-4"></input>
+                                                                                                        } ?>" class="form-control fs-4" required></input>
                                     </div>
                                 </div>
 
@@ -220,7 +220,7 @@ if (isset($_POST['submit'])) {
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="Program_name" id="programName" value="<?php {
                                                                                                                                 echo $Program_name;
-                                                                                                                            } ?>">
+                                                                                                                            } ?>" required>
                                     </div>
                                 </div>
 
@@ -246,7 +246,7 @@ if (isset($_POST['submit'])) {
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="Faculty_Dean" id="facultyDean" value="<?php {
                                                                                                                                 echo $Faculty_Dean;
-                                                                                                                            } ?>">
+                                                                                                                            } ?>" required>
                                     </div>
                                 </div>
 
@@ -257,7 +257,7 @@ if (isset($_POST['submit'])) {
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="Post_grad_vice_dean" id="postGradViceDean" value="<?php {
                                                                                                                                             echo $Post_grad_vice_dean;
-                                                                                                                                        } ?>">
+                                                                                                                                        } ?>" required>
                                     </div>
                                 </div>
 
@@ -268,7 +268,7 @@ if (isset($_POST['submit'])) {
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="st_affairs_vice_dean" id="studentAffairsViceDean" value="<?php {
                                                                                                                                                     echo $st_affairs_vice_dean;
-                                                                                                                                                } ?>">
+                                                                                                                                                } ?>" required>
                                     </div>
                                 </div>
 
@@ -279,7 +279,7 @@ if (isset($_POST['submit'])) {
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="Program_coordinator" id="programCoordinator" value="<?php {
                                                                                                                                                 echo $Program_coordinator;
-                                                                                                                                            } ?>">
+                                                                                                                                            } ?>" required>
                                     </div>
                                 </div>
                             </div>

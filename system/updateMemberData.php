@@ -158,7 +158,6 @@ $_SESSION['faculties'] = $faculties;
 
     <form action="" method="post" id="updateMemberDataForm">
         <div class="w-75 mx-auto m-5">
-            <h3 class="mainTitle text-end p-2">إدخال بيانات عضو جديد</h3>
             <div class="container dataContainer p-3">
                 <div class="row mb-5">
                     <div class="col-md-4 mx-auto">
@@ -170,46 +169,46 @@ $_SESSION['faculties'] = $faculties;
                                 <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                             </label>
                         </div>
-                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="Doctor_image">
+                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="Doctor_image" required>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-4">
                         <input type="text" class="form-control" placeholder="الاسم باللغة العربية" value="<?php if (isset($_GET['id'])) {
                                                                                                                 echo $Doctor_ar_Name;
-                                                                                                            } ?>" name="Doctor_ar_Name">
+                                                                                                            } ?>" name="Doctor_ar_Name" required>
                     </div>
                     <div class="col-md-4">
                         <input type="text" class="form-control" placeholder="الاسم باللغة الانجليزية" value="<?php if (isset($_GET['id'])) {
                                                                                                                     echo $Doctor_eng_Name;
-                                                                                                                } ?>" name="Doctor_eng_Name">
+                                                                                                                } ?>" name="Doctor_eng_Name" required>
                     </div>
                     <div class="col-md-4">
                         <input type="text" class="form-control" placeholder=" الرقم القومى" id="nationalID" value="<?php if (isset($_GET['id'])) {
                                                                                                                         echo $National_id;
-                                                                                                                    } ?>" name="National_id">
+                                                                                                                    } ?>" name="National_id" required>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-4">
                         <input type="text" class="form-control" placeholder="تاريخ الميلاد" value="<?php if (isset($_GET['id'])) {
                                                                                                         echo $date_of_birth;
-                                                                                                    } ?>" name="date_of_birth" id="birthDate">
+                                                                                                    } ?>" name="date_of_birth" id="birthDate" required>
                     </div>
                     <div class="col-md-4">
                         <input type="email" class="form-control" placeholder="الايميل الشخصى" value="<?php if (isset($_GET['id'])) {
                                                                                                             echo $Personal_Mail;
-                                                                                                        } ?>" id="personalEmail" name="Personal_Mail">
+                                                                                                        } ?>" id="personalEmail" name="Personal_Mail" required>
                     </div>
                     <div class="col-md-4">
                         <input type="tel" class="form-control" placeholder="رقم الهاتف" value="<?php if (isset($_GET['id'])) {
                                                                                                     echo $Mobile;
-                                                                                                } ?>" id="phoneNumber" name="Mobile">
+                                                                                                } ?>" id="phoneNumber" name="Mobile" required>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-4">
-                        <select name="uni_id" class="form-select" id="university">
+                        <select name="uni_id" class="form-select" id="university" required>
                             <option value="">الجامعة</option>
                             <option selected class="d-none" value="<?php echo $uni_id ?>"><?php echo $uni_ar_name ?></option>
                             <?php foreach ($universities as $row) { ?>
@@ -218,7 +217,7 @@ $_SESSION['faculties'] = $faculties;
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <select name="Faculty_id" class="form-select" id="faculty">
+                        <select name="Faculty_id" class="form-select" id="faculty" required>
                             <option value="">الكلية</option>
                             <option selected class="d-none" value="<?php echo $Faculty_id ?>"><?php echo $Faculty_ar_name ?></option>
                             <?php foreach ($faculties as $row) { ?>
@@ -227,7 +226,7 @@ $_SESSION['faculties'] = $faculties;
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <select name="Department_id" class="form-select" id="department">
+                        <select name="Department_id" class="form-select" id="department" required>
                             <option value="">القسم</option>
                             <option selected class="d-none" value="<?php echo $Department_id ?>"><?php echo $Department_ar_name ?></option>
                             <?php foreach ($departments as $row) { ?>
@@ -238,7 +237,7 @@ $_SESSION['faculties'] = $faculties;
                 </div>
                 <div class="row my-2">
                     <div class="col-md-4">
-                        <select name="Doctor_job_id" class="form-select" id="job">
+                        <select name="Doctor_job_id" class="form-select" id="job" required>
                             <option value="">الدرجة الوظيفية الحالية</option>
                             <option selected class="d-none" value="<?php echo $Doctor_job_id ?>"><?php echo $Doctor_job_ar_name ?></option>
                             <?php foreach ($doctor_jobs as $row) { ?>
@@ -249,24 +248,24 @@ $_SESSION['faculties'] = $faculties;
                     <div class="col-md-4">
                         <input type="text" class="form-control" placeholder="تاريخ التعيين" value="<?php if (isset($_GET['id'])) {
                                                                                                         echo $hiring_date;
-                                                                                                    } ?>" name="hiring_date" id="hiringDate">
+                                                                                                    } ?>" name="hiring_date" id="hiringDate" required>
                     </div>
                     <div class="col-md-4">
                         <input type="email" class="form-control" placeholder="الايميل الاكاديمى" value="<?php if (isset($_GET['id'])) {
                                                                                                             echo $Academic_Mail;
-                                                                                                        } ?>" id="academicEmail" name="Academic_Mail">
+                                                                                                        } ?>" id="academicEmail" name="Academic_Mail" required>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-12">
-                        <textarea name="qualifications" id="Qualifications" rows="3" placeholder="المؤهلات العلمية" class="form-control fs-4"><?php if (isset($_GET['id'])) {
+                        <textarea name="qualifications" id="Qualifications" rows="3" placeholder="المؤهلات العلمية" class="form-control fs-4" required><?php if (isset($_GET['id'])) {
                                                                                                                                                     echo $qualifications;
                                                                                                                                                 } ?></textarea>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-12">
-                        <textarea name="Notes" id="notes" rows="3" placeholder="ملاحظــــــــــــات" class="form-control fs-4"><?php if (isset($_GET['id'])) {
+                        <textarea name="Notes" id="notes" rows="3" placeholder="ملاحظــــــــــــات" class="form-control fs-4" required><?php if (isset($_GET['id'])) {
                                                                                                                                     echo $Notes;
                                                                                                                                 } ?></textarea>
                     </div>

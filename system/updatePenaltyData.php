@@ -103,7 +103,7 @@ if (isset($_POST['updatePenaltyBtn'])) {
                     <div class="col-md-10">
                         <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {
                                                                             echo $penaltyDescription;
-                                                                        } ?>" name="penaltyDescription" id="penaltyDescription">
+                                                                        } ?>" name="penaltyDescription" id="penaltyDescription" required>
                     </div>
                 </div>
                 <div class="row my-2 align-items-center">
@@ -113,7 +113,7 @@ if (isset($_POST['updatePenaltyBtn'])) {
                     <div class="col-md-4">
                         <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {
                                                                             echo $penaltyDuration;
-                                                                        } ?>" name="penaltyDuration" id="penaltyDuration">
+                                                                        } ?>" name="penaltyDuration" id="penaltyDuration" required>
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="startDate" class="mainText fw-bold fs-4">مــن :</label>
@@ -121,7 +121,7 @@ if (isset($_POST['updatePenaltyBtn'])) {
                     <div class="col-md-2">
                         <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {
                                                                             echo $startDate;
-                                                                        } ?>" name="startDate" id="startDate">
+                                                                        } ?>" name="startDate" id="startDate" required>
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="endDate" class="mainText fw-bold fs-4">إلــى :</label>
@@ -129,7 +129,7 @@ if (isset($_POST['updatePenaltyBtn'])) {
                     <div class="col-md-2">
                         <input type="text" class="form-control" value="<?php if (isset($_GET['id'])) {
                                                                             echo $endDate;
-                                                                        } ?>" name="endDate" id="endDate">
+                                                                        } ?>" name="endDate" id="endDate" required>
                     </div>
                 </div>
 
@@ -138,7 +138,7 @@ if (isset($_POST['updatePenaltyBtn'])) {
                         <label for="penaltyReason" class="mainText fw-bold fs-4">الســـــــــــــــــــــــــــــــــبب :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="penaltyReason" id="penaltyReason" rows="2" class="form-control fs-4"><?php if (isset($_GET['id'])) {
+                        <textarea name="penaltyReason" id="penaltyReason" rows="2" class="form-control fs-4" required><?php if (isset($_GET['id'])) {
                                                                                                                     echo $penaltyReason;
                                                                                                                 } ?></textarea>
                     </div>
@@ -151,7 +151,7 @@ if (isset($_POST['updatePenaltyBtn'])) {
                         <div class="fs-4 w-100 choosePenaltyFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
                     </div>
                     <div class="col-md-8 align-self-center">
-                        <input class="form-control d-none" type="file" id="penaltyFile" name="penaltyFile">
+                        <input class="form-control d-none" type="file" id="penaltyFile" name="penaltyFile" required>
                         <p class="selectedPenaltyFile fs-4"><?php if (isset($_GET['id'])) {
                                                                 echo $penaltyFile;
                                                             } ?></p>
@@ -163,7 +163,7 @@ if (isset($_POST['updatePenaltyBtn'])) {
                         <label for="penaltyNotes" class="mainText fw-bold fs-4">ملاحظــــــــــــــــــــــــــــات :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="penaltyNotes" id="penaltyNotes" rows="3" class="form-control fs-4"><?php if (isset($_GET['id'])) {
+                        <textarea name="penaltyNotes" id="penaltyNotes" rows="3" class="form-control fs-4" required><?php if (isset($_GET['id'])) {
                                                                                                                 echo $penaltyNotes;
                                                                                                             } ?></textarea>
                     </div>

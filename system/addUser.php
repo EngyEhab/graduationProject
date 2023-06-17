@@ -53,18 +53,18 @@ $_SESSION['users_types'] = $users_types;
                                 <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                             </label>
                         </div>
-                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="Doctor_image" required="">
+                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="Doctor_image" required>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-4">
-                        <input type="text" class="form-control" placeholder="اسم المستخدم باللغة العربية" name="user_ar_Name">
+                        <input type="text" class="form-control" placeholder="اسم المستخدم باللغة العربية" name="user_ar_Name" required>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" placeholder="اسم المستخدم باللغة الانجليزية" name="userName">
+                        <input type="text" class="form-control" placeholder="اسم المستخدم باللغة الانجليزية" name="userName" required>
                     </div>
                     <div class="col-md-4">
-                        <select name="user_type_id" id="userType" class="form-select">
+                        <select name="user_type_id" id="userType" class="form-select" required>
                             <option value="">نوع المستخدم</option>
                             <?php foreach ($users_types as $row) { ?>
                                 <option value="<?php echo $row['user_type_id'] ?>"><?php echo $row['user_type_ar_name'] ?> </option>
@@ -75,16 +75,16 @@ $_SESSION['users_types'] = $users_types;
                 </div>
                 <div class="row my-2">
                     <div class="col-md-4">
-                        <input type="password" class="form-control" placeholder="كلمة المرور" name="password">
+                        <input type="password" class="form-control" placeholder="كلمة المرور" name="password" required>
                     </div>
                     <div class="col-md-4">
-                        <input type="password" class="form-control" placeholder="تأكيد كلمة المرور" name="confirmPassword">
+                        <input type="password" class="form-control" placeholder="تأكيد كلمة المرور" name="confirmPassword" required>
                     </div>
                 </div>
 
                 <div class="row my-2">
                     <div class="col-md-12">
-                        <textarea name="Notes" id="notes" rows="3" placeholder="ملاحظــــــــــــات" class="form-control fs-4"></textarea>
+                        <textarea name="Notes" id="notes" rows="3" placeholder="ملاحظــــــــــــات" class="form-control fs-4" required></textarea>
                     </div>
                 </div>
                 <div class="row my-2 justify-content-end">

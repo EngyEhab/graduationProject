@@ -101,7 +101,7 @@ if (isset($_POST['update'])) {
                     <div class="col-md-10">
                         <input type="text" class="form-control" name="vacationDescription" id="vacationDescription" value="<?php if (isset($_GET['id'])) {
                                                                                                                                 echo $vacationDescription;
-                                                                                                                            } ?>">
+                                                                                                                            } ?>" required>
                     </div>
                 </div>
 
@@ -118,7 +118,7 @@ if (isset($_POST['update'])) {
                     <div class="col-md-2">
                         <input type="text" class="form-control" name="startDate" id="startDate" value="<?php if (isset($_GET['id'])) {
                                                                                                             echo $startDate;
-                                                                                                        } ?>">
+                                                                                                        } ?>" required>
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="endDate" class="mainText fw-bold fs-4">إلــى :</label>
@@ -126,7 +126,7 @@ if (isset($_POST['update'])) {
                     <div class="col-md-2">
                         <input type="text" class="form-control" name="endDate" id="endDate" value="<?php if (isset($_GET['id'])) {
                                                                                                         echo $endDate;
-                                                                                                    } ?>">
+                                                                                                    } ?>" required>
                     </div>
                 </div>
 
@@ -135,7 +135,7 @@ if (isset($_POST['update'])) {
                         <label for="vacationReason" class="mainText fw-bold fs-4">الســــــــــــــــــبب :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="vacationReason" id="vacationReason" rows="2" class="form-control fs-4"><?php if (isset($_GET['id'])) {
+                        <textarea name="vacationReason" id="vacationReason" rows="2" class="form-control fs-4" required><?php if (isset($_GET['id'])) {
                                                                                                                     echo $vacationReason;
                                                                                                                 } ?></textarea>
                     </div>
@@ -149,7 +149,7 @@ if (isset($_POST['update'])) {
                         <div class="fs-4 w-100 chooseVacationFileBtn text-center p-1 rounded-2" type="button">ارفق الملــف </div>
                     </div>
                     <div class="col-md-8 align-self-center">
-                        <input class="form-control d-none" type="file" id="vacationFile" name="vacationFile">
+                        <input class="form-control d-none" type="file" id="vacationFile" name="vacationFile" required>
                         <p class="selectedVacationFile fs-4"><?php if (isset($_GET['id'])) {
                                                                     echo $vacationFile;
                                                                 } ?></p>
@@ -161,7 +161,7 @@ if (isset($_POST['update'])) {
                         <label for="vacationNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="vacationNotes" id="vacationNotes" rows="3" class="form-control fs-4"><?php if (isset($_GET['id'])) {
+                        <textarea name="vacationNotes" id="vacationNotes" rows="3" class="form-control fs-4" required><?php if (isset($_GET['id'])) {
                                                                                                                     echo $vacationNotes;
                                                                                                                 } ?></textarea>
                     </div>

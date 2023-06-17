@@ -91,22 +91,22 @@ $_SESSION['users_types'] = $users_types;
                                 <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                             </label>
                         </div>
-                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="image">
+                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="image" required>
                     </div>
                 </div>
                 <div class="row my-2">
                     <div class="col-md-4">
                         <input type="text" class="form-control" placeholder="اسم المستخدم باللغة العربية" value="<?php if (isset($_GET['id'])) {
                                                                                                                         echo $user_ar_name;
-                                                                                                                    } ?>" name="user_ar_name">
+                                                                                                                    } ?>" name="user_ar_name" required>
                     </div>
                     <div class="col-md-4">
                         <input type="text" class="form-control" placeholder="اسم المستخدم باللغة الانجليزية" value="<?php if (isset($_GET['id'])) {
                                                                                                                         echo $username;
-                                                                                                                    } ?>" name="username">
+                                                                                                                    } ?>" name="username" required>
                     </div>
                     <div class="col-md-4">
-                        <select name="user_type_id" id="userType" class="form-select">
+                        <select name="user_type_id" id="userType" class="form-select" required>
                             <option value="">نوع المستخدم</option>
                             <option selected class="d-none" value="<?php echo $user_type_id ?>"><?php echo $user_type_ar_name ?></option>
                             <?php foreach ($users_types as $row) { ?>
@@ -121,18 +121,18 @@ $_SESSION['users_types'] = $users_types;
                     <div class="col-md-4">
                         <input type="password" class="form-control" placeholder="كلمة المرور" value="<?php if (isset($_GET['id'])) {
                                                                                                             echo $password;
-                                                                                                        } ?>" name="password">
+                                                                                                        } ?>" name="password" required>
                     </div>
                     <div class="col-md-4">
                         <input type="password" class="form-control" placeholder="تأكيد كلمة المرور" value="<?php if (isset($_GET['id'])) {
                                                                                                                 echo $password;
-                                                                                                            } ?>" name="confirmPassword">
+                                                                                                            } ?>" name="confirmPassword" required>
                     </div>
                 </div>
 
                 <div class="row my-2">
                     <div class="col-md-12">
-                        <textarea name="Notes" id="notes" rows="3" placeholder="ملاحظــــــــــــات" class="form-control fs-4"><?php if (isset($_GET['id'])) {
+                        <textarea name="Notes" id="notes" rows="3" placeholder="ملاحظــــــــــــات" class="form-control fs-4" required><?php if (isset($_GET['id'])) {
                                                                                                                                     echo $Notes;
                                                                                                                                 } ?></textarea>
                     </div>

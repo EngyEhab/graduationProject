@@ -183,7 +183,7 @@ include "../Connections/syscon.php";
                                         <label for="penaltyDescription" class="mainText fw-bold fs-4 text-nowrap"> الجــــــــــزاء أو العقوبـــــــــة :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input type="text" class="form-control" name="penaltyDescription" id="penaltyDescription">
+                                        <input type="text" class="form-control" name="penaltyDescription" id="penaltyDescription" required>
                                     </div>
                                 </div>
                                 <div class="row my-2 align-items-center">
@@ -191,19 +191,19 @@ include "../Connections/syscon.php";
                                         <label for="penaltyDuration" class="mainText fw-bold fs-4 text-nowrap">المــــــــــــــــــــــــــــــــــــــدة :</label>
                                     </div>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" name="penaltyDuration" id="penaltyDuration">
+                                        <input type="text" class="form-control" name="penaltyDuration" id="penaltyDuration" required>
                                     </div>
                                     <div class="col-md-1 text-center">
                                         <label for="startDate" class="mainText fw-bold fs-4 text-nowrap">مــن :</label>
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="text" class="form-control" name="startDate" id="startDate">
+                                        <input type="text" class="form-control" name="startDate" id="startDate" required>
                                     </div>
                                     <div class="col-md-1 text-center">
                                         <label for="endDate" class="mainText fw-bold fs-4 text-nowrap">إلــى :</label>
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="text" class="form-control" name="endDate" id="endDate">
+                                        <input type="text" class="form-control" name="endDate" id="endDate" required>
                                     </div>
                                 </div>
 
@@ -223,7 +223,7 @@ include "../Connections/syscon.php";
                                         <div class="fs-4 w-100 choosePenaltyFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
                                     </div>
                                     <div class="col-md-8 align-self-center">
-                                        <input class="form-control d-none" type="file" accept="image/*" id="penaltyFile" name="penaltyFile">
+                                        <input class="form-control d-none" type="file" accept="image/*" id="penaltyFile" name="penaltyFile" required>
                                         <p class="selectedPenaltyFile fs-4"></p>
                                     </div>
                                 </div>
@@ -233,7 +233,7 @@ include "../Connections/syscon.php";
                                         <label for="penaltyNotes" class="mainText fw-bold fs-4 text-nowrap">ملاحظــــــــــــــــــــــــــــات :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <textarea name="penaltyNotes" id="penaltyNotes" rows="3" class="form-control fs-4"></textarea>
+                                        <textarea name="penaltyNotes" id="penaltyNotes" rows="3" class="form-control fs-4" required></textarea>
                                     </div>
                                 </div>
 
