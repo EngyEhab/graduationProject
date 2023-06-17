@@ -4,7 +4,9 @@ if (isset($_GET['id'])) {
 
     $id = $_GET['id'];
 
-    $myquery = "SELECT * FROM doctors_account WHERE DoctorCode= '$id'";
+    $myquery = "SELECT * FROM doctors_account 
+    INNER JOIN  p74_penalties  
+    ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE penality_id= '$id'";
     $results = mysqli_query($bis, $myquery);
     while ($row = mysqli_fetch_array($results)) {
         $Doctor_image = $row['Doctor_image'];
@@ -12,11 +14,12 @@ if (isset($_GET['id'])) {
     }
 
     mysqli_select_db($bis, $database_bis);
-    $myquery = "SELECT * FROM p74_penalties WHERE doctorCodeInput= '$id'";
+    $myquery = "SELECT * FROM p74_penalties WHERE penality_id= '$id'";
     $result = $bis->query($myquery);
-    if ($result->num_rows === 1) {
+    if ($result->num_rows === 1 ) {
         $row = $result->fetch_assoc();
 
+        $penality_id = $row['penality_id'];
         $doctorCodeInput = $row['doctorCodeInput'];
         $penaltyDescription = $row['penaltyDescription'];
         $startDate = $row["startDate"];
@@ -71,7 +74,7 @@ if (isset($_POST['deleteBtn'])) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary fs-4" data-bs-dismiss="modal">الغاء</button>
-                    <a href="deletePenaltyData.php?id=<?php echo $doctorCodeInput; ?>">
+                    <a href="deletePenaltyData.php?id=<?php echo $penality_id; ?>">
                         <button id="deleteBtn" name="deleteBtn" class="btn btn-danger fs-4">حـــذف</button>
                     </a>
                 </div>
@@ -97,7 +100,7 @@ if (isset($_POST['deleteBtn'])) {
                             <h4 class="mainText fw-bold">الجـــــــزاء أو العقوبـــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"><?php echo $penaltyDescription; ?></p>
+                            <p class="fs-4"><?php $result = $bis->query($myquery); if ($result->num_rows >= 1 ) { echo $penaltyDescription;} ?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -149,7 +152,7 @@ if (isset($_POST['deleteBtn'])) {
     <div class="container mt-3 mb-5">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <a href="updatePenaltyData.php?id=<?php echo $doctorCodeInput; ?>">
+                <a href="updatePenaltyData.php?id=<?php echo $penality_id; ?>">
                     <button id="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
                 </a>
             </div>

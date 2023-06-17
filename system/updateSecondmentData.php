@@ -5,7 +5,7 @@ $id = "";
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $Select = mysqli_query($bis, " SELECT * FROM p74_secondment_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput WHERE doctorCodeInput='$id' ");
+    $Select = mysqli_query($bis, " SELECT * FROM p74_secondment_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput WHERE Secondment_id='$id' ");
     $row = mysqli_fetch_assoc($Select);
 
 
@@ -38,7 +38,7 @@ if (isset($_POST['updateSecondmentBtn'])) {
         $Details = mysqli_query($bis, "UPDATE p74_secondment_data SET 
         secondmentDescription='$secondmentDescription',secondmentDestination='$secondmentDestination',secondmentType='$secondmentType',
         secondmentDuration='$secondmentDuration',startDate='$startDate',endDate='$endDate',secondmentFile='$secondmentFile',secondmentNotes='$secondmentNotes'
-        WHERE doctorCodeInput='$id'");
+        WHERE Secondment_id='$id'");
         if (isset($_POST['updateSecondmentBtn'])) {
 
             header("location:secondmentDetails.php?id=$id");
@@ -47,7 +47,7 @@ if (isset($_POST['updateSecondmentBtn'])) {
         $Details = mysqli_query($bis, "UPDATE p74_secondment_data SET 
             secondmentDescription='$secondmentDescription',secondmentDestination='$secondmentDestination',secondmentType='$secondmentType',
             secondmentDuration='$secondmentDuration',startDate='$startDate',endDate='$endDate',secondmentNotes='$secondmentNotes'
-            WHERE doctorCodeInput='$id'");
+            WHERE Secondment_id='$id'");
         if (isset($_POST['updateSecondmentBtn'])) {
 
             header("location:secondmentDetails.php?id=$id");

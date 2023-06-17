@@ -4,7 +4,9 @@ if (isset($_GET['id'])) {
 
     $id = $_GET['id'];
 
-    $myquery = "SELECT * FROM doctors_account WHERE DoctorCode= '$id'";
+    $myquery = "SELECT * FROM doctors_account 
+    INNER JOIN  p74_secondment_data  
+    ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE Secondment_id= '$id'";
     $results = mysqli_query($bis, $myquery);
     while ($row = mysqli_fetch_array($results)) {
         $Doctor_image = $row['Doctor_image'];
@@ -12,11 +14,12 @@ if (isset($_GET['id'])) {
     }
 
     mysqli_select_db($bis, $database_bis);
-    $myquery = "SELECT * FROM p74_secondment_data WHERE doctorCodeInput= '$id'";
+    $myquery = "SELECT * FROM p74_secondment_data WHERE Secondment_id= '$id'";
     $result = $bis->query($myquery);
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
 
+        $Secondment_id = $row['Secondment_id'];
         $doctorCodeInput = $row['doctorCodeInput'];
         $secondmentDescription = $row['secondmentDescription'];
         $secondmentDestination = $row["secondmentDestination"];
@@ -69,7 +72,7 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary fs-4" data-bs-dismiss="modal">الغاء</button>
-                    <a href="deleteSecondmentData.php?id=<?php echo $doctorCodeInput; ?>">
+                    <a href="deleteSecondmentData.php?id=<?php echo $Secondment_id; ?>">
                         <button id="deleteBtn" name="deleteBtn" class="btn btn-danger fs-4">حـــذف</button>
                     </a>
                 </div>
@@ -155,7 +158,7 @@ if (isset($_GET['id'])) {
     <div class="container mt-3 mb-5">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <a href="updateSecondmentData.php?id=<?php echo $doctorCodeInput; ?>">
+                <a href="updateSecondmentData.php?id=<?php echo $Secondment_id; ?>">
                     <button id="updateBtn" name="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
                 </a>
             </div>

@@ -5,7 +5,7 @@ $id = "";
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $Select = mysqli_query($bis, " SELECT * FROM p74_vacation_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput WHERE doctorCodeInput='$id' ");
+    $Select = mysqli_query($bis, " SELECT * FROM p74_vacation_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput WHERE Vacation_id='$id' ");
     $row = mysqli_fetch_assoc($Select);
 
     $doctorCodeInput = $row['doctorCodeInput'];
@@ -37,7 +37,7 @@ if (isset($_POST['update'])) {
         $Details = mysqli_query($bis, "UPDATE p74_vacation_data SET 
         startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
         vacationFile='$vacationFile',vacationNotes='$vacationNotes',vacationDescription='$vacationDescription',vacationDuration='$vacationDuration'
-        WHERE doctorCodeInput='$id'");
+        WHERE Vacation_id='$id'");
         if (isset($_POST['update'])) {
 
             header("location:vacationDetails.php?id=$id");
@@ -46,7 +46,7 @@ if (isset($_POST['update'])) {
         $Details = mysqli_query($bis, "UPDATE p74_vacation_data SET
             startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
             vacationNotes='$vacationNotes',vacationDescription='$vacationDescription',vacationDuration='$vacationDuration'
-            WHERE doctorCodeInput='$id'");
+            WHERE Vacation_id='$id'");
         if (isset($_POST['update'])) {
 
             header("location:vacationDetails.php?id=$id");

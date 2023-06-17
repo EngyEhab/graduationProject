@@ -5,7 +5,7 @@ $id = "";
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $Select = mysqli_query($bis, "SELECT * FROM p74_penalties INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput WHERE doctorCodeInput='$id' ");
+    $Select = mysqli_query($bis, "SELECT * FROM p74_penalties INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput WHERE penality_id='$id' ");
     $row = mysqli_fetch_assoc($Select);
 
 
@@ -34,7 +34,7 @@ if (isset($_POST['updatePenaltyBtn'])) {
         $Details = mysqli_query($bis, "UPDATE p74_penalties SET penaltyDescription='$penaltyDescription',
         startDate='$startDate',endDate='$endDate',penaltyReason='$penaltyReason',
         penaltyFile='$penaltyFile',penaltyNotes='$penaltyNotes',penaltyDuration='$penaltyDuration'
-        WHERE doctorCodeInput='$id'");
+        WHERE penality_id='$id'");
         if (isset($_POST['updatePenaltyBtn'])) {
 
             header("location:penaltyDetails.php?id=$id");
@@ -42,7 +42,7 @@ if (isset($_POST['updatePenaltyBtn'])) {
     } else {
         $Details = mysqli_query($bis, "UPDATE p74_penalties SET penaltyDescription='$penaltyDescription',
             startDate='$startDate',endDate='$endDate',penaltyReason='$penaltyReason',
-            penaltyNotes='$penaltyNotes',penaltyDuration='$penaltyDuration' WHERE doctorCodeInput='$id'");
+            penaltyNotes='$penaltyNotes',penaltyDuration='$penaltyDuration' WHERE penality_id='$id'");
         if (isset($_POST['updatePenaltyBtn'])) {
 
             header("location:penaltyDetails.php?id=$id");

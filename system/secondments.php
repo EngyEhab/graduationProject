@@ -68,7 +68,7 @@ include "../Connections/syscon.php";
                 ?>
                     <div class="col-md-3 d-flex justify-content-center">
                         <div class="memberContainer w-75">
-                            <a href="secondmentDetails.php?id=<?php echo $row['doctorCodeInput'] ?>" class="text-decoration-none">
+                            <a href="secondmentDetails.php?id=<?php echo $row['Secondment_id'] ?>" class="text-decoration-none">
                                 <div class="member rounded-3 bg-white w-100 p-3 text-center mx-auto">
                                     <div class="memberImage rounded-circle mx-auto">
                                         <img src="../images/members/<?php echo $row['Doctor_image'] ?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
@@ -86,7 +86,7 @@ include "../Connections/syscon.php";
                 ?>
                     <div class="col-md-3 d-flex justify-content-center">
                         <div class="memberContainer w-75">
-                            <a href="secondmentDetails.php?id=<?php echo $row['doctorCodeInput'] ?>" class="text-decoration-none">
+                            <a href="secondmentDetails.php?id=<?php echo $row['Secondment_id'] ?>" class="text-decoration-none">
                                 <div class="member rounded-3 bg-white w-100 p-3 text-center mx-auto">
                                     <div class="memberImage rounded-circle mx-auto">
                                         <img src="../images/members/<?php echo $row['Doctor_image'] ?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">

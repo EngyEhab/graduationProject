@@ -3,7 +3,7 @@ include "../Connections/syscon.php";
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $Details = mysqli_query($bis, " DELETE FROM p74_secondment_data WHERE doctorCodeInput='$id'");
+    $Details = mysqli_query($bis, " DELETE FROM p74_secondment_data WHERE Secondment_id='$id'");
     header("location: secondments.php");
     exit;
 }
