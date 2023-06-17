@@ -274,8 +274,8 @@ $(function () {
     if (day < 10)
         day = '0' + day.toString();
     var maxDate = year + '-' + month + '-' + day;
-    $('#startDate').attr('min', maxDate);
-    $('#endDate').attr('min', maxDate);
+    $('.startDate').attr('max', maxDate);
+    $('.endDate').attr('max', maxDate);
 });
 
 

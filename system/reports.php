@@ -63,13 +63,13 @@ if (isset($_POST['displayReport'])) {
                         <label for="startDate" class="mainText fw-bold fs-4 text-nowrap">مــن :</label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" name="startDate" id="startDate" required>
+                        <input type="text" class="form-control startDate" name="startDate" id="startDate" required>
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="endDate" class="mainText fw-bold fs-4 text-nowrap">إلــى :</label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" name="endDate" id="endDate" required>
+                        <input type="text" class="form-control endDate" name="endDate" id="endDate" required>
                     </div>
                 </div>
                 <div class="row justify-content-end">
