@@ -105,7 +105,7 @@ $_SESSION['users_types'] = $users_types;
             && isset($_POST['Notes'])
         )
 
-            $user_ar_Name = $_POST["user_ar_Name"];
+        $user_ar_Name = $_POST["user_ar_Name"];
         $userName = $_POST["userName"];
         $user_type_id = $_POST["user_type_id"];
         $password = $_POST["password"];

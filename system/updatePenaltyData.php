@@ -22,8 +22,6 @@ if (isset($_GET['id'])) {
 
 if (isset($_POST['updatePenaltyBtn'])) {
 
-
-    // $doctorNameInput =$_POST['doctorNameInput'];
     $penaltyDescription = $_POST['penaltyDescription'];
     $startDate = $_POST["startDate"];
     $endDate = $_POST["endDate"];

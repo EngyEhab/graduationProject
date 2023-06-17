@@ -17,7 +17,7 @@ $st_affairs_vice_dean = $row["st_affairs_vice_dean"];
 $Program_coordinator = $row["Program_coordinator"];
 
 if (isset($_POST['submit'])) {
-    // $app_name=$_POST['app_name'];
+
     $Uni_name = $_POST['Uni_name'];
     $Faculty_name = $_POST['Faculty_name'];
     $Program_name = $_POST['Program_name'];

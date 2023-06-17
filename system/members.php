@@ -97,15 +97,6 @@ include "../Connections/syscon.php";
                     </div>
             <?php }
             } ?>
-            <!-- <div class="col-md-3">
-            <div class="w-75 p-3 text-center mx-auto">
-                <a href="addMember.php" class="text-decoration-none">
-                    <div id="plusIcon" class="plusIcon rounded-circle d-flex justify-content-center align-items-center mx-auto">
-                        <i class="fa-solid fa-plus fa-2xl fs-1" style="color:#AAB2BA;"></i>
-                    </div>
-                </a>
-            </div>
-        </div> -->
         </div>
     </div>
 

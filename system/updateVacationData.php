@@ -16,6 +16,8 @@ if (isset($_GET['id'])) {
     $vacationReason = $row["vacationReason"];
     $vacationFile = $row["vacationFile"];
     $vacationNotes = $row["vacationNotes"];
+    $vacationDuration = $row["vacationDuration"];
+
 }
 
 if (isset($_POST['update'])) {
@@ -28,11 +30,13 @@ if (isset($_POST['update'])) {
     $vacationReason = $_POST['vacationReason'];
     $vacationFile = $_POST['vacationFile'];
     $vacationNotes = $_POST["vacationNotes"];
+    $vacationDuration = $_POST["vacationDuration"];
+
 
     if ((!empty($vacationFile))) {
         $Details = mysqli_query($bis, "UPDATE p74_vacation_data SET 
         startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
-        vacationFile='$vacationFile',vacationNotes='$vacationNotes',vacationDescription='$vacationDescription'
+        vacationFile='$vacationFile',vacationNotes='$vacationNotes',vacationDescription='$vacationDescription',vacationDuration='$vacationDuration'
         WHERE doctorCodeInput='$id'");
         if (isset($_POST['update'])) {
 
@@ -41,7 +45,7 @@ if (isset($_POST['update'])) {
     } else {
         $Details = mysqli_query($bis, "UPDATE p74_vacation_data SET
             startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
-            vacationNotes='$vacationNotes',vacationDescription='$vacationDescription'
+            vacationNotes='$vacationNotes',vacationDescription='$vacationDescription',vacationDuration='$vacationDuration'
             WHERE doctorCodeInput='$id'");
         if (isset($_POST['update'])) {
 
@@ -110,7 +114,9 @@ if (isset($_POST['update'])) {
                         <label for="vacationDuration" class="mainText fw-bold fs-4">المـــــــــــــــــــــــدة :</label>
                     </div>
                     <div class="col-md-4">
-                        <input type="text" class="form-control" name="vacationDuration" id="vacationDuration" value="">
+                        <input type="text" class="form-control" name="vacationDuration" id="vacationDuration" value="<?php if (isset($_GET['id'])) {
+                                                                                                            echo $vacationDuration;
+                                                                                                        } ?>">
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="startDate" class="mainText fw-bold fs-4">مــن :</label>

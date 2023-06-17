@@ -18,7 +18,6 @@ if (isset($_GET['id'])) {
         $row = $result->fetch_assoc();
 
         $doctorCodeInput = $row['doctorCodeInput'];
-
         $penaltyDescription = $row['penaltyDescription'];
         $startDate = $row["startDate"];
         $endDate = $row["endDate"];

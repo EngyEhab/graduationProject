@@ -105,16 +105,14 @@ include "../Connections/syscon.php";
                 isset($_POST['startDate']) && isset($_POST['endDate']) && isset($_POST['penaltyReason']) &&
                 isset($_POST['penaltyNotes'])
             ) {
-                $doctorCodeInput = $_POST['doctorCodeInput'];
 
+                $doctorCodeInput = $_POST['doctorCodeInput'];
                 $penaltyDescription = $_POST['penaltyDescription'];
                 $startDate = $_POST["startDate"];
                 $endDate = $_POST["endDate"];
                 $penaltyReason = $_POST["penaltyReason"];
-                // $penaltyFile=$_POST["penaltyFile"]; 
                 $penaltyNotes = $_POST["penaltyNotes"];
                 $penaltyDuration = $_POST["penaltyDuration"];
-
                 $filFile = $_FILES['penaltyFile']['name'];
                 $tmp_dir = $_FILES['penaltyFile']['tmp_name'];
                 $imgSize = $_FILES['penaltyFile']['size'];

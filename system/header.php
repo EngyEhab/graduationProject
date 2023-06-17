@@ -13,13 +13,6 @@ if (!isset($_SESSION['username'])) {
     }
 }
 
-// $hostname_bis = "localhost";
-// $database_bis = "staff_affairs";
-// $username_bis = "root";
-// $password_bis = "";
-// $conn = new mysqli($hostname_bis, $username_bis, $password_bis, "$database_bis");
-// if($conn->connect_error) {
-//     die("failed to connect : ".$con->connect_error);}
 
 mysqli_select_db($bis, $database_bis);
 $query_appata = "SELECT * FROM application_data INNER JOIN users";

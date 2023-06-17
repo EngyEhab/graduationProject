@@ -79,9 +79,7 @@ include "../Connections/syscon.php";
                     </div>
                 <?php }
             } else {
-                // $myquery="SELECT * FROM doctors_account WHERE DoctorCode =$DoctorCode";
-                // $results=mysqli_query($bis,$myquery);
-                // while ($row=mysqli_fetch_array($results)){$Doctor_image=$row['Doctor_image'];}
+                
                 $myquery = "SELECT * FROM  p74_vacation_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput";
                 $results = mysqli_query($bis, $myquery);
                 while ($row = mysqli_fetch_array($results)) {

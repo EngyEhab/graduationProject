@@ -18,7 +18,6 @@ if (isset($_GET['id'])) {
         $row = $result->fetch_assoc();
 
         $doctorCodeInput = $row['doctorCodeInput'];
-
         $secondmentDescription = $row['secondmentDescription'];
         $secondmentDestination = $row["secondmentDestination"];
         $secondmentType = $row['secondmentType'];
@@ -29,11 +28,7 @@ if (isset($_GET['id'])) {
         $secondmentNotes = $row["secondmentNotes"];
     }
 }
-// if (isset($_POST['deleteBtn'])){ 
-//     $id=$_GET['id']; 
-//     $Details = mysqli_query($bis , " DELETE FROM addsecondment_data WHERE doctorCodeInput='$id'");   
 
-// }
 ?>
 <!DOCTYPE html>
 <html lang="ar">

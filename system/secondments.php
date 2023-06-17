@@ -63,7 +63,6 @@ include "../Connections/syscon.php";
             ?>
                 <?php
                 $myquery = "SELECT * FROM p74_secondment_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput AND Doctor_ar_Name like '%$st%'  ";
-                // $sql="SELECT * FROM doctors_account WHERE Doctor_ar_Name like '%$st%' ";
                 $results = mysqli_query($bis, $myquery);
                 while ($row = mysqli_fetch_array($results)) {
                 ?>

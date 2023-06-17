@@ -245,15 +245,6 @@ include "../Connections/syscon.php";
         ?>
     </div>
 
-    <!-- <div class="modal modal-xl fade" id="addPenaltyModal">
-        <div class="modal-dialog  modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body">
-                    
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <script src="../js/all.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>

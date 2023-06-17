@@ -98,9 +98,7 @@ include "../Connections/syscon.php";
     <form action="updateJobGrade.php" method="post" id="updateJobGradeForm">
 
         <?php
-        // $doctor_jobs1 = "SELECT * FROM doctor_jobs INNER JOIN doctors_account ON doctor_jobs.Doctor_job_id=doctors_account.Doctor_job_id";
-        // $result = $bis->query($doctor_jobs1);
-        // $job_order=$row['job_order'];
+        
         $doctor_jobs = "SELECT * FROM doctor_jobs ";
         $result = $bis->query($doctor_jobs);
         $appata = mysqli_query($bis, $doctor_jobs) or die(mysqli_error($bis));

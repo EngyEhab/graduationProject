@@ -2,7 +2,6 @@
 include "../Connections/syscon.php";
 if (isset($_GET['id'])) {
 
-    // $_SESSION['id']=$_GET['id'];
     $id = $_GET['id'];
 
     mysqli_select_db($bis, $database_bis);
