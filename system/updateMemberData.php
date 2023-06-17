@@ -168,7 +168,7 @@ $_SESSION['faculties'] = $faculties;
                                 <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                             </label>
                         </div>
-                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="Doctor_image" required>
+                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="Doctor_image">
                     </div>
                 </div>
                 <div class="row my-2">

@@ -91,7 +91,7 @@ $_SESSION['users_types'] = $users_types;
                                 <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                             </label>
                         </div>
-                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="image" required>
+                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="image">
                     </div>
                 </div>
                 <div class="row my-2">
