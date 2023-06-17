@@ -2,57 +2,53 @@ if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href);
 }
 // start navbar
-    $(document).ready(function() {
-        var links = $('.nav-link');
-        var relativePath = location.pathname.split("/")[3];
-        for(var i = 0; i<links.length;i++)
-        {
-            if(links[i].pathname.split('/')[3] == relativePath)
-            {
-                $('a[href^="'+relativePath+'"]').parent().addClass('clickedLinkStyle')
-            }
+$(document).ready(function () {
+    var links = $('.nav-link');
+    var relativePath = location.pathname.split("/")[3];
+    for (var i = 0; i < links.length; i++) {
+        if (links[i].pathname.split('/')[3] == relativePath) {
+            $('a[href^="' + relativePath + '"]').parent().addClass('clickedLinkStyle')
         }
-    });
+    }
+});
 //end navbar
 
 // start select image in add member page
-$('#imageSelectionField').change(function(e){
+$('#imageSelectionField').change(function (e) {
     var selectedImage = URL.createObjectURL(e.target.files[0]);
-    $('#profile').attr('src',selectedImage);
+    $('#profile').attr('src', selectedImage);
 })
 // end select image in add member page
 
 // start open and close sidebar
-$('#openBtn').click(function(){
+$('#openBtn').click(function () {
     $('#openBtn').addClass('d-none');
     $('#closeBtn').removeClass('d-none');
-    $('.sidebarContainer').animate({right:'-80%'},1000);
+    $('.sidebarContainer').animate({ right: '-80%' }, 1000);
 })
 
-$('#closeBtn').click(function(){
+$('#closeBtn').click(function () {
     $('#closeBtn').addClass('d-none');
     $('#openBtn').removeClass('d-none');
-    $('.sidebarContainer').animate({right:'-100%'},1000);
+    $('.sidebarContainer').animate({ right: '-100%' }, 1000);
 })
 //end open and close sidebar
 
 
 // start button to up
-$(window).scroll(function(){
+$(window).scroll(function () {
     var windowScroll = $(window).scrollTop();
-    if(windowScroll > 300)
-    {
+    if (windowScroll > 300) {
         $('#btnUp').fadeIn(500);
     }
-    else
-    {
+    else {
         $('#btnUp').fadeOut(500);
     }
 })
 
 
-$('#btnUp').click(function(){
-    $('html, body').animate({scrollTop: 0}, 100);
+$('#btnUp').click(function () {
+    $('html, body').animate({ scrollTop: 0 }, 100);
 })
 
 // end button to up
@@ -60,14 +56,13 @@ $('#btnUp').click(function(){
 
 // start using enter button to submit search form
 
-$('.searchField').on('keypress',function(e){
-    if(e.keyCode == 13)
-    {
+$('.searchField').on('keypress', function (e) {
+    if (e.keyCode == 13) {
         $('#searchForm').submit();
     }
 })
 
-$('.searchBtn').click(function(){
+$('.searchBtn').click(function () {
     $('#searchForm').submit();
 })
 
@@ -78,65 +73,65 @@ $('.searchBtn').click(function(){
 // start transform input type to date when focus on it
 
 
-$('#birthDate').on('focusin',function (e) { 
-    e.target.type = 'date';   
+$('#birthDate').on('focusin', function (e) {
+    e.target.type = 'date';
 });
 
-$('#birthDate').on('focusout',function (e) { 
-    e.target.type = 'text';   
+$('#birthDate').on('focusout', function (e) {
+    e.target.type = 'text';
 });
 
-$('#hiringDate').on('focusin',function (e) { 
-    e.target.type = 'date';   
+$('#hiringDate').on('focusin', function (e) {
+    e.target.type = 'date';
 });
 
-$('#hiringDate').on('focusout',function (e) { 
-    e.target.type = 'text';   
+$('#hiringDate').on('focusout', function (e) {
+    e.target.type = 'text';
 });
 
-$('#startDate').on('focusin',function (e) { 
-    e.target.type = 'date';   
+$('#startDate').on('focusin', function (e) {
+    e.target.type = 'date';
 });
 
-$('#startDate').on('focusout',function (e) { 
-    e.target.type = 'text';   
+$('#startDate').on('focusout', function (e) {
+    e.target.type = 'text';
 });
 
-$('#endDate').on('focusin',function (e) { 
-    e.target.type = 'date';   
+$('#endDate').on('focusin', function (e) {
+    e.target.type = 'date';
 });
 
-$('#endDate').on('focusout',function (e) { 
-    e.target.type = 'text';   
+$('#endDate').on('focusout', function (e) {
+    e.target.type = 'text';
 });
 
 // end transform input type to date when focus on it
 
 // start when click on div choose file , click on input choose file
-$('.choosePenaltyFileBtn').click(function(e){
+$('.choosePenaltyFileBtn').click(function (e) {
     $('#penaltyFile').click();
 
 });
 
-$('#penaltyFile').change(function(e){
+$('#penaltyFile').change(function (e) {
     var selectedPenaltyFile = e.target.files[0].name;
     $('.selectedPenaltyFile').text(selectedPenaltyFile);
 })
 
-$('.chooseVacationFileBtn').click(function(e){
+$('.chooseVacationFileBtn').click(function (e) {
     $('#vacationFile').click();
 });
 
-$('#vacationFile').change(function(e){
+$('#vacationFile').change(function (e) {
     var selectedVacationFile = e.target.files[0].name;
     $('.selectedVacationFile').text(selectedVacationFile);
 })
 
-$('.chooseSecondmentFileBtn').click(function(e){
+$('.chooseSecondmentFileBtn').click(function (e) {
     $('#secondmentFile').click();
 });
 
-$('#secondmentFile').change(function(e){
+$('#secondmentFile').change(function (e) {
     var selectedSecondmentFile = e.target.files[0].name;
     $('.selectedSecondmentFile').text(selectedSecondmentFile);
 })
@@ -146,7 +141,7 @@ $('#secondmentFile').change(function(e){
 
 
 // start completeData page
-$('.tableCompleteDataBtn').click(function(){
+$('.tableCompleteDataBtn').click(function () {
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
     var doctorJobID = $(this).attr('doctorJobID');
@@ -160,7 +155,7 @@ $('.tableCompleteDataBtn').click(function(){
 // end completeData page
 
 // start statement page
-$('.tableDisplayBtn').click(function(){
+$('.tableDisplayBtn').click(function () {
     var doctorCode = $(this).attr('doctorCode');
     $('#doctorCodeInput').val(doctorCode);
 
@@ -169,7 +164,7 @@ $('.tableDisplayBtn').click(function(){
 
 
 // start addPenalty page
-$('.tableAddPenaltyBtn').click(function(){
+$('.tableAddPenaltyBtn').click(function () {
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
     $('#doctorCodeInput').val(doctorCode);
@@ -178,7 +173,7 @@ $('.tableAddPenaltyBtn').click(function(){
 // end addPenalty page
 
 // start addSecondment page
-$('.tableAddSecondmentBtn').click(function(){
+$('.tableAddSecondmentBtn').click(function () {
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
     $('#doctorCodeInput').val(doctorCode);
@@ -187,7 +182,7 @@ $('.tableAddSecondmentBtn').click(function(){
 // end addSecondment page
 
 // start addVacation page
-$('.tableAddVacationBtn').click(function(){
+$('.tableAddVacationBtn').click(function () {
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
     $('#doctorCodeInput').val(doctorCode);
@@ -198,30 +193,30 @@ $('.tableAddVacationBtn').click(function(){
 
 
 // start UpdateJobGrade page
-var doctorJobs = [{jodId:1 , jobName:"معيد" , jobOrder:1},
-    {jodId:2 , jobName:"مدرس مساعد" , jobOrder:2},
-    {jodId:3 , jobName:"مدرس" , jobOrder:3},
-    {jodId:4 , jobName:"مدرس متفرغ" , jobOrder:4},
-    {jodId:5 , jobName:"استاذ مساعد" , jobOrder:5},
-    {jodId:6 , jobName:"استاذ مساعد متفرغ" , jobOrder:6},
-    {jodId:7 , jobName:"استاذ" , jobOrder:7},
-    {jodId:8 , jobName:"استاذ متفرغ" , jobOrder:8}]
+var doctorJobs = [{ jodId: 1, jobName: "معيد", jobOrder: 1 },
+{ jodId: 2, jobName: "مدرس مساعد", jobOrder: 2 },
+{ jodId: 3, jobName: "مدرس", jobOrder: 3 },
+{ jodId: 4, jobName: "مدرس متفرغ", jobOrder: 4 },
+{ jodId: 5, jobName: "استاذ مساعد", jobOrder: 5 },
+{ jodId: 6, jobName: "استاذ مساعد متفرغ", jobOrder: 6 },
+{ jodId: 7, jobName: "استاذ", jobOrder: 7 },
+{ jodId: 8, jobName: "استاذ متفرغ", jobOrder: 8 }]
 
-$('.tableUpdateJobGradeBtn').click(function(){
-    
+$('.tableUpdateJobGradeBtn').click(function () {
+
     var doctorCode = $(this).attr('doctorCode');
     var doctorName = $(this).attr('doctorName');
     var doctorJob = $(this).attr('doctorJob');
     var doctorJobName = $(this).attr('doctorJobName');
     var jobOrder = $(this).attr('job_order');
 
-    var newDoctorJobs =[...doctorJobs];
+    var newDoctorJobs = [...doctorJobs];
     var upcomingDoctorJobs = newDoctorJobs.slice(jobOrder);
     newDoctorJobs = upcomingDoctorJobs;
     var select = document.getElementById("job");
     $('#job').empty();
     var options = newDoctorJobs;
-    for(var i = 0; i < options.length; i++) {
+    for (var i = 0; i < options.length; i++) {
         var opt = options[i];
         var el = document.createElement("option");
         el.textContent = opt.jobName;
@@ -233,33 +228,26 @@ $('.tableUpdateJobGradeBtn').click(function(){
     $('#doctorNameInput').val(doctorName);
     $('#doctorJobInput').val(doctorJob);
     $('#doctorJobNameInput').val(doctorJobName);
-
-
-
-//    $('#jobOrderForm').submit();
 })
 
-// $('#jobOrderForm').on('submit' , function(e)
-// {
-//     e.preventDefault;
-// })
+
 
 // end UpdateJobGrade page
 
-$('.chooseFacultyLogoBtn').click(function(e){
+$('.chooseFacultyLogoBtn').click(function (e) {
     $('#facultyLogo').click();
 });
 
-$('#facultyLogo').change(function(e){
+$('#facultyLogo').change(function (e) {
     var selectedVacationFile = e.target.files[0].name;
     $('.selectedFacultyLogo').text(selectedVacationFile);
 });
 
-$('.chooseProgramLogoBtn').click(function(e){
+$('.chooseProgramLogoBtn').click(function (e) {
     $('#programLogo').click();
 });
 
-$('#programLogo').change(function(e){
+$('#programLogo').change(function (e) {
     var selectedVacationFile = e.target.files[0].name;
     $('.selectedProgramLogo').text(selectedVacationFile);
 });

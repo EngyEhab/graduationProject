@@ -1,9 +1,8 @@
 /* colores used in design */
-:root
-{
-    --main-title:#f00;
-    --main-text:#023A71;
-    --subtext:#AAB2BA;
+:root {
+    --main-title: #f00;
+    --main-text: #023A71;
+    --subtext: #AAB2BA;
 }
 
 /* font used in design */
@@ -11,50 +10,48 @@
     font-family: "typesetting";
     src: url(../webfonts/Arabic\ Typesetting\ Regular.ttf);
 }
+
 /* @font-face {
     font-family: "times-new-roman";
     src: url(../webfonts/times\ new\ roman.ttf);
 } */
 /* start general style */
-*
-{
+* {
     font-family: "typesetting";
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     direction: rtl;
 }
-.mainTitle
-{
-    color:var(--main-title,#f00)
-}
-.mainText
-{
-    color:var(--main-text,#023A71)
-}
-.subtext
-{
-    color:var(--subtext,#AAB2BA)
+
+.mainTitle {
+    color: var(--main-title, #f00)
 }
 
-::placeholder 
-{ 
-    color: var(--subtext , #AAB2BA);
+.mainText {
+    color: var(--main-text, #023A71)
+}
+
+.subtext {
+    color: var(--subtext, #AAB2BA)
+}
+
+::placeholder {
+    color: var(--subtext, #AAB2BA);
     opacity: 0.8 !important;
-    font-size:1.3rem;
+    font-size: 1.3rem;
     padding-right: 24px;
 }
-.form-select
-{
+
+.form-select {
     background-position: left 1rem center;
 }
-.shadow
-{
+
+.shadow {
     box-shadow: 0px 3px 6px #AAB2BA;
 }
 
-label
-{
+label {
     word-wrap: none;
 }
 
@@ -63,362 +60,381 @@ label
 
 /* start login page header */
 
-.programLogo img , .FacultyLogo img
-{
-    width:75%;
+.programLogo img,
+.FacultyLogo img {
+    width: 75%;
 }
 
 /* end login page header */
 
 /* start login form */
-.login h3
-{
+.login h3 {
     font-size: 3rem;
     margin-bottom: 20px;
 }
-.loginInputField
-{
 
-    border-radius: 30px;  
+.loginInputField {
+
+    border-radius: 30px;
     margin-top: 15px;
     padding: 12px;
     font-size: 1.3rem;
 }
 
-.btn-1
-{
-    background-color: var(--main-text,#023A71);
+.btn-1 {
+    background-color: var(--main-text, #023A71);
     margin-top: 30px;
     border: 1px solid transparent;
-    border-radius: 35px;  
-    padding: 10px;  
+    border-radius: 35px;
+    padding: 10px;
     font-size: 1.5rem;
 }
+
 /* end login form */
 
 /* start footer */
-.footer
-{
-    background-color: var(--main-text , #023A71);
+.footer {
+    background-color: var(--main-text, #023A71);
 }
-.footer span
-{
-    color: var(--subtext , #AAB2BA);
+
+.footer span {
+    color: var(--subtext, #AAB2BA);
     font-size: 1.2rem;
 }
-.footer a
-{
+
+.footer a {
     text-decoration: none;
-    color: var(--main-title , #f00);
+    color: var(--main-title, #f00);
     font-size: 1.4rem;
 }
-.bisLogo
-{
-    width:35px;
-    height:35px;
+
+.bisLogo {
+    width: 35px;
+    height: 35px;
     background-color: #fff;
     border-radius: 50%;
 }
 
-.bisLogo img
-{
-    width:100%;
+.bisLogo img {
+    width: 100%;
     border-radius: 50%;
 }
+
 /* end footer */
 
 /*start navbar*/
-.nav-link
-{
-    color:var(--main-text,#023A71);
+.nav-link {
+    color: var(--main-text, #023A71);
 }
 
-.linkStyle
-{
-    color:var(--main-text,#023A71);
+.linkStyle {
+    color: var(--main-text, #023A71);
     text-align: center;
-    width:150px;
+    width: 150px;
     background: #fff;
     border-radius: 4px;
     box-shadow: 0px 3px 6px #AAB2BA;
     margin-left: 15px;
 
 }
-.linkStyle:hover
-{
+
+.linkStyle:hover {
     text-align: center;
-    width:150px;
+    width: 150px;
     background: #fff;
     margin-left: 15px;
-    color:#000;
+    color: #000;
     border-radius: 4px 0px 0px 0px;
-    box-shadow:inset 3px 3px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
-.clickedLinkStyle
-{
+
+.clickedLinkStyle {
     text-align: center;
-    width:150px;
+    width: 150px;
     background: #fff;
     margin-left: 15px;
-    color:#000;
+    color: #000;
     border-radius: 4px 0px 0px 0px;
-    box-shadow:inset 3px 3px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
+
 /*end navbar*/
 
 /*start background of body */
-.body
-{
+.body {
     background-image: url(../images/Facultylogo.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
 }
-.bodyCover
-{
-    width:100%;
-    height:100vh;
+
+.bodyCover {
+    width: 100%;
+    height: 100vh;
     background-color: #fff;
     opacity: 0.7;
     position: fixed;
-    top:0;
-    bottom:0;
+    top: 0;
+    bottom: 0;
     z-index: -9999;
 }
+
 /*start background of body */
 
 /* start addMemberButton and Search in members Page */
-.addMemberBtn , .addPenaltyBtn , .addSecondmentBtn ,.addVacationBtn , .updateJobGradeBtn , .CompleteDataBtn , .tableUpdateJobGradeBtn , .tableCompleteDataBtn , .updateMemberDataBtn , .tableDisplayBtn ,.tableAddPenaltyBtn , .tableAddSecondmentBtn , .tableAddVacationBtn ,.tableUpdateJobGradeBtn ,.updatePenaltyBtn ,.addVacationBtn ,.updateVacationBtn , .addSecondmentBtn ,.updateSecondmentBtn ,.displayReport ,.anotherReport , .tableDisplayBtn , .addUserBtn ,.updateBtn , .updateSystemDataBtn ,.updateSystemDataModalBtn
-{
-    background-color:var(--main-text,#023A71); 
-    color:#fff;
+.addMemberBtn,
+.addPenaltyBtn,
+.addSecondmentBtn,
+.addVacationBtn,
+.updateJobGradeBtn,
+.CompleteDataBtn,
+.tableUpdateJobGradeBtn,
+.tableCompleteDataBtn,
+.updateMemberDataBtn,
+.tableDisplayBtn,
+.tableAddPenaltyBtn,
+.tableAddSecondmentBtn,
+.tableAddVacationBtn,
+.tableUpdateJobGradeBtn,
+.updatePenaltyBtn,
+.addVacationBtn,
+.updateVacationBtn,
+.addSecondmentBtn,
+.updateSecondmentBtn,
+.displayReport,
+.anotherReport,
+.tableDisplayBtn,
+.addUserBtn,
+.updateBtn,
+.updateSystemDataBtn,
+.updateSystemDataModalBtn {
+    background-color: var(--main-text, #023A71);
+    color: #fff;
     font-size: 1.5rem;
     box-shadow: 0px 3px 6px #AAB2BA;
 
 }
-.searchField
-{
+
+.searchField {
     box-shadow: 0px 3px 6px #AAB2BA;
 }
-.searchBtn
-{
-    width:100px;
-    height:36px;
+
+.searchBtn {
+    width: 100px;
+    height: 36px;
     border: none;
-    background-color:var(--main-text,#023A71); 
-    padding: 5px 20px 0 20px ;
+    background-color: var(--main-text, #023A71);
+    padding: 5px 20px 0 20px;
     border-right: 1px solid #fff;
     text-align: center;
     position: absolute;
     top: 0;
-    left:0;
+    left: 0;
 
 }
-.member
-{
-    box-shadow:0px 3px 6px #AAB2BA;
+
+.member {
+    box-shadow: 0px 3px 6px #AAB2BA;
     cursor: pointer;
 }
 
-.plusIcon
-{
+.plusIcon {
     background-color: #fff;
-    width:150px;
+    width: 150px;
     height: 150px;
-    box-shadow:0px 3px 6px #AAB2BA;
+    box-shadow: 0px 3px 6px #AAB2BA;
 }
+
 /* end addMemberButton and Search in members Page*/
 
 /* start add member page */
-.dataContainer
-{
+.dataContainer {
     box-shadow: 0px 3px 6px #AAB2BA;
     border-radius: 6px;
     background-color: #fff;
 }
-.dataContainer input , .dataContainer select
-{
+
+.dataContainer input,
+.dataContainer select {
     font-size: 1.3rem;
 }
-.dataContainer textarea
-{
+
+.dataContainer textarea {
     resize: none;
 }
-.profilePicture
-{
-    width:150px;
+
+.profilePicture {
+    width: 150px;
     height: 150px;
     border-radius: 50%;
-    box-shadow:0px 3px 6px #AAB2BA;
+    box-shadow: 0px 3px 6px #AAB2BA;
     position: relative;
 }
 
-.imageSelection
-{
-    width:25px;
-    height:25px;
+.imageSelection {
+    width: 25px;
+    height: 25px;
     border-radius: 50%;
-    box-shadow:0px 3px 6px #AAB2BA;
+    box-shadow: 0px 3px 6px #AAB2BA;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     position: absolute;
-    bottom:0;
-    right:0;  
+    bottom: 0;
+    right: 0;
 }
 
 /* end add member page */
 
 /* start sidebar */
-.sidebarButton
-{
-    width:35px;
-    height:45px;
-    background-color:var(--main-text,#023A71); 
+.sidebarButton {
+    width: 35px;
+    height: 45px;
+    background-color: var(--main-text, #023A71);
     border-radius: 10px 0px 0px 10px;
     position: absolute;
     top: 0;
-    right:100%;
+    right: 100%;
 
 }
-.sidebar
-{
+
+.sidebar {
     width: 20%;
     height: 70vh;
-    background-color:var(--main-text,#023A71); 
+    background-color: var(--main-text, #023A71);
     position: relative;
-    top:0;
-    right:80%;
-    
+    top: 0;
+    right: 80%;
+
 }
 
-.line
-{
-    width:90%;
+.line {
+    width: 90%;
     height: 1px;
     background-color: #AAB2BA;
     opacity: 0.2;
     margin: 0 auto;
 }
-.sidebarContainer
-{
+
+.sidebarContainer {
     position: fixed;
     width: 100%;
     top: 30vh;
     right: -100%;
     z-index: 99999;
 }
-.sidebarIcon
-{
-    width:50px;
+
+.sidebarIcon {
+    width: 50px;
 }
+
 /*end start sidebar */
 
 /* start button to up */
-.btnToUp
-{
-    width:35px;
-    height:35px;
+.btnToUp {
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-    background-color:var(--main-text,#023a71); 
-    position:fixed;
-    bottom:12%;
-    right:5%;
+    background-color: var(--main-text, #023a71);
+    position: fixed;
+    bottom: 12%;
+    right: 5%;
     z-index: 3;
     display: none;
 }
+
 /* end button to up */
-.userImage
-{
-    width:100px;
+.userImage {
+    width: 100px;
     height: 100px;
 }
 
-.memberImage
-{
-    width:135px;
+.memberImage {
+    width: 135px;
     height: 135px;
 }
 
-.memberPhoto
-{
+.memberPhoto {
     width: 250px;
-    height:250px;
+    height: 250px;
 }
+
 /* start home page */
-.function
-{
-    background:linear-gradient(to top,rgba(2, 58, 113,0.9) 25%,rgba(2, 58, 113,0.5) );
+.function {
+    background: linear-gradient(to top, rgba(2, 58, 113, 0.9) 25%, rgba(2, 58, 113, 0.5));
     border-radius: 8px;
-    box-shadow:0px 3px 6px #AAB2BA;
-    padding:30px 10px;
+    box-shadow: 0px 3px 6px #AAB2BA;
+    padding: 30px 10px;
 }
-.function:hover
-{
-    background:linear-gradient(to bottom,rgba(2, 58, 113,0.9) 25%,rgba(2, 58, 113,0.5) );
+
+.function:hover {
+    background: linear-gradient(to bottom, rgba(2, 58, 113, 0.9) 25%, rgba(2, 58, 113, 0.5));
     border-radius: 8px;
-    box-shadow:inset 0px 3px 6px #AAB2BA;
-    padding:30px 10px;
+    box-shadow: inset 0px 3px 6px #AAB2BA;
+    padding: 30px 10px;
 }
-.fixedFooter
-{
+
+.fixedFooter {
     z-index: -1;
 }
+
 /* end home page */
 
 /* start statement page */
-.statement
-{
+.statement {
     border: thick double #000;
     background-color: #fff;
 }
-#statementBtn
-{
-    background-color:var(--main-text,#023A71); 
-    color:#fff;
+
+#statementBtn {
+    background-color: var(--main-text, #023A71);
+    color: #fff;
     font-size: 1.5rem;
     box-shadow: 0px 3px 6px #AAB2BA;
-    padding:10px 20px;
+    padding: 10px 20px;
     font-weight: 600;
 }
+
 /* end statement page */
 
 
 /* start memberDetails page */
 
-.memberData , .penaltyData , .vacationData
-{
-    border-left: 3px solid rgba(170, 178, 186,0.5) ;
+.memberData,
+.penaltyData,
+.vacationData {
+    border-left: 3px solid rgba(170, 178, 186, 0.5);
 }
 
 /* end memberDetails page */
 
 
 /* start select file in add penalty , add secondment and add vacation pages */
-.choosePenaltyFileBtn , .chooseSecondmentFileBtn , .chooseVacationFileBtn ,.chooseFacultyLogoBtn ,.chooseProgramLogoBtn
-{
-    background-color: rgba(170, 178, 186,0.5);
+.choosePenaltyFileBtn,
+.chooseSecondmentFileBtn,
+.chooseVacationFileBtn,
+.chooseFacultyLogoBtn,
+.chooseProgramLogoBtn {
+    background-color: rgba(170, 178, 186, 0.5);
     cursor: pointer;
 }
 
 /* end select file in add penalty , add secondment and add vacation pages */
 
 
-.modal
-{
+.modal {
     z-index: 999999;
 }
 
 
-.supervisorImage , .teamMemberImage
-{
+.supervisorImage,
+.teamMemberImage {
     width: 150px;
-    height:150px;
+    height: 150px;
 }
 
-.link
-{
-    width:30px;
-    height:30px;
+.link {
+    width: 30px;
+    height: 30px;
 }
