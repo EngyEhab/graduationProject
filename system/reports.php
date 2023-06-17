@@ -5,7 +5,7 @@ if (isset($_POST['displayReport'])) {
     $reportAbout = $_POST['reportAbout'];
     $startDate = $_POST['startDate'];
     $endDate = $_POST['endDate'];
-    header("location:../system/reportTable.php?reportAbout=$_POST[reportAbout]&startDate=$_POST[startDate]&endDate=$_POST[endDate]");
+    header("location:../system/reportTable.php?reportAbout=$reportAbout&startDate=$startDate&endDate=$endDate");
 }
 ?>
 <!DOCTYPE html>
