@@ -100,7 +100,7 @@ if (isset($_POST['deleteBtn'])) {
                             <h4 class="mainText fw-bold">الجـــــــزاء أو العقوبـــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"><?php $result = $bis->query($myquery); if ($result->num_rows >= 1 ) { echo $penaltyDescription;} ?></p>
+                            <p class="fs-4"><?php echo $penaltyDescription; ?></p>
                         </div>
                     </div>
                     <div class="row">

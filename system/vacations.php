@@ -60,7 +60,7 @@ include "../Connections/syscon.php";
             <?php
             if (isset($_POST['search'])) {
                 $st = $_POST['search'];
-                $myquery = "SELECT * FROM  p74_vacation_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput AND doctorNameInput like '%$st%'  ";
+                $myquery = "SELECT * FROM  p74_vacation_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput AND Doctor_ar_Name like '%$st%'  ";
 
                 $results = mysqli_query($bis, $myquery);
                 while ($row = mysqli_fetch_array($results)) {
