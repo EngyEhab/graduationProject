@@ -41,7 +41,7 @@ $_SESSION['users_types'] = $users_types;
         <i class="fa-solid fa-circle-arrow-up fa-xl" style="color: #ffffff;"></i>
     </button>
     <!-- end button to up -->
-    <form action="addUser.php" method="post" enctype="multipart/form-data">
+    <form action="" method="post" id="addUserForm" enctype="multipart/form-data">
         <div class="w-75 mx-auto m-5">
             <h3 class="mainTitle text-end p-2">إدخال بيانات مستخدم جديد</h3>
             <div class="container dataContainer p-3">
@@ -53,7 +53,7 @@ $_SESSION['users_types'] = $users_types;
                                 <i class="fa-solid fa-plus" style="color: #AAB2BA;"></i>
                             </label>
                         </div>
-                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="Doctor_image" required>
+                        <input type="file" accept="image/*" id="imageSelectionField" class="d-none" name="Doctor_image">
                     </div>
                 </div>
                 <div class="row my-2">
@@ -75,10 +75,10 @@ $_SESSION['users_types'] = $users_types;
                 </div>
                 <div class="row my-2">
                     <div class="col-md-4">
-                        <input type="password" class="form-control" placeholder="كلمة المرور" name="password" required>
+                        <input type="password" class="form-control password" placeholder="كلمة المرور" name="password" required>
                     </div>
                     <div class="col-md-4">
-                        <input type="password" class="form-control" placeholder="تأكيد كلمة المرور" name="confirmPassword" required>
+                        <input type="password" class="form-control confirmPassword" placeholder="تأكيد كلمة المرور" name="confirmPassword" required>
                     </div>
                 </div>
 

@@ -252,3 +252,14 @@ $('#programLogo').change(function (e) {
     $('.selectedProgramLogo').text(selectedVacationFile);
 });
 
+$('.addUserBtn').click(function(e){
+    var userPass  = $('.password').val();
+    var userConfirmPass  = $('.confirmPassword').val();
+    if(userPass !== userConfirmPass)
+    {
+        $('.confirmPassword').after('<p class="mainTitle mb-0 me-2">كلمة المرور غير مطابقة</p>')
+        e.preventDefault();
+    }
+})
+
+
