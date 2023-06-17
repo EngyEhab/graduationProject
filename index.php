@@ -1,8 +1,8 @@
 <!-- START login  -->
 <?php
 session_start();
-include ("Connections/syscon.php");
-if(isset($_SESSION['username'])){
+include("Connections/syscon.php");
+if (isset($_SESSION['username'])) {
     header("location:system/home.php");
 }
 // mysqli_select_db($bis,$database_bis);
@@ -13,9 +13,9 @@ if(isset($_SESSION['username'])){
 // $_SESSION[ 'user_ar_name' ] = $row_appata ['user_ar_name'];
 // $_SESSION ['image'] = $row_appata ['image'];
 
-$con = new mysqli("localhost","root","","staff_affairs");
-if($con->connect_error) {
-    die("failed to connect : ".$con->connect_error); 
+$con = new mysqli("localhost", "root", "", "staff_affairs");
+if ($con->connect_error) {
+    die("failed to connect : " . $con->connect_error);
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $row = $result->fetch_assoc();
         $username = $row['username'];
         $user_id = $row['user_id'];
-        $user_ar_name =$row['user_ar_name'];
+        $user_ar_name = $row['user_ar_name'];
         $image = $row['image'];
         $user_type_id = $row['user_type_id'];
         $_SESSION['user_type_id'] = $user_type_id;
@@ -52,6 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="ar">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -61,6 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- start header -->
     <header class="container py-3">
@@ -95,8 +97,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="login">
                     <h3 class="mainText">تسجيل الدخول</h3>
                     <form method="post" action="" class="loginForm">
-                        <input type="text" class="form-control loginInputField" name="username"  required placeholder="اسم المستخدم">
-                        <input type="password" class="form-control loginInputField" name="password"  required placeholder="كلمة المرور">
+                        <input type="text" class="form-control loginInputField" name="username" required placeholder="اسم المستخدم">
+                        <input type="password" class="form-control loginInputField" name="password" required placeholder="كلمة المرور">
                         <button type="submit" id="loginBtn" class="btn-1 subtext w-100">تسجيل دخول</button>
                     </form>
                 </div>
@@ -111,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <footer class="position-fixed bottom-0 start-0 end-0">
         <div class="footer py-2 d-flex justify-content-center">
             <span>جميع الحقوق محفوظة ل </span>
-            <a href="#" >فريق برنامج BIS 2023</a>
+            <a href="#">فريق برنامج BIS 2023</a>
             <div class="bisLogo d-flex align-items-center me-2">
                 <img src="images/program.png" alt="BIS-LOGO">
             </div>
@@ -124,4 +126,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

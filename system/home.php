@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="ar">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body class="body">
     <div class="bodyCover"></div>
     <?php
-        include('header.php');
+    include('header.php');
     ?>
 
 
@@ -23,26 +24,26 @@
     </button>
     <!-- end button to up -->
 
-    
+
     <div class="container">
         <div class="row my-5">
-            <?php 
+            <?php
             $user_type_id = $_SESSION['user_type_id'];
-            if($user_type_id == "1"){?>
-            <div class="col">
-                <a href="dashboard.php" class="text-decoration-none text-white function-link">
-                    <div class="function text-center">
-                        <i class="fa-solid fa-desktop fa-2xl mb-3"></i>
-                        <h3>لوحة التحكم</h3>
-                    </div>
-                </a>
-            </div>
-            <?php }?>
-            
+            if ($user_type_id == "1") { ?>
+                <div class="col">
+                    <a href="dashboard.php" class="text-decoration-none text-white function-link">
+                        <div class="function text-center">
+                            <i class="fa-solid fa-desktop fa-2xl mb-3"></i>
+                            <h3>لوحة التحكم</h3>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
+
             <div class="col">
                 <a href="addMember.php" class="text-decoration-none text-white">
                     <div class="function text-center">
-                        <i class="fa-solid fa-user-plus fa-2xl mb-3"></i> 
+                        <i class="fa-solid fa-user-plus fa-2xl mb-3"></i>
                         <h3>إضافة عضو جديد</h3>
                     </div>
                 </a>
@@ -50,7 +51,7 @@
             <div class="col">
                 <a href="completeData.php" class="text-decoration-none text-white">
                     <div class="function text-center">
-                        <i class="fa-solid fa-pen-to-square fa-2xl mb-3"></i> 
+                        <i class="fa-solid fa-pen-to-square fa-2xl mb-3"></i>
                         <h3>استكمال بيانات</h3>
                     </div>
                 </a>
@@ -75,15 +76,15 @@
         <div class="row my-5">
             <?php
             $user_type_id = $_SESSION['user_type_id'];
-            if($user_type_id == "1"){?>
-            <div class="col">
-                <a href="users.php" class="text-decoration-none text-white">
-                    <div class="function text-center">
-                        <i class="fa-solid fa-users fa-2xl mb-3"></i>
-                        <h3>المستخدمون</h3>
-                    </div>
-                </a>
-            </div>
+            if ($user_type_id == "1") { ?>
+                <div class="col">
+                    <a href="users.php" class="text-decoration-none text-white">
+                        <div class="function text-center">
+                            <i class="fa-solid fa-users fa-2xl mb-3"></i>
+                            <h3>المستخدمون</h3>
+                        </div>
+                    </a>
+                </div>
             <?php } ?>
             <div class="col">
                 <a href="addPenalty.php" class="text-decoration-none text-white">
@@ -122,7 +123,7 @@
 
     <div class="fixedFooter position-fixed bottom-0 start-0 end-0">
         <?php
-            include('footer.php');
+        include('footer.php');
         ?>
     </div>
 
@@ -133,4 +134,5 @@
     <script src="../js/main.js"></script>
 
 </body>
+
 </html>

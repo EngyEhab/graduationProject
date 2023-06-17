@@ -1,8 +1,9 @@
 <?php
-include "../Connections/syscon.php"; 
+include "../Connections/syscon.php";
 ?>
 <!DOCTYPE html>
 <html lang="ar">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,15 +13,16 @@ include "../Connections/syscon.php";
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body class="body">
     <div class="bodyCover"></div>
     <?php
-        include('header.php');
+    include('header.php');
     ?>
     <div class="sidebarContainer">
-    <?php
+        <?php
         include('sidebar.php');
-    ?>
+        ?>
     </div>
 
     <!-- start button to up -->
@@ -43,7 +45,7 @@ include "../Connections/syscon.php";
             </div>
         </div>
     </div>
-    
+
     <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="col-md-9">
@@ -55,58 +57,57 @@ include "../Connections/syscon.php";
                             <th>القسم</th>
                             <th>عرض بيان الحالة </th>
                         </tr>
-                    </thead>   
+                    </thead>
                     <tbody>
-                    <?php
-            if (isset($_POST['submit'])) {
-        $st=$_POST ['search'];
-        $query="SELECT * FROM doctors_account 
+                        <?php
+                        if (isset($_POST['submit'])) {
+                            $st = $_POST['search'];
+                            $query = "SELECT * FROM doctors_account 
         INNER JOIN  departments  
         ON doctors_account.Department_id=departments.Department_id WHERE Doctor_ar_Name like '%$st%' ";
-        $results=mysqli_query($bis,$query);
-        while($row=mysqli_fetch_array($results)) {
-            ?>
-                <tr>
-                    <td><?php echo $row['DoctorCode'] ?></td>
-                    <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                    <td><?php echo $row['Department_ar_name'] ?></td>
-                    <td>
-                        <a href="pdf.php?id=<?php echo $row['DoctorCode'] ?>">
-                            <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button>
-                        </a>
-                    </td>
-                </tr>
-                <?php }
-            }
-            else{
-                $query="SELECT * FROM doctors_account 
+                            $results = mysqli_query($bis, $query);
+                            while ($row = mysqli_fetch_array($results)) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $row['DoctorCode'] ?></td>
+                                    <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                    <td><?php echo $row['Department_ar_name'] ?></td>
+                                    <td>
+                                        <a href="pdf.php?id=<?php echo $row['DoctorCode'] ?>">
+                                            <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php }
+                        } else {
+                            $query = "SELECT * FROM doctors_account 
                 INNER JOIN  departments  
                 ON doctors_account.Department_id=departments.Department_id";
-                $results=mysqli_query($bis,$query);
-                while($row=mysqli_fetch_array($results)) {
-                ?>
-                <tr>
-                    <td><?php echo $row['DoctorCode'] ?></td>
-                    <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                    <td><?php echo $row['Department_ar_name'] ?></td>
-                    <td>
-                        <a href="pdf.php?id=<?php echo $row['DoctorCode'] ?>">
-                            <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button>
-                        </a>
-                    </td>                
-                </tr>
-                <?php }
-            }
-            ?>
+                            $results = mysqli_query($bis, $query);
+                            while ($row = mysqli_fetch_array($results)) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $row['DoctorCode'] ?></td>
+                                    <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                    <td><?php echo $row['Department_ar_name'] ?></td>
+                                    <td>
+                                        <a href="pdf.php?id=<?php echo $row['DoctorCode'] ?>">
+                                            <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عرض</button>
+                                        </a>
+                                    </td>
+                                </tr>
+                        <?php }
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    
+
     <div class="fixedFooter position-fixed bottom-0 start-0 end-0 z-3">
         <?php
-            include('footer.php');
+        include('footer.php');
         ?>
     </div>
 
@@ -115,4 +116,5 @@ include "../Connections/syscon.php";
     <script src="../js/jquery-3.6.4.js"></script>
     <script src="../js/main.js"></script>
 </body>
+
 </html>

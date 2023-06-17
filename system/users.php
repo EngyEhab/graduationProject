@@ -1,18 +1,19 @@
 <?php
-include "../Connections/syscon.php"; 
+include "../Connections/syscon.php";
 
 
 
-    mysqli_select_db($bis,$database_bis);
-    $query_appata = "SELECT * FROM application_data INNER JOIN users";
-    $appata = mysqli_query ($bis, $query_appata) or die (mysqli_error ($bis));
-    $row_appata = mysqli_fetch_assoc ($appata);
-    $_SESSION ['user_id'] = $row_appata['user_id'];
-    
+mysqli_select_db($bis, $database_bis);
+$query_appata = "SELECT * FROM application_data INNER JOIN users";
+$appata = mysqli_query($bis, $query_appata) or die(mysqli_error($bis));
+$row_appata = mysqli_fetch_assoc($appata);
+$_SESSION['user_id'] = $row_appata['user_id'];
+
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,15 +23,16 @@ include "../Connections/syscon.php";
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body class="body">
-    <div class="bodyCover"></div> 
+    <div class="bodyCover"></div>
     <?php
-        include('header.php');
+    include('header.php');
     ?>
     <div class="sidebarContainer">
-    <?php
+        <?php
         include('sidebar.php');
-    ?>
+        ?>
     </div>
 
     <!-- start button to up -->
@@ -45,7 +47,7 @@ include "../Connections/syscon.php";
                 <div class="addUser">
                     <a href="addUser.php" class="text-decoration-none text-white">
                         <button class="addUserBtn rounded-pill w-100 border-0" id="addUserBtn">إضافة مستخدم</button>
-                    </a>   
+                    </a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -76,74 +78,75 @@ include "../Connections/syscon.php";
                     <tbody>
                         <?php
                         if (isset($_POST['search'])) {
-                            $st=$_POST ['search'];
-                        $myquery="SELECT * FROM  users WHERE user_ar_name like '%$st%' ";
-                        $results=mysqli_query($bis,$myquery);
-                        while ($row=mysqli_fetch_array($results)){
+                            $st = $_POST['search'];
+                            $myquery = "SELECT * FROM  users WHERE user_ar_name like '%$st%' ";
+                            $results = mysqli_query($bis, $myquery);
+                            while ($row = mysqli_fetch_array($results)) {
                         ?>
-                        <tr>
-                            <td><?php echo $row['user_id']?></td>
-                            <td><?php echo $row['user_ar_name']?></td>
-                            <td>
-                            <?php if ($row['is_enable'] == "no") { ?>
-                                <a href="inableUser.php?id=<?php echo $row ['user_id']?>">
-                                <button class="btn btn-success w-50 fw-bold fs-5">تمكيــــن  </button>
-                                </a>
-                                <?php }else{?>
-                                
-                                <a href="disableUser.php?id=<?php echo $row ['user_id']?>">
-                                <button class="btn btn-danger w-50 fw-bold fs-5">تعـطيـــل  </button>
-                                </a>
-                                <?php } ?>
-                            </td>
-                            <td>
-                                <a href="updateUserData.php?id=<?php echo $row ['user_id']?>" class="text-decoration-none">
-                                    <button class="btn btn-warning">
-                                        <i class="fa-solid fa-pencil fa-lg p-1"></i>
-                                    </button>
-                                </a>
-                                <a href="deleteUserData.php?id=<?php echo $row ['user_id']?>"class="text-decoration-none">
-                                    <button class="btn btn-danger">
-                                        <i class="fa-solid fa-trash-can fa-lg p-1"></i>
-                                    </button>
-                                </a>
-                            </td>
-                        </tr>
-                        <?php }}
-                        else{
-                            $myquery="SELECT * FROM  users ";
-                            $results=mysqli_query($bis,$myquery);
-                            while ($row=mysqli_fetch_array($results)){
+                                <tr>
+                                    <td><?php echo $row['user_id'] ?></td>
+                                    <td><?php echo $row['user_ar_name'] ?></td>
+                                    <td>
+                                        <?php if ($row['is_enable'] == "no") { ?>
+                                            <a href="inableUser.php?id=<?php echo $row['user_id'] ?>">
+                                                <button class="btn btn-success w-50 fw-bold fs-5">تمكيــــن </button>
+                                            </a>
+                                        <?php } else { ?>
+
+                                            <a href="disableUser.php?id=<?php echo $row['user_id'] ?>">
+                                                <button class="btn btn-danger w-50 fw-bold fs-5">تعـطيـــل </button>
+                                            </a>
+                                        <?php } ?>
+                                    </td>
+                                    <td>
+                                        <a href="updateUserData.php?id=<?php echo $row['user_id'] ?>" class="text-decoration-none">
+                                            <button class="btn btn-warning">
+                                                <i class="fa-solid fa-pencil fa-lg p-1"></i>
+                                            </button>
+                                        </a>
+                                        <a href="deleteUserData.php?id=<?php echo $row['user_id'] ?>" class="text-decoration-none">
+                                            <button class="btn btn-danger">
+                                                <i class="fa-solid fa-trash-can fa-lg p-1"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php }
+                        } else {
+                            $myquery = "SELECT * FROM  users ";
+                            $results = mysqli_query($bis, $myquery);
+                            while ($row = mysqli_fetch_array($results)) {
                             ?>
-                        <tr>
-                            <td><?php echo $row['user_id']?></td>
-                            <td><?php echo $row['user_ar_name']?></td>
-                            <td>
-                            <?php if ($row['is_enable'] == "no") { ?>
-                                <a href="inableUser.php?id=<?php echo $row ['user_id']?>">
-                                <button class="btn btn-success w-50 fw-bold fs-5">تمكيــــن  </button>
-                                </a>
-                                <?php }else{?>
-                                
-                                <a href="disableUser.php?id=<?php echo $row ['user_id']?>">
-                                <button class="btn btn-danger w-50 fw-bold fs-5">تعـطيـــل  </button>
-                                </a>
-                                <?php } ?>
-                            </td>
-                            <td>
-                                <a href="updateUserData.php?id=<?php echo $row ['user_id']?>" class="text-decoration-none">
-                                    <button class="btn btn-warning">
-                                        <i class="fa-solid fa-pencil fa-lg p-1"></i>
-                                    </button>
-                                </a>
-                                <a href="deleteUserData.php?id=<?php echo $row ['user_id']?>"  class="text-decoration-none">
-                                    <button class="btn btn-danger">
-                                        <i class="fa-solid fa-trash-can fa-lg p-1"></i>
-                                    </button>
-                                </a>
-                            </td>
-                        </tr>
-                        <?php }} ?>
+                                <tr>
+                                    <td><?php echo $row['user_id'] ?></td>
+                                    <td><?php echo $row['user_ar_name'] ?></td>
+                                    <td>
+                                        <?php if ($row['is_enable'] == "no") { ?>
+                                            <a href="inableUser.php?id=<?php echo $row['user_id'] ?>">
+                                                <button class="btn btn-success w-50 fw-bold fs-5">تمكيــــن </button>
+                                            </a>
+                                        <?php } else { ?>
+
+                                            <a href="disableUser.php?id=<?php echo $row['user_id'] ?>">
+                                                <button class="btn btn-danger w-50 fw-bold fs-5">تعـطيـــل </button>
+                                            </a>
+                                        <?php } ?>
+                                    </td>
+                                    <td>
+                                        <a href="updateUserData.php?id=<?php echo $row['user_id'] ?>" class="text-decoration-none">
+                                            <button class="btn btn-warning">
+                                                <i class="fa-solid fa-pencil fa-lg p-1"></i>
+                                            </button>
+                                        </a>
+                                        <a href="deleteUserData.php?id=<?php echo $row['user_id'] ?>" class="text-decoration-none">
+                                            <button class="btn btn-danger">
+                                                <i class="fa-solid fa-trash-can fa-lg p-1"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                        <?php }
+                        } ?>
                     </tbody>
                 </table>
             </div>
@@ -153,7 +156,7 @@ include "../Connections/syscon.php";
 
     <div class="fixedFooter position-fixed bottom-0 start-0 end-0 z-3">
         <?php
-            include('footer.php');
+        include('footer.php');
         ?>
     </div>
 
@@ -161,6 +164,7 @@ include "../Connections/syscon.php";
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/jquery-3.6.4.js"></script>
     <script src="../js/main.js"></script>
-    
+
 </body>
+
 </html>
