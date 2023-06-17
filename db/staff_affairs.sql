@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2023 at 02:42 AM
+-- Generation Time: Jun 17, 2023 at 03:46 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -103,19 +103,13 @@ CREATE TABLE `doctors_account` (
 --
 
 INSERT INTO `doctors_account` (`DoctorCode`, `Doctor_ar_Name`, `Doctor_eng_Name`, `National_id`, `Mobile`, `Academic_Mail`, `Personal_Mail`, `Notes`, `Doctor_image`, `Department_id`, `uni_id`, `Faculty_id`, `Doctor_job_id`, `date_of_birth`, `hiring_date`, `qualifications`) VALUES
-(14, 'pola', 'sherif', '12345678912345', '456444', 'pola@123.COM', 'pola@12.COM', '88888888', '2.JPG', 1, 1, 1, 1, '0000-00-00', '2000-12-19', '888888888'),
-(18, 'pola', 'sherif', '12345678912345', '456444', 'pola@123.COM', 'pola@12.COM', '8888', '2.JPG', 2, 1, 1, 2, '8888-08-08', '8888-08-08', '88888'),
-(24, 'محمد عبد السلام', 'pola', '12345678912345', '456444', 'pola@123.COM', 'pola@12.COM', '888888', '1.jpg', 7, 1, 1, 8, '8888-08-08', '8888-08-08', '11111111111'),
-(25, 'محمد عبد السلام', 'pola', '12345678912345', '456444', 'pola@123.COM', 'pola@12.COM', '', '1.jpg', 5, 1, 1, 4, '0000-00-00', '0000-00-00', ''),
-(27, 'محمد عبد السلام', 'pola', '12345678912345', '456444', 'pola@123.COM', 'pola@12.COM', '', '1.jpg', 6, 1, 1, 5, '0000-00-00', '0000-00-00', ''),
-(28, 'محمد عبد السلام', 'pola', '12345678912345', '456444', 'pola@123.COM', 'pola@12.COM', '', '1.jpg', 7, 1, 1, 6, '0000-00-00', '0000-00-00', ''),
-(32, 'محمد عبد السلام', 'pola', '12345678912345', '456444', 'pola@123.COM', 'pola@12.COM', '', '1.jpg', 1, 1, 1, 7, '0000-00-00', '0000-00-00', ''),
-(41, 'بولا', 'pola', '12345678912345', '+201201237779', 'pola@123.COMdd', 'pola@dd12.COM', 'pola555', '2.JPG', 2, 1, 1, 8, '5555-05-05', '2222-02-22', 'pola555'),
-(43, 'pola2', 'polads', '12345678912345', '+201201237779', 'polssa@123.COMdds', 'pola@12.COMssdds', '888888', '2.JPG', 4, 1, 1, 5, '8888-08-08', '8888-08-08', '8888888888'),
-(44, 'محمد عبد السلام5', 'polads', '12345678912345', '+201201237779', 'pola@123.COM99', 'pola@12.COMsff', '9999999', '2.JPG', 5, 1, 1, 3, '9999-09-09', '9999-09-09', '99999999999'),
-(45, 'بولا', 'pola', '12345678912345', '456444', 'poalssa@123.COM', 'posssla@12.COM', '22222', '6142.jpg', 6, 1, 1, 4, '1111-11-11', '2222-02-22', '1111'),
-(46, 'محمد عبد السلام5', 'pola', '12345678912345', '456444', 'polssa@123.COM', 'posssla@12.COM', '22222222', '110101.jpg', 2, 1, 1, 2, '1111-11-11', '2222-02-22', '1111111'),
-(47, 'بولا', 'pola99', '12345678912345', '456444', 'poalssa@123.COM', 'pola@12.COMs', '22222', '437858.jpg', 3, 1, 1, 6, '1111-11-11', '2222-02-22', '111111');
+(14, 'محمد عبد السلام', 'mohamed abd el-salam', '12345678912345', '01201237779', 'mohamed.bis@commerce.helwan.edu.eg', 'mohamed.bis@yahoo.com', 'لا يوجد', '1.jpg', 2, 1, 1, 1, '1970-06-24', '2000-12-01', 'BIS'),
+(48, 'بولا شريف بدر', 'paula sherif badr', '30012193100077', '01201237779', 'pola.sherif.badr@commerce.helwan.edu.eg', 'pola88.sherif@yahoo.com', 'لا يوجد', '157233.jpg', 6, 1, 1, 8, '2000-12-19', '2019-09-20', 'BIS'),
+(49, 'بافلي محب ماركو', 'bavly moheb marco', '30102113100119', '01287877660', 'pavly.moheb.1920305@commerce.helwan.edu.eg', 'bavlymoheb6@gmail.com', 'لا يوجد', '373857.jpg', 1, 1, 1, 1, '2001-02-11', '2020-01-02', 'BIS'),
+(50, 'أنطون محب ماركو', 'Aoton moheb marco', '30102113100135', '01287877008', 'anton.moheb.1920303@commerce.helwan.edu.eg', 'antonmarco060@gmail.com', 'لا يوجد', '878070.jpg', 6, 1, 1, 6, '2001-02-11', '2019-09-19', 'BIS'),
+(51, 'يوسف محمد أحمد', 'youssef mohamed ahmed', '30102113100463', '01013964407', 'youssef.mohamed.1920463@commerce.helwan.edu.eg', 'youssef.mohamed@yahoo.com', 'لا يوجد', '984636.jpg', 6, 1, 1, 7, '2001-05-15', '2019-08-21', 'BIS'),
+(54, 'انجي ايهاب عوض', 'engy ihab awad', '30107223100491', '01277027663', 'engy.ihab.1920491@commerce.helwan.edu.eg', 'engy.ihab@yahoo.com', 'لا يوجد', '122973.jpg', 6, 1, 1, 1, '2001-07-26', '2019-07-12', 'BIS'),
+(55, 'كارين مرقص ذكي', 'karen marcos zaky', '30107223100179', '01274527161', 'karen.marcos.1920179@commerce.helwan.edu.eg', 'karen.marcos@yahoo.com', 'لا يوجد', '581843.jpg', 6, 1, 1, 4, '2001-11-28', '2019-10-24', 'BIS');
 
 -- --------------------------------------------------------
 
@@ -135,14 +129,14 @@ CREATE TABLE `doctor_jobs` (
 --
 
 INSERT INTO `doctor_jobs` (`Doctor_job_id`, `Doctor_job_ar_name`, `Doctor_job_eng_name`, `job_order`) VALUES
-(1, 'استاذ', 'Professor', 0),
-(2, 'استاذ مساعد', 'Associate Professor', 0),
-(3, 'مدرس', 'Lecturer', 0),
-(4, 'مدرس مساعد', 'lecturer Assistant', 0),
-(5, 'معيد', 'Teaching Assistant', 0),
-(6, 'استاذ متفرغ', '-', 0),
-(7, 'استاذ مساعد متفرغ', '-', 0),
-(8, 'مدرس متفرغ', '', 0);
+(1, 'استاذ', 'Professor', 7),
+(2, 'استاذ مساعد', 'Associate Professor', 5),
+(3, 'مدرس', 'Lecturer', 3),
+(4, 'مدرس مساعد', 'lecturer Assistant', 2),
+(5, 'معيد', 'Teaching Assistant', 1),
+(6, 'استاذ متفرغ', '-', 8),
+(7, 'استاذ مساعد متفرغ', '-', 6),
+(8, 'مدرس متفرغ', '', 4);
 
 -- --------------------------------------------------------
 
@@ -181,10 +175,9 @@ CREATE TABLE `p74_completedata` (
 --
 
 INSERT INTO `p74_completedata` (`id_completeData`, `CompleteData`, `doctorJobInput`, `doctorCodeInput`) VALUES
-(1, 'pola\r\n', 2, 43),
-(2, 'pola123', 1, 14),
-(3, '555555', 1, 14),
-(4, '1111111111', 1, 14);
+(2, 'معيد', 1, 14),
+(3, 'استاذ مساعد', 1, 14),
+(4, 'استاذ', 1, 14);
 
 -- --------------------------------------------------------
 
@@ -209,8 +202,8 @@ CREATE TABLE `p74_penalties` (
 --
 
 INSERT INTO `p74_penalties` (`penality_id`, `doctorCodeInput`, `penaltyDescription`, `penaltyReason`, `penaltyFile`, `penaltyDuration`, `startDate`, `endDate`, `penaltyNotes`) VALUES
-(1, 18, 'pola', '2.JPG', '4', '4444-04-04', '5555-05-05', '0000-00-00', 'pola'),
-(3, 25, 'pola', 'no', '2.JPG', '5', '1111-11-11', '2222-02-22', 'no');
+(4, 55, 'فصل مؤقت', 'اداري', 'karen.jpg', '20 يوم', '2023-01-01', '2023-01-20', 'لا يوجد'),
+(5, 48, 'فصل مؤقت', 'اداري', 'paulaSherif.jpg', '10 ايام', '2023-01-01', '2023-01-10', 'لا يوجد');
 
 -- --------------------------------------------------------
 
@@ -236,7 +229,8 @@ CREATE TABLE `p74_secondment_data` (
 --
 
 INSERT INTO `p74_secondment_data` (`Secondment_id`, `doctorCodeInput`, `secondmentDescription`, `secondmentDestination`, `secondmentType`, `secondmentDuration`, `startDate`, `endDate`, `secondmentFile`, `secondmentNotes`) VALUES
-(1, 27, 'pola', 'pola', 'inside', '5', '1111-11-11', '2222-02-22', '2.JPG', 'pola');
+(3, 54, 'رسمية', 'الامارات العربية المتحدة', 'outside', '1 شهر', '2023-01-01', '2023-02-01', 'engy.jpg', 'لا يوجد'),
+(4, 49, 'رسمية', 'الامارات العربية المتحدة', 'outside', '2 شهر', '2023-01-01', '2023-03-01', 'bavly.jpg', 'لا يوجد');
 
 -- --------------------------------------------------------
 
@@ -261,9 +255,8 @@ CREATE TABLE `p74_vacation_data` (
 --
 
 INSERT INTO `p74_vacation_data` (`Vacation_id`, `doctorCodeInput`, `vacationDescription`, `startDate`, `endDate`, `vacationReason`, `vacationFile`, `vacationNotes`, `vacationDuration`) VALUES
-(1, 18, 'pola', '2000-02-19', '2060-02-15', 'pola', '2.JPG', 'pola', '2'),
-(2, 28, 'pola', '1111-11-11', '2222-02-22', 'pola', '1.jpg', '555555', '3'),
-(3, 27, 'pola', '5000-09-09', '8889-08-08', 'pola', '2.JPG', 'pola', '4');
+(4, 50, 'رسمية', '2023-01-01', '2023-01-20', 'لا يوجد', 'anton.jpg', 'لا يوجد', '20 يوم'),
+(5, 51, 'رسمية', '2023-01-01', '2023-01-05', 'لا يوجد', 'youssef.jpg', 'لا يوجد', '5 ايام');
 
 -- --------------------------------------------------------
 
@@ -309,10 +302,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `user_ar_name`, `username`, `password`, `user_type_id`, `added_date`, `added_by`, `Notes`, `is_enable`, `image`) VALUES
 (1, 'محمد عبد السلام', 'mohamed', '123', 1, '2023-03-09 15:28:23', 1, NULL, 'yes', '1.jpg'),
-(2, 'بولا شريف', 'pola', '123', 2, '2023-05-19 17:30:57', 1, 'no', 'yes', '2.JPG'),
-(5, 'pol', 'polll', '111', 2, '2023-05-17 19:09:31', 0, '111', 'yes', '501469.jpg'),
-(7, 'polaaa', 'polaaaa', 'aaa', 1, '2023-05-18 19:17:23', 0, 'aaa', 'yes', '532764.jpg'),
-(11, 'polaaawr', 'polllwr', 'rrr', 1, '2023-05-19 20:45:59', 1, 'rrrr', 'yes', '118214.png');
+(2, 'بولا شريف بدر', 'pola', '123', 2, '2023-05-19 17:30:57', 1, 'no', 'no', '2.JPG');
 
 -- --------------------------------------------------------
 
@@ -439,7 +429,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `doctors_account`
 --
 ALTER TABLE `doctors_account`
-  MODIFY `DoctorCode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `DoctorCode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `doctor_jobs`
@@ -463,19 +453,19 @@ ALTER TABLE `p74_completedata`
 -- AUTO_INCREMENT for table `p74_penalties`
 --
 ALTER TABLE `p74_penalties`
-  MODIFY `penality_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `penality_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `p74_secondment_data`
 --
 ALTER TABLE `p74_secondment_data`
-  MODIFY `Secondment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Secondment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `p74_vacation_data`
 --
 ALTER TABLE `p74_vacation_data`
-  MODIFY `Vacation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Vacation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `universities`
