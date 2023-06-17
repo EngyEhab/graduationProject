@@ -1,9 +1,10 @@
 <?php
-include "../Connections/syscon.php"; 
+include "../Connections/syscon.php";
 ?>
-        
+
 <!DOCTYPE html>
 <html lang="ar">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,15 +14,16 @@ include "../Connections/syscon.php";
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body class="body">
-    <div class="bodyCover"></div> 
+    <div class="bodyCover"></div>
     <?php
-        include('header.php');
+    include('header.php');
     ?>
     <div class="sidebarContainer">
-    <?php
+        <?php
         include('sidebar.php');
-    ?>
+        ?>
     </div>
 
     <!-- start button to up -->
@@ -29,7 +31,7 @@ include "../Connections/syscon.php";
         <i class="fa-solid fa-circle-arrow-up fa-xl" style="color: #ffffff;"></i>
     </button>
     <!-- end button to up -->
-    
+
     <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -58,36 +60,37 @@ include "../Connections/syscon.php";
                         </tr>
                     </thead>
                     <tbody>
-                    <?php   if (isset($_POST['search'])) {
-                    $st=$_POST ['search'];
-                    $myquery="SELECT * FROM doctors_account 
-                    INNER JOIN  doctor_jobs  
-                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%' ";
-                    $results=mysqli_query($bis,$myquery);
-                    while ($row=mysqli_fetch_array($results)){  
-                    ?>
-                        <tr>
-                            <td><?php echo $row['DoctorCode']; ?></td>
-                            <td><?php echo $row['Doctor_ar_Name']; ?></td>
-                            <td><?php echo $row['Doctor_job_ar_name']; ?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#addPenaltyModal" class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة  </button></td>
-                        </tr>
-                    <?php }} 
-                    else{
-                        $myquery="SELECT * FROM doctors_account 
+                        <?php if (isset($_POST['search'])) {
+                            $st = $_POST['search'];
+                            $myquery = "SELECT * FROM doctors_account 
+                                        INNER JOIN  doctor_jobs  
+                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%' ";
+                            $results = mysqli_query($bis, $myquery);
+                            while ($row = mysqli_fetch_array($results)) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $row['DoctorCode']; ?></td>
+                                    <td><?php echo $row['Doctor_ar_Name']; ?></td>
+                                    <td><?php echo $row['Doctor_job_ar_name']; ?></td>
+                                    <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name'] ?>" data-bs-toggle="modal" data-bs-target="#addPenaltyModal" class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة </button></td>
+                                </tr>
+                            <?php }
+                        } else {
+                            $myquery = "SELECT * FROM doctors_account 
                         INNER JOIN  doctor_jobs  
                         ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
-                        $results=mysqli_query($bis,$myquery);
-                        while ($row=mysqli_fetch_array($results)){
-                        
-                    ?>
-                        <tr>
-                            <td><?php echo $row['DoctorCode']; ?></td>
-                            <td><?php echo $row['Doctor_ar_Name']; ?></td>
-                            <td><?php echo $row['Doctor_job_ar_name']; ?></td>
-                            <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name']?>" data-bs-toggle="modal" data-bs-target="#addPenaltyModal" class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة  </button></td>
-                        </tr>
-                    <?php  }} ?>
+                            $results = mysqli_query($bis, $myquery);
+                            while ($row = mysqli_fetch_array($results)) {
+
+                            ?>
+                                <tr>
+                                    <td><?php echo $row['DoctorCode']; ?></td>
+                                    <td><?php echo $row['Doctor_ar_Name']; ?></td>
+                                    <td><?php echo $row['Doctor_job_ar_name']; ?></td>
+                                    <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name'] ?>" data-bs-toggle="modal" data-bs-target="#addPenaltyModal" class="border-0 rounded-pill w-50 fs-4 tableAddPenaltyBtn">إضافة </button></td>
+                                </tr>
+                        <?php  }
+                        } ?>
                     </tbody>
                 </table>
             </div>
@@ -95,61 +98,64 @@ include "../Connections/syscon.php";
     </div>
 
     <form action="" method="POST" id="addPenaltyForm">
-    <?php  if (isset($_POST['submit'])) {
-    if (isset($_POST['doctorCodeInput']) && 
-        isset($_POST['penaltyDescription']) && isset($_POST['penaltyDuration']) &&
-        isset($_POST['startDate']) && isset($_POST['endDate']) && isset($_POST['penaltyReason']) && 
-        isset($_POST['penaltyNotes']) ){
-            $doctorCodeInput=$_POST['doctorCodeInput'];
-            
-            $penaltyDescription =$_POST['penaltyDescription']; 
-            $startDate=$_POST["startDate"]; 
-            $endDate=$_POST["endDate"]; 
-            $penaltyReason=$_POST["penaltyReason"]; 
-            // $penaltyFile=$_POST["penaltyFile"]; 
-            $penaltyNotes=$_POST["penaltyNotes"]; 
-            $penaltyDuration=$_POST["penaltyDuration"]; 
-            
-            $filFile = $_FILES['penaltyFile']['name'];
-            $tmp_dir = $_FILES['penaltyFile']['tmp_name'];
-            $imgSize = $_FILES['penaltyFile']['size']; 
+        <?php if (isset($_POST['submit'])) {
+            if (
+                isset($_POST['doctorCodeInput']) &&
+                isset($_POST['penaltyDescription']) && isset($_POST['penaltyDuration']) &&
+                isset($_POST['startDate']) && isset($_POST['endDate']) && isset($_POST['penaltyReason']) &&
+                isset($_POST['penaltyNotes'])
+            ) {
+                $doctorCodeInput = $_POST['doctorCodeInput'];
 
-            if(!empty($filFile))
-            {
-            
-            $upload_dir = '../files/penalty_file/'; // upload directory
-            
-            $imgExt = strtolower(pathinfo($filFile,PATHINFO_EXTENSION)); // get image extension
-            
-            // valid image extensions
-            $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'pdf', 'docx'); // valid extensions
-            
-            // rename uploading image
-            $coverpic = rand(1000,1000000).".".$imgExt;
-            
-            // allow valid image file formats
-            if(in_array($imgExt, $valid_extensions)){ 
-            // Check file size '5MB'
-            if($imgSize < 5000000) {
-            move_uploaded_file($tmp_dir,$upload_dir.$coverpic);
-            }
-        }}
+                $penaltyDescription = $_POST['penaltyDescription'];
+                $startDate = $_POST["startDate"];
+                $endDate = $_POST["endDate"];
+                $penaltyReason = $_POST["penaltyReason"];
+                // $penaltyFile=$_POST["penaltyFile"]; 
+                $penaltyNotes = $_POST["penaltyNotes"];
+                $penaltyDuration = $_POST["penaltyDuration"];
 
-            $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
-            if ($bis->connect_error) {
-                die('Could not connect to the database.');
-            }
-            else {
-                $Select = "SELECT * FROM p74_penalties ";
-                $Insert = "INSERT INTO p74_penalties(doctorCodeInput, penaltyDescription, penaltyDuration, startDate, endDate, penaltyReason, penaltyNotes, penaltyFile) values(?, ?, ?, ?, ?, ?, ?, ?)";
-                $stmt = $bis->prepare($Select);
-                    $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("ssssssss",$doctorCodeInput, $penaltyDescription, $penaltyDuration, $startDate, $endDate, $penaltyReason, $penaltyNotes, $penaltyFile);
-                    if ($stmt->execute()) {
+                $filFile = $_FILES['penaltyFile']['name'];
+                $tmp_dir = $_FILES['penaltyFile']['tmp_name'];
+                $imgSize = $_FILES['penaltyFile']['size'];
+
+                if (!empty($filFile)) {
+
+                    $upload_dir = '../files/penalty_file/'; // upload directory
+
+                    $imgExt = strtolower(pathinfo($filFile, PATHINFO_EXTENSION)); // get image extension
+
+                    // valid image extensions
+                    $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'pdf', 'docx'); // valid extensions
+
+                    // rename uploading image
+                    $coverpic = rand(1000, 1000000) . "." . $imgExt;
+
+                    // allow valid image file formats
+                    if (in_array($imgExt, $valid_extensions)) {
+                        // Check file size '5MB'
+                        if ($imgSize < 5000000) {
+                            move_uploaded_file($tmp_dir, $upload_dir . $coverpic);
+                        }
                     }
-                    else {
+                }
+
+                $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
+                if ($bis->connect_error) {
+                    die('Could not connect to the database.');
+                } else {
+                    $Select = "SELECT * FROM p74_penalties ";
+                    $Insert = "INSERT INTO p74_penalties(doctorCodeInput, penaltyDescription, penaltyDuration, startDate, endDate, penaltyReason, penaltyNotes, penaltyFile) values(?, ?, ?, ?, ?, ?, ?, ?)";
+                    $stmt = $bis->prepare($Select);
+                    $stmt = $bis->prepare($Insert);
+                    $stmt->bind_param("ssssssss", $doctorCodeInput, $penaltyDescription, $penaltyDuration, $startDate, $endDate, $penaltyReason, $penaltyNotes, $penaltyFile);
+                    if ($stmt->execute()) {
+                    } else {
                         echo $stmt->error;
-                    }}}} ?>
+                    }
+                }
+            }
+        } ?>
         <div class="w-75 mx-auto m-5">
             <div class="modal modal-xl fade" id="addPenaltyModal">
                 <div class="modal-dialog  modal-dialog-centered">
@@ -158,23 +164,23 @@ include "../Connections/syscon.php";
                             <div class="container dataContainer p-3">
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4 text-nowrap">كــــــــــــــود العضــــــــــــــو  :</label>
+                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4 text-nowrap">كــــــــــــــود العضــــــــــــــو :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="doctorNameInput" class="mainText fw-bold fs-4 text-nowrap">اســـــــــــــم العضــــــــــــــو  :</label>
+                                        <label for="doctorNameInput" class="mainText fw-bold fs-4 text-nowrap">اســـــــــــــم العضــــــــــــــو :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="penaltyDescription" class="mainText fw-bold fs-4 text-nowrap">  الجــــــــــزاء أو العقوبـــــــــة :</label>
+                                        <label for="penaltyDescription" class="mainText fw-bold fs-4 text-nowrap"> الجــــــــــزاء أو العقوبـــــــــة :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <input type="text" class="form-control" name="penaltyDescription" id="penaltyDescription">
@@ -182,19 +188,19 @@ include "../Connections/syscon.php";
                                 </div>
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <label for="penaltyDuration" class="mainText fw-bold fs-4 text-nowrap">المــــــــــــــــــــــــــــــــــــــدة  :</label>
+                                        <label for="penaltyDuration" class="mainText fw-bold fs-4 text-nowrap">المــــــــــــــــــــــــــــــــــــــدة :</label>
                                     </div>
                                     <div class="col-md-4">
                                         <input type="text" class="form-control" name="penaltyDuration" id="penaltyDuration">
                                     </div>
                                     <div class="col-md-1 text-center">
-                                        <label for="startDate" class="mainText fw-bold fs-4 text-nowrap">مــن  :</label>
+                                        <label for="startDate" class="mainText fw-bold fs-4 text-nowrap">مــن :</label>
                                     </div>
                                     <div class="col-md-2">
                                         <input type="text" class="form-control" name="startDate" id="startDate">
                                     </div>
                                     <div class="col-md-1 text-center">
-                                        <label for="endDate" class="mainText fw-bold fs-4 text-nowrap">إلــى  :</label>
+                                        <label for="endDate" class="mainText fw-bold fs-4 text-nowrap">إلــى :</label>
                                     </div>
                                     <div class="col-md-2">
                                         <input type="text" class="form-control" name="endDate" id="endDate">
@@ -203,7 +209,7 @@ include "../Connections/syscon.php";
 
                                 <div class="row my-2">
                                     <div class="col-md-2 text-center">
-                                        <label for="penaltyReason" class="mainText fw-bold fs-4 text-nowrap">الســـــــــــــــــــــــــــــــــبب  :</label>
+                                        <label for="penaltyReason" class="mainText fw-bold fs-4 text-nowrap">الســـــــــــــــــــــــــــــــــبب :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <textarea name="penaltyReason" id="penaltyReason" rows="2" class="form-control fs-4"></textarea>
@@ -211,20 +217,20 @@ include "../Connections/syscon.php";
                                 </div>
                                 <div class="row my-2">
                                     <div class="col-md-2 text-center">
-                                        <label for="penaltyFile" class="form-label mainText fw-bold fs-4 text-nowrap"> إرفاق ملف الجزاء أو العقوبة :</label>  
+                                        <label for="penaltyFile" class="form-label mainText fw-bold fs-4 text-nowrap"> إرفاق ملف الجزاء أو العقوبة :</label>
                                     </div>
                                     <div class="col-md-2">
                                         <div class="fs-4 w-100 choosePenaltyFileBtn text-center p-1 rounded-2">ارفق المــلــف </div>
                                     </div>
                                     <div class="col-md-8 align-self-center">
                                         <input class="form-control d-none" type="file" accept="image/*" id="penaltyFile" name="penaltyFile">
-                                        <p class="selectedPenaltyFile fs-4"></p>                   
+                                        <p class="selectedPenaltyFile fs-4"></p>
                                     </div>
                                 </div>
 
                                 <div class="row my-2">
                                     <div class="col-md-2 text-center">
-                                        <label for="penaltyNotes" class="mainText fw-bold fs-4 text-nowrap">ملاحظــــــــــــــــــــــــــــات  :</label>
+                                        <label for="penaltyNotes" class="mainText fw-bold fs-4 text-nowrap">ملاحظــــــــــــــــــــــــــــات :</label>
                                     </div>
                                     <div class="col-md-10">
                                         <textarea name="penaltyNotes" id="penaltyNotes" rows="3" class="form-control fs-4"></textarea>
@@ -233,8 +239,8 @@ include "../Connections/syscon.php";
 
                                 <div class="row my-2 justify-content-end">
                                     <div class="col-md-2">
-                                        <button type="submit" class="addPenaltyBtn rounded-pill border-0 w-100 my-3"  id="addPenaltyBtn" name="submit">إضافة</button>
-                                    </div> 
+                                        <button type="submit" class="addPenaltyBtn rounded-pill border-0 w-100 my-3" id="addPenaltyBtn" name="submit">إضافة</button>
+                                    </div>
                                 </div>
 
                             </div>
@@ -247,13 +253,14 @@ include "../Connections/syscon.php";
 
     <div class="fixedFooter position-fixed bottom-0 start-0 end-0 z-3">
         <?php
-            include('footer.php');
+        include('footer.php');
         ?>
     </div>
-    
+
     <script src="../js/all.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/jquery-3.6.4.js"></script>
     <script src="../js/main.js"></script>
 </body>
+
 </html>
