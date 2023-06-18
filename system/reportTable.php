@@ -89,12 +89,12 @@ if (isset($_GET['reportAbout'])) {
                             INNER JOIN  doctor_jobs
                             ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
                             INNER JOIN  p74_penalties
-                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate>='$startDate' AND p74_penalties.endDate<='$endDate' AND Doctor_ar_Name like '%$st%'");
+                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate >= '$startDate' AND p74_penalties.endDate <= '$endDate' AND Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                         ?>
                                     <tr>
-                                        <td><?php echo $row['penality_id']; ?></td>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
                                         <td><?php echo $row['Doctor_ar_Name'] ?></td>
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
@@ -119,7 +119,7 @@ if (isset($_GET['reportAbout'])) {
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
                                     <tr>
-                                        <td><?php echo $row['penality_id']; ?></td>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
                                         <td><?php echo $row['Doctor_ar_Name'] ?></td>
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
@@ -138,7 +138,7 @@ if (isset($_GET['reportAbout'])) {
                     INNER JOIN  doctor_jobs
                     ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
                     INNER JOIN  p74_vacation_data
-                    ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate>='$startDate' AND p74_vacation_data.endDate<='$endDate' AND Doctor_ar_Name like '%$st%'");
+                    ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate >= '$startDate' AND p74_vacation_data.endDate <= '$endDate' AND Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
 
@@ -187,7 +187,7 @@ if (isset($_GET['reportAbout'])) {
                     INNER JOIN  doctor_jobs
                     ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
                     INNER JOIN  p74_secondment_data
-                    ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_secondment_data.startDate>='$startDate' AND p74_secondment_data.endDate<='$endDate' AND Doctor_ar_Name like '%$st%'");
+                    ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_secondment_data.startDate >= '$startDate' AND p74_secondment_data.endDate <= '$endDate' AND Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -238,12 +238,12 @@ if (isset($_GET['reportAbout'])) {
     INNER JOIN  doctor_jobs
     ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
     INNER JOIN  p74_penalties
-    ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate='$startDate' AND p74_penalties.endDate<='$endDate'");
+    ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate >= '$startDate' AND p74_penalties.endDate <= '$endDate'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['penality_id']; ?></td>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
                                         <td><?php echo $row['Doctor_ar_Name'] ?></td>
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
@@ -267,7 +267,7 @@ if (isset($_GET['reportAbout'])) {
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
                                     <tr>
-                                        <td><?php echo $row['penality_id']; ?></td>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
                                         <td><?php echo $row['Doctor_ar_Name'] ?></td>
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
@@ -286,7 +286,7 @@ ON doctors_account.Department_id=departments.Department_id
 INNER JOIN  doctor_jobs
 ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
 INNER JOIN  p74_vacation_data
-ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate>='$startDate' AND p74_vacation_data.endDate<='$endDate'");
+ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate >= '$startDate' AND p74_vacation_data.endDate <= '$endDate'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
 
@@ -335,7 +335,7 @@ ON doctors_account.Department_id=departments.Department_id
 INNER JOIN  doctor_jobs
 ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
 INNER JOIN  p74_secondment_data
-ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_secondment_data.startDate>='$startDate' AND p74_secondment_data.endDate<='$endDate'");
+ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_secondment_data.startDate >= '$startDate' AND p74_secondment_data.endDate <= '$endDate'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
