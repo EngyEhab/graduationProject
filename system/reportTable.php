@@ -8,9 +8,9 @@ $startDate = "";
 $endDate = "";
 if (isset($_GET['reportAbout'])) {
     $reportAbout = $_GET['reportAbout'];
+    $startDate = $_GET['startDate'];
+    $endDate = $_GET['endDate'];
 }
-$startDate = $_GET['startDate'];
-$endDate = $_GET['endDate'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,17 +89,17 @@ $endDate = $_GET['endDate'];
                             INNER JOIN  doctor_jobs
                             ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
                             INNER JOIN  p74_penalties
-                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate>=$startDate AND p74_penalties.endDate<=$endDate AND Doctor_ar_Name like '%$st%'");
+                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate>='$startDate' AND p74_penalties.endDate<='$endDate' AND Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                         ?>
                                     <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['penality_id']; ?></td>
                                         <td><?php echo $row['Doctor_ar_Name'] ?></td>
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                         <td>
-                                            <a href="penaltyDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                            <a href="penaltyDetails.php?id=<?php echo $row['penality_id']; ?>">
                                                 <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                             </a>
                                         </td>
@@ -119,12 +119,12 @@ $endDate = $_GET['endDate'];
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
                                     <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['penality_id']; ?></td>
                                         <td><?php echo $row['Doctor_ar_Name'] ?></td>
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                         <td>
-                                            <a href="penaltyDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                            <a href="penaltyDetails.php?id=<?php echo $row['penality_id']; ?>">
                                                 <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                             </a>
                                         </td>
@@ -138,7 +138,7 @@ $endDate = $_GET['endDate'];
                     INNER JOIN  doctor_jobs
                     ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
                     INNER JOIN  p74_vacation_data
-                    ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate>=$startDate AND p74_vacation_data.endDate<=$endDate AND Doctor_ar_Name like '%$st%'");
+                    ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate>='$startDate' AND p74_vacation_data.endDate<='$endDate' AND Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
 
@@ -149,7 +149,7 @@ $endDate = $_GET['endDate'];
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                         <td>
-                                            <a href="vacationDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                            <a href="vacationDetails.php?id=<?php echo $row['Vacation_id']; ?>">
                                                 <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                             </a>
                                         </td>
@@ -174,7 +174,7 @@ $endDate = $_GET['endDate'];
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                         <td>
-                                            <a href="vacationDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                            <a href="vacationDetails.php?id=<?php echo $row['Vacation_id']; ?>">
                                                 <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                             </a>
                                         </td>
@@ -187,7 +187,7 @@ $endDate = $_GET['endDate'];
                     INNER JOIN  doctor_jobs
                     ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
                     INNER JOIN  p74_secondment_data
-                    ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_secondment_data.startDate>=$startDate AND p74_secondment_data.endDate<=$endDate AND Doctor_ar_Name like '%$st%'");
+                    ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_secondment_data.startDate>='$startDate' AND p74_secondment_data.endDate<='$endDate' AND Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -197,7 +197,7 @@ $endDate = $_GET['endDate'];
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                         <td>
-                                            <a href="secondmentDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                            <a href="secondmentDetails.php?id=<?php echo $row['Secondment_id']; ?>">
                                                 <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                             </a>
                                         </td>
@@ -221,7 +221,7 @@ $endDate = $_GET['endDate'];
                                             <td><?php echo $row['Department_ar_name'] ?></td>
                                             <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                             <td>
-                                                <a href="secondmentDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                                <a href="secondmentDetails.php?id=<?php echo $row['Secondment_id']; ?>">
                                                     <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                                 </a>
                                             </td>
@@ -238,17 +238,17 @@ $endDate = $_GET['endDate'];
     INNER JOIN  doctor_jobs
     ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
     INNER JOIN  p74_penalties
-    ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate>=$startDate AND p74_penalties.endDate<=$endDate");
+    ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate='$startDate' AND p74_penalties.endDate<='$endDate'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['penality_id']; ?></td>
                                         <td><?php echo $row['Doctor_ar_Name'] ?></td>
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                         <td>
-                                            <a href="penaltyDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                            <a href="penaltyDetails.php?id=<?php echo $row['penality_id']; ?>">
                                                 <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                             </a>
                                         </td>
@@ -267,12 +267,12 @@ $endDate = $_GET['endDate'];
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
                                     <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['penality_id']; ?></td>
                                         <td><?php echo $row['Doctor_ar_Name'] ?></td>
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                         <td>
-                                            <a href="penaltyDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                            <a href="penaltyDetails.php?id=<?php echo $row['penality_id']; ?>">
                                                 <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                             </a>
                                         </td>
@@ -286,7 +286,7 @@ ON doctors_account.Department_id=departments.Department_id
 INNER JOIN  doctor_jobs
 ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
 INNER JOIN  p74_vacation_data
-ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate>=$startDate AND p74_vacation_data.endDate<=$endDate");
+ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate>='$startDate' AND p74_vacation_data.endDate<='$endDate'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
 
@@ -297,7 +297,7 @@ ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacati
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                         <td>
-                                            <a href="vacationDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                            <a href="vacationDetails.php?id=<?php echo $row['Vacation_id']; ?>">
                                                 <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                             </a>
                                         </td>
@@ -322,7 +322,7 @@ ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput ");
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                         <td>
-                                            <a href="vacationDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                            <a href="vacationDetails.php?id=<?php echo $row['Vacation_id']; ?>">
                                                 <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                             </a>
                                         </td>
@@ -335,7 +335,7 @@ ON doctors_account.Department_id=departments.Department_id
 INNER JOIN  doctor_jobs
 ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
 INNER JOIN  p74_secondment_data
-ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_secondment_data.startDate>=$startDate AND p74_secondment_data.endDate<=$endDate");
+ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_secondment_data.startDate>='$startDate' AND p74_secondment_data.endDate<='$endDate'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -345,7 +345,7 @@ ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_seco
                                         <td><?php echo $row['Department_ar_name'] ?></td>
                                         <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                         <td>
-                                            <a href="secondmentDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                            <a href="secondmentDetails.php?id=<?php echo $row['Secondment_id']; ?>">
                                                 <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                             </a>
                                         </td>
@@ -369,7 +369,7 @@ ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_seco
                                             <td><?php echo $row['Department_ar_name'] ?></td>
                                             <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                             <td>
-                                                <a href="secondmentDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                                <a href="secondmentDetails.php?id=<?php echo $row['Secondment_id']; ?>">
                                                     <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
                                                 </a>
                                             </td>
