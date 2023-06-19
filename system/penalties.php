@@ -55,7 +55,7 @@ include "../Connections/syscon.php";
     </div>
     <!-- end search and add member button -->
 
-    <div class="container my-5">
+    <!-- <div class="container my-5">
         <div class="row gy-5 gx-0 justify-content-center " id="members">
             <?php
             if (isset($_POST['search'])) {
@@ -98,6 +98,70 @@ include "../Connections/syscon.php";
                     </div>
             <?php }
             } ?>
+        </div>
+    </div> -->
+
+    <div class="container-fluid my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+                <table class="table text-center fs-4 bg-white shadow rounded-2">
+                    <thead class="mainText table-light">
+                        <tr>
+                            <th>كود العضو</th>
+                            <th>اسم العضو</th>
+                            <th>الدرجة الوظيفية الحالية</th>
+                            <th>العقوبة</th>
+                            <th>تاريخ الإضافة</th>
+                            <th>عرض العقوبة أو الجزاء</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if (isset($_POST['search'])) {
+                            $st = $_POST['search'];
+                            $myquery = "SELECT * FROM doctors_account 
+                                        INNER JOIN  doctor_jobs  
+                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%' ";
+                            $results = mysqli_query($bis, $myquery);
+                            while ($row = mysqli_fetch_array($results)) {
+                        ?>
+                                <tr>
+                                    <td><?php echo $row['DoctorCode']; ?></td>
+                                    <td><?php echo $row['Doctor_ar_Name']; ?></td>
+                                    <td><?php echo $row['Doctor_job_ar_name']; ?></td>
+                                    <td>العقوبة </td>
+                                    <td> تاريخ الإضافة</td>
+                                    <td>
+                                    <a href="penaltyDetails.php" class="text-decoration-none">
+                                            <button class="border-0 rounded-pill w-50 fs-4 tableDisplayPenaltyBtn">عرض </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php }
+                        } else {
+                            $myquery = "SELECT * FROM doctors_account 
+                        INNER JOIN  doctor_jobs  
+                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
+                            $results = mysqli_query($bis, $myquery);
+                            while ($row = mysqli_fetch_array($results)) {
+
+                            ?>
+                                <tr>
+                                    <td><?php echo $row['DoctorCode']; ?></td>
+                                    <td><?php echo $row['Doctor_ar_Name']; ?></td>
+                                    <td><?php echo $row['Doctor_job_ar_name']; ?></td>
+                                    <td>العقوبة </td>
+                                    <td> تاريخ الإضافة</td>
+                                    <td>
+                                        <a href="penaltyDetails.php" class="text-decoration-none">
+                                            <button class="border-0 rounded-pill w-50 fs-4 tableDisplayPenaltyBtn">عرض </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                        <?php  }
+                        } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
