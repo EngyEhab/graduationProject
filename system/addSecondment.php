@@ -117,6 +117,7 @@ include "../Connections/syscon.php";
                 $filFile = $_FILES['secondmentFile']['name'];
                 $tmp_dir = $_FILES['secondmentFile']['tmp_name'];
                 $filSize = $_FILES['secondmentFile']['size'];
+                $user_id = $_SESSION['user_id'];
 
                 if (!empty($filFile)) {
 
@@ -143,10 +144,10 @@ include "../Connections/syscon.php";
                     die('Could not connect to the database.');
                 } else {
                     $Select = "SELECT * FROM p74_secondment_data ";
-                    $Insert = "INSERT INTO p74_secondment_data(doctorCodeInput, secondmentDescription, secondmentDestination, secondmentType, secondmentDuration, startDate, endDate, secondmentFile, secondmentNotes) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    $Insert = "INSERT INTO p74_secondment_data(doctorCodeInput, secondmentDescription, secondmentDestination, secondmentType, secondmentDuration, startDate, endDate, secondmentFile, secondmentNotes, added_by) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("sssssssss", $doctorCodeInput, $secondmentDescription, $secondmentDestination, $secondmentType, $secondmentDuration, $startDate, $endDate, $coverfil, $secondmentNotes);
+                    $stmt->bind_param("sssssssssi", $doctorCodeInput, $secondmentDescription, $secondmentDestination, $secondmentType, $secondmentDuration, $startDate, $endDate, $coverfil, $secondmentNotes, $user_id);
                     if ($stmt->execute()) {
                     } else {
                         echo $stmt->error;

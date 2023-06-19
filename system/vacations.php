@@ -121,19 +121,22 @@ include "../Connections/syscon.php";
                             $st = $_POST['search'];
                             $myquery = "SELECT * FROM doctors_account 
                                         INNER JOIN  doctor_jobs  
-                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%' ";
+                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id 
+                                        INNER JOIN  p74_vacation_data  
+                                        ON p74_vacation_data.doctorCodeInput=doctors_account.DoctorCode
+                                        WHERE Doctor_ar_Name like '%$st%' ";
                             $results = mysqli_query($bis, $myquery);
                             while ($row = mysqli_fetch_array($results)) {
                         ?>
-                                <tr>
+                                <tr>	
                                     <td><?php echo $row['DoctorCode']; ?></td>
                                     <td><?php echo $row['Doctor_ar_Name']; ?></td>
                                     <td><?php echo $row['Doctor_job_ar_name']; ?></td>
-                                    <td>الأجازة </td>
-                                    <td>المدة </td>
-                                    <td>تاريخ الإضافة</td>
+                                    <td><?php echo $row['vacationDescription']; ?> </td>
+                                    <td><?php echo $row['vacationDuration']; ?>  </td>
+                                    <td> <?php echo $row['added_date']; ?></td>
                                     <td>
-                                    <a href="vacationDetails.php" class="text-decoration-none">
+                                    <a href="vacationDetails.php?id=<?php echo $row['Vacation_id'];?>" class="text-decoration-none">
                                             <button class="border-0 rounded-pill w-50 fs-4 tableDisplayVacationBtn">عرض </button>
                                         </a>
                                     </td>
@@ -141,8 +144,10 @@ include "../Connections/syscon.php";
                             <?php }
                         } else {
                             $myquery = "SELECT * FROM doctors_account 
-                        INNER JOIN  doctor_jobs  
-                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
+                                        INNER JOIN  doctor_jobs  
+                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                        INNER JOIN  p74_vacation_data  
+                                        ON p74_vacation_data.doctorCodeInput=doctors_account.DoctorCode";
                             $results = mysqli_query($bis, $myquery);
                             while ($row = mysqli_fetch_array($results)) {
 
@@ -151,11 +156,11 @@ include "../Connections/syscon.php";
                                     <td><?php echo $row['DoctorCode']; ?></td>
                                     <td><?php echo $row['Doctor_ar_Name']; ?></td>
                                     <td><?php echo $row['Doctor_job_ar_name']; ?></td>
-                                    <td>الأجازة </td>
-                                    <td>المدة </td>
-                                    <td> تاريخ الإضافة</td>
+                                    <td><?php echo $row['vacationDescription']; ?> </td>
+                                    <td><?php echo $row['vacationDuration']; ?>  </td>
+                                    <td> <?php echo $row['added_date']; ?></td>
                                     <td>
-                                        <a href="vacationDetails.php" class="text-decoration-none">
+                                        <a href="vacationDetails.php?id=<?php echo $row['Vacation_id'];?>" class="text-decoration-none">
                                             <button class="border-0 rounded-pill w-50 fs-4 tableDisplayVacationBtn">عرض </button>
                                         </a>
                                     </td>
