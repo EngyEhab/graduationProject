@@ -204,7 +204,8 @@ label {
 .updateBtn,
 .updateSystemDataBtn,
 .updateSystemDataModalBtn,
-.tableDisplayPenaltyBtn {
+.tableDisplayPenaltyBtn,
+.tableDisplaySecondmentBtn {
     background-color: var(--main-text, #023A71);
     color: #fff;
     font-size: 1.5rem;
