@@ -13,10 +13,27 @@ if ($con->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    
+    
     
     $username = $_POST['username'];
     $password = $_POST['password'];
+    if (empty($username) && !empty($password)) {
+        $error = "Please enter your username ";
+        if (isset($error)) { 
+            echo $error;}}
 
+            elseif ( !empty($username) && empty($password)) {
+                $error = "Please enter your password.";
+                if (isset($error)) { 
+                    echo $error;}}
+                    elseif (empty($username) || empty($password)) {
+                        $error = "Please enter your username and password.";
+                        if (isset($error)) { 
+                            echo $error;}}
+    else{
+    
     $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password' AND is_enable='yes'";
     $result = $con->query($query);
     if ($result->num_rows === 1) {
@@ -37,9 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("location:system/home.php");
         exit();
     } else {
-        header("location: index.php");
+        $error = "invalid username or password.";
+        echo $error;
+
+
+        // header("location: index.php");
     }
-}
+} }
 ?>
 <!-- END login  -->
 
@@ -91,8 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="login">
                     <h3 class="mainText">تسجيل الدخول</h3>
                     <form method="post" action="" class="loginForm">
-                        <input type="text" class="form-control loginInputField" name="username" required placeholder="اسم المستخدم">
-                        <input type="password" class="form-control loginInputField" name="password" required placeholder="كلمة المرور">
+                        <input type="text" class="form-control loginInputField" name="username"  placeholder="اسم المستخدم">
+                        <input type="password" class="form-control loginInputField" name="password"  placeholder="كلمة المرور">
                         <button type="submit" id="loginBtn" class="btn-1 subtext w-100">تسجيل دخول</button>
                     </form>
                 </div>
