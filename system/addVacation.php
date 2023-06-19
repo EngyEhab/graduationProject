@@ -115,6 +115,7 @@ include "../Connections/syscon.php";
                 $filFile = $_FILES['vacationFile']['name'];
                 $tmp_dir = $_FILES['vacationFile']['tmp_name'];
                 $filSize = $_FILES['vacationFile']['size'];
+                $user_id = $_SESSION['user_id'];
 
                 if (!empty($filFile)) {
 
@@ -141,10 +142,10 @@ include "../Connections/syscon.php";
                     die('Could not connect to the database.');
                 } else {
                     $Select = "SELECT * FROM p74_vacation_data ";
-                    $Insert = "INSERT INTO p74_vacation_data(doctorCodeInput, vacationDescription, startDate, endDate, vacationReason, vacationFile, vacationNotes, vacationDuration) values(?, ?, ?, ?, ?, ?, ?, ?)";
+                    $Insert = "INSERT INTO p74_vacation_data(doctorCodeInput, vacationDescription, startDate, endDate, vacationReason, vacationFile, vacationNotes, vacationDuration, added_by) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("ssssssss", $doctorCodeInput, $vacationDescription, $startDate, $endDate, $vacationReason, $coverfil, $vacationNotes, $vacationDuration);
+                    $stmt->bind_param("ssssssssi", $doctorCodeInput, $vacationDescription, $startDate, $endDate, $vacationReason, $coverfil, $vacationNotes, $vacationDuration, $user_id);
                     if ($stmt->execute()) {
                     } else {
                         echo $stmt->error;

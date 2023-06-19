@@ -14,7 +14,10 @@ if (isset($_GET['id'])) {
     }
 
     mysqli_select_db($bis, $database_bis);
-    $myquery = "SELECT * FROM p74_secondment_data WHERE Secondment_id= '$id'";
+    $myquery = "SELECT * FROM p74_secondment_data 
+                INNER JOIN  users  
+                ON p74_secondment_data.added_by=users.user_id
+                WHERE Secondment_id= '$id'";
     $result = $bis->query($myquery);
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
@@ -29,6 +32,9 @@ if (isset($_GET['id'])) {
         $endDate = $row["endDate"];
         $secondmentFile = $row['secondmentFile'];
         $secondmentNotes = $row["secondmentNotes"];
+        $user_ar_name = $row["user_ar_name"];
+        $added_date = $row["added_date"];
+        
     }
 }
 
@@ -142,7 +148,7 @@ if (isset($_GET['id'])) {
                             <h4 class="mainText fw-bold"> تاريــــــــــخ الإضافــــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">28-10-2023</p>
+                            <p class="fs-4"><?php echo $added_date;?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -150,7 +156,7 @@ if (isset($_GET['id'])) {
                             <h4 class="mainText fw-bold">إضافـــــــة بواسطـــــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4">محمد عبد السلام</p>
+                            <p class="fs-4"><?php echo $user_ar_name;?></p>
                         </div>
                     </div>
                     <div class="row">
