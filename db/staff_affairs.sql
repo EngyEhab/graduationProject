@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2023 at 05:35 PM
+-- Generation Time: Jun 19, 2023 at 10:27 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -46,7 +46,7 @@ CREATE TABLE `application_data` (
 --
 
 INSERT INTO `application_data` (`app_id`, `app_name`, `Uni_name`, `Faculty_name`, `Program_name`, `Faculty_Uni_logo`, `Program_logo`, `Faculty_Dean`, `Post_grad_vice_dean`, `st_affairs_vice_dean`, `Program_coordinator`) VALUES
-(1, 'النظام الإلكتروني لإدارة شئون أعضاء هيئة التدريس', 'جامعة حلوان', 'كلية التجارة وإدارة الأعمال', 'BIS برنامج نظم معلومات الأعمال', 'Facultylogo.jpg', 'program.png', 'أ.د. حسام الرفاعي', 'أ.د. هند عودة', 'أ.د. أماني فاخر', 'أ.م.د. رشا فرغلى');
+(1, 'النظام الإلكتروني لإدارة شئون أعضاء هيئة التدريس', 'جامعة حلوان', 'كلية التجارة وإدارة الأعمال', 'BIS برنامج نظم معلومات الأعمال', 'Facultylogo.jpg', 'program.png', 'أ.د. جمال علي', 'أ.د. هند عودة', 'أ.د. جمال علي', 'أ.م.د. رشا فرغلى');
 
 -- --------------------------------------------------------
 
@@ -103,8 +103,8 @@ CREATE TABLE `doctors_account` (
 --
 
 INSERT INTO `doctors_account` (`DoctorCode`, `Doctor_ar_Name`, `Doctor_eng_Name`, `National_id`, `Mobile`, `Academic_Mail`, `Personal_Mail`, `Notes`, `Doctor_image`, `Department_id`, `uni_id`, `Faculty_id`, `Doctor_job_id`, `date_of_birth`, `hiring_date`, `qualifications`) VALUES
-(14, 'محمد عبد السلام', 'mohamed abd el-salam', '12345678912345', '01201237779', 'mohamed.bis@commerce.helwan.edu.eg', 'mohamed.bis@yahoo.com', 'لا يوجد', '1.jpg', 2, 1, 1, 1, '1970-06-24', '2000-12-01', 'BIS'),
-(48, 'بولا شريف بدر', 'paula sherif badr', '30012193100077', '01201237779', 'pola.sherif.badr@commerce.helwan.edu.eg', 'pola88.sherif@yahoo.com', 'لا يوجد', '157233.jpg', 6, 1, 1, 8, '2000-12-19', '2019-09-20', 'BIS'),
+(14, 'محمد عبد السلام', 'mohamed abd el-salam', '12345678912345', '01201237779', 'mohamed.bis@commerce.helwan.edu.eg', 'mohamed.bis@yahoo.com', 'لا يوجد', '1.jpg', 2, 1, 1, 6, '1970-06-24', '2000-12-01', 'BIS'),
+(48, 'بولا شريف بدر', 'paula sherif badr', '30012193100077', '01201237779', 'pola.sherif.badr@commerce.helwan.edu.eg', 'pola88.sherif@yahoo.com', 'لا يوجد', '157233.jpg', 6, 1, 1, 1, '2000-12-19', '2019-09-20', 'BIS'),
 (49, 'بافلي محب ماركو', 'bavly moheb marco', '30102113100119', '01287877660', 'pavly.moheb.1920305@commerce.helwan.edu.eg', 'bavlymoheb6@gmail.com', 'لا يوجد', '373857.jpg', 1, 1, 1, 1, '2001-02-11', '2020-01-02', 'BIS'),
 (50, 'أنطون محب ماركو', 'Aoton moheb marco', '30102113100135', '01287877008', 'anton.moheb.1920303@commerce.helwan.edu.eg', 'antonmarco060@gmail.com', 'لا يوجد', '878070.jpg', 6, 1, 1, 6, '2001-02-11', '2019-09-19', 'BIS'),
 (51, 'يوسف محمد أحمد', 'youssef mohamed ahmed', '30102113100463', '01013964407', 'youssef.mohamed.1920463@commerce.helwan.edu.eg', 'youssef.mohamed@yahoo.com', 'لا يوجد', '984636.jpg', 6, 1, 1, 7, '2001-05-15', '2019-08-21', 'BIS'),
@@ -167,17 +167,17 @@ CREATE TABLE `p74_completedata` (
   `id_completeData` int(11) NOT NULL,
   `CompleteData` text NOT NULL,
   `doctorJobInput` tinyint(4) NOT NULL,
-  `doctorCodeInput` int(11) NOT NULL
+  `doctorCodeInput` int(11) NOT NULL,
+  `added_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `added_by` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `p74_completedata`
 --
 
-INSERT INTO `p74_completedata` (`id_completeData`, `CompleteData`, `doctorJobInput`, `doctorCodeInput`) VALUES
-(2, 'معيد', 1, 14),
-(3, 'استاذ مساعد', 1, 14),
-(4, 'استاذ', 1, 14);
+INSERT INTO `p74_completedata` (`id_completeData`, `CompleteData`, `doctorJobInput`, `doctorCodeInput`, `added_date`, `added_by`) VALUES
+(10, 'pola', 6, 14, '2023-06-19 20:54:14', 1);
 
 -- --------------------------------------------------------
 
@@ -194,18 +194,18 @@ CREATE TABLE `p74_penalties` (
   `penaltyDuration` varchar(255) NOT NULL,
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
-  `penaltyNotes` text NOT NULL
+  `penaltyNotes` text NOT NULL,
+  `added_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `added_by` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `p74_penalties`
 --
 
-INSERT INTO `p74_penalties` (`penality_id`, `doctorCodeInput`, `penaltyDescription`, `penaltyReason`, `penaltyFile`, `penaltyDuration`, `startDate`, `endDate`, `penaltyNotes`) VALUES
-(4, 55, 'فصل مؤقت', 'اداري', 'karen.jpg', '20 يوم', '2023-01-01', '2023-01-20', 'لا يوجد'),
-(5, 48, 'فصل مؤقت', 'اداري', 'paulaSherif.jpg', '10 ايام', '2023-01-01', '2023-01-10', 'لا يوجد'),
-(12, 14, 'فصل مؤقت', 'aa', '67165.jpg', '10 ايام', '2023-06-03', '2023-06-13', 'aa'),
-(13, 14, 'فصل مؤقت', 'dd', '354540.jpg', '20 يوم', '2023-06-01', '2023-06-20', 'dd');
+INSERT INTO `p74_penalties` (`penality_id`, `doctorCodeInput`, `penaltyDescription`, `penaltyReason`, `penaltyFile`, `penaltyDuration`, `startDate`, `endDate`, `penaltyNotes`, `added_date`, `added_by`) VALUES
+(17, 14, 'فصل مؤقت', 'qq', '941373.jpg', '10 ايام', '2023-06-01', '2023-06-03', 'qq', '2023-06-19 20:34:17', 1),
+(18, 14, 'فصل مؤقت', 'ww', '570744.jpg', '20 يوم', '2023-06-01', '2023-06-20', 'ww', '2023-06-19 21:41:30', 1);
 
 -- --------------------------------------------------------
 
@@ -223,18 +223,44 @@ CREATE TABLE `p74_secondment_data` (
   `startDate` date NOT NULL,
   `endDate` date NOT NULL,
   `secondmentFile` varchar(255) NOT NULL,
-  `secondmentNotes` text NOT NULL
+  `secondmentNotes` text NOT NULL,
+  `added_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `added_by` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `p74_secondment_data`
 --
 
-INSERT INTO `p74_secondment_data` (`Secondment_id`, `doctorCodeInput`, `secondmentDescription`, `secondmentDestination`, `secondmentType`, `secondmentDuration`, `startDate`, `endDate`, `secondmentFile`, `secondmentNotes`) VALUES
-(3, 54, 'رسمية', 'الامارات العربية المتحدة', 'outside', '1 شهر', '2023-01-01', '2023-02-01', 'engy.jpg', 'لا يوجد'),
-(4, 49, 'رسمية', 'الامارات العربية المتحدة', 'outside', '2 شهر', '2023-01-01', '2023-03-01', 'bavly.jpg', 'لا يوجد'),
-(7, 14, 'pola555', 'لا', 'outside', '5 ايام', '2023-06-01', '2023-06-05', '667837.jpg', 'www'),
-(8, 14, 'pola555', 'eee', 'outside', '4', '2023-06-01', '2023-06-04', '862882.jpg', 'ff');
+INSERT INTO `p74_secondment_data` (`Secondment_id`, `doctorCodeInput`, `secondmentDescription`, `secondmentDestination`, `secondmentType`, `secondmentDuration`, `startDate`, `endDate`, `secondmentFile`, `secondmentNotes`, `added_date`, `added_by`) VALUES
+(10, 14, 'رسمية', 'الامارات العربية المتحدة', 'outside', '5 ايام', '2023-06-01', '2023-06-05', '312465.jpg', 'qq', '2023-06-19 20:36:30', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `p74_special_vacation_data`
+--
+
+CREATE TABLE `p74_special_vacation_data` (
+  `Special_vacation_id` int(11) NOT NULL,
+  `doctorCodeInput` int(11) NOT NULL,
+  `special_vacationDescription` varchar(255) NOT NULL,
+  `startDate` date NOT NULL,
+  `endDate` date NOT NULL,
+  `special_vacationReason` text NOT NULL,
+  `special_vacationFile` varchar(255) NOT NULL,
+  `special_vacationNotes` text NOT NULL,
+  `special_vacationDuration` varchar(11) NOT NULL,
+  `added_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `added_by` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `p74_special_vacation_data`
+--
+
+INSERT INTO `p74_special_vacation_data` (`Special_vacation_id`, `doctorCodeInput`, `special_vacationDescription`, `startDate`, `endDate`, `special_vacationReason`, `special_vacationFile`, `special_vacationNotes`, `special_vacationDuration`, `added_date`, `added_by`) VALUES
+(1, 0, '55', '2023-06-01', '2023-06-10', 'pola', '1.jpg', 'nn', '10ايام', '2023-06-19 22:25:07', 1);
 
 -- --------------------------------------------------------
 
@@ -251,18 +277,10 @@ CREATE TABLE `p74_vacation_data` (
   `vacationReason` text NOT NULL,
   `vacationFile` varchar(255) NOT NULL,
   `vacationNotes` text NOT NULL,
-  `vacationDuration` varchar(11) NOT NULL
+  `vacationDuration` varchar(11) NOT NULL,
+  `added_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `added_by` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `p74_vacation_data`
---
-
-INSERT INTO `p74_vacation_data` (`Vacation_id`, `doctorCodeInput`, `vacationDescription`, `startDate`, `endDate`, `vacationReason`, `vacationFile`, `vacationNotes`, `vacationDuration`) VALUES
-(4, 50, 'رسمية', '2023-01-01', '2023-01-20', 'لا يوجد', 'anton.jpg', 'لا يوجد', '20 يوم'),
-(5, 51, 'رسمية', '2023-01-01', '2023-01-05', 'لا يوجد', 'youssef.jpg', 'لا يوجد', '5 ايام'),
-(9, 14, 'رسمية', '2023-06-08', '2023-06-13', 'qq', '195701.jpg', 'qq', '5 ايام'),
-(10, 14, 'pola', '2023-06-01', '2023-06-20', 'qww', '591827.jpg', 'ww', '20 يوم');
 
 -- --------------------------------------------------------
 
@@ -307,8 +325,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_ar_name`, `username`, `password`, `user_type_id`, `added_date`, `added_by`, `Notes`, `is_enable`, `image`) VALUES
-(1, 'محمد عبد السلام', 'mohamed', '123', 1, '2023-03-09 15:28:23', 1, NULL, 'yes', '1.jpg'),
-(2, 'بولا شريف بدر', 'pola', '123', 2, '2023-05-19 17:30:57', 1, 'no', 'no', '2.JPG');
+(1, 'محمد عبد السلام', 'mohamed', '123', 1, '2023-03-09 15:28:23', 1, '..', 'yes', '1.jpg'),
+(2, 'بولا شريف بدر', 'pola', '123', 2, '2023-05-19 17:30:57', 1, 'no', 'yes', '2.JPG');
 
 -- --------------------------------------------------------
 
@@ -391,6 +409,12 @@ ALTER TABLE `p74_secondment_data`
   ADD KEY `doctorCodeInput4` (`doctorCodeInput`);
 
 --
+-- Indexes for table `p74_special_vacation_data`
+--
+ALTER TABLE `p74_special_vacation_data`
+  ADD PRIMARY KEY (`Special_vacation_id`);
+
+--
 -- Indexes for table `p74_vacation_data`
 --
 ALTER TABLE `p74_vacation_data`
@@ -453,25 +477,31 @@ ALTER TABLE `faculties`
 -- AUTO_INCREMENT for table `p74_completedata`
 --
 ALTER TABLE `p74_completedata`
-  MODIFY `id_completeData` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_completeData` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `p74_penalties`
 --
 ALTER TABLE `p74_penalties`
-  MODIFY `penality_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `penality_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `p74_secondment_data`
 --
 ALTER TABLE `p74_secondment_data`
-  MODIFY `Secondment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `Secondment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `p74_special_vacation_data`
+--
+ALTER TABLE `p74_special_vacation_data`
+  MODIFY `Special_vacation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `p74_vacation_data`
 --
 ALTER TABLE `p74_vacation_data`
-  MODIFY `Vacation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Vacation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `universities`

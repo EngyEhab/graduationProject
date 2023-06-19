@@ -132,7 +132,7 @@ $_SESSION['users_types'] = $users_types;
 
                 <div class="row my-2">
                     <div class="col-md-12">
-                        <textarea name="Notes" id="notes" rows="3" placeholder="ملاحظــــــــــــات" class="form-control fs-4" required><?php if (isset($_GET['id'])) {
+                        <textarea name="Notes" id="notes" rows="3" placeholder="ملاحظــــــــــــات" class="form-control fs-4"><?php if (isset($_GET['id'])) {
                                                                                                                                     echo $Notes;
                                                                                                                                 } ?></textarea>
                     </div>

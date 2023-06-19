@@ -235,7 +235,7 @@ include "../Connections/syscon.php";
                                         <label for="penaltyNotes" class="mainText fw-bold fs-4 text-nowrap">ملاحظــــــــــــــــــــــــــــات :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <textarea name="penaltyNotes" id="penaltyNotes" rows="3" class="form-control fs-4" required></textarea>
+                                        <textarea name="penaltyNotes" id="penaltyNotes" rows="3" class="form-control fs-4"></textarea>
                                     </div>
                                 </div>
 

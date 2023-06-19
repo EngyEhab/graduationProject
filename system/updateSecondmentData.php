@@ -183,7 +183,7 @@ if (isset($_POST['updateSecondmentBtn'])) {
                         <label for="secondmentNotes" class="mainText fw-bold fs-4">ملاحظـــــــــــــات :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea name="secondmentNotes" id="secondmentNotes" rows="5" class="form-control fs-4" required><?php if (isset($_GET['id'])) {
+                        <textarea name="secondmentNotes" id="secondmentNotes" rows="5" class="form-control fs-4"><?php if (isset($_GET['id'])) {
                                                                                                                         echo $secondmentNotes;
                                                                                                                     } ?></textarea>
                     </div>

@@ -242,7 +242,7 @@ $_SESSION['faculties'] = $faculties;
                 </div>
                 <div class="row my-2">
                     <div class="col-md-12">
-                        <textarea name="Notes" id="notes" rows="3" placeholder="ملاحظــــــــــــات" class="form-control fs-4" required></textarea>
+                        <textarea name="Notes" id="notes" rows="3" placeholder="ملاحظــــــــــــات" class="form-control fs-4"></textarea>
                     </div>
                 </div>
                 <div class="row my-2 justify-content-end">

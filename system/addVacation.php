@@ -232,7 +232,7 @@ include "../Connections/syscon.php";
                                         <label for="vacationNotes" class="mainText fw-bold fs-4 text-nowrap">ملاحظـــــــــــــات :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <textarea name="vacationNotes" id="vacationNotes" rows="3" class="form-control fs-4" required></textarea>
+                                        <textarea name="vacationNotes" id="vacationNotes" rows="3" class="form-control fs-4"></textarea>
                                     </div>
                                 </div>
                                 <div class="row my-2 justify-content-end">

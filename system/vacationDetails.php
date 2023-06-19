@@ -129,6 +129,22 @@ if (isset($_GET['id'])) {
                     </div>
                     <div class="row">
                         <div class="col-md-3">
+                            <h4 class="mainText fw-bold"> تاريــــــــــخ الإضافــــــة :</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <p class="fs-4">28-10-2023</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h4 class="mainText fw-bold">إضافـــــــة بواسطـــــــة :</h4>
+                        </div>
+                        <div class="col-md-9">
+                            <p class="fs-4">محمد عبد السلام</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
                             <h4 class="mainText fw-bold">الملاحظــــــــــــــــــــات :</h4>
                         </div>
                         <div class="col-md-9">
