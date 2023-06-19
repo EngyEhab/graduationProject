@@ -117,6 +117,8 @@ include "../Connections/syscon.php";
                 $filFile = $_FILES['penaltyFile']['name'];
                 $tmp_dir = $_FILES['penaltyFile']['tmp_name'];
                 $filSize = $_FILES['penaltyFile']['size'];
+                $user_id = $_SESSION['user_id'];
+
 
                 if (!empty($filFile)) {
 
@@ -144,10 +146,10 @@ include "../Connections/syscon.php";
                     die('Could not connect to the database.');
                 } else {
                     $Select = "SELECT * FROM p74_penalties ";
-                    $Insert = "INSERT INTO p74_penalties(doctorCodeInput, penaltyDescription, penaltyDuration, startDate, endDate, penaltyReason, penaltyNotes, penaltyFile) values(?, ?, ?, ?, ?, ?, ?, ?)";
+                    $Insert = "INSERT INTO p74_penalties(doctorCodeInput, penaltyDescription, penaltyDuration, startDate, endDate, penaltyReason, penaltyNotes, penaltyFile, added_by) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("ssssssss", $doctorCodeInput, $penaltyDescription, $penaltyDuration, $startDate, $endDate, $penaltyReason, $penaltyNotes, $coverfil);
+                    $stmt->bind_param("ssssssssi", $doctorCodeInput, $penaltyDescription, $penaltyDuration, $startDate, $endDate, $penaltyReason, $penaltyNotes, $coverfil, $user_id);
                     if ($stmt->execute()) {
                     } else {
                         echo $stmt->error;

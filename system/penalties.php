@@ -111,6 +111,7 @@ include "../Connections/syscon.php";
                             <th>اسم العضو</th>
                             <th>الدرجة الوظيفية الحالية</th>
                             <th>العقوبة</th>
+                            <th>المدة</th>
                             <th>تاريخ الإضافة</th>
                             <th>عرض العقوبة أو الجزاء</th>
                         </tr>
@@ -120,18 +121,22 @@ include "../Connections/syscon.php";
                             $st = $_POST['search'];
                             $myquery = "SELECT * FROM doctors_account 
                                         INNER JOIN  doctor_jobs  
-                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%' ";
+                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                        INNER JOIN  p74_penalties  
+                                        ON p74_penalties.doctorCodeInput=doctors_account.DoctorCode
+                                        WHERE Doctor_ar_Name like '%$st%' ";
                             $results = mysqli_query($bis, $myquery);
                             while ($row = mysqli_fetch_array($results)) {
                         ?>
                                 <tr>
-                                    <td><?php echo $row['DoctorCode']; ?></td>
+                                    <td><?php echo $row['doctorCodeInput']; ?></td>
                                     <td><?php echo $row['Doctor_ar_Name']; ?></td>
                                     <td><?php echo $row['Doctor_job_ar_name']; ?></td>
-                                    <td>العقوبة </td>
-                                    <td> تاريخ الإضافة</td>
+                                    <td><?php echo $row['penaltyDescription']; ?></td>
+                                    <td><?php echo $row['penaltyDuration']; ?></td>
+                                    <td><?php echo $row['added_date']; ?></td>
                                     <td>
-                                    <a href="penaltyDetails.php" class="text-decoration-none">
+                                    <a href="penaltyDetails.php?id=<?php echo $row['penality_id']; ?>" class="text-decoration-none">
                                             <button class="border-0 rounded-pill w-50 fs-4 tableDisplayPenaltyBtn">عرض </button>
                                         </a>
                                     </td>
@@ -139,20 +144,23 @@ include "../Connections/syscon.php";
                             <?php }
                         } else {
                             $myquery = "SELECT * FROM doctors_account 
-                        INNER JOIN  doctor_jobs  
-                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
+                            INNER JOIN  doctor_jobs  
+                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                            INNER JOIN  p74_penalties  
+                            ON p74_penalties.doctorCodeInput=doctors_account.DoctorCode";
                             $results = mysqli_query($bis, $myquery);
                             while ($row = mysqli_fetch_array($results)) {
 
                             ?>
                                 <tr>
-                                    <td><?php echo $row['DoctorCode']; ?></td>
+                                    <td><?php echo $row['doctorCodeInput']; ?></td>
                                     <td><?php echo $row['Doctor_ar_Name']; ?></td>
                                     <td><?php echo $row['Doctor_job_ar_name']; ?></td>
-                                    <td>العقوبة </td>
-                                    <td> تاريخ الإضافة</td>
+                                    <td><?php echo $row['penaltyDescription']; ?></td>
+                                    <td><?php echo $row['penaltyDuration']; ?></td>
+                                    <td><?php echo $row['added_date']; ?></td>
                                     <td>
-                                        <a href="penaltyDetails.php" class="text-decoration-none">
+                                        <a href="penaltyDetails.php?id=<?php echo $row['penality_id']; ?>" class="text-decoration-none">
                                             <button class="border-0 rounded-pill w-50 fs-4 tableDisplayPenaltyBtn">عرض </button>
                                         </a>
                                     </td>
