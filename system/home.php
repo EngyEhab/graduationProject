@@ -72,14 +72,16 @@
                     </div>
                 </a>
             </div>
+
             <div class="col">
                 <a href="#" class="text-decoration-none text-white">
                     <div class="function text-center">
-                        <i class="fa-solid fa-plane-up fa-2xl mb-3"></i>
-                        <h3>إضافة البعثات</h3>
+                        <i class="fa-solid fa-business-time fa-2xl mb-3"></i>
+                        <h3>إضافة الإنتدابات</h3>
                     </div>
                 </a>
             </div>
+            
         </div>
         <div class="row my-5">
             <?php
@@ -98,8 +100,8 @@
             <div class="col">
                 <a href="#" class="text-decoration-none text-white">
                     <div class="function text-center">
-                        <i class="fa-solid fa-plane-up fa-2xl mb-3"></i>
-                        <h3>إضافة الإنتدابات</h3>
+                        <i class="fa-solid fa-plane-departure fa-2xl mb-3"></i>
+                        <h3>إضافة البعثات</h3>
                     </div>
                 </a>
             </div>
