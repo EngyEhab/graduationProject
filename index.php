@@ -12,6 +12,8 @@ if ($con->connect_error) {
     die("failed to connect : " . $con->connect_error);
 }
 
+$error = "";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     
@@ -20,18 +22,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
     if (empty($username) && !empty($password)) {
-        $error = "Please enter your username ";
-        if (isset($error)) { 
-            echo $error;}}
+        $error = "قم بإدخال اسم المستخدم";
+        // if (isset($error)) { 
+        //     echo $error;}
+    }
 
             elseif ( !empty($username) && empty($password)) {
-                $error = "Please enter your password.";
-                if (isset($error)) { 
-                    echo $error;}}
+                $error = "قم بإدخال كلمة المرور";
+                // if (isset($error)) { 
+                //     echo $error;}
+            }
                     elseif (empty($username) || empty($password)) {
-                        $error = "Please enter your username and password.";
-                        if (isset($error)) { 
-                            echo $error;}}
+                        $error = "قم بإدخال اسم المستخدم و كلمة المرور";
+                        // if (isset($error)) { 
+                        //     echo $error;}
+                    }
     else{
     
     $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password' AND is_enable='yes'";
@@ -54,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("location:system/home.php");
         exit();
     } else {
-        $error = "invalid username or password.";
-        echo $error;
+        $error = "اسم المستخدم أو كلمة المرور غير صحيحة";
+        
 
 
         // header("location: index.php");
@@ -115,6 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="text" class="form-control loginInputField" name="username"  placeholder="اسم المستخدم">
                         <input type="password" class="form-control loginInputField" name="password"  placeholder="كلمة المرور">
                         <button type="submit" id="loginBtn" class="btn-1 subtext w-100">تسجيل دخول</button>
+                        <p class="mainTitle mb-0 me-2 mt-1 fs-6 fw-semibold"><?php echo $error; ?></p>
                     </form>
                 </div>
             </div>
