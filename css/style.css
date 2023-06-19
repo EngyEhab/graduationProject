@@ -206,7 +206,9 @@ label {
 .updateSystemDataModalBtn,
 .tableDisplayPenaltyBtn,
 .tableDisplaySecondmentBtn,
-.tableDisplayVacationBtn {
+.tableDisplayVacationBtn,
+.addPrivateVacationBtn,
+.tableAddPrivateVacationBtn {
     background-color: var(--main-text, #023A71);
     color: #fff;
     font-size: 1.5rem;
@@ -300,7 +302,7 @@ label {
 
 .sidebar {
     width: 20%;
-    height: 70vh;
+    height: 80vh;
     background-color: var(--main-text, #023A71);
     position: relative;
     top: 0;
@@ -319,7 +321,7 @@ label {
 .sidebarContainer {
     position: fixed;
     width: 100%;
-    top: 30vh;
+    top: 20vh;
     right: -100%;
     z-index: 99999;
 }

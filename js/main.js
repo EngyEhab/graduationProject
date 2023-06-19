@@ -189,6 +189,15 @@ $('.tableAddVacationBtn').click(function () {
     $('#doctorNameInput').val(doctorName);
 
 })
+
+$('.tableAddPrivateVacationBtn').click(function () {
+    var doctorCodePrivate = $(this).attr('doctorCodePrivate');
+    var doctorNamePrivate = $(this).attr('doctorNamePrivate');
+    $('#doctorCodeInputPrivate').val(doctorCodePrivate);
+    $('#doctorNameInputPrivate').val(doctorNamePrivate);
+
+
+})
 // end addVacation page
 
 
@@ -264,19 +273,6 @@ $('.addUserBtn').click(function (e) {
 
 // end validation of password addUser page
 
-// $(function () {
-//     var dtToday = new Date();
-//     var month = dtToday.getMonth() + 1;
-//     var day = dtToday.getDate();
-//     var year = dtToday.getFullYear();
-//     if (month < 10)
-//         month = '0' + month.toString();
-//     if (day < 10)
-//         day = '0' + day.toString();
-//     var maxDate = year + '-' + month + '-' + day;
-//     $('.startDate').attr('max', maxDate);
-//     $('.endDate').attr('max', maxDate);
-// });
 
 
 

@@ -49,44 +49,6 @@
                 </a>
             </div>
             <div class="col">
-                <a href="completeData.php" class="text-decoration-none text-white">
-                    <div class="function text-center">
-                        <i class="fa-solid fa-pen-to-square fa-2xl mb-3"></i>
-                        <h3>استكمال بيانات</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <a href="updateJobGrade.php" class="text-decoration-none text-white">
-                    <div class="function text-center">
-                        <i class="fa-solid fa-user-tie fa-2xl mb-3"></i>
-                        <h3>تحديث الدرجة الوظيفية</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="col">
-                <a href="statement.php" class="text-decoration-none text-white">
-                    <div class="function text-center">
-                        <i class="fa-solid fa-clipboard-user fa-2xl mb-3"></i>
-                        <h3>عرض بيان حالة شامل</h3>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="row my-5">
-            <?php
-            $user_type_id = $_SESSION['user_type_id'];
-            if ($user_type_id == "1") { ?>
-                <div class="col">
-                    <a href="users.php" class="text-decoration-none text-white">
-                        <div class="function text-center">
-                            <i class="fa-solid fa-users fa-2xl mb-3"></i>
-                            <h3>المستخدمون</h3>
-                        </div>
-                    </a>
-                </div>
-            <?php } ?>
-            <div class="col">
                 <a href="addPenalty.php" class="text-decoration-none text-white">
                     <div class="function text-center">
                         <i class="fa-solid fa-scale-balanced fa-2xl mb-3"></i>
@@ -107,6 +69,62 @@
                     <div class="function text-center">
                         <i class="fa-solid fa-plane-up fa-2xl mb-3"></i>
                         <h3>إضافة الإعارات</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="#" class="text-decoration-none text-white">
+                    <div class="function text-center">
+                        <i class="fa-solid fa-plane-up fa-2xl mb-3"></i>
+                        <h3>إضافة البعثات</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row my-5">
+            <?php
+            $user_type_id = $_SESSION['user_type_id'];
+            if ($user_type_id == "1") { ?>
+                <div class="col">
+                    <a href="users.php" class="text-decoration-none text-white">
+                        <div class="function text-center">
+                            <i class="fa-solid fa-users fa-2xl mb-3"></i>
+                            <h3>المستخدمون</h3>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
+            
+            <div class="col">
+                <a href="#" class="text-decoration-none text-white">
+                    <div class="function text-center">
+                        <i class="fa-solid fa-plane-up fa-2xl mb-3"></i>
+                        <h3>إضافة الإنتدابات</h3>
+                    </div>
+                </a>
+            </div>
+        
+            <div class="col">
+                <a href="completeData.php" class="text-decoration-none text-white">
+                    <div class="function text-center">
+                        <i class="fa-solid fa-pen-to-square fa-2xl mb-3"></i>
+                        <h3>استكمال بيانات</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="updateJobGrade.php" class="text-decoration-none text-white">
+                    <div class="function text-center">
+                        <i class="fa-solid fa-user-tie fa-2xl mb-3"></i>
+                        <h3>تحديث الدرجة الوظيفية</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col">
+                <a href="statement.php" class="text-decoration-none text-white">
+                    <div class="function text-center">
+                        <i class="fa-solid fa-clipboard-user fa-2xl mb-3"></i>
+                        <h3>عرض بيان حالة شامل</h3>
                     </div>
                 </a>
             </div>

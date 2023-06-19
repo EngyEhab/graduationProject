@@ -56,7 +56,8 @@ include "../Connections/syscon.php";
                             <th>كود العضو</th>
                             <th>اسم العضو</th>
                             <th>الدرجة الوظيفية الحالية</th>
-                            <th>إضافة الأجازات</th>
+                            <th>إضافـة الأجـازات الدراسية</th>
+                            <th>إضافــة الأجـازات الخاصة</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,6 +75,7 @@ include "../Connections/syscon.php";
                                     <td><?php echo $row['Doctor_ar_Name'] ?></td>
                                     <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                     <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name'] ?>" data-bs-toggle="modal" data-bs-target="#addVacationModal" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة </button></td>
+                                    <td><button doctorCodePrivate="<?php echo $row['DoctorCode']; ?>" doctorNamePrivate="<?php echo $row['Doctor_ar_Name'] ?>" data-bs-toggle="modal" data-bs-target="#addPrivateVacationModal" class="border-0 rounded-pill w-50 fs-4 tableAddPrivateVacationBtn">إضافة </button></td>
                                 </tr>
                             <?php }
                         } else {
@@ -87,6 +89,7 @@ include "../Connections/syscon.php";
                                     <td><?php echo $row['Doctor_ar_Name'] ?></td>
                                     <td><?php echo $row['Doctor_job_ar_name'] ?></td>
                                     <td><button doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name'] ?>" data-bs-toggle="modal" data-bs-target="#addVacationModal" class="border-0 rounded-pill w-50 fs-4 tableAddVacationBtn">إضافة </button></td>
+                                    <td><button doctorCodePrivate="<?php echo $row['DoctorCode']; ?>" doctorNamePrivate="<?php echo $row['Doctor_ar_Name'] ?>" data-bs-toggle="modal" data-bs-target="#addPrivateVacationModal" class="border-0 rounded-pill w-50 fs-4 tableAddPrivateVacationBtn">إضافة </button></td>
                                 </tr>
                         <?php }
                         } ?>
@@ -157,6 +160,7 @@ include "../Connections/syscon.php";
                 <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-body">
+                        <h3 class="mainTitle fw-bold text-center">إضافـــة أجـــازة دراسيــة</h3>
                             <div class="container dataContainer p-3">
                                 <div class="row my-2 align-items-center">
                                     <div class="col-md-2 text-center">
@@ -246,6 +250,52 @@ include "../Connections/syscon.php";
                 </div>
             </div>
         </div>
+
+        <div class="w-75 mx-auto m-5">
+            <div class="modal modal-xl fade" id="addPrivateVacationModal">
+                <div class="modal-dialog  modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                        <h3 class="mainTitle fw-bold text-center">إضافـــة أجـــازة خاصــــة</h3>
+                            <div class="container dataContainer p-3">
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorCodeInputPrivate" class="mainText fw-bold fs-4 text-nowrap">كــــــود العضـــــــو :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorCodeInputPrivate" id="doctorCodeInputPrivate" readonly class="form-control fs-4 doctorCodeInput"></input>
+                                    </div>
+                                </div>
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="doctorNameInputPrivate" class="mainText fw-bold fs-4 text-nowrap">اســـــــم العضـــــــو :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <input name="doctorNameInputPrivate" id="doctorNameInputPrivate" readonly class="form-control fs-4 doctorNameInput"></input>
+                                    </div>
+                                </div>
+                                <div class="row my-2 align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <label for="privateVacationDescription" class="mainText fw-bold fs-4 text-nowrap"> الأجــــــــــــــــــــازة :</label>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <textarea class="form-control" name="privateVacationDescription" id="privateVacationDescription" required></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="row my-2 justify-content-end">
+                                    <div class="col-md-2">
+                                        <button type="submit" class="addPrivateVacationBtn rounded-pill border-0 w-100 my-3" id="addPrivateVacationBtn" name="addPrivateVacationBtn">إضافة</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </form>
 
 
