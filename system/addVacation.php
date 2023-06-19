@@ -252,7 +252,10 @@ include "../Connections/syscon.php";
             </div>
         </div>
 
-        <div class="w-75 mx-auto m-5">
+    </form>
+
+    <form action="addVacation.php" method="post" id="addPrivateVacationForm" enctype="multipart/form-data">
+    <div class="w-75 mx-auto m-5">
             <div class="modal modal-xl fade" id="addPrivateVacationModal">
                 <div class="modal-dialog  modal-dialog-centered">
                     <div class="modal-content">
@@ -295,9 +298,7 @@ include "../Connections/syscon.php";
                 </div>
             </div>
         </div>
-
-
-    </form>
+        </form>
 
 
     <div class="fixedFooter position-fixed bottom-0 start-0 end-0 z-3">
