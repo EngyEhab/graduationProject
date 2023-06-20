@@ -4,8 +4,8 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     $myquery = "SELECT * FROM doctors_account 
-    INNER JOIN  p74_vacation_data  
-    ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE Vacation_id= '$id'";
+    INNER JOIN  p74_special_vacation_data  
+    ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput WHERE Special_vacation_id= '$id'";
     $results = mysqli_query($bis, $myquery);
     while ($row = mysqli_fetch_array($results)) {
         $Doctor_image = $row['Doctor_image'];
@@ -13,23 +13,17 @@ if (isset($_GET['id'])) {
     }
 
     mysqli_select_db($bis, $database_bis);
-    $myquery = "SELECT * FROM  p74_vacation_data 
+    $myquery = "SELECT * FROM  p74_special_vacation_data 
                 INNER JOIN  users  
-                ON p74_vacation_data.added_by=users.user_id
-                WHERE Vacation_id= '$id'";
+                ON p74_special_vacation_data.added_by=users.user_id
+                WHERE Special_vacation_id= '$id'";
     $result = $bis->query($myquery);
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
 
-        $Vacation_id = $row['Vacation_id'];
+        $Special_vacation_id = $row['Special_vacation_id'];
         $doctorCodeInput = $row['doctorCodeInput'];
-        $vacationDescription = $row["vacationDescription"];
-        $startDate = $row["startDate"];
-        $endDate = $row["endDate"];
-        $vacationReason = $row["vacationReason"];
-        $vacationFile = $row["vacationFile"];
-        $vacationNotes = $row["vacationNotes"];
-        $vacationDuration = $row["vacationDuration"];
+        $special_vacationDescription = $row["special_vacationDescription"];
         $user_ar_name = $row["user_ar_name"];
         $added_date = $row["added_date"];
     }
@@ -101,7 +95,7 @@ if (isset($_GET['id'])) {
                             <h4 class="mainText fw-bold"> الأجـــــــــــــــــــــــــــازة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"><?php echo $vacationDescription; ?></p>
+                            <p class="fs-4"><?php echo $special_vacationDescription; ?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -133,7 +127,7 @@ if (isset($_GET['id'])) {
     <div class="container mt-3 mb-5">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <a href="updatePrivateVacationData.php?id=<?php echo $Vacation_id; ?>">
+                <a href="updatePrivateVacationData.php?id=<?php echo $Special_vacation_id ; ?>">
                     <button id="updateBtn" name="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
                 </a>
             </div>

@@ -5,53 +5,27 @@ $id = "";
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $Select = mysqli_query($bis, " SELECT * FROM p74_vacation_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput WHERE Vacation_id='$id' ");
+    $Select = mysqli_query($bis, " SELECT * FROM p74_special_vacation_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput WHERE Special_vacation_id='$id' ");
     $row = mysqli_fetch_assoc($Select);
 
     $doctorCodeInput = $row['doctorCodeInput'];
     $Doctor_ar_Name = $row["Doctor_ar_Name"];
-    $vacationDescription = $row["vacationDescription"];
-    $startDate = $row["startDate"];
-    $endDate = $row["endDate"];
-    $vacationReason = $row["vacationReason"];
-    $vacationFile = $row["vacationFile"];
-    $vacationNotes = $row["vacationNotes"];
-    $vacationDuration = $row["vacationDuration"];
+    $special_vacationDescription = $row["special_vacationDescription"];
+    
 
 }
 
 if (isset($_POST['update'])) {
 
+    $special_vacationDescription = $_post["special_vacationDescription"];
 
-
-    $vacationDescription = $_POST['vacationDescription'];
-    $startDate = $_POST["startDate"];
-    $endDate = $_POST['endDate'];
-    $vacationReason = $_POST['vacationReason'];
-    $vacationFile = $_POST['vacationFile'];
-    $vacationNotes = $_POST["vacationNotes"];
-    $vacationDuration = $_POST["vacationDuration"];
-
-
-    if ((!empty($vacationFile))) {
-        $Details = mysqli_query($bis, "UPDATE p74_vacation_data SET 
-        startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
-        vacationFile='$vacationFile',vacationNotes='$vacationNotes',vacationDescription='$vacationDescription',vacationDuration='$vacationDuration'
-        WHERE Vacation_id='$id'");
+    if (isset($_POST['update'])) {
+        $Details = mysqli_query($bis, "UPDATE p74_special_vacation_data SET special_vacationDescription= '$special_vacationDescription' WHERE Special_vacation_id='$id'");
         if (isset($_POST['update'])) {
 
             header("location:privateVacationDetails.php?id=$id");
         }
-    } else {
-        $Details = mysqli_query($bis, "UPDATE p74_vacation_data SET
-            startDate='$startDate',endDate='$endDate',vacationReason='$vacationReason',
-            vacationNotes='$vacationNotes',vacationDescription='$vacationDescription',vacationDuration='$vacationDuration'
-            WHERE Vacation_id='$id'");
-        if (isset($_POST['update'])) {
-
-            header("location:privateVacationDetails.php?id=$id");
-        }
-    }
+    } 
 }
 ?>
 <!DOCTYPE html>
@@ -103,9 +77,8 @@ if (isset($_POST['update'])) {
                         <label for="PrivateVacationDescription" class="mainText fw-bold fs-4"> الأجــــــــــــــــــــازة :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea class="form-control" name="PrivateVacationDescription" id="PrivateVacationDescription" value="<?php if (isset($_GET['id'])) {
-                                                                                                                                echo $vacationDescription;
-                                                                                                                            } ?>" required></textarea>
+                        <textarea class="form-control" name="special_vacationDescription" id="PrivateVacationDescription" value="" required><?php if (isset($_GET['id'])) {
+                                                                                                                                echo $special_vacationDescription;} ?></textarea>
                     </div>
                 </div>
 
