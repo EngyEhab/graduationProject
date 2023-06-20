@@ -155,7 +155,32 @@ include "../Connections/syscon.php";
                     }
                 }
             }
-        } ?>
+        }  else {if (isset($_POST['addPrivateVacationBtn'])) {
+            if (
+                isset($_POST['doctorCodeInputPrivate']) && isset($_POST['privateVacationDescription']))
+                
+            {
+                $doctorCodeInputPrivate = $_POST['doctorCodeInputPrivate'];
+                $privateVacationDescription = $_POST['privateVacationDescription'];
+                $user_id = $_SESSION['user_id'];
+
+                
+                $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
+                if ($bis->connect_error) {
+                    die('Could not connect to the database.');
+                } else {
+                    $Select1 = "SELECT * FROM p74_special_vacation_data ";
+                    $Insert = "INSERT INTO p74_special_vacation_data(doctorCodeInput, special_vacationDescription, added_by) values(?, ?, ?)";
+                    $stmt = $bis->prepare($Select1);
+                    $stmt = $bis->prepare($Insert);
+                    $stmt->bind_param("ssi", $doctorCodeInputPrivate, $privateVacationDescription, $user_id);
+                    if ($stmt->execute()) {
+                    } else {
+                        echo $stmt->error;
+                    }
+                }
+            }
+        }}?>
         <div class="w-75 mx-auto m-5">
             <div class="modal modal-xl fade" id="addVacationModal">
                 <div class="modal-dialog  modal-dialog-centered">
