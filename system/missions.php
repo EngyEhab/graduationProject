@@ -70,32 +70,55 @@ include "../Connections/syscon.php";
                         </tr>
                     </thead>
                     <tbody>
+                    <?php if (isset($_POST['search'])) {
+                            $st = $_POST['search'];
+                            $myquery = "SELECT * FROM doctors_account 
+                                        INNER JOIN  doctor_jobs  
+                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                        INNER JOIN  p74_missions_data  
+                                        ON p74_missions_data.doctorCodeInput=doctors_account.DoctorCode
+                                        WHERE Doctor_ar_Name like '%$st%' ";
+                            $results = mysqli_query($bis, $myquery);
+                            while ($row = mysqli_fetch_array($results)) {
+                        ?>
                         
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo $row['doctorCodeInput']; ?></td>
+                            <td><?php echo $row['Doctor_ar_Name']; ?></td>
+                            <td><?php echo $row['Doctor_job_ar_name']; ?></td>
+                            <td><?php echo $row['mission_Description']; ?></td>
+                            <td><?php echo $row['added_date']; ?></td>
                             <td>
-                                <a href="missionDetails.php" class="text-decoration-none">
+                                <a href="missionDetails.php?id=<?php echo $row['mission_id'];?>" class="text-decoration-none">
                                     <button class="border-0 rounded-pill w-50 fs-4 tableDisplayMissionBtn">عرض </button>
                                 </a>
                             </td>
                         </tr>
+                        <?php }
+                        } else {
+                            $myquery = "SELECT * FROM doctors_account 
+                            INNER JOIN  doctor_jobs  
+                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                            INNER JOIN  p74_missions_data  
+                            ON p74_missions_data.doctorCodeInput=doctors_account.DoctorCode";
+                            $results = mysqli_query($bis, $myquery);
+                            while ($row = mysqli_fetch_array($results)) {
 
+                            ?>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo $row['doctorCodeInput']; ?></td>
+                            <td><?php echo $row['Doctor_ar_Name']; ?></td>
+                            <td><?php echo $row['Doctor_job_ar_name']; ?></td>
+                            <td><?php echo $row['mission_Description']; ?></td>
+                            <td><?php echo $row['added_date']; ?></td>
                             <td>
-                                <a href="missionDetails.php" class="text-decoration-none">
+                                <a href="missionDetails.php?id=<?php echo $row['mission_id'];?>" class="text-decoration-none">
                                     <button class="border-0 rounded-pill w-50 fs-4 tableDisplayMissionBtn">عرض </button>
                                 </a>
                             </td>
                         </tr>
+                        <?php  }
+                        } ?>
                     </tbody>
                 </table>
             </div>
