@@ -83,7 +83,7 @@
             </li>
             
             <li>
-                <a href="#" class="text-decoration-none pe-3">
+                <a href="addAssignment.php" class="text-decoration-none pe-3">
                     <i class="fa-solid fa-business-time fa-xl sidebarIcon" style="color: #ffffff;"></i>
                     <span class="fs-3 text-white">إضافة الإنتدابات</span>
                     <div class="line mb-1"></div>

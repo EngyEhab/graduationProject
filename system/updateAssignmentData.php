@@ -32,7 +32,7 @@ include "../Connections/syscon.php";
     <!-- end button to up -->
 
 
-    <form action="" method="post" id="updateMissionForm" class="mb-5">
+    <form action="" method="post" id="updateAssignmentForm" class="mb-5">
         <div class="w-75 mx-auto m-5">
             <div class="container dataContainer p-3">
                 <div class="row my-2 align-items-center">
@@ -45,15 +45,15 @@ include "../Connections/syscon.php";
                 </div>
                 <div class="row my-2 align-items-center">
                     <div class="col-md-2 text-center">
-                        <label for="missionDescription" class="mainText fw-bold fs-4">البعثـــــــــــــــــــــــــــــــــــــة :</label>
+                        <label for="assignmentDescription" class="mainText fw-bold fs-4">الإنتــــــــــــــــــــــــــــــــداب :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea  class="form-control" value="" name="missionDescription" id="missionDescription" required></textarea>
+                        <textarea  class="form-control" value="" name="assignmentDescription" id="assignmentDescription" required></textarea>
                     </div>
                 </div>
                 <div class="row my-2 justify-content-end">
                     <div class="col-md-2">
-                        <button type="submit" class="updateMissionBtn rounded-pill border-0 w-100 my-3" id="updateMissionBtn" name="updateMissionBtn">تعديــل</button>
+                        <button type="submit" class="updateAssignmentBtn rounded-pill border-0 w-100 my-3" id="updateAssignmentBtn" name="updateAssignmentBtn">تعديــل</button>
                     </div>
                 </div>
             </div>

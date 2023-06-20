@@ -74,7 +74,7 @@
             </div>
 
             <div class="col">
-                <a href="#" class="text-decoration-none text-white">
+                <a href="addAssignment.php" class="text-decoration-none text-white">
                     <div class="function text-center">
                         <i class="fa-solid fa-business-time fa-2xl mb-3"></i>
                         <h3>إضافة الإنتدابات</h3>

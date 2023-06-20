@@ -212,7 +212,11 @@ label {
 .tableDisplayMissionBtn,
 .addMissionBtn,
 .tableAddMissionBtn,
-.updateMissionBtn {
+.updateMissionBtn,
+.addAssignmentBtn,
+.tableDisplayAssignmentBtn,
+.tableAddAssignmentBtn,
+.updateAssignmentBtn {
     background-color: var(--main-text, #023A71);
     color: #fff;
     font-size: 1.5rem;
