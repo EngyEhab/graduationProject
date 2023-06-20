@@ -101,7 +101,7 @@ include "../Connections/syscon.php";
 
     <?php if (isset($_POST['submit'])) {
             if (
-                isset($_POST['doctorCodeInput']) && isset($_POST['penaltyDescription'])) {
+                isset($_POST['doctorCodeInput']) && isset($_POST['missionDescription'])) {
 
                 $doctorCodeInput = $_POST['doctorCodeInput'];
                 $missionDescription = $_POST['missionDescription'];

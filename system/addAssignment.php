@@ -60,18 +60,37 @@ include "../Connections/syscon.php";
                         </tr>
                     </thead>
                     <tbody>
+                    <?php if (isset($_POST['search'])) {
+                            $st = $_POST['search'];
+                            $myquery = "SELECT * FROM doctors_account 
+                                        INNER JOIN  doctor_jobs  
+                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id WHERE Doctor_ar_Name like '%$st%' ";
+                            $results = mysqli_query($bis, $myquery);
+                            while ($row = mysqli_fetch_array($results)) {
+                        ?>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo $row['DoctorCode']; ?></td>
+                            <td><?php echo $row['Doctor_ar_Name']; ?></td>
+                            <td><?php echo $row['Doctor_job_ar_name']; ?></td>
                             <td><button doctorCode="" doctorName="" data-bs-toggle="modal" data-bs-target="#addAssignmentModal" class="border-0 rounded-pill w-50 fs-4 tableAddAssignmentBtn">إضافة </button></td>
                         </tr>
+                        <?php }
+                        } else {
+                            $myquery = "SELECT * FROM doctors_account 
+                                        INNER JOIN  doctor_jobs  
+                                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id";
+                            $results = mysqli_query($bis, $myquery);
+                            while ($row = mysqli_fetch_array($results)) {
+
+                            ?>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?php echo $row['DoctorCode']; ?></td>
+                            <td><?php echo $row['Doctor_ar_Name']; ?></td>
+                            <td><?php echo $row['Doctor_job_ar_name']; ?></td>
                             <td><button doctorCode="" doctorName="" data-bs-toggle="modal" data-bs-target="#addAssignmentModal" class="border-0 rounded-pill w-50 fs-4 tableAddAssignmentBtn">إضافة </button></td>
                         </tr>
+                        <?php  }
+                        } ?>
                     </tbody>
                 </table>
             </div>
@@ -79,6 +98,30 @@ include "../Connections/syscon.php";
     </div>
 
     <form action="" method="POST" id="addAssignmentForm" enctype="multipart/form-data">
+    <?php if (isset($_POST['submit'])) {
+            if (
+                isset($_POST['doctorCodeInput']) && isset($_POST['assignment_Description'])) {
+
+                $doctorCodeInput = $_POST['doctorCodeInput'];
+                $assignmentDescription = $_POST['assignmentDescription'];
+                $user_id = $_SESSION['user_id'];
+
+                $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
+                if ($bis->connect_error) {
+                    die('Could not connect to the database.');
+                } else {
+                    $Select = "SELECT * FROM p74_assignments_data ";
+                    $Insert = "INSERT INTO p74_assignments_data(doctorCodeInput, assignment_Description, added_by) values(?, ?, ?)";
+                    $stmt = $bis->prepare($Select);
+                    $stmt = $bis->prepare($Insert);
+                    $stmt->bind_param("ssi", $doctorCodeInput, $assignmentDescription, $user_id);
+                    if ($stmt->execute()) {
+                    } else {
+                        echo $stmt->error;
+                    }
+                }
+            }
+        } ?>
         <div class="w-75 mx-auto m-5">
             <div class="modal modal-xl fade" id="addAssignmentModal">
                 <div class="modal-dialog  modal-dialog-centered">
