@@ -72,7 +72,11 @@ include "../Connections/syscon.php";
                                     <td><?php echo $row['DoctorCode']; ?></td>
                                     <td><?php echo $row['Doctor_ar_Name'] ?></td>
                                     <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                    <td><button name="tableCompletedata" doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name'] ?>" doctorJobID="<?php echo $row['Doctor_job_id'] ?>" doctorJobName="<?php echo $row['Doctor_job_ar_name'] ?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
+                                    <td>
+                                        <a href="jobGradeDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                            <button name="tableCompletedata" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button>
+                                        </a>
+                                    </td>
                                 </tr>
                             <?php }
                         } else {
@@ -86,7 +90,11 @@ include "../Connections/syscon.php";
                                     <td><?php echo $row['DoctorCode']; ?></td>
                                     <td><?php echo $row['Doctor_ar_Name'] ?> </td>
                                     <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                    <td><button name="tableCompletedata" doctorCode="<?php echo $row['DoctorCode']; ?>" doctorName="<?php echo $row['Doctor_ar_Name'] ?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" doctorJobID="<?php echo $row['Doctor_job_id'] ?>" doctorJobName="<?php echo $row['Doctor_job_ar_name'] ?>" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button></td>
+                                    <td>
+                                        <a href="jobGradeDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                            <button name="tableCompletedata" class="border-0 rounded-pill w-50 fs-4 tableCompleteDataBtn">استكمال</button>
+                                        </a>
+                                    </td>                                
                                 </tr>
                         <?php }
                         } ?>
@@ -97,7 +105,7 @@ include "../Connections/syscon.php";
         </div>
     </div>
 
-    <form action="completeData.php" method="post" id="completeDataForm">
+    <!-- <form action="completeData.php" method="post" id="completeDataForm">
         <?php if (isset($_POST['CompleteDataBtn'])) {
             if (
                 isset($_POST['doctorCodeInput']) &&
@@ -173,7 +181,7 @@ include "../Connections/syscon.php";
                 </div>
             </div>
         </div>
-    </form>
+    </form> -->
 
 
 
