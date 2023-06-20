@@ -1,5 +1,33 @@
 <?php
 include "../Connections/syscon.php";
+$bis = mysqli_connect($hostname_bis, $username_bis, $password_bis, $database_bis);
+$id = "";
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    $Select = mysqli_query($bis, "SELECT * FROM p74_missions_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput WHERE mission_id='$id' ");
+    $row = mysqli_fetch_assoc($Select);
+
+
+    $mission_id = $row['mission_id'];
+    $Doctor_ar_Name = $row['Doctor_ar_Name'];
+    $mission_Description = $row['mission_Description'];
+
+
+}
+
+if (isset($_POST['updateMissionBtn'])) {
+
+    $missionDescription = $_POST['missionDescription'];
+
+    if (isset($_POST['updateMissionBtn']))  {
+        $Details = mysqli_query($bis, "UPDATE p74_missions_data SET mission_Description='$missionDescription' WHERE mission_id='$id'");
+        if (isset($_POST['updateMissionBtn'])) {
+
+            header("location:missionDetails.php?id=$id");
+        }
+    } 
+}
 ?>
 <!DOCTYPE html>
 <html lang="ar">
@@ -40,7 +68,9 @@ include "../Connections/syscon.php";
                         <label for="doctorNameInput" class="mainText fw-bold fs-4">اســـــــــــــم العضــــــــــــــو :</label>
                     </div>
                     <div class="col-md-10">
-                        <input name="doctorNameInput" id="doctorNameInput" value="" readonly class="form-control fs-4"></input>
+                        <input name="doctorNameInput" id="doctorNameInput" value="<?php if (isset($_GET['id'])) {
+                                                                                        echo $Doctor_ar_Name;
+                                                                                    } ?>" readonly class="form-control fs-4"></input>
                     </div>
                 </div>
                 <div class="row my-2 align-items-center">
@@ -48,7 +78,9 @@ include "../Connections/syscon.php";
                         <label for="missionDescription" class="mainText fw-bold fs-4">البعثـــــــــــــــــــــــــــــــــــــة :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea  class="form-control" value="" name="missionDescription" id="missionDescription" required></textarea>
+                        <textarea  class="form-control" value="" name="missionDescription" id="missionDescription" required><?php if (isset($_GET['id'])) {
+                                                                                        echo $mission_Description;
+                                                                                    } ?></textarea>
                     </div>
                 </div>
                 <div class="row my-2 justify-content-end">

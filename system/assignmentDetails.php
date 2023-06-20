@@ -1,5 +1,42 @@
 <?php
 include "../Connections/syscon.php";
+if (isset($_GET['id'])) {
+
+    $id = $_GET['id'];
+
+    $myquery = "SELECT * FROM doctors_account 
+    INNER JOIN  p74_assignments_data  
+    ON doctors_account.DoctorCode=p74_assignments_data.doctorCodeInput WHERE assignment_id = '$id'";
+    $results = mysqli_query($bis, $myquery);
+    while ($row = mysqli_fetch_array($results)) {
+        $Doctor_image = $row['Doctor_image'];
+        $Doctor_ar_Name = $row['Doctor_ar_Name'];
+    }
+
+    mysqli_select_db($bis, $database_bis);
+    $myquery = "SELECT * FROM p74_assignments_data 
+                INNER JOIN  users  
+                ON p74_assignments_data.added_by=users.user_id
+                WHERE assignment_id = '$id'";
+    $result = $bis->query($myquery);
+    if ($result->num_rows === 1 ) {
+        $row = $result->fetch_assoc();
+
+        $assignment_id  = $row['assignment_id'];
+        $doctorCodeInput = $row['doctorCodeInput'];
+        $assignment_Description = $row['assignment_Description'];
+        $added_date = $row["added_date"];
+        $user_ar_name = $row["user_ar_name"];
+
+        
+
+
+    }
+}
+if (isset($_POST['deleteBtn'])) {
+    $id = $_GET['id'];
+    $Details = mysqli_query($bis, " DELETE FROM p74_assignments_data WHERE doctorCodeInput='$id'");
+}
 ?>
 <!DOCTYPE html>
 <html lang="ar">
@@ -58,7 +95,7 @@ include "../Connections/syscon.php";
                             <h4 class="mainText fw-bold">اســــــــــم العضــــــــــو :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $Doctor_ar_Name; ?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -66,7 +103,7 @@ include "../Connections/syscon.php";
                             <h4 class="mainText fw-bold">الإنتــــــــــــــــــــــــداب :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $assignment_Description; ?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -74,7 +111,7 @@ include "../Connections/syscon.php";
                             <h4 class="mainText fw-bold"> تاريــــــــــخ الإضافــــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $added_date; ?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -82,15 +119,15 @@ include "../Connections/syscon.php";
                             <h4 class="mainText fw-bold">إضافـــــــة بواسطـــــــة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $user_ar_name; ?></p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 d-flex justify-content-center align-items-center pb-5">
                 <div class="memberPhoto">
-                    <img src="../images/members/" class="w-100 h-100 ratio-1x1 rounded-circle shadow" alt="">
-                    <h1 class="text-center mainTitle pt-3"></h1>
+                    <img src="../images/members/<?php echo $Doctor_image; ?>" class="w-100 h-100 ratio-1x1 rounded-circle shadow" alt="">
+                    <h1 class="text-center mainTitle pt-3"><?php echo $Doctor_ar_Name; ?></h1>
                 </div>
             </div>
         </div>
@@ -98,7 +135,7 @@ include "../Connections/syscon.php";
     <div class="container mt-3 mb-5">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <a href="updateAssignmentData.php?id=">
+                <a href="updateAssignmentData.php?id=<?php echo $assignment_id; ?>">
                     <button id="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
                 </a>
             </div>
