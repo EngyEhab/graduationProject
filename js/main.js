@@ -200,6 +200,23 @@ $('.tableAddPrivateVacationBtn').click(function () {
 })
 // end addVacation page
 
+// start addMission page
+$('.tableAddMissionBtn').click(function () {
+    var doctorCode = $(this).attr('doctorCode');
+    var doctorName = $(this).attr('doctorName');
+    $('#doctorCodeInput').val(doctorCode);
+    $('#doctorNameInput').val(doctorName);
+})
+// end addMission page
+
+// start addAssignment page
+$('.tableAddAssignmentBtn').click(function () {
+    var doctorCode = $(this).attr('doctorCode');
+    var doctorName = $(this).attr('doctorName');
+    $('#doctorCodeInput').val(doctorCode);
+    $('#doctorNameInput').val(doctorName);
+})
+// end addAssignment page
 
 // start UpdateJobGrade page
 var doctorJobs = [{ jodId: 5, jobName: "معيد", jobOrder: 1 },
