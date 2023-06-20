@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2023 at 10:27 PM
+-- Generation Time: Jun 20, 2023 at 11:58 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -160,6 +160,20 @@ INSERT INTO `faculties` (`Faculty_id`, `Faculty_ar_name`, `Faculty_eng_name`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `p74_assignments_data`
+--
+
+CREATE TABLE `p74_assignments_data` (
+  `assignment_id` int(11) NOT NULL,
+  `doctorCodeInput` int(11) NOT NULL,
+  `assignment_Description` varchar(255) NOT NULL,
+  `added_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `added_by` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `p74_completedata`
 --
 
@@ -178,6 +192,20 @@ CREATE TABLE `p74_completedata` (
 
 INSERT INTO `p74_completedata` (`id_completeData`, `CompleteData`, `doctorJobInput`, `doctorCodeInput`, `added_date`, `added_by`) VALUES
 (10, 'pola', 6, 14, '2023-06-19 20:54:14', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `p74_missions_data`
+--
+
+CREATE TABLE `p74_missions_data` (
+  `mission_id` int(11) NOT NULL,
+  `doctorCodeInput` int(11) NOT NULL,
+  `mission_Description` varchar(255) NOT NULL,
+  `added_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `added_by` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -245,12 +273,6 @@ CREATE TABLE `p74_special_vacation_data` (
   `Special_vacation_id` int(11) NOT NULL,
   `doctorCodeInput` int(11) NOT NULL,
   `special_vacationDescription` varchar(255) NOT NULL,
-  `startDate` date NOT NULL,
-  `endDate` date NOT NULL,
-  `special_vacationReason` text NOT NULL,
-  `special_vacationFile` varchar(255) NOT NULL,
-  `special_vacationNotes` text NOT NULL,
-  `special_vacationDuration` varchar(11) NOT NULL,
   `added_date` datetime NOT NULL DEFAULT current_timestamp(),
   `added_by` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -259,8 +281,9 @@ CREATE TABLE `p74_special_vacation_data` (
 -- Dumping data for table `p74_special_vacation_data`
 --
 
-INSERT INTO `p74_special_vacation_data` (`Special_vacation_id`, `doctorCodeInput`, `special_vacationDescription`, `startDate`, `endDate`, `special_vacationReason`, `special_vacationFile`, `special_vacationNotes`, `special_vacationDuration`, `added_date`, `added_by`) VALUES
-(1, 0, '55', '2023-06-01', '2023-06-10', 'pola', '1.jpg', 'nn', '10ايام', '2023-06-19 22:25:07', 1);
+INSERT INTO `p74_special_vacation_data` (`Special_vacation_id`, `doctorCodeInput`, `special_vacationDescription`, `added_date`, `added_by`) VALUES
+(1, 14, '55', '2023-06-19 22:25:07', 1),
+(2, 14, 'pola', '2023-06-20 12:13:30', 1);
 
 -- --------------------------------------------------------
 
@@ -281,6 +304,16 @@ CREATE TABLE `p74_vacation_data` (
   `added_date` datetime NOT NULL DEFAULT current_timestamp(),
   `added_by` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `p74_vacation_data`
+--
+
+INSERT INTO `p74_vacation_data` (`Vacation_id`, `doctorCodeInput`, `vacationDescription`, `startDate`, `endDate`, `vacationReason`, `vacationFile`, `vacationNotes`, `vacationDuration`, `added_date`, `added_by`) VALUES
+(12, 14, 'رسمية', '2023-06-02', '2023-06-06', 'ww', '875383.jpg', 'ww', '5 ايام', '2023-06-19 22:40:55', 1),
+(13, 48, 'رسمية', '2023-06-01', '2023-06-05', 'rr', '191407.jpg', 'rr', '5 ايام', '2023-06-19 22:58:00', 1),
+(14, 14, 'qq', '2023-06-17', '2023-06-28', 'pola', '901798.jpg', 'pola', '11', '2023-06-20 01:21:41', 1),
+(15, 14, 'pola', '2023-06-01', '2023-06-05', 'ttt', '76050.jpg', 'ttt', '5 ايام', '2023-06-20 12:14:38', 1);
 
 -- --------------------------------------------------------
 
@@ -387,39 +420,61 @@ ALTER TABLE `faculties`
   ADD PRIMARY KEY (`Faculty_id`);
 
 --
+-- Indexes for table `p74_assignments_data`
+--
+ALTER TABLE `p74_assignments_data`
+  ADD PRIMARY KEY (`assignment_id`),
+  ADD KEY `doctorCodeInput8` (`doctorCodeInput`),
+  ADD KEY `added_by8` (`added_by`);
+
+--
 -- Indexes for table `p74_completedata`
 --
 ALTER TABLE `p74_completedata`
   ADD PRIMARY KEY (`id_completeData`),
   ADD KEY `doctorCodeInput` (`doctorCodeInput`),
-  ADD KEY `doctorJobInput1` (`doctorJobInput`);
+  ADD KEY `doctorJobInput1` (`doctorJobInput`),
+  ADD KEY `added_by` (`added_by`);
+
+--
+-- Indexes for table `p74_missions_data`
+--
+ALTER TABLE `p74_missions_data`
+  ADD PRIMARY KEY (`mission_id`),
+  ADD KEY `doctorCodeInput7` (`doctorCodeInput`),
+  ADD KEY `added_by7` (`added_by`);
 
 --
 -- Indexes for table `p74_penalties`
 --
 ALTER TABLE `p74_penalties`
   ADD PRIMARY KEY (`penality_id`),
-  ADD KEY `doctorCodeInput2` (`doctorCodeInput`);
+  ADD KEY `doctorCodeInput2` (`doctorCodeInput`),
+  ADD KEY `added_by1` (`added_by`);
 
 --
 -- Indexes for table `p74_secondment_data`
 --
 ALTER TABLE `p74_secondment_data`
   ADD PRIMARY KEY (`Secondment_id`),
-  ADD KEY `doctorCodeInput4` (`doctorCodeInput`);
+  ADD KEY `doctorCodeInput4` (`doctorCodeInput`),
+  ADD KEY `added_by2` (`added_by`);
 
 --
 -- Indexes for table `p74_special_vacation_data`
 --
 ALTER TABLE `p74_special_vacation_data`
-  ADD PRIMARY KEY (`Special_vacation_id`);
+  ADD PRIMARY KEY (`Special_vacation_id`),
+  ADD KEY `doctorCodeInput6` (`doctorCodeInput`),
+  ADD KEY `added_by3` (`added_by`);
 
 --
 -- Indexes for table `p74_vacation_data`
 --
 ALTER TABLE `p74_vacation_data`
   ADD PRIMARY KEY (`Vacation_id`),
-  ADD KEY `doctorCodeInput3` (`doctorCodeInput`);
+  ADD KEY `doctorCodeInput3` (`doctorCodeInput`),
+  ADD KEY `added_by5` (`added_by`);
 
 --
 -- Indexes for table `universities`
@@ -474,10 +529,22 @@ ALTER TABLE `faculties`
   MODIFY `Faculty_id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `p74_assignments_data`
+--
+ALTER TABLE `p74_assignments_data`
+  MODIFY `assignment_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `p74_completedata`
 --
 ALTER TABLE `p74_completedata`
   MODIFY `id_completeData` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `p74_missions_data`
+--
+ALTER TABLE `p74_missions_data`
+  MODIFY `mission_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `p74_penalties`
@@ -495,13 +562,13 @@ ALTER TABLE `p74_secondment_data`
 -- AUTO_INCREMENT for table `p74_special_vacation_data`
 --
 ALTER TABLE `p74_special_vacation_data`
-  MODIFY `Special_vacation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Special_vacation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `p74_vacation_data`
 --
 ALTER TABLE `p74_vacation_data`
-  MODIFY `Vacation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Vacation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `universities`
@@ -536,28 +603,53 @@ ALTER TABLE `doctors_account`
   ADD CONSTRAINT `uni_id` FOREIGN KEY (`uni_id`) REFERENCES `universities` (`uni_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `p74_assignments_data`
+--
+ALTER TABLE `p74_assignments_data`
+  ADD CONSTRAINT `added_by8` FOREIGN KEY (`added_by`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `doctorCodeInput8` FOREIGN KEY (`doctorCodeInput`) REFERENCES `doctors_account` (`DoctorCode`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Constraints for table `p74_completedata`
 --
 ALTER TABLE `p74_completedata`
+  ADD CONSTRAINT `added_by` FOREIGN KEY (`added_by`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `doctorCodeInput` FOREIGN KEY (`doctorCodeInput`) REFERENCES `doctors_account` (`DoctorCode`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `doctorJobInput1` FOREIGN KEY (`doctorJobInput`) REFERENCES `doctor_jobs` (`Doctor_job_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `p74_missions_data`
+--
+ALTER TABLE `p74_missions_data`
+  ADD CONSTRAINT `added_by7` FOREIGN KEY (`added_by`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `doctorCodeInput7` FOREIGN KEY (`doctorCodeInput`) REFERENCES `doctors_account` (`DoctorCode`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `p74_penalties`
 --
 ALTER TABLE `p74_penalties`
+  ADD CONSTRAINT `added_by1` FOREIGN KEY (`added_by`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `doctorCodeInput2` FOREIGN KEY (`doctorCodeInput`) REFERENCES `doctors_account` (`DoctorCode`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `p74_secondment_data`
 --
 ALTER TABLE `p74_secondment_data`
+  ADD CONSTRAINT `added_by2` FOREIGN KEY (`added_by`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `doctorCodeInput4` FOREIGN KEY (`doctorCodeInput`) REFERENCES `doctors_account` (`DoctorCode`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `p74_special_vacation_data`
+--
+ALTER TABLE `p74_special_vacation_data`
+  ADD CONSTRAINT `added_by3` FOREIGN KEY (`added_by`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `doctorCodeInput6` FOREIGN KEY (`doctorCodeInput`) REFERENCES `doctors_account` (`DoctorCode`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `p74_vacation_data`
 --
 ALTER TABLE `p74_vacation_data`
+  ADD CONSTRAINT `added_by5` FOREIGN KEY (`added_by`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `doctorCodeInput3` FOREIGN KEY (`doctorCodeInput`) REFERENCES `doctors_account` (`DoctorCode`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 

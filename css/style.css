@@ -216,7 +216,9 @@ label {
 .addAssignmentBtn,
 .tableDisplayAssignmentBtn,
 .tableAddAssignmentBtn,
-.updateAssignmentBtn {
+.updateAssignmentBtn,
+.tableDisplayPrivateVacationBtn,
+.updatePrivateVacationBtn {
     background-color: var(--main-text, #023A71);
     color: #fff;
     font-size: 1.5rem;
