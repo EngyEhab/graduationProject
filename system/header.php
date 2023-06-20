@@ -93,10 +93,16 @@ $_SESSION['Program_logo'] = $row_appata['Program_logo'];
                             <a class="nav-link fs-5" href="penalties.php">العقوبات أو الجزاءات</a>
                         </li>
                         <li class="nav-item linkStyle">
-                            <a class="nav-link fs-5" href="vacations.php">الأجــــازات </a>
+                            <a class="nav-link fs-5" href="vacations.php"> الأجــــازات الدراسية</a>
                         </li>
                         <li class="nav-item linkStyle">
-                            <a class="nav-link fs-5" href="secondments.php">الإعــــارات </a>
+                            <a class="nav-link fs-5" href="privateVacations.php">الأجــــازات الخاصـــة</a>
+                        </li>
+                        <li class="nav-item linkStyle">
+                            <a class="nav-link fs-5" href="missions.php">البعثــــــــــــــات </a>
+                        </li>
+                        <li class="nav-item linkStyle">
+                            <a class="nav-link fs-5" href="assignments.php">الإنتدابـــــــــــــات </a>
                         </li>
                     </ul>
                 </div>

@@ -208,7 +208,11 @@ label {
 .tableDisplaySecondmentBtn,
 .tableDisplayVacationBtn,
 .addPrivateVacationBtn,
-.tableAddPrivateVacationBtn {
+.tableAddPrivateVacationBtn,
+.tableDisplayMissionBtn,
+.addMissionBtn,
+.tableAddMissionBtn,
+.updateMissionBtn {
     background-color: var(--main-text, #023A71);
     color: #fff;
     font-size: 1.5rem;

@@ -276,7 +276,6 @@ include "../Connections/syscon.php";
                 </div>
             </div>
         </div>
-
     </form>
 
     <form action="addVacation.php" method="post" id="addPrivateVacationForm" enctype="multipart/form-data">
