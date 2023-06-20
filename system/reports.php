@@ -49,9 +49,26 @@ if (isset($_POST['displayReport'])) {
                     <div class="col-md-8">
                         <select name="reportAbout" id="reportAbout" class="form-select fs-4" required>
                             <option value="">اختر نوع التقرير</option>
+                            <option value="members">أعضاء هيئة التدريس</option>
                             <option value="penalties">العقوبات أو الجزاءات</option>
-                            <option value="vacations">الأجازات</option>
+                            <option value="vacations">الأجازات الدراسية</option>
+                            <option value="privateVacations">الأجازات الخاصة</option>
                             <option value="secondments">الإعارات</option>
+                            <option value="missions">البعثات</option>
+                            <option value="assignments">الإنتدابات</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row my-3 align-items-center justify-content-center">
+                    <div class="col-md-2 text-center">
+                        <label for="department" class="mainText fw-bold fs-4 text-nowrap">القسم العلمــى :</label>
+                    </div>
+                    <div class="col-md-8">
+                        <select name="Department_id" class="form-select fs-4" id="department">
+                            <option selected value="">القسم</option>
+                            <?php foreach ($departments as $row) { ?>
+                                <option value='<?php echo $row['Department_id'] ?>'><?php echo $row['Department_ar_name'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
@@ -63,13 +80,13 @@ if (isset($_POST['displayReport'])) {
                         <label for="startDate" class="mainText fw-bold fs-4 text-nowrap">مــن :</label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control startDate" name="startDate" id="startDate" required>
+                        <input type="text" class="form-control startDate" name="startDate" id="startDate">
                     </div>
                     <div class="col-md-1 text-center">
                         <label for="endDate" class="mainText fw-bold fs-4 text-nowrap">إلــى :</label>
                     </div>
                     <div class="col-md-3">
-                        <input type="text" class="form-control endDate" name="endDate" id="endDate" required>
+                        <input type="text" class="form-control endDate" name="endDate" id="endDate">
                     </div>
                 </div>
                 <div class="row justify-content-end">
