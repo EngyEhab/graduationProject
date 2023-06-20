@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
 
 if (isset($_POST['update'])) {
 
-    $special_vacationDescription = $_post["special_vacationDescription"];
+    $special_vacationDescription = $_POST["special_vacationDescription"];
 
     if (isset($_POST['update'])) {
         $Details = mysqli_query($bis, "UPDATE p74_special_vacation_data SET special_vacationDescription= '$special_vacationDescription' WHERE Special_vacation_id='$id'");
