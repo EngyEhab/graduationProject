@@ -5,7 +5,8 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     $myquery = "SELECT * FROM doctors_account 
-    WHERE DoctorCode = '$id'";
+    INNER JOIN  p74_completedata  
+    ON doctors_account.DoctorCode=p74_completedata.doctorCodeInput WHERE doctorCodeInput = '$id'";
     $results = mysqli_query($bis, $myquery);
     while ($row = mysqli_fetch_array($results)) {
         $DoctorCode = $row['DoctorCode'];
@@ -14,10 +15,10 @@ if (isset($_GET['id'])) {
     }
 
     mysqli_select_db($bis, $database_bis);
-    $myquery = "SELECT * FROM doctors_account 
+    $myquery = "SELECT * FROM p74_completedata 
                 INNER JOIN  doctor_jobs  
-                ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                WHERE DoctorCode= '$id'";
+                ON p74_completedata.doctorJobInput=doctor_jobs.Doctor_job_id
+                WHERE doctorCodeInput= '$id'";
     $result = $bis->query($myquery);
     if ($result->num_rows === 1 ) {
         $row = $result->fetch_assoc();
