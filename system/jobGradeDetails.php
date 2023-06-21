@@ -116,14 +116,13 @@ if (isset($_POST['deleteBtn'])) {
                             <?php $myquery = "SELECT * FROM doctors_account 
                             INNER JOIN  p74_completedata  
                             ON doctors_account.DoctorCode=p74_completedata.doctorCodeInput
-                            INNER JOIN  p74_penalties  
-                            ON p74_penalties.doctorCodeInput=doctors_account.DoctorCode";
+                            WHERE doctorCodeInput='$id'";
                             $results = mysqli_query($bis, $myquery);
                             while ($row = mysqli_fetch_array($results)) {?>
                                 <tr>
                                     <td class="fs-4 col-md-9"><?php echo $row['CompleteData'] ?></td>
                                     <td class="col-md-3">
-                                        <a href="updateJobGradeData.php?id=<?php echo $row['doctorCodeInput'] ?>" class="text-decoration-none">
+                                        <a href="updateJobGradeData.php?id=<?php echo $row['id_completeData'] ?>" class="text-decoration-none">
                                             <button class="btn btn-warning me-2">
                                                 <i class="fa-solid fa-pencil fa-sm "></i>
                                             </button>

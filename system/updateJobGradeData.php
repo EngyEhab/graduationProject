@@ -10,42 +10,33 @@ if (isset($_GET['id'])) {
     $Select =("SELECT * FROM doctors_account 
     INNER JOIN  doctor_jobs  
     ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-    WHERE DoctorCode= '$id'");
+    INNER JOIN  p74_completedata  
+    ON doctors_account.DoctorCode=p74_completedata.doctorCodeInput
+    WHERE id_completeData= '$id'");
     $result = $bis->query($Select);
     if ($result->num_rows === 1 ) {
         $row = $result->fetch_assoc();
 
     $Doctor_ar_Name = $row['Doctor_ar_Name'];
-    $Doctor_job_ar_name = $row['Doctor_job_ar_name'];}
+    $Doctor_job_ar_name = $row['Doctor_job_ar_name'];
+    $CompleteData = $row['CompleteData'];
+    $doctorCodeInput = $row['doctorCodeInput'];
 
 
 }
-$Select =("SELECT * FROM p74_completedata 
-                                INNER JOIN  doctors_account   
-                                ON DoctorCode=doctorCodeInput 
-                                INNER JOIN  doctor_jobs  
-                                ON p74_completedata.doctorJobInput=doctor_jobs.Doctor_job_id
-                                WHERE doctorCodeInput='$id' ");
-    $result = $bis->query($Select);
-    if  ($result->num_rows === 1 ) {
-        $row = $result->fetch_assoc();
 
-    while ($row=mysqli_fetch_array($result)){
 
-    $CompleteData = $row['CompleteData'];}
-    }else{
-        
-        $CompleteData= "لا يوجد";}
+}
 
-if (isset($_POST['updateMissionBtn'])) {
+if (isset($_POST['updateJobGradeBtn'])) {
 
-    $missionDescription = $_POST['missionDescription'];
+    $jobGrade = $_POST['jobGrade'];
 
-    if (isset($_POST['updateMissionBtn']))  {
-        $Details = mysqli_query($bis, "UPDATE p74_missions_data SET mission_Description='$missionDescription' WHERE mission_id='$id'");
-        if (isset($_POST['updateMissionBtn'])) {
+    if (isset($_POST['updateJobGradeBtn']))  {
+        $Details = mysqli_query($bis, "UPDATE p74_completedata SET CompleteData='$jobGrade' WHERE id_completeData='$id'");
+        if (isset($_POST['updateJobGradeBtn'])) {
 
-            header("location:missionDetails.php?id=$id");
+            header("location:jobGradeDetails.php?id=$doctorCodeInput");
         }
     } 
 }
