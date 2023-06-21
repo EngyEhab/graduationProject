@@ -6,7 +6,7 @@
 //     include "../Connections/syscon.php"; 
 //     return $content;
 // };
-function fetchData($tableName, $requiredElement)
+function fetchData($tableName)
 {
     $content = '';
     include "../Connections/syscon.php";
@@ -16,6 +16,12 @@ function fetchData($tableName, $requiredElement)
 
         $results = mysqli_query($bis, $query);
         $row = mysqli_fetch_array($results);
+        $content = '<tr>
+                        <td width="50">'.$row['doctorCodeInput'].'</td>
+                        <td width="120">اسم العضو</td>
+                        <td width="120">الدرجة الوظيفية الحالية</td>
+                        <td width="208">العقوبة</td>
+                    </tr>';
         $content .= " " . $row[$requiredElement] . " ";
         if ((!empty($row[$requiredElement]))) {
 
@@ -53,18 +59,18 @@ $pdf->writeHTMLCell(0, 8, 0, 50, '', 0, 1, 0, true, "C", true);
 
 
 
-$tbl ='<table cellspacing="2" align="center" cellpadding="2" border="1">
+$tbl ='<table cellspacing="3" align="center" cellpadding="2" border="1">
 <thead>
     <tr>
         <th width="50">كود العضو</th>
         <th width="120">اسم العضو</th>
         <th width="120">الدرجة الوظيفية الحالية</th>
-        <th width="210">العقوبة</th>
+        <th width="208">العقوبة</th>
     </tr>
 </thead>
 <tbody>';
 
-$tbl .= fetchData();
+$tbl .= fetchData('penalties');
     
 
 

@@ -125,7 +125,7 @@ if (isset($_POST['deleteBtn'])) {
     <div class="container mt-3 mb-5">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <button id="completeBtn" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="btn w-100 rounded-pill fw-bold fs-4 border-2 shadow completeBtn">استكمال</button>
+                <button id="completeBtn" doctorCode="<?php echo $DoctorCode; ?>" doctorName="<?php echo $Doctor_ar_Name; ?>" doctorJobName="<?php echo $Doctor_job_ar_name ?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="btn w-100 rounded-pill fw-bold fs-4 border-2 shadow completeBtn">استكمال</button>
             </div>
             <div class="col-md-2">
                 <a href="updateJobGradeData.php?id=">
@@ -160,7 +160,7 @@ if (isset($_POST['deleteBtn'])) {
                     $Insert = "INSERT INTO p74_completedata(CompleteData, doctorJobInput, doctorCodeInput, added_by) values(?, ?, ?, ?)";
                     $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("iisi", $CompleteData1, $doctorJobNameInput, $doctorCodeInput, $user_id);
+                    $stmt->bind_param("siii", $CompleteData1, $doctorJobNameInput, $doctorCodeInput, $user_id);
                     if ($stmt->execute()) {
                     } else {
                         echo $stmt->error;
@@ -181,7 +181,7 @@ if (isset($_POST['deleteBtn'])) {
                                         <label for="doctorCodeInput" class="mainText fw-bold fs-4 text-nowrap">كــــــــــــــود العضــــــــــــــــو :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input name="doctorCodeInput" id="doctorCodeInput" value="<?php echo $DoctorCode; ?>" readonly class="form-control fs-4"></input>
+                                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
                                     </div>
                                 </div>
                                 <div class="row my-2 align-items-center">
@@ -189,7 +189,7 @@ if (isset($_POST['deleteBtn'])) {
                                         <label for="doctorNameInput" class="mainText fw-bold fs-4 text-nowrap">اســــــــــــــم العضــــــــــــــــو :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input name="doctorNameInput" id="doctorNameInput" value="<?php echo $Doctor_ar_Name; ?>" readonly class="form-control fs-4"></input>
+                                        <input name="doctorNameInput" id="doctorNameInput"  readonly class="form-control fs-4"></input>
                                     </div>
                                 </div>
                                 <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4 d-none"></input>
@@ -198,7 +198,7 @@ if (isset($_POST['deleteBtn'])) {
                                         <label for="doctorJobNameInput" class="mainText fw-bold fs-4 text-nowrap"> الدرجــة الوظيفيــة الحاليــــــــة :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input name="doctorJobNameInput" id="doctorJobNameInput" value="<?php  echo $Doctor_job_id;?>" readonly class="form-control fs-4"></input>
+                                        <input name="doctorJobNameInput" id="doctorJobNameInput" readonly class="form-control fs-4"></input>
                                     </div>
                                 </div>
                                 <div class="row my-2">

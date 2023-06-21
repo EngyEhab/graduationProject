@@ -154,6 +154,16 @@ $('.tableCompleteDataBtn').click(function () {
 
 // end completeData page
 
+$('#completeBtn').click(function(){
+    var doctorCode = $(this).attr('doctorCode');
+    var doctorName = $(this).attr('doctorName');
+    var doctorJobID = $(this).attr('doctorJobID');
+    var doctorJobName = $(this).attr('doctorJobName');
+    $('#doctorCodeInput').val(doctorCode);
+    $('#doctorNameInput').val(doctorName);
+    $('#doctorJobInput').val(doctorJobID);
+    $('#doctorJobNameInput').val(doctorJobName);
+})
 // start statement page
 $('.tableDisplayBtn').click(function () {
     var doctorCode = $(this).attr('doctorCode');
