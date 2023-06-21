@@ -121,7 +121,21 @@ if (isset($_POST['deleteBtn'])) {
                             <h4 class="mainText fw-bold">التــــــدرج الوظيفـــــــى :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"><?php echo $CompleteData; ?></p>
+                            <table class="col-md-12">
+                                <tr>
+                                    <td class="fs-4 col-md-9"><?php echo $CompleteData; ?></td>
+                                    <td class="col-md-3">
+                                        <a href="updateJobGradeData.php?id=<?php echo $DoctorCode;?>" class="text-decoration-none">
+                                            <button class="btn btn-warning me-2">
+                                                <i class="fa-solid fa-pencil fa-sm "></i>
+                                            </button>
+                                        </a>
+                                        <button class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#deleteJobGradeModal">
+                                            <i class="fa-solid fa-trash-can fa-sm "></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -138,14 +152,6 @@ if (isset($_POST['deleteBtn'])) {
         <div class="row justify-content-end">
             <div class="col-md-2">
                 <button id="completeBtn" doctorCode="<?php echo $DoctorCode;?>" doctorName="<?php echo $Doctor_ar_Name; ?>" doctorJobName="<?php echo $Doctor_job_id ?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="btn w-100 rounded-pill fw-bold fs-4 border-2 shadow completeBtn">استكمال</button>
-            </div>
-            <div class="col-md-2">
-                <a href="updateJobGradeData.php?id=<?php echo $DoctorCode;?>">
-                    <button id="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
-                </a>
-            </div>
-            <div class="col-md-2">
-                <button id="deleteBtn" data-bs-toggle="modal" data-bs-target="#deleteJobGradeModal" name="deleteBtn" class="btn btn-danger w-100 rounded-pill fw-bold fs-4 border-2 shadow">حـــذف</button>
             </div>
         </div>
     </div>
