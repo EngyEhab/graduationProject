@@ -1,35 +1,24 @@
 <?php
 
-// function fetchData()
-// {
-//     $content = '';
-//     include "../Connections/syscon.php"; 
-//     return $content;
-// };
 function fetchData($tableName)
 {
     $content = '';
     include "../Connections/syscon.php";
     
 
-        $query = "SELECT * FROM $tableName  ";
+        $query = "SELECT * FROM $tableName";
 
         $results = mysqli_query($bis, $query);
         $row = mysqli_fetch_array($results);
-        $content = '<tr>
+        while ($row = mysqli_fetch_array($results)) {
+        $content .= '<tr>
                         <td width="50">'.$row['doctorCodeInput'].'</td>
-                        <td width="120">اسم العضو</td>
+                        <td width="120">اسم </td>
                         <td width="120">الدرجة الوظيفية الحالية</td>
-                        <td width="208">العقوبة</td>
+                        <td width="208">'.$row['penaltyDescription'].'</td>
                     </tr>';
-        $content .= " " . $row[$requiredElement] . " ";
-        if ((!empty($row[$requiredElement]))) {
-
-
-            return $content;
-        } else {
-            return "لا يوجد";
         }
+        return $content;
     }
 ;
 
@@ -70,12 +59,7 @@ $tbl ='<table cellspacing="3" align="center" cellpadding="2" border="1">
 </thead>
 <tbody>';
 
-$tbl .= fetchData('penalties');
-    
-
-
-
-
+$tbl .= fetchData('p74_penalties');
 $tbl .='</tbody>
 </table>';
 
