@@ -32,7 +32,7 @@ include "../Connections/syscon.php";
     <!-- end button to up -->
 
     <!-- start search and add member button -->
-    <div class="container-fluid mt-3">
+    <div class="container mt-3">
         <div class="row align-items-center justify-content-center">
             <div class="col-md-2">
                 <div class="addAssignment">
@@ -49,6 +49,13 @@ include "../Connections/syscon.php";
                             <i class="fa-solid fa-magnifying-glass fa-rotate-90 fa-lg" style="color: #fff;"></i>
                         </button>
                     </form>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="displayAsPDF">
+                    <a href="displayAsPDF.php" class="text-decoration-none text-white">
+                        <button class="displayPDFBtn rounded-pill w-100 border-0" id="displayPDFBtn">عرض كـ PDF</button>
+                    </a>
                 </div>
             </div>
         </div>

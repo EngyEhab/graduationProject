@@ -32,7 +32,7 @@ include "../Connections/syscon.php";
     <!-- end button to up -->
 
     <!-- start search and add member button -->
-    <div class="container-fluid mt-3">
+    <div class="container mt-3">
         <div class="row align-items-center justify-content-center">
             <div class="col-md-2">
                 <div class="addSecondment">
@@ -51,55 +51,17 @@ include "../Connections/syscon.php";
                     </form>
                 </div>
             </div>
+            <div class="col-md-2">
+                <div class="displayAsPDF">
+                    <a href="displayAsPDF.php" class="text-decoration-none text-white">
+                        <button class="displayPDFBtn rounded-pill w-100 border-0" id="displayPDFBtn">عرض كـ PDF</button>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <!-- end search and add member button -->
 
-    <!-- <div class="container my-5">
-        <div class="row gy-5 gx-0 justify-content-center " id="members">
-            <?php
-            if (isset($_POST['search'])) {
-                $st = $_POST['search'];
-            ?>
-                <?php
-                $myquery = "SELECT * FROM p74_secondment_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput AND Doctor_ar_Name like '%$st%'  ";
-                $results = mysqli_query($bis, $myquery);
-                while ($row = mysqli_fetch_array($results)) {
-                ?>
-                    <div class="col-md-3 d-flex justify-content-center">
-                        <div class="memberContainer w-75">
-                            <a href="secondmentDetails.php?id=<?php echo $row['Secondment_id'] ?>" class="text-decoration-none">
-                                <div class="member rounded-3 bg-white w-100 p-3 text-center mx-auto">
-                                    <div class="memberImage rounded-circle mx-auto">
-                                        <img src="../images/members/<?php echo $row['Doctor_image'] ?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
-                                    </div>
-                                    <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name'] ?></h3>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                <?php }
-            } else {
-                $myquery = "SELECT * FROM p74_secondment_data INNER JOIN  doctors_account   ON DoctorCode=doctorCodeInput";
-                $results = mysqli_query($bis, $myquery);
-                while ($row = mysqli_fetch_array($results)) {
-                ?>
-                    <div class="col-md-3 d-flex justify-content-center">
-                        <div class="memberContainer w-75">
-                            <a href="secondmentDetails.php?id=<?php echo $row['Secondment_id'] ?>" class="text-decoration-none">
-                                <div class="member rounded-3 bg-white w-100 p-3 text-center mx-auto">
-                                    <div class="memberImage rounded-circle mx-auto">
-                                        <img src="../images/members/<?php echo $row['Doctor_image'] ?>" class="rounded-circle w-100 h-100 ratio-1x1" alt="">
-                                    </div>
-                                    <h3 class="mainTitle pt-2"><?php echo $row['Doctor_ar_Name'] ?></h3>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-            <?php }
-            } ?>
-        </div>
-    </div> -->
 
     <div class="container-fluid my-5">
         <div class="row justify-content-center">
