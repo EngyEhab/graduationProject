@@ -6,10 +6,14 @@ $bis = mysqli_connect($hostname_bis, $username_bis, $password_bis, $database_bis
 $reportAbout = "";
 $startDate = "";
 $endDate = "";
+$Department_id = "";
+
 if (isset($_GET['reportAbout'])) {
     $reportAbout = $_GET['reportAbout'];
     $startDate = $_GET['startDate'];
     $endDate = $_GET['endDate'];
+    $Department_id = $_GET['Department_id'];
+
 }
 ?>
 <!DOCTYPE html>

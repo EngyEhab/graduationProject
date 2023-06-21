@@ -5,8 +5,23 @@ if (isset($_POST['displayReport'])) {
     $reportAbout = $_POST['reportAbout'];
     $startDate = $_POST['startDate'];
     $endDate = $_POST['endDate'];
-    header("location:../system/reportTable.php?reportAbout=$reportAbout&startDate=$startDate&endDate=$endDate");
+    $Department_id = $_POST['Department_id'];
+
+    header("location:../system/reportTable.php?reportAbout=$reportAbout&startDate=$startDate&endDate=$endDate&Department_id=$Department_id");
 }
+$bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
+if ($bis->connect_error) {
+    die('Could not connect to the database.');
+} else {
+    $departments = "SELECT * FROM departments ";
+    $result = $bis->query($departments);
+    $appata = mysqli_query($bis, $departments) or die(mysqli_error($bis));
+    $row_appata = mysqli_fetch_assoc($appata);
+    $departments = array($row_appata);
+    while ($row = mysqli_fetch_assoc($appata)) {
+        array_push($departments, $row);
+    }
+    $_SESSION['departments'] = $departments;}
 ?>
 <!DOCTYPE html>
 <html lang="en">
