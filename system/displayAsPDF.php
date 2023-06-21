@@ -51,10 +51,11 @@ function fetchData()
                         <td width="120">'.$row['Doctor_ar_Name'].' </td>
                         <td width="120">'.$row['Doctor_job_ar_name'].'</td>
                         <td width="208">'.$row[$decription].'</td>
-                    </tr>';
-        }
-        return $content;
-    }}
+                    </tr>';}
+                    
+        
+        return $content;}
+    }
 ;
 
 include('../TCPDF-main/tcpdf.php');

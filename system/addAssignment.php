@@ -97,10 +97,10 @@ include "../Connections/syscon.php";
         </div>
     </div>
 
-    <form action="" method="POST" id="addAssignmentForm" enctype="multipart/form-data">
+    <form action="" method="POST" id="addAssignmentForm">
     <?php if (isset($_POST['submit'])) {
             if (
-                isset($_POST['doctorCodeInput']) && isset($_POST['assignment_Description'])) {
+                isset($_POST['doctorCodeInput']) && isset($_POST['assignmentDescription'])) {
 
                 $doctorCodeInput = $_POST['doctorCodeInput'];
                 $assignmentDescription = $_POST['assignmentDescription'];
@@ -110,11 +110,11 @@ include "../Connections/syscon.php";
                 if ($bis->connect_error) {
                     die('Could not connect to the database.');
                 } else {
-                    $Select = "SELECT * FROM p74_assignments_data ";
+                    $Select = "SELECT * FROM p74_assignments_data";
                     $Insert = "INSERT INTO p74_assignments_data(doctorCodeInput, assignment_Description, added_by) values(?, ?, ?)";
                     $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("ssi", $doctorCodeInput, $assignmentDescription, $user_id);
+                    $stmt->bind_param("isi", $doctorCodeInput, $assignmentDescription, $user_id);
                     if ($stmt->execute()) {
                     } else {
                         echo $stmt->error;
