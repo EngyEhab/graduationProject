@@ -5,8 +5,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     $myquery = "SELECT * FROM doctors_account 
-    INNER JOIN  p74_completedata  
-    ON doctors_account.DoctorCode=p74_completedata.doctorCodeInput WHERE doctorCodeInput = '$id'";
+    WHERE DoctorCode = '$id'";
     $results = mysqli_query($bis, $myquery);
     while ($row = mysqli_fetch_array($results)) {
         $DoctorCode = $row['DoctorCode'];
@@ -15,10 +14,10 @@ if (isset($_GET['id'])) {
     }
 
     mysqli_select_db($bis, $database_bis);
-    $myquery = "SELECT * FROM p74_completedata 
+    $myquery = "SELECT * FROM doctors_account 
                 INNER JOIN  doctor_jobs  
-                ON p74_completedata.doctorJobInput=doctor_jobs.Doctor_job_id
-                WHERE doctorCodeInput= '$id'";
+                ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                WHERE DoctorCode= '$id'";
     $result = $bis->query($myquery);
     if ($result->num_rows === 1 ) {
         $row = $result->fetch_assoc();
@@ -140,7 +139,7 @@ if (isset($_POST['deleteBtn'])) {
 
 
 
-    <form action="" method="post" id="completeDataForm">
+    <form action="" method="POST" id="completeDataForm" enctype="multipart/form-data">
         <?php
     if (isset($_POST['CompleteDataBtn'])) {
             if (
@@ -148,7 +147,6 @@ if (isset($_POST['deleteBtn'])) {
                 isset($_POST['doctorJobNameInput']) && isset($_POST['CompleteData'])
             ) {
                 $doctorCodeInput = $_POST['doctorCodeInput'];
-
                 $doctorJobNameInput = $_POST['doctorJobNameInput'];
                 $CompleteData1 = $_POST["CompleteData1"];
                 $user_id = $_SESSION['user_id'];
@@ -157,11 +155,11 @@ if (isset($_POST['deleteBtn'])) {
                 if ($bis->connect_error) {
                     die('Could not connect to the database.');
                 } else {
-                    $Select = "SELECT * FROM p74_completedata ";
-                    $Insert = "INSERT INTO p74_completedata(doctorJobInput, doctorCodeInput, CompleteData, added_by) values(?, ?, ?, ?)";
+                    $Select = "SELECT * FROM p74_completedata";
+                    $Insert = "INSERT INTO p74_completedata(CompleteData, doctorJobInput, doctorCodeInput, added_by) values(?, ?, ?, ?)";
                     $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("iisi", $doctorJobNameInput, $doctorCodeInput, $CompleteData1, $user_id);
+                    $stmt->bind_param("iisi", $CompleteData1, $doctorJobNameInput, $doctorCodeInput, $user_id);
                     if ($stmt->execute()) {
                     } else {
                         echo $stmt->error;
@@ -199,7 +197,7 @@ if (isset($_POST['deleteBtn'])) {
                                         <label for="doctorJobNameInput" class="mainText fw-bold fs-4 text-nowrap"> الدرجــة الوظيفيــة الحاليــــــــة :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input name="doctorJobNameInput" id="doctorJobNameInput" value="<?php  echo $Doctor_job_id;?>" readonly class="form-control fs-4"><?php  ?></input>
+                                        <input name="doctorJobNameInput" id="doctorJobNameInput" value="<?php  echo $Doctor_job_id;?>" readonly class="form-control fs-4"></input>
                                     </div>
                                 </div>
                                 <div class="row my-2">

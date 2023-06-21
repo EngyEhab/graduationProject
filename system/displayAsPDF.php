@@ -1,12 +1,31 @@
 <?php
 
-function fetchData()
+// function fetchData()
+// {
+//     $content = '';
+//     include "../Connections/syscon.php"; 
+//     return $content;
+// };
+function fetchData($tableName, $requiredElement)
 {
     $content = '';
-    include "../Connections/syscon.php"; 
-    return $content;
-};
+    include "../Connections/syscon.php";
+    
 
+        $query = "SELECT * FROM $tableName  ";
+
+        $results = mysqli_query($bis, $query);
+        $row = mysqli_fetch_array($results);
+        $content .= " " . $row[$requiredElement] . " ";
+        if ((!empty($row[$requiredElement]))) {
+
+
+            return $content;
+        } else {
+            return "لا يوجد";
+        }
+    }
+;
 
 include('../TCPDF-main/tcpdf.php');
 
