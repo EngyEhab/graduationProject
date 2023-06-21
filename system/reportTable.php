@@ -332,7 +332,82 @@ ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput ");
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate)) {
+                            } elseif ($reportAbout == "missions" &&  empty($startDate) && empty($endDate)) {
+
+                                
+                                $myquery = ("SELECT * FROM doctors_account 
+                            INNER JOIN  departments  
+                            ON doctors_account.Department_id=departments.Department_id
+                            INNER JOIN  doctor_jobs
+                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                            INNER JOIN  p74_missions_data
+                            ON doctors_account.DoctorCode=p74_missions_data.doctorCodeInput");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="missionDetails.php?id=<?php echo $row['mission_id']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            } elseif ($reportAbout == "assignments" &&  empty($startDate) && empty($endDate)) {
+
+                                
+                                $myquery = ("SELECT * FROM doctors_account 
+                            INNER JOIN  departments  
+                            ON doctors_account.Department_id=departments.Department_id
+                            INNER JOIN  doctor_jobs
+                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                            INNER JOIN  p74_assignments_data
+                            ON doctors_account.DoctorCode=p74_assignments_data.doctorCodeInput");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="AssignmentDetails.php?id=<?php echo $row['assignment_id']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            }elseif ($reportAbout == "privateVacations" &&  empty($startDate) && empty($endDate)) {
+
+                                
+                                $myquery = ("SELECT * FROM doctors_account 
+                            INNER JOIN  departments  
+                            ON doctors_account.Department_id=departments.Department_id
+                            INNER JOIN  doctor_jobs
+                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                            INNER JOIN  p74_special_vacation_data
+                            ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="privateVacationDetails.php?id=<?php echo $row['Special_vacation_id']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            }elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate)) {
                                 $myquery = ("SELECT * FROM doctors_account 
 INNER JOIN  departments  
 ON doctors_account.Department_id=departments.Department_id
