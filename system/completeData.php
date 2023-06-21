@@ -125,6 +125,7 @@ include "../Connections/syscon.php";
                     $stmt = $bis->prepare($Insert);
                     $stmt->bind_param("iis", $doctorCodeInput, $doctorJobInput, $CompleteData);
                     if ($stmt->execute()) {
+
                     } else {
                         echo $stmt->error;
                     }

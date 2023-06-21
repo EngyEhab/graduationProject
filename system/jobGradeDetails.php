@@ -4,9 +4,7 @@ if (isset($_GET['id'])) {
 
     $id = $_GET['id'];
 
-    $myquery = "SELECT * FROM doctors_account 
-    INNER JOIN  p74_completedata  
-    ON doctors_account.DoctorCode=p74_completedata.doctorCodeInput WHERE doctorCodeInput = '$id'";
+    $myquery = "SELECT * FROM doctors_account  WHERE DoctorCode = '$id'";
     $results = mysqli_query($bis, $myquery);
     while ($row = mysqli_fetch_array($results)) {
         $DoctorCode = $row['DoctorCode'];
@@ -15,24 +13,38 @@ if (isset($_GET['id'])) {
     }
 
     mysqli_select_db($bis, $database_bis);
-    $myquery = "SELECT * FROM p74_completedata 
+    $myquery = "SELECT * FROM doctors_account 
                 INNER JOIN  doctor_jobs  
-                ON p74_completedata.doctorJobInput=doctor_jobs.Doctor_job_id
-                WHERE doctorCodeInput= '$id'";
+                ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                WHERE DoctorCode= '$id'";
     $result = $bis->query($myquery);
     if ($result->num_rows === 1 ) {
         $row = $result->fetch_assoc();
 
-        $CompleteData = $row['CompleteData'];
+        // $CompleteData = $row['CompleteData'];
         $Doctor_job_ar_name = $row['Doctor_job_ar_name'];
         $Doctor_job_id = $row['Doctor_job_id'];}
 
     }
+    $myquery = "SELECT * FROM p74_completedata 
+                INNER JOIN  doctors_account  
+                ON doctors_account.DoctorCode=p74_completedata.doctorCodeInput 
+                WHERE DoctorCode = '$id'";
+        $result = $bis->query($myquery);
+        if ($result->num_rows === 1 ) {
+            $row = $result->fetch_assoc();
+                $CompleteData = $row['CompleteData'];   }
+            else{
 
+            $CompleteData= "لا يوجد";
+        }
+        
+    
 if (isset($_POST['deleteBtn'])) {
     $id = $_GET['id'];
     $Details = mysqli_query($bis, " DELETE FROM p74_penalties WHERE doctorCodeInput='$id'");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="ar">
@@ -125,10 +137,10 @@ if (isset($_POST['deleteBtn'])) {
     <div class="container mt-3 mb-5">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <button id="completeBtn" doctorCode="<?php echo $DoctorCode; ?>" doctorName="<?php echo $Doctor_ar_Name; ?>" doctorJobName="<?php echo $Doctor_job_ar_name ?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="btn w-100 rounded-pill fw-bold fs-4 border-2 shadow completeBtn">استكمال</button>
+                <button id="completeBtn" doctorCode="<?php echo $DoctorCode;?>" doctorName="<?php echo $Doctor_ar_Name; ?>" doctorJobName="<?php echo $Doctor_job_id ?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="btn w-100 rounded-pill fw-bold fs-4 border-2 shadow completeBtn">استكمال</button>
             </div>
             <div class="col-md-2">
-                <a href="updateJobGradeData.php?id=">
+                <a href="updateJobGradeData.php?id=<?php echo $DoctorCode;?>">
                     <button id="updateBtn" class="btn btn-warning w-100 rounded-pill fw-bold fs-4 border-2 shadow">تعديــل</button>
                 </a>
             </div>
@@ -138,19 +150,21 @@ if (isset($_POST['deleteBtn'])) {
         </div>
     </div>
 
+    
 
-
-    <form action="" method="POST" id="completeDataForm" enctype="multipart/form-data">
-        <?php
+    <form action="" method="POST" id="completeDataForm">
+    <?php
+        
     if (isset($_POST['CompleteDataBtn'])) {
             if (
                 isset($_POST['doctorCodeInput']) &&
-                isset($_POST['doctorJobNameInput']) && isset($_POST['CompleteData'])
+                isset($_POST['doctorJobNameInput']) && isset($_POST['CompleteData1'])
             ) {
                 $doctorCodeInput = $_POST['doctorCodeInput'];
                 $doctorJobNameInput = $_POST['doctorJobNameInput'];
                 $CompleteData1 = $_POST["CompleteData1"];
                 $user_id = $_SESSION['user_id'];
+                
 
                 $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
                 if ($bis->connect_error) {
@@ -162,6 +176,8 @@ if (isset($_POST['deleteBtn'])) {
                     $stmt = $bis->prepare($Insert);
                     $stmt->bind_param("siii", $CompleteData1, $doctorJobNameInput, $doctorCodeInput, $user_id);
                     if ($stmt->execute()) {
+                            // header("location:jobGradeDetails.php?id=$doctorCodeInput");
+
                     } else {
                         echo $stmt->error;
                     }
@@ -170,6 +186,7 @@ if (isset($_POST['deleteBtn'])) {
         }
     
     ?>
+        
         <div class="w-75 mx-auto m-5">
             <div class="modal modal-xl fade" id="completeDataModal">
                 <div class="modal-dialog  modal-dialog-centered">
@@ -224,7 +241,7 @@ if (isset($_POST['deleteBtn'])) {
 
 
 
-
+    
 
 
 
