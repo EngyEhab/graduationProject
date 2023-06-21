@@ -26,18 +26,7 @@ if (isset($_GET['id'])) {
         $Doctor_job_id = $row['Doctor_job_id'];}
 
     }
-    $myquery = "SELECT * FROM p74_completedata 
-                INNER JOIN  doctors_account  
-                ON doctors_account.DoctorCode=p74_completedata.doctorCodeInput 
-                WHERE DoctorCode = '$id'";
-        $result = $bis->query($myquery);
-        if ($result->num_rows === 1 ) {
-            $row = $result->fetch_assoc();
-                $CompleteData = $row['CompleteData'];   }
-            else{
 
-            $CompleteData= "لا يوجد";
-        }
         
     
 if (isset($_POST['deleteBtn'])) {
@@ -45,6 +34,8 @@ if (isset($_POST['deleteBtn'])) {
     $Details = mysqli_query($bis, " DELETE FROM p74_penalties WHERE doctorCodeInput='$id'");
 }
 
+
+?>
 ?>
 <!DOCTYPE html>
 <html lang="ar">
@@ -122,10 +113,17 @@ if (isset($_POST['deleteBtn'])) {
                         </div>
                         <div class="col-md-9">
                             <table class="col-md-12">
+                            <?php $myquery = "SELECT * FROM doctors_account 
+                            INNER JOIN  p74_completedata  
+                            ON doctors_account.DoctorCode=p74_completedata.doctorCodeInput
+                            INNER JOIN  p74_penalties  
+                            ON p74_penalties.doctorCodeInput=doctors_account.DoctorCode";
+                            $results = mysqli_query($bis, $myquery);
+                            while ($row = mysqli_fetch_array($results)) {?>
                                 <tr>
-                                    <td class="fs-4 col-md-9"><?php echo $CompleteData; ?></td>
+                                    <td class="fs-4 col-md-9"><?php echo $row['CompleteData'] ?></td>
                                     <td class="col-md-3">
-                                        <a href="updateJobGradeData.php?id=<?php echo $DoctorCode;?>" class="text-decoration-none">
+                                        <a href="updateJobGradeData.php?id=<?php echo $row['doctorCodeInput'] ?>" class="text-decoration-none">
                                             <button class="btn btn-warning me-2">
                                                 <i class="fa-solid fa-pencil fa-sm "></i>
                                             </button>
@@ -135,6 +133,7 @@ if (isset($_POST['deleteBtn'])) {
                                         </button>
                                     </td>
                                 </tr>
+                                <?php } ?>
                             </table>
                         </div>
                     </div>

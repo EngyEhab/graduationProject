@@ -6,7 +6,7 @@ function fetchData($tableName)
     include "../Connections/syscon.php";
     
 
-        $query = "SELECT * FROM $tableName";
+        $query = "SELECT * FROM $tableName INNER JOIN $tableName2 ON $tableName.$Pkey = $tableName2.$fkey ";
 
         $results = mysqli_query($bis, $query);
         $row = mysqli_fetch_array($results);
