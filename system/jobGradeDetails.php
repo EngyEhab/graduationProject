@@ -1,5 +1,38 @@
 <?php
 include "../Connections/syscon.php";
+if (isset($_GET['id'])) {
+
+    $id = $_GET['id'];
+
+    $myquery = "SELECT * FROM doctors_account 
+    INNER JOIN  p74_completedata  
+    ON doctors_account.DoctorCode=p74_completedata.doctorCodeInput WHERE doctorCodeInput = '$id'";
+    $results = mysqli_query($bis, $myquery);
+    while ($row = mysqli_fetch_array($results)) {
+        $DoctorCode = $row['DoctorCode'];
+        $Doctor_image = $row['Doctor_image'];
+        $Doctor_ar_Name = $row['Doctor_ar_Name'];
+    }
+
+    mysqli_select_db($bis, $database_bis);
+    $myquery = "SELECT * FROM p74_completedata 
+                INNER JOIN  doctor_jobs  
+                ON p74_completedata.doctorJobInput=doctor_jobs.Doctor_job_id
+                WHERE doctorCodeInput= '$id'";
+    $result = $bis->query($myquery);
+    if ($result->num_rows === 1 ) {
+        $row = $result->fetch_assoc();
+
+        $CompleteData = $row['CompleteData'];
+        $Doctor_job_ar_name = $row['Doctor_job_ar_name'];
+        $Doctor_job_id = $row['Doctor_job_id'];}
+
+    }
+
+if (isset($_POST['deleteBtn'])) {
+    $id = $_GET['id'];
+    $Details = mysqli_query($bis, " DELETE FROM p74_penalties WHERE doctorCodeInput='$id'");
+}
 ?>
 <!DOCTYPE html>
 <html lang="ar">
@@ -60,7 +93,7 @@ include "../Connections/syscon.php";
                             <h4 class="mainText fw-bold">اســــــــــم العضــــــــــو :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $Doctor_ar_Name; ?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -68,7 +101,7 @@ include "../Connections/syscon.php";
                             <h4 class="mainText fw-bold">الدرجة الوظيفية الحاليـة :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $Doctor_job_ar_name; ?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -76,15 +109,15 @@ include "../Connections/syscon.php";
                             <h4 class="mainText fw-bold">التــــــدرج الوظيفـــــــى :</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="fs-4"></p>
+                            <p class="fs-4"><?php echo $CompleteData; ?></p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 d-flex justify-content-center align-items-center pb-5">
                 <div class="memberPhoto">
-                    <img src="../images/members/" class="w-100 h-100 ratio-1x1 rounded-circle shadow" alt="">
-                    <h1 class="text-center mainTitle pt-3"></h1>
+                    <img src="../images/members/<?php echo $Doctor_image; ?>" class="w-100 h-100 ratio-1x1 rounded-circle shadow" alt="">
+                    <h1 class="text-center mainTitle pt-3"><?php echo $Doctor_ar_Name; ?></h1>
                 </div>
             </div>
         </div>
@@ -107,7 +140,37 @@ include "../Connections/syscon.php";
 
 
 
-    <form action="completeData.php" method="post" id="completeDataForm">
+    <form action="" method="post" id="completeDataForm">
+        <?php
+    if (isset($_POST['CompleteDataBtn'])) {
+            if (
+                isset($_POST['doctorCodeInput']) &&
+                isset($_POST['doctorJobNameInput']) && isset($_POST['CompleteData'])
+            ) {
+                $doctorCodeInput = $_POST['doctorCodeInput'];
+
+                $doctorJobNameInput = $_POST['doctorJobNameInput'];
+                $CompleteData1 = $_POST["CompleteData1"];
+                $user_id = $_SESSION['user_id'];
+
+                $bis = new mysqli($hostname_bis, $username_bis, $password_bis, $database_bis);
+                if ($bis->connect_error) {
+                    die('Could not connect to the database.');
+                } else {
+                    $Select = "SELECT * FROM p74_completedata ";
+                    $Insert = "INSERT INTO p74_completedata(doctorJobInput, doctorCodeInput, CompleteData, added_by) values(?, ?, ?, ?)";
+                    $stmt = $bis->prepare($Select);
+                    $stmt = $bis->prepare($Insert);
+                    $stmt->bind_param("iisi", $doctorJobNameInput, $doctorCodeInput, $CompleteData1, $user_id);
+                    if ($stmt->execute()) {
+                    } else {
+                        echo $stmt->error;
+                    }
+                }
+            }
+        }
+    
+    ?>
         <div class="w-75 mx-auto m-5">
             <div class="modal modal-xl fade" id="completeDataModal">
                 <div class="modal-dialog  modal-dialog-centered">
@@ -119,7 +182,7 @@ include "../Connections/syscon.php";
                                         <label for="doctorCodeInput" class="mainText fw-bold fs-4 text-nowrap">كــــــــــــــود العضــــــــــــــــو :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
+                                        <input name="doctorCodeInput" id="doctorCodeInput" value="<?php echo $DoctorCode; ?>" readonly class="form-control fs-4"></input>
                                     </div>
                                 </div>
                                 <div class="row my-2 align-items-center">
@@ -127,7 +190,7 @@ include "../Connections/syscon.php";
                                         <label for="doctorNameInput" class="mainText fw-bold fs-4 text-nowrap">اســــــــــــــم العضــــــــــــــــو :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
+                                        <input name="doctorNameInput" id="doctorNameInput" value="<?php echo $Doctor_ar_Name; ?>" readonly class="form-control fs-4"></input>
                                     </div>
                                 </div>
                                 <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4 d-none"></input>
@@ -136,7 +199,7 @@ include "../Connections/syscon.php";
                                         <label for="doctorJobNameInput" class="mainText fw-bold fs-4 text-nowrap"> الدرجــة الوظيفيــة الحاليــــــــة :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <input name="doctorJobNameInput" id="doctorJobNameInput" readonly class="form-control fs-4"></input>
+                                        <input name="doctorJobNameInput" id="doctorJobNameInput" value="<?php  echo $Doctor_job_id;?>" readonly class="form-control fs-4"><?php  ?></input>
                                     </div>
                                 </div>
                                 <div class="row my-2">
@@ -144,7 +207,7 @@ include "../Connections/syscon.php";
                                         <label for="CompleteData" class="mainText fw-bold fs-4 ">استكمـال بيانـات الدرجــــــــة الوظيفية الحاليـــــة :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <textarea name="CompleteData" id="CompleteData" rows="5" class="form-control fs-4" required></textarea>
+                                        <textarea name="CompleteData1" id="CompleteData" rows="5" class="form-control fs-4" required></textarea>
                                     </div>
                                 </div>
                                 <div class="row my-2 justify-content-end">
@@ -171,6 +234,7 @@ include "../Connections/syscon.php";
 
     <?php
         include('footer.php');
+        
     ?>
 
     <script src="../js/all.min.js"></script>
