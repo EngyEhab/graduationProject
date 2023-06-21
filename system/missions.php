@@ -53,7 +53,7 @@ include "../Connections/syscon.php";
             </div>
             <div class="col-md-2">
                 <div class="displayAsPDF">
-                    <a href="displayAsPDF.php" class="text-decoration-none text-white">
+                    <a href="displayAsPDF.php?title=p74_missions_data" class="text-decoration-none text-white">
                         <button class="displayPDFBtn rounded-pill w-100 border-0" id="displayPDFBtn">عرض كـ PDF</button>
                     </a>
                 </div>
