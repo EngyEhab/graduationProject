@@ -44,7 +44,7 @@ function fetchData()
         INNER JOIN doctor_jobs ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id 
         INNER JOIN $title ON $title.doctorCodeInput=doctors_account.DoctorCode";
         $results = mysqli_query($bis, $query);
-        $row = mysqli_fetch_array($results);
+        // $row = mysqli_fetch_array($results);
         while ($row = mysqli_fetch_array($results)) {
         $content .= '<tr>
                         <td width="50">'.$row['doctorCodeInput'].'</td>

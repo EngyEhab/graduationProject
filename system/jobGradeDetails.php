@@ -118,6 +118,9 @@ if (isset($_POST['deleteBtn'])) {
                             ON doctors_account.DoctorCode=p74_completedata.doctorCodeInput
                             WHERE doctorCodeInput='$id'";
                             $results = mysqli_query($bis, $myquery);
+
+
+                            
                             while ($row = mysqli_fetch_array($results)) {?>
                                 <tr>
                                     <td class="fs-4 col-md-9"><?php echo $row['CompleteData'] ?></td>
