@@ -139,7 +139,7 @@ if (isset($_POST['deleteBtn'])) {
     <div class="container mt-3 mb-5">
         <div class="row justify-content-end">
             <div class="col-md-2">
-                <button id="completeBtn" doctorCode="<?php echo $DoctorCode;?>" doctorName="<?php echo $Doctor_ar_Name; ?>" doctorJobName="<?php echo $Doctor_job_id ?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="btn w-100 rounded-pill fw-bold fs-4 border-2 shadow completeBtn">استكمال</button>
+                <button id="completeBtn" doctorCode="<?php echo $DoctorCode;?>" doctorName="<?php echo $Doctor_ar_Name; ?>" doctorJobID="<?php echo $Doctor_job_id ?>" doctorJobName="<?php echo $Doctor_job_ar_name;?>" data-bs-toggle="modal" data-bs-target="#completeDataModal" class="btn w-100 rounded-pill fw-bold fs-4 border-2 shadow completeBtn">استكمال</button>
             </div>
         </div>
     </div>
