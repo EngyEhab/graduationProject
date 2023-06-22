@@ -76,8 +76,24 @@ if (isset($_GET['reportAbout'])) {
             </div>
         </div>
     </div>
-
-    <div class="container-fluid my-5" id="displayReportTable">
+    <div class="container mt-5 mb-1">
+        <div class="row me-auto px-5">
+            <div class="col text-center ps-1">
+                <h3 class="mainTitle fw-bold">تقرير عن  :<span class="mainText"> أعضاء هيئة التدريس</span></h3>
+            </div>
+            <div class="col text-center">
+                <h3 class="mainTitle fw-bold">القسم العلمى  :<span class="mainText"> نظم المعلومات</span></h3>
+            </div>
+            <div class="col text-center">
+                <h3 class="mainTitle fw-bold">من :<span class="mainText"> 1/6/2023</span></h3>
+            </div>
+            <div class="col text-center">
+                <h3 class="mainTitle fw-bold">إلى :<span class="mainText"> 21/6/2023</span></h3>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mb-5 mt-1" id="displayReportTable">
+        
         <div class="row justify-content-center">
             <div class="col-md-9">
                 <table class="table text-center fs-4 bg-white shadow rounded-2">
