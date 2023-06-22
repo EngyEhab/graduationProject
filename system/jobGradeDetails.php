@@ -120,8 +120,10 @@ if (isset($_POST['deleteBtn'])) {
                             $results = mysqli_query($bis, $myquery);
 
 
-                            
-                            while ($row = mysqli_fetch_array($results)) {?>
+                            if ( $result->num_rows < 1 ) {
+
+                            while ($row = mysqli_fetch_array($results)) {
+                                ?>
                                 <tr>
                                     <td class="fs-4 col-md-9"><?php echo $row['CompleteData'] ?></td>
                                     <td class="col-md-3">
@@ -135,7 +137,10 @@ if (isset($_POST['deleteBtn'])) {
                                         </button>
                                     </td>
                                 </tr>
-                                <?php } ?>
+                                <?php } }else { ?><tr>
+                                    <td class="fs-4 col-md-9"><?php echo "لا يوجد " ?></td>
+                                    
+                                </tr> <?php } ?>
                             </table>
                         </div>
                     </div>
