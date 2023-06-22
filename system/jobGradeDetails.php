@@ -119,27 +119,28 @@ if (isset($_POST['deleteBtn'])) {
                             $results = mysqli_query($bis, $myquery);
 
 
-                            if ( $results->num_rows > 1 ) {
-
-                            while ($row = mysqli_fetch_array($results)) {
+                            if ( $results->num_rows < 1 ) {
                                 ?>
                                 <tr>
-                                    <td class="fs-4 col-md-9"><?php echo $row['CompleteData'] ?></td>
-                                    <td class="col-md-3">
-                                        <a href="updateJobGradeData.php?id=<?php echo $row['id_completeData'] ?>" class="text-decoration-none">
-                                            <button class="btn btn-warning me-2">
-                                                <i class="fa-solid fa-pencil fa-sm "></i>
+                                    <td class="fs-4 col-md-9"><?php echo "لا يوجد " ?></td> 
+                                </tr> 
+                                <?php } else {
+                                while ($row = mysqli_fetch_array($results)) {
+                                    ?>
+                                    <tr>
+                                        <td class="fs-4 col-md-9"><?php echo $row['CompleteData'] ?></td>
+                                        <td class="col-md-3">
+                                            <a href="updateJobGradeData.php?id=<?php echo $row['id_completeData'] ?>" class="text-decoration-none">
+                                                <button class="btn btn-warning me-2">
+                                                    <i class="fa-solid fa-pencil fa-sm "></i>
+                                                </button>
+                                            </a>
+                                            <button class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#deleteJobGradeModal">
+                                                <i class="fa-solid fa-trash-can fa-sm "></i>
                                             </button>
-                                        </a>
-                                        <button class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#deleteJobGradeModal">
-                                            <i class="fa-solid fa-trash-can fa-sm "></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                                <?php } }else { ?><tr>
-                                    <td class="fs-4 col-md-9"><?php echo "لا يوجد " ?></td>
-                                    
-                                </tr> <?php } ?>
+                                        </td>
+                                    </tr>
+                                    <?php } } ?>
                             </table>
                         </div>
                     </div>
