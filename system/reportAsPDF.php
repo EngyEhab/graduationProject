@@ -22,10 +22,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
 
@@ -39,10 +39,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
 
@@ -56,10 +56,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>';}
         } elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate) && empty($Department_id)) {
 
@@ -73,10 +73,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
 
@@ -90,10 +90,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
 
@@ -107,10 +107,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
 
@@ -124,10 +124,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>';}
         } elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate) && empty($Department_id)) {
 
@@ -141,10 +141,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "missions" && !empty($Department_id)) {
 
@@ -158,10 +158,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "missions" && empty($Department_id)) {
 
@@ -175,10 +175,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "assignments" && !empty($Department_id)) {
 
@@ -193,10 +193,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>';}
         } elseif ($reportAbout == "assignments" && empty($Department_id)) {
 
@@ -211,10 +211,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "privateVacations" && !empty($Department_id)) {
             $myquery = ("SELECT * FROM doctors_account 
@@ -227,10 +227,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "privateVacations" && empty($Department_id)) {
             $myquery = ("SELECT * FROM doctors_account 
@@ -243,10 +243,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>';}
         } elseif ($reportAbout == "members" && !empty($Department_id)) {
             $myquery = ("SELECT * FROM doctors_account 
@@ -258,10 +258,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "members" && empty($Department_id)) {
             $myquery = ("SELECT * FROM doctors_account 
@@ -272,10 +272,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
             $myquery = ("SELECT * FROM doctors_account 
@@ -288,10 +288,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
             $myquery = ("SELECT * FROM doctors_account 
@@ -304,10 +304,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } elseif ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate) && empty($Department_id)) {
             $myquery = ("SELECT * FROM doctors_account 
@@ -320,10 +320,10 @@ function fetchData()
             $results = mysqli_query($bis, $myquery);
             while ($row = mysqli_fetch_array($results)) {
                 $content .= '<tr>
-                <td width="52">'.$row['DoctorCode'].'</td>
-                <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                <td width="150">'.$row['Department_ar_name'].'</td>
-                <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                <td width="15%">'.$row['DoctorCode'].'</td>
+                <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                <td width="25%">'.$row['Department_ar_name'].'</td>
+                <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                 </tr>'; }
         } else {
             if ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
@@ -337,15 +337,13 @@ function fetchData()
                 $results = mysqli_query($bis, $myquery);
                 while ($row = mysqli_fetch_array($results)) {
                     $content .= '<tr>
-                    <td width="52">'.$row['DoctorCode'].'</td>
-                    <td width="150">'.$row['Doctor_ar_Name'].' </td>
-                    <td width="150">'.$row['Department_ar_name'].'</td>
-                    <td width="146">'.$row['Doctor_job_ar_name'].'</td>
+                    <td width="15%">'.$row['DoctorCode'].'</td>
+                    <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                    <td width="25%">'.$row['Department_ar_name'].'</td>
+                    <td width="35%">'.$row['Doctor_job_ar_name'].'</td>
                     </tr>';}
                 }
             }
-       
-        
         return $content;
     };
 
@@ -372,13 +370,13 @@ $pdf->writeHTMLCell(50, 20, 80, 25, '<h5>تقرير</h5>', 0, 1, 0, true, "C", t
 $pdf->writeHTMLCell(0, 8, 0, 50, '', 0, 1, 0, true, "C", true);
 
 
-$tbl= '<table cellspacing="3" align="center" cellpadding="2" border="1">
+$tbl= '<table cellspacing="2" align="center" cellpadding="2" border="1">
 <thead>
     <tr>
-        <th width="52">كود العضو</th>
-        <th width="150">اسم العضو</th>
-        <th width="150">القسم العلمى</th>
-        <th width="146">الدرجة الوظيفية الحالية</th>
+        <th width="15%" style="font-weight:bold">كود العضو</th>
+        <th width="25%" style="font-weight:bold">اسم العضو</th>
+        <th width="25%" style="font-weight:bold">القسم العلمى</th>
+        <th width="35%" style="font-weight:bold">الدرجة الوظيفية الحالية</th>
     </tr>
 </thead>
 <tbody>';

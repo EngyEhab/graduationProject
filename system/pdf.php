@@ -70,10 +70,10 @@ $html = '<p>نفيـد انه بالاطـلاع على ملف خدمـة سيا
 <span>الإســــــــــــم :</span>' . fetchData("doctors_account", "Doctor_ar_Name", "DoctorCode") . '<br><span>تاريخ الميــــــلاد:</span>'
     . fetchData("doctors_account", "date_of_birth", "DoctorCode") . '<br><span>تاريخ التعييـــــن :</span>' . fetchData("doctors_account", "hiring_date", "DoctorCode") . '<br><span>المؤهلات العلميــة :</span>'
     . fetchData("doctors_account", "qualifications", "DoctorCode") . '<br><span>التدرج الوظيفــــى :</span>' . fetchData1("p74_CompleteData", "CompleteData", "DoctorCodeInput") . '<br><span>الجـــــــــزاءات :</span>'
-    . fetchData("p74_penalties", "penaltyDescription", "DoctorCodeInput") . '<br><span>الإعـــــــــارات :</span>' . fetchData("p74_secondment_data", "secondmentDescription", "DoctorCodeInput") . '<br><span>الأجـازات الخاصــة :</span> لا يوجد<br>
-<span>البعثــــــــــات :</span> لا يوجد<br>
-<span>الأجازات الدراسيــة :</span> لا يوجد <br>
-<span>الإنتدابـــــــــات :</span> لا يوجد 
+    . fetchData("p74_penalties", "penaltyDescription", "DoctorCodeInput") . '<br><span>الإعـــــــــارات :</span>' . fetchData("p74_secondment_data", "secondmentDescription", "DoctorCodeInput") . '<br><span>الأجـازات الخاصــة :</span>'. fetchData("p74_special_vacation_data", "special_vacationDescription", "DoctorCodeInput") .'<br>
+<span>البعثــــــــــات :</span> '. fetchData("p74_missions_data", "mission_Description", "DoctorCodeInput") .' <br>
+<span>الأجازات الدراسيــة :</span>  '. fetchData("p74_vacation_data", "vacationDescription", "DoctorCodeInput") .' <br>
+<span>الإنتدابـــــــــات :</span> '. fetchData("p74_assignments_data", "assignment_Description", "DoctorCodeInput") .'
 <p>*********************************************************************</p>
 <p>و قد أعطيت لسيادته هذا البيان بناء على طلبه و ذلك لتقديمه إلى (&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) ...</p>';
 

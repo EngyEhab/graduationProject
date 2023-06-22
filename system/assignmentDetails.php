@@ -73,7 +73,7 @@ if (isset($_POST['deleteBtn'])) {
             <div class="modal-content">
                 <div class="modal-body">
                     <p class="fs-3 mainTitle fw-bold">هل بالفعل تريد حذف الإنتداب الخاص بالعضو:</p>
-                    <span class="fs-3 mainText"></span>
+                    <span class="fs-3 mainText"><?php echo $Doctor_ar_Name; ?></span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary fs-4" data-bs-dismiss="modal">الغاء</button>

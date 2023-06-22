@@ -77,7 +77,7 @@ if (isset($_POST['update'])) {
                         <label for="PrivateVacationDescription" class="mainText fw-bold fs-4"> الأجــــــــــــــــــــازة :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea class="form-control" name="special_vacationDescription" id="PrivateVacationDescription" value="" required><?php if (isset($_GET['id'])) {
+                        <textarea class="form-control fs-4" name="special_vacationDescription" id="PrivateVacationDescription" value="" required><?php if (isset($_GET['id'])) {
                                                                                                                                 echo $special_vacationDescription;} ?></textarea>
                     </div>
                 </div>

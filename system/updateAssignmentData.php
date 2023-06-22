@@ -78,7 +78,7 @@ if (isset($_POST['updateAssignmentBtn'])) {
                         <label for="assignmentDescription" class="mainText fw-bold fs-4">الإنتــــــــــــــــــــــــــــــــداب :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea  class="form-control" value="" name="assignmentDescription" id="assignmentDescription" required><?php if (isset($_GET['id'])) {
+                        <textarea  class="form-control fs-4" value="" name="assignmentDescription" id="assignmentDescription" required><?php if (isset($_GET['id'])) {
                                                                                         echo $assignment_Description;
                                                                                     } ?></textarea>
                     </div>

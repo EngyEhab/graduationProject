@@ -30,13 +30,13 @@ function fetchData()
                 $colTitle = 'الإنتداب';
                 break;
         }
-        $content .= '<table cellspacing="3" align="center" cellpadding="2" border="1">
+        $content .= '<table cellspacing="2" align="center" cellpadding="2" border="1">
         <thead>
             <tr>
-                <th width="50">كود العضو</th>
-                <th width="120">اسم العضو</th>
-                <th width="120">الدرجة الوظيفية الحالية</th>
-                <th width="208">'.$colTitle.'</th>
+                <th width="15%" style="font-weight:bold">كود العضو</th>
+                <th width="25%" style="font-weight:bold">اسم العضو</th>
+                <th width="25%" style="font-weight:bold">الدرجة الوظيفية الحالية</th>
+                <th width="35%" style="font-weight:bold">'.$colTitle.'</th>
             </tr>
         </thead>
         <tbody>';
@@ -47,10 +47,10 @@ function fetchData()
         // $row = mysqli_fetch_array($results);
         while ($row = mysqli_fetch_array($results)) {
         $content .= '<tr>
-                        <td width="50">'.$row['doctorCodeInput'].'</td>
-                        <td width="120">'.$row['Doctor_ar_Name'].' </td>
-                        <td width="120">'.$row['Doctor_job_ar_name'].'</td>
-                        <td width="208">'.$row[$decription].'</td>
+                        <td width="15%">'.$row['doctorCodeInput'].'</td>
+                        <td width="25%">'.$row['Doctor_ar_Name'].' </td>
+                        <td width="25%">'.$row['Doctor_job_ar_name'].'</td>
+                        <td width="35%">'.$row[$decription].'</td>
                     </tr>';}
                     
         

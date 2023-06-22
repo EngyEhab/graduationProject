@@ -78,7 +78,7 @@ if (isset($_POST['updateMissionBtn'])) {
                         <label for="missionDescription" class="mainText fw-bold fs-4">البعثـــــــــــــــــــــــــــــــــــــة :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea  class="form-control" value="" name="missionDescription" id="missionDescription" required><?php if (isset($_GET['id'])) {
+                        <textarea  class="form-control fs-4" value="" name="missionDescription" id="missionDescription" required><?php if (isset($_GET['id'])) {
                                                                                         echo $mission_Description;
                                                                                     } ?></textarea>
                     </div>

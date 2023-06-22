@@ -100,7 +100,7 @@ if (isset($_POST['updateJobGradeBtn'])) {
                         <label for="jobGrade" class="mainText fw-bold fs-4">التدرج الوظيفـــــــــــــــــــى :</label>
                     </div>
                     <div class="col-md-10">
-                        <textarea  class="form-control" value="" name="jobGrade" id="jobGrade" required><?php if (isset($_GET['id'])) {
+                        <textarea  class="form-control fs-4" value="" name="jobGrade" id="jobGrade" required><?php if (isset($_GET['id'])) {
                                                                                         echo $CompleteData;}
                                                                                     ?></textarea>
                     </div>
