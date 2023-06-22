@@ -86,14 +86,14 @@ if (isset($_GET['reportAbout'])) {
                         <?php
                         if (isset($_POST['search'])) {
                             $st = $_POST['search'];
-                            if ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate)) {
+                            if ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate)&& !empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
                             INNER JOIN  departments  
                             ON doctors_account.Department_id=departments.Department_id
                             INNER JOIN  doctor_jobs
                             ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
                             INNER JOIN  p74_penalties
-                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate >= '$startDate' AND p74_penalties.endDate <= '$endDate' AND Doctor_ar_Name like '%$st%'");
+                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate >= '$startDate' AND p74_penalties.endDate <= '$endDate' AND doctors_account.Department_id='$Department_id' AND Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                         ?>
@@ -111,7 +111,7 @@ if (isset($_GET['reportAbout'])) {
                                 <?php }
                             }
                             
-                            elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate)) {
+                            elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate)&& empty($Department_id)) {
 
                                 $st = $_POST['search'];
                                 $myquery = ("SELECT * FROM doctors_account 
@@ -136,7 +136,57 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate)) {
+                            } elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate)&& !empty($Department_id)) {
+
+                                $st = $_POST['search'];
+                                $myquery = ("SELECT * FROM doctors_account 
+                            INNER JOIN  departments  
+                            ON doctors_account.Department_id=departments.Department_id
+                            INNER JOIN  doctor_jobs
+                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                            INNER JOIN  p74_penalties
+                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE doctors_account.Department_id='$Department_id' AND Doctor_ar_Name like '%$st%' ");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="penaltyDetails.php?id=<?php echo $row['penality_id']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            } elseif ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate)&& empty($Department_id)) {
+
+                                $st = $_POST['search'];
+                                $myquery = ("SELECT * FROM doctors_account 
+                            INNER JOIN  departments  
+                            ON doctors_account.Department_id=departments.Department_id
+                            INNER JOIN  doctor_jobs
+                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                            INNER JOIN  p74_penalties
+                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_vacation_data.startDate >= '$startDate' AND p74_vacation_data.endDate <= '$endDate' AND Doctor_ar_Name like '%$st%' ");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="penaltyDetails.php?id=<?php echo $row['penality_id']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate)&& !empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
                     INNER JOIN  departments  
@@ -144,7 +194,7 @@ if (isset($_GET['reportAbout'])) {
                     INNER JOIN  doctor_jobs
                     ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
                     INNER JOIN  p74_vacation_data
-                    ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate >= '$startDate' AND p74_vacation_data.endDate <= '$endDate'  AND Doctor_ar_Name like '%$st%'");
+                    ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate >= '$startDate' AND p74_vacation_data.endDate <= '$endDate' AND Department_id='$Department_id' AND Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
 
@@ -161,7 +211,7 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate)) {
+                            } elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate)&& empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
                         INNER JOIN  departments  
@@ -186,7 +236,103 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate)) {
+                            } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate)&& empty($Department_id)) {
+
+                                $myquery = ("SELECT * FROM doctors_account 
+                        INNER JOIN  departments  
+                        ON doctors_account.Department_id=departments.Department_id
+                        INNER JOIN  doctor_jobs
+                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                        INNER JOIN  p74_vacation_data
+                        ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate >= '$startDate' AND p74_vacation_data.endDate <= '$endDate' Doctor_ar_Name like '%$st%'");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="vacationDetails.php?id=<?php echo $row['Vacation_id']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            }elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate)&& !empty($Department_id)) {
+
+                                $myquery = ("SELECT * FROM doctors_account 
+                        INNER JOIN  departments  
+                        ON doctors_account.Department_id=departments.Department_id
+                        INNER JOIN  doctor_jobs
+                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                        INNER JOIN  p74_vacation_data
+                        ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE doctors_account.Department_id='$Department_id' AND Doctor_ar_Name like '%$st%'");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="vacationDetails.php?id=<?php echo $row['Vacation_id']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            }elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
+                                $myquery = ("SELECT * FROM doctors_account 
+                    INNER JOIN  departments  
+                    ON doctors_account.Department_id=departments.Department_id
+                    INNER JOIN  doctor_jobs
+                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                    INNER JOIN  p74_secondment_data
+                    ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_secondment_data.startDate >= '$startDate' AND p74_secondment_data.endDate <= '$endDate' AND doctors_account.Department_id='$Department_id'  AND Doctor_ar_Name like '%$st%'");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="secondmentDetails.php?id=<?php echo $row['Secondment_id']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <?php }
+                            }elseif ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
+                                $myquery = ("SELECT * FROM doctors_account 
+                    INNER JOIN  departments  
+                    ON doctors_account.Department_id=departments.Department_id
+                    INNER JOIN  doctor_jobs
+                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                    INNER JOIN  p74_secondment_data
+                    ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE doctors_account.Department_id='$Department_id' AND Doctor_ar_Name like '%$st%'");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="secondmentDetails.php?id=<?php echo $row['Secondment_id']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <?php }
+                            }elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
                     INNER JOIN  departments  
                     ON doctors_account.Department_id=departments.Department_id
@@ -209,7 +355,32 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                     <?php }
-                            }elseif ($reportAbout == "missions" ) {
+                            }elseif ($reportAbout == "missions" && !empty($Department_id) ) {
+
+                                
+                                $myquery = ("SELECT * FROM doctors_account 
+                            INNER JOIN  departments  
+                            ON doctors_account.Department_id=departments.Department_id
+                            INNER JOIN  doctor_jobs
+                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                            INNER JOIN  p74_missions_data
+                            ON doctors_account.DoctorCode=p74_missions_data.doctorCodeInput WHERE doctors_account.Department_id=$Department_id AND Doctor_ar_Name like '%$st%'");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="privateVacationDetails.php?id=<?php echo $row['mission_id']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            } elseif ($reportAbout == "missions" && empty($Department_id) ) {
 
                                 
                                 $myquery = ("SELECT * FROM doctors_account 
@@ -234,7 +405,80 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "assignments" ) {
+                            }elseif ($reportAbout == "members" && !empty($Department_id) ) {
+
+                                
+                                $myquery = ("SELECT * FROM doctors_account 
+                            INNER JOIN  departments  
+                            ON doctors_account.Department_id=departments.Department_id
+                            INNER JOIN  doctor_jobs
+                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                            WHERE doctors_account.Department_id=$Department_id AND Doctor_ar_Name like '%$st%'");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="memberDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            } elseif ($reportAbout == "members" && empty($Department_id) ) {
+
+                                
+                                $myquery = ("SELECT * FROM doctors_account 
+                            INNER JOIN  departments  
+                            ON doctors_account.Department_id=departments.Department_id
+                            INNER JOIN  doctor_jobs
+                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                            WHERE Doctor_ar_Name like '%$st%'");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="memberDetails.php?id=<?php echo $row['DoctorCode']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            }elseif ($reportAbout == "assignments" && !empty($Department_id) ) {
+
+                                
+                                $myquery = ("SELECT * FROM doctors_account 
+                            INNER JOIN  departments  
+                            ON doctors_account.Department_id=departments.Department_id
+                            INNER JOIN  doctor_jobs
+                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                            INNER JOIN  p74_assignments_data
+                            ON doctors_account.DoctorCode=p74_assignments_data.doctorCodeInput WHERE doctors_account.Department_id=$Department_id AND Doctor_ar_Name like '%$st%'");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="AssignmentDetails.php?id=<?php echo $row['assignment_id']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            }elseif ($reportAbout == "assignments" && empty($Department_id) ) {
 
                                 
                                 $myquery = ("SELECT * FROM doctors_account 
@@ -259,7 +503,32 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "privateVacations" ) {
+                            }elseif ($reportAbout == "privateVacations" && !empty($Department_id)) {
+
+                                
+                                $myquery = ("SELECT * FROM doctors_account 
+                            INNER JOIN  departments  
+                            ON doctors_account.Department_id=departments.Department_id
+                            INNER JOIN  doctor_jobs
+                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                            INNER JOIN  p74_special_vacation_data
+                            ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput WHERE doctors_account.Department_id=$Department_id AND Doctor_ar_Name like '%$st%'");
+                                $results = mysqli_query($bis, $myquery);
+                                while ($row = mysqli_fetch_array($results)) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $row['DoctorCode']; ?></td>
+                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
+                                        <td><?php echo $row['Department_ar_name'] ?></td>
+                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
+                                        <td>
+                                            <a href="privateVacationDetails.php?id=<?php echo $row['Special_vacation_id']; ?>">
+                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php }
+                            } elseif ($reportAbout == "privateVacations" && empty($Department_id)) {
 
                                 
                                 $myquery = ("SELECT * FROM doctors_account 
@@ -284,8 +553,8 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } else {
-                                if ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate)) {
+                            }else {
+                                if ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate)&& empty($Department_id)) {
                                     $myquery = ("SELECT * FROM doctors_account 
                                 INNER JOIN  departments  
                                 ON doctors_account.Department_id=departments.Department_id
@@ -318,492 +587,6 @@ if (isset($_GET['reportAbout'])) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            elseif (isset($_POST['search'])) {
-                            $st = $_POST['search'];
-                            if ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
-                                $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_penalties
-                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate >= '$startDate' AND p74_penalties.endDate <= '$endDate' AND doctors_account.Department_id = '$Department_id' AND Doctor_ar_Name like '%$st%'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                        ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="penaltyDetails.php?id=<?php echo $row['penality_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            } elseif ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
-
-                                $st = $_POST['search'];
-                                $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_penalties
-                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate >= '$startDate' AND p74_penalties.endDate <= '$endDate' AND Doctor_ar_Name like '%$st%'  ");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="penaltyDetails.php?id=<?php echo $row['penality_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            } elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
-
-                                $st = $_POST['search'];
-                                $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_penalties
-                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE doctors_account.Department_id = '$Department_id' AND Doctor_ar_Name like '%$st%'  ");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="penaltyDetails.php?id=<?php echo $row['penality_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            }elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate) && empty($Department_id)) {
-
-                                $st = $_POST['search'];
-                                $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_penalties
-                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE Doctor_ar_Name like '%$st%'  ");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="penaltyDetails.php?id=<?php echo $row['penality_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            }elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
-
-                                $myquery = ("SELECT * FROM doctors_account 
-                    INNER JOIN  departments  
-                    ON doctors_account.Department_id=departments.Department_id
-                    INNER JOIN  doctor_jobs
-                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                    INNER JOIN  p74_vacation_data
-                    ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate >= '$startDate' AND p74_vacation_data.endDate <= '$endDate' AND doctors_account.Department_id = '$Department_id' AND Doctor_ar_Name like '%$st%'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="vacationDetails.php?id=<?php echo $row['Vacation_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
-
-                                $myquery = ("SELECT * FROM doctors_account 
-                        INNER JOIN  departments  
-                        ON doctors_account.Department_id=departments.Department_id
-                        INNER JOIN  doctor_jobs
-                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                        INNER JOIN  p74_vacation_data
-                        ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="vacationDetails.php?id=<?php echo $row['Vacation_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            }elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
-
-                                $myquery = ("SELECT * FROM doctors_account 
-                        INNER JOIN  departments  
-                        ON doctors_account.Department_id=departments.Department_id
-                        INNER JOIN  doctor_jobs
-                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                        INNER JOIN  p74_vacation_data
-                        ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE Department_id ='$Department_id' AND Doctor_ar_Name like '%$st%'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="vacationDetails.php?id=<?php echo $row['Vacation_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            } elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
-                                $myquery = ("SELECT * FROM doctors_account 
-                    INNER JOIN  departments  
-                    ON doctors_account.Department_id=departments.Department_id
-                    INNER JOIN  doctor_jobs
-                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                    INNER JOIN  p74_secondment_data
-                    ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE p74_secondment_data.startDate >= '$startDate' AND p74_secondment_data.endDate <= '$endDate' AND doctors_account.Department_id = '$Department_id' AND Doctor_ar_Name like '%$st%'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="secondmentDetails.php?id=<?php echo $row['Secondment_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <?php }
-                            }
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            elseif ($reportAbout == "missions" && !empty($Department_id) ) {
-                                
-                                $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_missions_data
-                            ON doctors_account.DoctorCode=p74_missions_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%' AND doctors_account.Department_id = '$Department_id'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="privateVacationDetails.php?id=<?php echo $row['mission_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            } elseif ($reportAbout == "missions" && empty($Department_id) ) {
-                                
-                                $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_missions_data
-                            ON doctors_account.DoctorCode=p74_missions_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="privateVacationDetails.php?id=<?php echo $row['mission_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            }
-                            
-                            
-                            
-                            
-                            
-                            
-                            elseif ($reportAbout == "assignments" && !empty($Department_id) ) {
-                                $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_assignments_data
-                            ON doctors_account.DoctorCode=p74_assignments_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%' AND doctors_account.Department_id = '$Department_id'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="AssignmentDetails.php?id=<?php echo $row['assignment_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            }
-                            
-                            elseif ($reportAbout == "assignments" && empty($Department_id) ) {
-
-                                
-                                $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_assignments_data
-                            ON doctors_account.DoctorCode=p74_assignments_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="AssignmentDetails.php?id=<?php echo $row['assignment_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            }
-                            
-                            
-                            
-                            
-                            
-                            
-                            elseif ($reportAbout == "privateVacations" && !empty($Department_id) ) {
-
-                                
-                                $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_special_vacation_data
-                            ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%' AND doctors_account.Department_id = '$Department_id'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="privateVacationDetails.php?id=<?php echo $row['Special_vacation_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            }elseif ($reportAbout == "privateVacations" && empty($Department_id) ) {
-
-                                
-                                $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_special_vacation_data
-                            ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="privateVacationDetails.php?id=<?php echo $row['Special_vacation_id']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            } 
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            elseif ($reportAbout == "members" && !empty($Department_id) ) {
-
-                                
-                                $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            WHERE Doctor_ar_Name like '%$st%' AND doctors_account.Department_id = '$Department_id'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="privateVacationDetails.php?id=<?php echo $row['DoctorCode']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            }elseif ($reportAbout == "members" && empty($Department_id) ) {
-                                
-                                $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            WHERE Doctor_ar_Name like '%$st%'");
-                                $results = mysqli_query($bis, $myquery);
-                                while ($row = mysqli_fetch_array($results)) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $row['DoctorCode']; ?></td>
-                                        <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                        <td><?php echo $row['Department_ar_name'] ?></td>
-                                        <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                        <td>
-                                            <a href="privateVacationDetails.php?id=<?php echo $row['DoctorCode']; ?>">
-                                                <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                <?php }
-                            }
-                            
-                            
-                            
-                            
-                            
-                            else {
-                                if ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate) && empty($Department_id)) {
-                                    $myquery = ("SELECT * FROM doctors_account 
-                                INNER JOIN  departments  
-                                ON doctors_account.Department_id=departments.Department_id
-                                INNER JOIN  doctor_jobs
-                                ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                                INNER JOIN  p74_secondment_data
-                                ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%' AND doctors_account.Department_id = '$Department_id'");
-                                    $results = mysqli_query($bis, $myquery);
-                                    while ($row = mysqli_fetch_array($results)) {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $row['DoctorCode']; ?></td>
-                                            <td><?php echo $row['Doctor_ar_Name'] ?></td>
-                                            <td><?php echo $row['Department_ar_name'] ?></td>
-                                            <td><?php echo $row['Doctor_job_ar_name'] ?></td>
-                                            <td>
-                                                <a href="secondmentDetails.php?id=<?php echo $row['Secondment_id']; ?>">
-                                                    <button class="border-0 rounded-pill w-50 fs-4 tableDisplayBtn">عـرض</button>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php }
-                                }
-                            }
-                        }
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
 
 
 
