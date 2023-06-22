@@ -21,7 +21,6 @@ if (isset($_GET['id'])) {
     if ($result->num_rows === 1 ) {
         $row = $result->fetch_assoc();
 
-        // $CompleteData = $row['CompleteData'];
         $Doctor_job_ar_name = $row['Doctor_job_ar_name'];
         $Doctor_job_id = $row['Doctor_job_id'];}
 
@@ -36,7 +35,7 @@ if (isset($_POST['deleteBtn'])) {
 
 
 ?>
-?>
+
 <!DOCTYPE html>
 <html lang="ar">
 
@@ -120,7 +119,7 @@ if (isset($_POST['deleteBtn'])) {
                             $results = mysqli_query($bis, $myquery);
 
 
-                            if ( $result->num_rows < 1 ) {
+                            if ( $results->num_rows > 1 ) {
 
                             while ($row = mysqli_fetch_array($results)) {
                                 ?>
