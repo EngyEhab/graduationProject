@@ -145,9 +145,11 @@ if (isset($_POST['deleteBtn'])) {
         </div>
     </div>
 
-    <?php
-    include('footer.php');
-    ?>
+    <div class="fixedFooter position-fixed bottom-0 start-0 end-0 z-3">
+        <?php
+        include('footer.php');
+        ?>
+    </div>
 
     <script src="../js/all.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>

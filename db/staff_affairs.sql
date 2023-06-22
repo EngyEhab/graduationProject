@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2023 at 09:41 PM
+-- Generation Time: Jun 22, 2023 at 11:44 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -373,8 +373,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `user_ar_name`, `username`, `password`, `user_type_id`, `added_date`, `added_by`, `Notes`, `is_enable`, `image`) VALUES
 (1, 'محمد عبد السلام', 'mohamed', '123', 1, '2023-03-09 15:28:23', 1, '..', 'yes', '1.jpg'),
-(2, 'بولا شريف بدر', 'pola', '123', 2, '2023-05-19 17:30:57', 1, 'no', 'no', '2.JPG'),
-(13, 'انجى ايهاب', 'engy ehab', '123', 1, '2023-06-22 18:28:30', 1, 'لا يوجد', 'Yes', '530448.jpg');
+(2, 'بولا شريف بدر', 'pola', '123', 2, '2023-05-19 17:30:57', 1, 'no', 'yes', '2.JPG'),
+(13, 'انجى ايهاب', 'engy ehab', '123', 1, '2023-06-22 18:28:30', 1, 'لا يوجد', 'yes', '530448.jpg');
 
 -- --------------------------------------------------------
 
@@ -501,7 +501,8 @@ ALTER TABLE `universities`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `user_type_id` (`user_type_id`);
 
 --
 -- Indexes for table `users_types`
@@ -666,6 +667,12 @@ ALTER TABLE `p74_special_vacation_data`
 ALTER TABLE `p74_vacation_data`
   ADD CONSTRAINT `added_by5` FOREIGN KEY (`added_by`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `doctorCodeInput3` FOREIGN KEY (`doctorCodeInput`) REFERENCES `doctors_account` (`DoctorCode`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `user_type_id` FOREIGN KEY (`user_type_id`) REFERENCES `users_types` (`user_type_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
