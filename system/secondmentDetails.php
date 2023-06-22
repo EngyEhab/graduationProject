@@ -89,7 +89,7 @@ if (isset($_GET['id'])) {
 
     <div class="container bg-white p-5 shadow mt-5">
         <div class="row align-items-center">
-            <div class="col-md-6">
+            <div class="col-md-6 borderLeft">
                 <div class="vacationData p-2">
                     <div class="row">
                         <div class="col-md-3">

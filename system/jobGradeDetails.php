@@ -66,29 +66,9 @@ if (isset($_POST['deleteBtn'])) {
     </button>
     <!-- end button to up -->
 
-    <!-- start delete Modal -->
-    <div class="modal fade" id="deleteJobGradeModal" data-bs-backdrop="static" data-bs-keyboard="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <p class="fs-3 mainTitle fw-bold">هل بالفعل تريد حذف التدرج الوظيفى الخاص بالعضو:</p>
-                    <span class="fs-3 mainText"><?php echo $Doctor_ar_Name; ?></span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary fs-4" data-bs-dismiss="modal">الغاء</button>
-                    <a href="deleteJobGradeData.php?id=<?php echo $Doctor_ar_Name; ?>">
-                        <button id="deleteBtn" name="deleteBtn" class="btn btn-danger fs-4">حـــذف</button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end delete Modal -->
-
-
     <div class="container bg-white p-5 shadow mt-5">
         <div class="row align-items-center">
-            <div class="col-md-6">
+            <div class="col-md-6 borderLeft">
                 <div class="jobGradeData p-2">
                     <div class="row">
                         <div class="col-md-3">
@@ -135,9 +115,11 @@ if (isset($_POST['deleteBtn'])) {
                                                     <i class="fa-solid fa-pencil fa-sm "></i>
                                                 </button>
                                             </a>
-                                            <button class="btn btn-danger me-2" data-bs-toggle="modal" data-bs-target="#deleteJobGradeModal">
-                                                <i class="fa-solid fa-trash-can fa-sm "></i>
-                                            </button>
+                                            <a href="deleteJobGradeData.php?id=<?php echo $Doctor_job_id; ?>" class="text-decoration-none">
+                                                <button class="btn btn-danger me-2">
+                                                    <i class="fa-solid fa-trash-can fa-sm "></i>
+                                                </button>
+                                            </a>
                                         </td>
                                     </tr>
                                     <?php } } ?>

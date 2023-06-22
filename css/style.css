@@ -51,6 +51,11 @@ label {
     word-wrap: none;
 }
 
+.borderLeft
+{
+    border-left :3px solid rgba(170, 178, 186, 0.5);
+}
+
 /* end general style */
 
 
