@@ -13,7 +13,6 @@ if (isset($_GET['reportAbout'])) {
     $startDate = $_GET['startDate'];
     $endDate = $_GET['endDate'];
     $Department_id = $_GET['Department_id'];
-
 }
 ?>
 <!DOCTYPE html>
@@ -66,10 +65,18 @@ if (isset($_GET['reportAbout'])) {
                     </form>
                 </div>
             </div>
+            
+            <div class="col-md-2">
+                <div class="reportAsPDF">
+                    <a href="reportAsPDF.php"  class="text-decoration-none text-white">
+                        <button class="displayPDFBtn rounded-pill w-100 border-0" name="displayPDFBtn" id="displayPDFBtn">عرض كـ PDF</button>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="container my-5" id="displayReportTable">
+    <div class="container-fluid my-5" id="displayReportTable">
         <div class="row justify-content-center">
             <div class="col-md-9">
                 <table class="table text-center fs-4 bg-white shadow rounded-2">
@@ -86,7 +93,7 @@ if (isset($_GET['reportAbout'])) {
                         <?php
                         if (isset($_POST['search'])) {
                             $st = $_POST['search'];
-                            if ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate)&& !empty($Department_id)) {
+                            if ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
                             INNER JOIN  departments  
                             ON doctors_account.Department_id=departments.Department_id
@@ -109,9 +116,7 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }
-                            
-                            elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate)&& empty($Department_id)) {
+                            } elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate) && empty($Department_id)) {
 
                                 $st = $_POST['search'];
                                 $myquery = ("SELECT * FROM doctors_account 
@@ -136,7 +141,7 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate)&& !empty($Department_id)) {
+                            } elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
 
                                 $st = $_POST['search'];
                                 $myquery = ("SELECT * FROM doctors_account 
@@ -161,7 +166,7 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate)&& empty($Department_id)) {
+                            } elseif ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
 
                                 $st = $_POST['search'];
                                 $myquery = ("SELECT * FROM doctors_account 
@@ -186,15 +191,15 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate)&& !empty($Department_id)) {
+                            } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
-                    INNER JOIN  departments  
-                    ON doctors_account.Department_id=departments.Department_id
-                    INNER JOIN  doctor_jobs
-                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                    INNER JOIN  p74_vacation_data
-                    ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate >= '$startDate' AND p74_vacation_data.endDate <= '$endDate' AND Department_id='$Department_id' AND Doctor_ar_Name like '%$st%'");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_vacation_data
+                                            ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate >= '$startDate' AND p74_vacation_data.endDate <= '$endDate' AND Department_id='$Department_id' AND Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
 
@@ -211,15 +216,15 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate)&& empty($Department_id)) {
+                            } elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate) && empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
-                        INNER JOIN  departments  
-                        ON doctors_account.Department_id=departments.Department_id
-                        INNER JOIN  doctor_jobs
-                        ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                        INNER JOIN  p74_vacation_data
-                        ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%'");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_vacation_data
+                                            ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
 
@@ -236,7 +241,7 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate)&& empty($Department_id)) {
+                            } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
                         INNER JOIN  departments  
@@ -261,7 +266,7 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate)&& !empty($Department_id)) {
+                            } elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
                         INNER JOIN  departments  
@@ -286,7 +291,7 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
+                            } elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
                     INNER JOIN  departments  
                     ON doctors_account.Department_id=departments.Department_id
@@ -308,8 +313,8 @@ if (isset($_GET['reportAbout'])) {
                                             </a>
                                         </td>
                                     </tr>
-                                    <?php }
-                            }elseif ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
+                                <?php }
+                            } elseif ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
                     INNER JOIN  departments  
                     ON doctors_account.Department_id=departments.Department_id
@@ -331,8 +336,8 @@ if (isset($_GET['reportAbout'])) {
                                             </a>
                                         </td>
                                     </tr>
-                                    <?php }
-                            }elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
+                                <?php }
+                            } elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
                     INNER JOIN  departments  
                     ON doctors_account.Department_id=departments.Department_id
@@ -354,10 +359,10 @@ if (isset($_GET['reportAbout'])) {
                                             </a>
                                         </td>
                                     </tr>
-                                    <?php }
-                            }elseif ($reportAbout == "missions" && !empty($Department_id) ) {
+                                <?php }
+                            } elseif ($reportAbout == "missions" && !empty($Department_id)) {
 
-                                
+
                                 $myquery = ("SELECT * FROM doctors_account 
                             INNER JOIN  departments  
                             ON doctors_account.Department_id=departments.Department_id
@@ -380,9 +385,9 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "missions" && empty($Department_id) ) {
+                            } elseif ($reportAbout == "missions" && empty($Department_id)) {
 
-                                
+
                                 $myquery = ("SELECT * FROM doctors_account 
                             INNER JOIN  departments  
                             ON doctors_account.Department_id=departments.Department_id
@@ -405,9 +410,9 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "members" && !empty($Department_id) ) {
+                            } elseif ($reportAbout == "members" && !empty($Department_id)) {
 
-                                
+
                                 $myquery = ("SELECT * FROM doctors_account 
                             INNER JOIN  departments  
                             ON doctors_account.Department_id=departments.Department_id
@@ -429,9 +434,9 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "members" && empty($Department_id) ) {
+                            } elseif ($reportAbout == "members" && empty($Department_id)) {
 
-                                
+
                                 $myquery = ("SELECT * FROM doctors_account 
                             INNER JOIN  departments  
                             ON doctors_account.Department_id=departments.Department_id
@@ -453,9 +458,9 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "assignments" && !empty($Department_id) ) {
+                            } elseif ($reportAbout == "assignments" && !empty($Department_id)) {
 
-                                
+
                                 $myquery = ("SELECT * FROM doctors_account 
                             INNER JOIN  departments  
                             ON doctors_account.Department_id=departments.Department_id
@@ -478,9 +483,9 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "assignments" && empty($Department_id) ) {
+                            } elseif ($reportAbout == "assignments" && empty($Department_id)) {
 
-                                
+
                                 $myquery = ("SELECT * FROM doctors_account 
                             INNER JOIN  departments  
                             ON doctors_account.Department_id=departments.Department_id
@@ -503,16 +508,16 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "privateVacations" && !empty($Department_id)) {
+                            } elseif ($reportAbout == "privateVacations" && !empty($Department_id)) {
 
-                                
+
                                 $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_special_vacation_data
-                            ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput WHERE doctors_account.Department_id=$Department_id AND Doctor_ar_Name like '%$st%'");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_special_vacation_data
+                                            ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput WHERE doctors_account.Department_id=$Department_id AND Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -530,14 +535,14 @@ if (isset($_GET['reportAbout'])) {
                                 <?php }
                             } elseif ($reportAbout == "privateVacations" && empty($Department_id)) {
 
-                                
+
                                 $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_special_vacation_data
-                            ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%'");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_special_vacation_data
+                                            ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -552,16 +557,16 @@ if (isset($_GET['reportAbout'])) {
                                             </a>
                                         </td>
                                     </tr>
-                                <?php }
-                            }else {
-                                if ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate)&& empty($Department_id)) {
+                                    <?php }
+                            } else {
+                                if ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate) && empty($Department_id)) {
                                     $myquery = ("SELECT * FROM doctors_account 
-                                INNER JOIN  departments  
-                                ON doctors_account.Department_id=departments.Department_id
-                                INNER JOIN  doctor_jobs
-                                ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                                INNER JOIN  p74_secondment_data
-                                ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%'");
+                                                INNER JOIN  departments  
+                                                ON doctors_account.Department_id=departments.Department_id
+                                                INNER JOIN  doctor_jobs
+                                                ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                                INNER JOIN  p74_secondment_data
+                                                ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE Doctor_ar_Name like '%$st%'");
                                     $results = mysqli_query($bis, $myquery);
                                     while ($row = mysqli_fetch_array($results)) {
                                     ?>
@@ -579,54 +584,16 @@ if (isset($_GET['reportAbout'])) {
                                     <?php }
                                 }
                             }
-                        }
-                        
+                        } else {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        else {
-
-                            if ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate)&& !empty($Department_id)) {
+                            if ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
-                                INNER JOIN  departments  
-                                ON doctors_account.Department_id=departments.Department_id
-                                INNER JOIN  doctor_jobs
-                                ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                                INNER JOIN  p74_penalties
-                                ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate >= '$startDate' AND p74_penalties.endDate <= '$endDate' AND doctors_account.Department_id = '$Department_id'");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_penalties
+                                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE p74_penalties.startDate >= '$startDate' AND p74_penalties.endDate <= '$endDate' AND doctors_account.Department_id = '$Department_id'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                     ?>
@@ -642,15 +609,15 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate)&& !empty($Department_id)) {
+                            } elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
-                                INNER JOIN  departments  
-                                ON doctors_account.Department_id=departments.Department_id
-                                INNER JOIN  doctor_jobs
-                                ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                                INNER JOIN  p74_penalties
-                                ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE doctors_account.Department_id = '$Department_id' ");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_penalties
+                                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput WHERE doctors_account.Department_id = '$Department_id' ");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -666,15 +633,15 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate)&& empty($Department_id)) {
+                            } elseif ($reportAbout == "penalties" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
-                                INNER JOIN  departments  
-                                ON doctors_account.Department_id=departments.Department_id
-                                INNER JOIN  doctor_jobs
-                                ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                                INNER JOIN  p74_penalties
-                                ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput ");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_penalties
+                                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput ");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -690,15 +657,15 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate)&& empty($Department_id)) {
+                            } elseif ($reportAbout == "penalties" &&  empty($startDate) && empty($endDate) && empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
-                                INNER JOIN  departments  
-                                ON doctors_account.Department_id=departments.Department_id
-                                INNER JOIN  doctor_jobs
-                                ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                                INNER JOIN  p74_penalties
-                                ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput ");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_penalties
+                                            ON doctors_account.DoctorCode=p74_penalties.doctorCodeInput ");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -714,26 +681,15 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } 
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate)&& !empty($Department_id)) {
+                            } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
-                                INNER JOIN  departments  
-                                ON doctors_account.Department_id=departments.Department_id
-                                INNER JOIN  doctor_jobs
-                                ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                                INNER JOIN  p74_vacation_data
-                                ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate >= '$startDate' AND p74_vacation_data.endDate <= '$endDate' AND doctors_account.Department_id = '$Department_id'");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_vacation_data
+                                            ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE p74_vacation_data.startDate >= '$startDate' AND p74_vacation_data.endDate <= '$endDate' AND doctors_account.Department_id = '$Department_id'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
 
@@ -750,15 +706,15 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate)&& empty($Department_id)) {
+                            } elseif ($reportAbout == "vacations" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
-                                    INNER JOIN  departments  
-                                    ON doctors_account.Department_id=departments.Department_id
-                                    INNER JOIN  doctor_jobs
-                                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                                    INNER JOIN  p74_vacation_data
-                                    ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput ");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_vacation_data
+                                            ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput ");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
 
@@ -775,15 +731,15 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate)&& !empty($Department_id)) {
+                            } elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
-                                    INNER JOIN  departments  
-                                    ON doctors_account.Department_id=departments.Department_id
-                                    INNER JOIN  doctor_jobs
-                                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                                    INNER JOIN  p74_vacation_data
-                                    ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE doctors_account.Department_id = '$Department_id' ");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_vacation_data
+                                            ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput WHERE doctors_account.Department_id = '$Department_id' ");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
 
@@ -800,15 +756,15 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate)&& empty($Department_id)) {
+                            } elseif ($reportAbout == "vacations" &&  empty($startDate) && empty($endDate) && empty($Department_id)) {
 
                                 $myquery = ("SELECT * FROM doctors_account 
-                                    INNER JOIN  departments  
-                                    ON doctors_account.Department_id=departments.Department_id
-                                    INNER JOIN  doctor_jobs
-                                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                                    INNER JOIN  p74_vacation_data
-                                    ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_vacation_data
+                                            ON doctors_account.DoctorCode=p74_vacation_data.doctorCodeInput");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
 
@@ -825,28 +781,15 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            } 
-                            
-                            
-                            
-                            
-                            
+                            } elseif ($reportAbout == "missions" && !empty($Department_id)) {
 
-
-
-
-
-
-                            
-                            elseif ($reportAbout == "missions" && !empty($Department_id) ) {
-                                
                                 $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_missions_data
-                            ON doctors_account.DoctorCode=p74_missions_data.doctorCodeInput WHERE doctors_account.Department_id = '$Department_id'");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_missions_data
+                                            ON doctors_account.DoctorCode=p74_missions_data.doctorCodeInput WHERE doctors_account.Department_id = '$Department_id'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -862,15 +805,15 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "missions" && empty($Department_id) ) {
-                                
+                            } elseif ($reportAbout == "missions" && empty($Department_id)) {
+
                                 $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_missions_data
-                            ON doctors_account.DoctorCode=p74_missions_data.doctorCodeInput");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_missions_data
+                                            ON doctors_account.DoctorCode=p74_missions_data.doctorCodeInput");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -886,25 +829,16 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            elseif ($reportAbout == "assignments" && !empty($Department_id) ) {
+                            } elseif ($reportAbout == "assignments" && !empty($Department_id)) {
 
-                                
+
                                 $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_assignments_data
-                            ON doctors_account.DoctorCode=p74_assignments_data.doctorCodeInput WHERE doctors_account.Department_id = '$Department_id'");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_assignments_data
+                                            ON doctors_account.DoctorCode=p74_assignments_data.doctorCodeInput WHERE doctors_account.Department_id = '$Department_id'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -920,16 +854,16 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "assignments" && empty($Department_id) ) {
+                            } elseif ($reportAbout == "assignments" && empty($Department_id)) {
 
-                                
+
                                 $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_assignments_data
-                            ON doctors_account.DoctorCode=p74_assignments_data.doctorCodeInput");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_assignments_data
+                                            ON doctors_account.DoctorCode=p74_assignments_data.doctorCodeInput");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -945,22 +879,14 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            elseif ($reportAbout == "privateVacations" && !empty($Department_id)) {
+                            } elseif ($reportAbout == "privateVacations" && !empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_special_vacation_data
-                            ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput WHERE doctors_account.Department_id = '$Department_id'");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_special_vacation_data
+                                            ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput WHERE doctors_account.Department_id = '$Department_id'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -976,14 +902,14 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "privateVacations" && empty($Department_id)) {
+                            } elseif ($reportAbout == "privateVacations" && empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            INNER JOIN  p74_special_vacation_data
-                            ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_special_vacation_data
+                                            ON doctors_account.DoctorCode=p74_special_vacation_data.doctorCodeInput");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -999,25 +925,13 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }
-
-
-
-
-
-
-
-
-
-
-
-                            elseif ($reportAbout == "members" && !empty($Department_id)) {
+                            } elseif ($reportAbout == "members" && !empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                            WHERE doctors_account.Department_id = '$Department_id'");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            WHERE doctors_account.Department_id = '$Department_id'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -1033,12 +947,12 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }elseif ($reportAbout == "members" && empty($Department_id)) {
+                            } elseif ($reportAbout == "members" && empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
-                            INNER JOIN  departments  
-                            ON doctors_account.Department_id=departments.Department_id
-                            INNER JOIN  doctor_jobs
-                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
@@ -1054,15 +968,7 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                 <?php }
-                            }
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
+                            } elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && !empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
                                             INNER JOIN  departments  
                                             ON doctors_account.Department_id=departments.Department_id
@@ -1084,8 +990,8 @@ if (isset($_GET['reportAbout'])) {
                                             </a>
                                         </td>
                                     </tr>
-                                    <?php }
-                            }elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
+                                <?php }
+                            } elseif ($reportAbout == "secondments" &&  !empty($startDate) && !empty($endDate) && empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
                                             INNER JOIN  departments  
                                             ON doctors_account.Department_id=departments.Department_id
@@ -1107,7 +1013,7 @@ if (isset($_GET['reportAbout'])) {
                                             </a>
                                         </td>
                                     </tr>
-                                    <?php }
+                                <?php }
                             } elseif ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate) && empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
                                             INNER JOIN  departments  
@@ -1131,7 +1037,7 @@ if (isset($_GET['reportAbout'])) {
                                         </td>
                                     </tr>
                                     <?php }
-                            }else {
+                            } else {
                                 if ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
                                     $myquery = ("SELECT * FROM doctors_account 
                                                 INNER JOIN  departments  
@@ -1156,18 +1062,8 @@ if (isset($_GET['reportAbout'])) {
                                         </tr>
                         <?php }
                                 }
-                            }}
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                            }
+                        }
                         ?>
                     </tbody>
                 </table>
