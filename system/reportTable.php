@@ -79,16 +79,16 @@ if (isset($_GET['reportAbout'])) {
     <div class="container mt-5 mb-1">
         <div class="row me-auto px-5">
             <div class="col text-center ps-1">
-                <h3 class="mainTitle fw-bold">تقرير عن  :<span class="mainText"> أعضاء هيئة التدريس</span></h3>
+                <h3 class="mainTitle fw-bold">تقرير عن  :<span class="mainText"><?php if ($reportAbout == "members"){echo "أعضاء هيئة التدريس";}elseif($reportAbout == "penalties"){echo "العقوبات أو الجزاءات";}elseif($reportAbout == "vacations"){echo "الأجازات الدراسية";}elseif($reportAbout == "privateVacations"){echo "الأجازات الخاصة";}elseif($reportAbout == "secondments"){echo "الإعارات";}elseif($reportAbout == "missions"){echo "البعثات";}elseif($reportAbout == "assignments"){echo "الإنتدابات";}?></span></h3>
             </div>
             <div class="col text-center">
-                <h3 class="mainTitle fw-bold">القسم العلمى  :<span class="mainText"> نظم المعلومات</span></h3>
+                <h3 class="mainTitle fw-bold">القسم العلمى  :<span class="mainText"> <?php if (!empty($Department_id)){if ($Department_id == "1"){echo "قسم المحاسبة";} elseif ($Department_id == "2"){echo "قسم إدارة الأعمال";}elseif ($Department_id == "3"){echo "قسم الاقتصاد والتجارة الخارجية";}elseif ($Department_id == "4"){echo "قسم الإحصاء";}elseif ($Department_id == "5"){echo "قسم العلوم السياسية";}elseif ($Department_id == "6"){echo "قسم نظم المعلومات";}elseif ($Department_id == "7"){echo "شعبه عامه";};}else{echo "لا يوجد";}?></span></h3>
             </div>
             <div class="col text-center">
-                <h3 class="mainTitle fw-bold">من :<span class="mainText"> 1/6/2023</span></h3>
+                <h3 class="mainTitle fw-bold">من :<span class="mainText"> <?php if (!empty($startDate)){echo $startDate;}else{echo "لا يوجد";}?></span></h3>
             </div>
             <div class="col text-center">
-                <h3 class="mainTitle fw-bold">إلى :<span class="mainText"> 21/6/2023</span></h3>
+                <h3 class="mainTitle fw-bold">إلى :<span class="mainText"> <?php if (!empty($endDate)){echo $endDate;}else{echo "لا يوجد";}?></span></h3>
             </div>
         </div>
     </div>
