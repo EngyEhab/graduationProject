@@ -69,7 +69,7 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary fs-4" data-bs-dismiss="modal">الغاء</button>
-                    <a href="deletePrivateVacationData.php?id=<?php echo $Vacation_id; ?>">
+                    <a href="deletePrivateVacationData.php?id=<?php echo $Special_vacation_id; ?>">
                         <button id="deleteBtn" name="deleteBtn" class="btn btn-danger fs-4">حـــذف</button>
                     </a>
                 </div>

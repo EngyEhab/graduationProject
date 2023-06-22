@@ -77,7 +77,7 @@ if (isset($_POST['deleteBtn'])) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary fs-4" data-bs-dismiss="modal">الغاء</button>
-                    <a href="deleteAssignmentData.php?id=">
+                    <a href="deleteAssignmentData.php?id=<?php echo $assignment_id; ?>">
                         <button id="deleteBtn" name="deleteBtn" class="btn btn-danger fs-4">حـــذف</button>
                     </a>
                 </div>
