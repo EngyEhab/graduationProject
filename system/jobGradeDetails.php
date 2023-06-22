@@ -120,7 +120,7 @@ if (isset($_POST['deleteBtn'])) {
                             $results = mysqli_query($bis, $myquery);
 
 
-                            if ( $result->num_rows < 1 ) {
+                            if ($results->num_rows < 1) {
 
                             while ($row = mysqli_fetch_array($results)) {
                                 ?>
