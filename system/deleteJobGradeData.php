@@ -3,8 +3,11 @@ include "../Connections/syscon.php";
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    $DoctorCode = $_GET['DoctorCode'];
+
     $Details = mysqli_query($bis, "DELETE FROM p74_completedata WHERE id_completeData='$id'");
-    // header("location: assignments.php");
+    header("location: ../system/jobGradeDetails.php?id=$DoctorCode");
+
     exit;
 }
 ?>

@@ -115,7 +115,7 @@ if (isset($_POST['deleteBtn'])) {
                                                     <i class="fa-solid fa-pencil fa-sm "></i>
                                                 </button>
                                             </a>
-                                            <a href="deleteJobGradeData.php?id=<?php echo $Doctor_job_id; ?>" class="text-decoration-none">
+                                            <a href="deleteJobGradeData.php?id=<?php echo $row['id_completeData'];?>&DoctorCode=<?php echo $row['DoctorCode'];?>" class="text-decoration-none">
                                                 <button class="btn btn-danger me-2">
                                                     <i class="fa-solid fa-trash-can fa-sm "></i>
                                                 </button>
