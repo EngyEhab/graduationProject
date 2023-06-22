@@ -105,7 +105,7 @@ include "../Connections/syscon.php";
         </div>
     </div>
 
-    <!-- <form action="completeData.php" method="post" id="completeDataForm">
+    
         <?php if (isset($_POST['CompleteDataBtn'])) {
             if (
                 isset($_POST['doctorCodeInput']) &&
@@ -132,57 +132,7 @@ include "../Connections/syscon.php";
                 }
             }
         } ?>
-        <div class="w-75 mx-auto m-5">
-            <div class="modal modal-xl fade" id="completeDataModal">
-                <div class="modal-dialog  modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <div class="container dataContainer p-3" id="completeDataContainer">
-                                <div class="row my-2 align-items-center">
-                                    <div class="col-md-2 text-center">
-                                        <label for="doctorCodeInput" class="mainText fw-bold fs-4 text-nowrap">كــــــــــــــود العضــــــــــــــــو :</label>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input name="doctorCodeInput" id="doctorCodeInput" readonly class="form-control fs-4"></input>
-                                    </div>
-                                </div>
-                                <div class="row my-2 align-items-center">
-                                    <div class="col-md-2 text-center">
-                                        <label for="doctorNameInput" class="mainText fw-bold fs-4 text-nowrap">اســــــــــــــم العضــــــــــــــــو :</label>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input name="doctorNameInput" id="doctorNameInput" readonly class="form-control fs-4"></input>
-                                    </div>
-                                </div>
-                                <input name="doctorJobInput" id="doctorJobInput" readonly class="form-control fs-4 d-none"></input>
-                                <div class="row my-2 align-items-center">
-                                    <div class="col-md-2 text-center">
-                                        <label for="doctorJobNameInput" class="mainText fw-bold fs-4 text-nowrap"> الدرجــة الوظيفيــة الحاليــــــــة :</label>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <input name="doctorJobNameInput" id="doctorJobNameInput" readonly class="form-control fs-4"></input>
-                                    </div>
-                                </div>
-                                <div class="row my-2">
-                                    <div class="col-md-2 text-center">
-                                        <label for="CompleteData" class="mainText fw-bold fs-4 ">استكمـال بيانـات الدرجــــــــة الوظيفية الحاليـــــة :</label>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <textarea name="CompleteData" id="CompleteData" rows="5" class="form-control fs-4" required></textarea>
-                                    </div>
-                                </div>
-                                <div class="row my-2 justify-content-end">
-                                    <div class="col-md-2">
-                                        <button type="submit" class="CompleteDataBtn rounded-pill border-0 w-100 my-3" id="CompleteDataBtn" name="CompleteDataBtn">استكمال</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form> -->
+        
 
 
 

@@ -159,6 +159,7 @@ $('#completeBtn').click(function(){
     var doctorName = $(this).attr('doctorName');
     var doctorJobID = $(this).attr('doctorJobID');
     var doctorJobName = $(this).attr('doctorJobName');
+    console.log(doctorJobName);
     $('#doctorCodeInput').val(doctorCode);
     $('#doctorNameInput').val(doctorName);
     $('#doctorJobInput').val(doctorJobID);

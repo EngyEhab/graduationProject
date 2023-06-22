@@ -29,6 +29,10 @@ function fetchData()
                 $decription = 'assignment_Description';
                 $colTitle = 'الإنتداب';
                 break;
+            case 'p74_secondment_data':
+                $decription = 'secondmentDescription';
+                $colTitle = 'الإعارة';
+                break;
         }
         $content .= '<table cellspacing="2" align="center" cellpadding="2" border="1">
         <thead>

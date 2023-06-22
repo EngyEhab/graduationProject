@@ -16,27 +16,17 @@ $error = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    
-    
-    
     $username = $_POST['username'];
     $password = $_POST['password'];
     if (empty($username) && !empty($password)) {
         $error = "قم بإدخال اسم المستخدم";
-        // if (isset($error)) { 
-        //     echo $error;}
     }
-
-            elseif ( !empty($username) && empty($password)) {
-                $error = "قم بإدخال كلمة المرور";
-                // if (isset($error)) { 
-                //     echo $error;}
-            }
-                    elseif (empty($username) || empty($password)) {
-                        $error = "قم بإدخال اسم المستخدم و كلمة المرور";
-                        // if (isset($error)) { 
-                        //     echo $error;}
-                    }
+    elseif ( !empty($username) && empty($password)) {
+        $error = "قم بإدخال كلمة المرور";
+    }
+    elseif (empty($username) || empty($password)) {
+        $error = "قم بإدخال اسم المستخدم و كلمة المرور";
+    }
     else{
     
     $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password' AND is_enable='yes'";
@@ -60,10 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     } else {
         $error = "اسم المستخدم أو كلمة المرور غير صحيحة";
-        
-
-
-        // header("location: index.php");
     }
 } }
 ?>
