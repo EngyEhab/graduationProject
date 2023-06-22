@@ -307,7 +307,7 @@ include "../Connections/syscon.php";
                                         <label for="privateVacationDescription" class="mainText fw-bold fs-4 text-nowrap"> الأجــــــــــــــــــــازة :</label>
                                     </div>
                                     <div class="col-md-10">
-                                        <textarea class="form-control" name="privateVacationDescription" id="privateVacationDescription" required></textarea>
+                                        <textarea class="form-control fs-4" name="privateVacationDescription" id="privateVacationDescription" required></textarea>
                                     </div>
                                 </div>
 

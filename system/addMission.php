@@ -150,7 +150,7 @@ include "../Connections/syscon.php";
                                         <label for="missionDescription" class="mainText fw-bold fs-4 text-nowrap">البعثـــــــــــــــــــــــــــــــــــــة : </label>
                                     </div>
                                     <div class="col-md-10">
-                                        <textarea  class="form-control" name="missionDescription" id="missionDescription" required></textarea>
+                                        <textarea  class="form-control fs-4" name="missionDescription" id="missionDescription" required></textarea>
                                     </div>
                                 </div>
                                 

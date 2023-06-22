@@ -149,7 +149,7 @@ include "../Connections/syscon.php";
                                         <label for="assignmentDescription" class="mainText fw-bold fs-4 text-nowrap">الإنــتــــــــــــــــــــــــــــــداب : </label>
                                     </div>
                                     <div class="col-md-10">
-                                        <textarea  class="form-control" name="assignmentDescription" id="assignmentDescription" required></textarea>
+                                        <textarea  class="form-control fs-4" name="assignmentDescription" id="assignmentDescription" required></textarea>
                                     </div>
                                 </div>
                                 
