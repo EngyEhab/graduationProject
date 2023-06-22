@@ -14,6 +14,7 @@ if (isset($_GET['reportAbout'])) {
     $endDate = $_GET['endDate'];
     $Department_id = $_GET['Department_id'];
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +69,7 @@ if (isset($_GET['reportAbout'])) {
             
             <div class="col-md-2">
                 <div class="reportAsPDF">
-                    <a href="reportAsPDF.php"  class="text-decoration-none text-white">
+                    <a href="reportAsPDF.php?reportAbout=<?php echo $reportAbout?>&startDate=<?php echo $startDate?>&endDate=<?php echo $endDate?>&Department_id=<?php echo $Department_id?>"  class="text-decoration-none text-white">
                         <button class="displayPDFBtn rounded-pill w-100 border-0" name="displayPDFBtn" id="displayPDFBtn">عرض كـ PDF</button>
                     </a>
                 </div>
@@ -316,12 +317,12 @@ if (isset($_GET['reportAbout'])) {
                                 <?php }
                             } elseif ($reportAbout == "secondments" &&  empty($startDate) && empty($endDate) && !empty($Department_id)) {
                                 $myquery = ("SELECT * FROM doctors_account 
-                    INNER JOIN  departments  
-                    ON doctors_account.Department_id=departments.Department_id
-                    INNER JOIN  doctor_jobs
-                    ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
-                    INNER JOIN  p74_secondment_data
-                    ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE doctors_account.Department_id='$Department_id' AND Doctor_ar_Name like '%$st%'");
+                                            INNER JOIN  departments  
+                                            ON doctors_account.Department_id=departments.Department_id
+                                            INNER JOIN  doctor_jobs
+                                            ON doctors_account.Doctor_job_id=doctor_jobs.Doctor_job_id
+                                            INNER JOIN  p74_secondment_data
+                                            ON doctors_account.DoctorCode=p74_secondment_data.doctorCodeInput WHERE doctors_account.Department_id='$Department_id' AND Doctor_ar_Name like '%$st%'");
                                 $results = mysqli_query($bis, $myquery);
                                 while ($row = mysqli_fetch_array($results)) {
                                 ?>
