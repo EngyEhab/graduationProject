@@ -152,10 +152,10 @@ if (isset($_POST['deleteBtn'])) {
     if (isset($_POST['CompleteDataBtn'])) {
             if (
                 isset($_POST['doctorCodeInput']) &&
-                isset($_POST['doctorJobNameInput']) && isset($_POST['CompleteData1'])
+                isset($_POST['doctorJobInput']) && isset($_POST['CompleteData1'])
             ) {
                 $doctorCodeInput = $_POST['doctorCodeInput'];
-                $doctorJobNameInput = $_POST['doctorJobNameInput'];
+                $doctorJobInput = $_POST['doctorJobInput'];
                 $CompleteData1 = $_POST["CompleteData1"];
                 $user_id = $_SESSION['user_id'];
                 
@@ -168,7 +168,7 @@ if (isset($_POST['deleteBtn'])) {
                     $Insert = "INSERT INTO p74_completedata(CompleteData, doctorJobInput, doctorCodeInput, added_by) values(?, ?, ?, ?)";
                     $stmt = $bis->prepare($Select);
                     $stmt = $bis->prepare($Insert);
-                    $stmt->bind_param("siii", $CompleteData1, $doctorJobNameInput, $doctorCodeInput, $user_id);
+                    $stmt->bind_param("siii", $CompleteData1, $doctorJobInput, $doctorCodeInput, $user_id);
                     if ($stmt->execute()) {
                     } else {
                         echo $stmt->error;
